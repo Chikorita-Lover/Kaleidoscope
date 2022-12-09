@@ -1,7 +1,9 @@
 package com.chikorita_lover.chikorita_lover_mod;
 
+import com.chikorita_lover.chikorita_lover_mod.registry.ModBlockSoundGroup;
 import com.chikorita_lover.chikorita_lover_mod.registry.ModBlocks;
 import com.chikorita_lover.chikorita_lover_mod.registry.ModItems;
+import com.chikorita_lover.chikorita_lover_mod.registry.ModSoundEvents;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,5 +20,6 @@ public class ChikoritaLoverMod implements ModInitializer {
 
 		ModBlocks.register();
 		ModItems.register();
+		ModSoundEvents.register();
 	}
 }
