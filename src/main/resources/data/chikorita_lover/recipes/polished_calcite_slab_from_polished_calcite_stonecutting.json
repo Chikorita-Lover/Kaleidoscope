@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "chikorita_lover:polished_calcite"
+  },
+  "result": "chikorita_lover:polished_calcite_slab",
+  "count": 2
+}
