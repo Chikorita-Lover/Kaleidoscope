@@ -1,4 +1,12 @@
 {
+  "block.chikorita_lover.oxidized_copper_door": "Oxidized Copper Door",
+  "block.chikorita_lover.weathered_copper_door": "Weathered Copper Door",
+  "block.chikorita_lover.exposed_copper_door": "Exposed Copper Door",
+  "block.chikorita_lover.copper_door": "Copper Door",
+  "block.chikorita_lover.waxed_oxidized_copper_door": "Waxed Oxidized Copper Door",
+  "block.chikorita_lover.waxed_weathered_copper_door": "Waxed Weathered Copper Door",
+  "block.chikorita_lover.waxed_exposed_copper_door": "Waxed Exposed Copper Door",
+  "block.chikorita_lover.waxed_copper_door": "Waxed Copper Door",
   "block.chikorita_lover.dirt_bricks": "Dirt Bricks",
   "block.chikorita_lover.dirt_brick_slab": "Dirt Brick Slab",
   "block.chikorita_lover.dirt_brick_stairs": "Dirt Brick Stairs",

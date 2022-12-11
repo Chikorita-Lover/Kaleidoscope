@@ -1,4 +1,16 @@
 {
+  "block.copper_door.close": {
+    "subtitle": "subtitles.block.door.toggle",
+    "sounds": [
+      "chikorita_lover:block/copper_door/close"
+    ]
+  },
+  "block.copper_door.open": {
+    "subtitle": "subtitles.block.door.toggle",
+    "sounds": [
+      "chikorita_lover:block/copper_door/open"
+    ]
+  },
   "block.polished_calcite.break": {
     "subtitle": "subtitles.block.generic.break",
     "sounds": [

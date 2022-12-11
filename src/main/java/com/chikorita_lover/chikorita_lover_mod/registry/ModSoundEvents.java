@@ -6,6 +6,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModSoundEvents {
+    public static final SoundEvent BLOCK_COPPER_DOOR_CLOSE = register("block.copper_door.close");
+    public static final SoundEvent BLOCK_COPPER_DOOR_OPEN = register("block.copper_door.open");
     public static final SoundEvent BLOCK_POLISHED_CALCITE_BREAK = register("block.polished_calcite.break");
     public static final SoundEvent BLOCK_POLISHED_CALCITE_FALL = register("block.polished_calcite.fall");
     public static final SoundEvent BLOCK_POLISHED_CALCITE_HIT = register("block.polished_calcite.hit");
