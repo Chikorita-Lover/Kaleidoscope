@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "group": "waxed_oxidized_copper_door",
   "ingredients": [
     {
       "item": "chikorita_lover:oxidized_copper_door"

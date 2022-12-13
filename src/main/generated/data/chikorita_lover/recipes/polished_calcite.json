@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
   "key": {
-    "#": {
+    "S": {
       "item": "minecraft:calcite"
     }
   },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
   "result": {
-    "item": "chikorita_lover:polished_calcite",
-    "count": 4
+    "count": 4,
+    "item": "chikorita_lover:polished_calcite"
   }
 }
