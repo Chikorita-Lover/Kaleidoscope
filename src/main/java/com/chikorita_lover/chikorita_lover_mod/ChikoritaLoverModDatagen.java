@@ -12,21 +12,17 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.data.client.TextureMap;
-import net.minecraft.data.server.RecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Consumer;
 
 import static net.minecraft.data.client.BlockStateModelGenerator.createDoorBlockState;
-import static net.minecraft.recipe.Ingredient.fromTag;
 
 public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
     @Override
