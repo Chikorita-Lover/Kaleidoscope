@@ -21,6 +21,9 @@
     "client": [
       "com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverModClient"
     ],
+    "fabric-datagen": [
+      "com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverModDatagen"
+    ],
     "main": [
       "com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod"
     ]
