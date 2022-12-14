@@ -15,8 +15,8 @@ public class ModBlocks {
     public static final Block DIRT_BRICK_STAIRS = new StairsBlock(DIRT_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(DIRT_BRICKS));
     public static final Block DIRT_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(DIRT_BRICKS));
 
-    public static final Block POLISHED_CALCITE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).strength(1.5f, 6f).sounds(ModBlockSoundGroup.POLISHED_CALCITE).requiresTool());
-    public static final Block POLISHED_CALCITE_SLAB = new SlabBlock(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).strength(1.5f, 6f).sounds(ModBlockSoundGroup.POLISHED_CALCITE).requiresTool());
+    public static final Block POLISHED_CALCITE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).strength(1.5f, 6f).sounds(BlockSoundGroup.CALCITE).requiresTool());
+    public static final Block POLISHED_CALCITE_SLAB = new SlabBlock(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).strength(1.5f, 6f).sounds(BlockSoundGroup.CALCITE).requiresTool());
     public static final Block POLISHED_CALCITE_STAIRS = new StairsBlock(POLISHED_CALCITE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_CALCITE));
     public static final Block POLISHED_CALCITE_WALL = new WallBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE));
 
