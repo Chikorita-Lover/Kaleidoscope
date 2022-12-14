@@ -1,6 +1,7 @@
 package com.chikorita_lover.chikorita_lover_mod;
 
 import com.chikorita_lover.chikorita_lover_mod.registry.ModBlocks;
+import com.chikorita_lover.chikorita_lover_mod.registry.ModItemTags;
 import com.chikorita_lover.chikorita_lover_mod.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -87,7 +88,7 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
 
         @Override
         protected void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
-            ShapedRecipeJsonBuilder.create(ModBlocks.DIRT_BRICKS, 4).input('#', ItemTags.DIRT).pattern("##").pattern("##").criterion(hasItem(Blocks.DIRT), conditionsFromTag(ItemTags.DIRT)).offerTo(exporter);
+            ShapedRecipeJsonBuilder.create(ModBlocks.DIRT_BRICKS, 4).input('#', ModItemTags.DIRT_BRICK_MATERIALS).pattern("##").pattern("##").criterion(hasItem(Blocks.DIRT), conditionsFromTag(ItemTags.DIRT)).offerTo(exporter);
             offerSlabRecipe(exporter, ModBlocks.DIRT_BRICK_SLAB, ModBlocks.DIRT_BRICKS);
             offerStairsRecipe(exporter, ModBlocks.DIRT_BRICK_STAIRS, ModBlocks.DIRT_BRICKS);
             offerWallRecipe(exporter, ModBlocks.DIRT_BRICK_WALL, ModBlocks.DIRT_BRICKS);
