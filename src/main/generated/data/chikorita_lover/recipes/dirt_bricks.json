@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "tag": "minecraft:dirt"
+      "tag": "chikorita_lover:dirt_brick_materials"
     }
   },
   "pattern": [
