@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "item": "minecraft:waxed_copper_block"
+  },
+  "result": "chikorita_lover:waxed_cut_copper_wall"
+}
