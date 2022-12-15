@@ -13,8 +13,8 @@ import net.minecraft.util.registry.Registry;
 import static net.minecraft.block.Blocks.*;
 
 public class ModBlocks {
-    public static final Block DIRT_BRICKS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(1f, 3f).sounds(BlockSoundGroup.ROOTED_DIRT));
-    public static final Block DIRT_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(1f, 3f).sounds(BlockSoundGroup.ROOTED_DIRT));
+    public static final Block DIRT_BRICKS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(1f, 1f).sounds(ModBlockSoundGroup.DIRT_BRICKS));
+    public static final Block DIRT_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(1f, 1f).sounds(ModBlockSoundGroup.DIRT_BRICKS));
     public static final Block DIRT_BRICK_STAIRS = new StairsBlock(DIRT_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(DIRT_BRICKS));
     public static final Block DIRT_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(DIRT_BRICKS));
 

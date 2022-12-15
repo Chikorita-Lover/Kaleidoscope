@@ -8,6 +8,13 @@ import net.minecraft.util.registry.Registry;
 public class ModSoundEvents {
     public static final SoundEvent BLOCK_COPPER_DOOR_CLOSE = register("block.copper_door.close");
     public static final SoundEvent BLOCK_COPPER_DOOR_OPEN = register("block.copper_door.open");
+
+    public static final SoundEvent BLOCK_DIRT_BRICKS_BREAK = register("block.dirt_bricks.break");
+    public static final SoundEvent BLOCK_DIRT_BRICKS_FALL = register("block.dirt_bricks.fall");
+    public static final SoundEvent BLOCK_DIRT_BRICKS_HIT = register("block.dirt_bricks.hit");
+    public static final SoundEvent BLOCK_DIRT_BRICKS_PLACE = register("block.dirt_bricks.place");
+    public static final SoundEvent BLOCK_DIRT_BRICKS_STEP = register("block.dirt_bricks.step");
+    
     public static final SoundEvent BLOCK_POLISHED_CALCITE_BREAK = register("block.polished_calcite.break");
     public static final SoundEvent BLOCK_POLISHED_CALCITE_FALL = register("block.polished_calcite.fall");
     public static final SoundEvent BLOCK_POLISHED_CALCITE_HIT = register("block.polished_calcite.hit");

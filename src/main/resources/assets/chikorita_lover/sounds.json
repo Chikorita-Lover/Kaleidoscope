@@ -11,6 +11,126 @@
       "chikorita_lover:block/copper_door/open"
     ]
   },
+  "block.dirt_bricks.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "chikorita_lover:block/dirt_bricks/break1",
+      "chikorita_lover:block/dirt_bricks/break2",
+      "chikorita_lover:block/dirt_bricks/break3",
+      "chikorita_lover:block/dirt_bricks/break4",
+      "chikorita_lover:block/dirt_bricks/break5",
+      "chikorita_lover:block/dirt_bricks/break6"
+    ]
+  },
+  "block.dirt_bricks.fall": {
+    "sounds": [
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step1",
+        "pitch": 0.9,
+        "volume": 0.75
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step2",
+        "pitch": 0.9,
+        "volume": 0.75
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step3",
+        "pitch": 0.9,
+        "volume": 0.75
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step4",
+        "pitch": 0.9,
+        "volume": 0.75
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step5",
+        "pitch": 0.9,
+        "volume": 0.75
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step6",
+        "pitch": 0.9,
+        "volume": 0.75
+      }
+    ]
+  },
+  "block.dirt_bricks.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step1",
+        "pitch": 0.65,
+        "volume": 0.5
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step2",
+        "pitch": 0.65,
+        "volume": 0.5
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step3",
+        "pitch": 0.65,
+        "volume": 0.5
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step4",
+        "pitch": 0.65,
+        "volume": 0.5
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step5",
+        "pitch": 0.65,
+        "volume": 0.5
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step6",
+        "pitch": 0.65,
+        "volume": 0.5
+      }
+    ]
+  },
+  "block.dirt_bricks.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "chikorita_lover:block/dirt_bricks/break1",
+      "chikorita_lover:block/dirt_bricks/break2",
+      "chikorita_lover:block/dirt_bricks/break3",
+      "chikorita_lover:block/dirt_bricks/break4",
+      "chikorita_lover:block/dirt_bricks/break5",
+      "chikorita_lover:block/dirt_bricks/break6"
+    ]
+  },
+  "block.dirt_bricks.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step1",
+        "volume": 0.5
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step2",
+        "volume": 0.5
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step3",
+        "volume": 0.5
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step4",
+        "volume": 0.5
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step5",
+        "volume": 0.5
+      },
+      {
+        "name": "chikorita_lover:block/dirt_bricks/step6",
+        "volume": 0.5
+      }
+    ]
+  },
   "block.polished_calcite.break": {
     "subtitle": "subtitles.block.generic.break",
     "sounds": [
