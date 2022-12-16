@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "minecraft:red_nether_bricks"
+  },
+  "result": "chikorita_lover:cracked_red_nether_bricks"
+}

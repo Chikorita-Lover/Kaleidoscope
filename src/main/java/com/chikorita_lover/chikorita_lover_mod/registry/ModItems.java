@@ -28,6 +28,11 @@ public class ModItems {
     public static final BlockItem WAXED_EXPOSED_CUT_COPPER_WALL = new BlockItem(ModBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem WAXED_WEATHERED_CUT_COPPER_WALL = new BlockItem(ModBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem WAXED_OXIDIZED_CUT_COPPER_WALL = new BlockItem(ModBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem CRACKED_RED_NETHER_BRICKS = new BlockItem(ModBlocks.CRACKED_RED_NETHER_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem CHISELED_RED_NETHER_BRICKS = new BlockItem(ModBlocks.CHISELED_RED_NETHER_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem RED_NETHER_BRICK_FENCE = new BlockItem(ModBlocks.RED_NETHER_BRICK_FENCE, new Item.Settings().group(ItemGroup.DECORATIONS));
     
     public static final BlockItem COPPER_DOOR = new BlockItem(ModBlocks.COPPER_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
     public static final BlockItem EXPOSED_COPPER_DOOR = new BlockItem(ModBlocks.EXPOSED_COPPER_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
@@ -59,6 +64,11 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_exposed_cut_copper_wall"), WAXED_EXPOSED_CUT_COPPER_WALL);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_weathered_cut_copper_wall"), WAXED_WEATHERED_CUT_COPPER_WALL);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_cut_copper_wall"), WAXED_OXIDIZED_CUT_COPPER_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cracked_red_nether_bricks"), CRACKED_RED_NETHER_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chiseled_red_nether_bricks"), CHISELED_RED_NETHER_BRICKS);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "copper_door"), COPPER_DOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "exposed_copper_door"), EXPOSED_COPPER_DOOR);
