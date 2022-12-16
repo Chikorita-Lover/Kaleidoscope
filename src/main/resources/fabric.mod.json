@@ -2,20 +2,18 @@
   "schemaVersion": 1,
   "id": "chikorita_lover",
   "version": "${version}",
-
   "name": "Chikorita Lover's Mod",
-  "description": "Banana pith!",
+  "description": "Adds new blocks and items to compliment and expand upon the base game.",
   "authors": [
     "Chikorita-Lover"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/Chikorita-Lover/Chikorita-Lover-Mod-Fabric"
+    "homepage": "https://github.com/Chikorita-Lover/Chikorita-Lover-Mod-Fabric",
+    "sources": "https://github.com/Chikorita-Lover/Chikorita-Lover-Mod-Fabric",
+    "issues": "https://github.com/Chikorita-Lover/Chikorita-Lover-Mod-Fabric/issues"
   },
-
   "license": "CC0-1.0",
   "icon": "assets/chikorita_lover/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "client": [
@@ -31,7 +29,6 @@
   "mixins": [
     "chikorita_lover.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.14.11",
     "fabric-api": "*",
