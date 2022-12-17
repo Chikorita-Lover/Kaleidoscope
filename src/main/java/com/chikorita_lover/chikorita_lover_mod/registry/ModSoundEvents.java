@@ -9,6 +9,9 @@ public class ModSoundEvents {
     public static final SoundEvent BLOCK_COPPER_DOOR_CLOSE = register("block.copper_door.close");
     public static final SoundEvent BLOCK_COPPER_DOOR_OPEN = register("block.copper_door.open");
 
+    public static final SoundEvent BLOCK_COPPER_TRAPDOOR_CLOSE = register("block.copper_trapdoor.close");
+    public static final SoundEvent BLOCK_COPPER_TRAPDOOR_OPEN = register("block.copper_trapdoor.open");
+
     public static final SoundEvent BLOCK_DIRT_BRICKS_BREAK = register("block.dirt_bricks.break");
     public static final SoundEvent BLOCK_DIRT_BRICKS_FALL = register("block.dirt_bricks.fall");
     public static final SoundEvent BLOCK_DIRT_BRICKS_HIT = register("block.dirt_bricks.hit");

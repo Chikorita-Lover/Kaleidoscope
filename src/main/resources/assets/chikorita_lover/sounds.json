@@ -11,6 +11,22 @@
       "chikorita_lover:block/copper_door/open"
     ]
   },
+  "block.copper_trapdoor.close": {
+    "subtitle": "subtitles.block.iron_trapdoor.close",
+    "sounds": [
+      "chikorita_lover:block/copper_trapdoor/close1",
+      "chikorita_lover:block/copper_trapdoor/close2",
+      "chikorita_lover:block/copper_trapdoor/close3"
+    ]
+  },
+  "block.copper_trapdoor.open": {
+    "subtitle": "subtitles.block.iron_trapdoor.open",
+    "sounds": [
+      "chikorita_lover:block/copper_trapdoor/open1",
+      "chikorita_lover:block/copper_trapdoor/open2",
+      "chikorita_lover:block/copper_trapdoor/open3"
+    ]
+  },
   "block.dirt_bricks.break": {
     "subtitle": "subtitles.block.generic.break",
     "sounds": [

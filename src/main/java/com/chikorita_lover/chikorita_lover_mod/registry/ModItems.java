@@ -44,6 +44,16 @@ public class ModItems {
     public static final BlockItem WAXED_WEATHERED_COPPER_DOOR = new BlockItem(ModBlocks.WAXED_WEATHERED_COPPER_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
     public static final BlockItem WAXED_OXIDIZED_COPPER_DOOR = new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
 
+    public static final BlockItem COPPER_TRAPDOOR = new BlockItem(ModBlocks.COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem EXPOSED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.EXPOSED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem WEATHERED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WEATHERED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem OXIDIZED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.OXIDIZED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+
+    public static final BlockItem WAXED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem WAXED_EXPOSED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem WAXED_WEATHERED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem WAXED_OXIDIZED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+
     public static void register(){
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_bricks"), DIRT_BRICKS);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_brick_slab"), DIRT_BRICK_SLAB);
@@ -79,5 +89,15 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_exposed_copper_door"), WAXED_EXPOSED_COPPER_DOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_weathered_copper_door"), WAXED_WEATHERED_COPPER_DOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_copper_door"), WAXED_OXIDIZED_COPPER_DOOR);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "copper_trapdoor"), COPPER_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "exposed_copper_trapdoor"), EXPOSED_COPPER_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "weathered_copper_trapdoor"), WEATHERED_COPPER_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "oxidized_copper_trapdoor"), OXIDIZED_COPPER_TRAPDOOR);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_copper_trapdoor"), WAXED_COPPER_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_exposed_copper_trapdoor"), WAXED_EXPOSED_COPPER_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_weathered_copper_trapdoor"), WAXED_WEATHERED_COPPER_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_copper_trapdoor"), WAXED_OXIDIZED_COPPER_TRAPDOOR);
     }
 }

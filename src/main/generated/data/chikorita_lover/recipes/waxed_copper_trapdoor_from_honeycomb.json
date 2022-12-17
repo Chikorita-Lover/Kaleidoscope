@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "waxed_copper_trapdoor",
+  "ingredients": [
+    {
+      "item": "chikorita_lover:copper_trapdoor"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "chikorita_lover:waxed_copper_trapdoor"
+  }
+}

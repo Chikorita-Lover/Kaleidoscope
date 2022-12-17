@@ -32,5 +32,15 @@
   "block.chikorita_lover.waxed_copper_door": "Waxed Copper Door",
   "block.chikorita_lover.waxed_exposed_copper_door": "Waxed Exposed Copper Door",
   "block.chikorita_lover.waxed_weathered_copper_door": "Waxed Weathered Copper Door",
-  "block.chikorita_lover.waxed_oxidized_copper_door": "Waxed Oxidized Copper Door"
+  "block.chikorita_lover.waxed_oxidized_copper_door": "Waxed Oxidized Copper Door",
+  
+  "block.chikorita_lover.copper_trapdoor": "Copper Trapdoor",
+  "block.chikorita_lover.exposed_copper_trapdoor": "Exposed Copper Trapdoor",
+  "block.chikorita_lover.weathered_copper_trapdoor": "Weathered Copper Trapdoor",
+  "block.chikorita_lover.oxidized_copper_trapdoor": "Oxidized Copper Trapdoor",
+
+  "block.chikorita_lover.waxed_copper_trapdoor": "Waxed Copper Trapdoor",
+  "block.chikorita_lover.waxed_exposed_copper_trapdoor": "Waxed Exposed Copper Trapdoor",
+  "block.chikorita_lover.waxed_weathered_copper_trapdoor": "Waxed Weathered Copper Trapdoor",
+  "block.chikorita_lover.waxed_oxidized_copper_trapdoor": "Waxed Oxidized Copper Trapdoor"
 }

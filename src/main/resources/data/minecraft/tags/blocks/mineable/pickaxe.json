@@ -15,6 +15,14 @@
     "chikorita_lover:waxed_oxidized_cut_copper_wall",
     "chikorita_lover:cracked_red_nether_bricks",
     "chikorita_lover:chiseled_red_nether_bricks",
-    "chikorita_lover:red_nether_brick_fence"
+    "chikorita_lover:red_nether_brick_fence",
+    "chikorita_lover:copper_trapdoor",
+    "chikorita_lover:exposed_copper_trapdoor",
+    "chikorita_lover:weathered_copper_trapdoor",
+    "chikorita_lover:oxidized_copper_trapdoor",
+    "chikorita_lover:waxed_copper_trapdoor",
+    "chikorita_lover:waxed_exposed_copper_trapdoor",
+    "chikorita_lover:waxed_weathered_copper_trapdoor",
+    "chikorita_lover:waxed_oxidized_copper_trapdoor"
   ]
 }
