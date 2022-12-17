@@ -49,6 +49,14 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerSlabRecipe(exporter, ModBlocks.DIRT_BRICK_SLAB, ModBlocks.DIRT_BRICKS);
             offerStairsRecipe(exporter, ModBlocks.DIRT_BRICK_STAIRS, ModBlocks.DIRT_BRICKS);
             offerWallRecipe(exporter, ModBlocks.DIRT_BRICK_WALL, ModBlocks.DIRT_BRICKS);
+
+            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICKS, Blocks.DIRT);
+            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_SLAB, Blocks.DIRT, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_SLAB, ModBlocks.DIRT_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_STAIRS, Blocks.DIRT);
+            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_STAIRS, ModBlocks.DIRT_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_WALL, Blocks.DIRT);
+            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_WALL, ModBlocks.DIRT_BRICKS);
             
             offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_CALCITE, Blocks.CALCITE);
             offerSlabRecipe(exporter, ModBlocks.POLISHED_CALCITE_SLAB, ModBlocks.POLISHED_CALCITE);
@@ -56,8 +64,11 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerWallRecipe(exporter, ModBlocks.POLISHED_CALCITE_WALL, ModBlocks.POLISHED_CALCITE);
 
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE, Blocks.CALCITE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE_SLAB, Blocks.CALCITE, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE_SLAB, ModBlocks.POLISHED_CALCITE, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE_STAIRS, Blocks.CALCITE);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE_STAIRS, ModBlocks.POLISHED_CALCITE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE_WALL, Blocks.CALCITE);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE_WALL, ModBlocks.POLISHED_CALCITE);
 
             offerWallRecipe(exporter, ModBlocks.CUT_COPPER_WALL, Blocks.CUT_COPPER);
