@@ -1,0 +1,10 @@
+{
+  "type": "chikorita_lover:kilning",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "nether_brick",
+  "ingredient": {
+    "item": "minecraft:netherrack"
+  },
+  "result": "minecraft:nether_brick"
+}

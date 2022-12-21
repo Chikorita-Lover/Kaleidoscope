@@ -33,6 +33,8 @@ public class ModItems {
     public static final BlockItem CHISELED_RED_NETHER_BRICKS = new BlockItem(ModBlocks.CHISELED_RED_NETHER_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
     public static final BlockItem RED_NETHER_BRICK_FENCE = new BlockItem(ModBlocks.RED_NETHER_BRICK_FENCE, new Item.Settings().group(ItemGroup.DECORATIONS));
+
+    public static final BlockItem KILN = new BlockItem(ModBlocks.KILN, new Item.Settings().group(ItemGroup.DECORATIONS));
     
     public static final BlockItem COPPER_DOOR = new BlockItem(ModBlocks.COPPER_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
     public static final BlockItem EXPOSED_COPPER_DOOR = new BlockItem(ModBlocks.EXPOSED_COPPER_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
@@ -79,6 +81,8 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chiseled_red_nether_bricks"), CHISELED_RED_NETHER_BRICKS);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "kiln"), KILN);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "copper_door"), COPPER_DOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "exposed_copper_door"), EXPOSED_COPPER_DOOR);

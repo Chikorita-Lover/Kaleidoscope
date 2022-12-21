@@ -1,0 +1,10 @@
+{
+  "type": "chikorita_lover:kilning",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "deepslate",
+  "ingredient": {
+    "item": "minecraft:cobbled_deepslate"
+  },
+  "result": "minecraft:deepslate"
+}

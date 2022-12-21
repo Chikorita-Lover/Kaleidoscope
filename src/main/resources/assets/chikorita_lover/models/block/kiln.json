@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "minecraft:block/smooth_stone",
+    "front": "chikorita_lover:block/kiln_front",
+    "particle": "chikorita_lover:block/kiln_side",
+    "side": "chikorita_lover:block/kiln_side",
+    "top": "chikorita_lover:block/kiln_top"
+  }
+}

@@ -17,6 +17,8 @@ public class ModSoundEvents {
     public static final SoundEvent BLOCK_DIRT_BRICKS_HIT = register("block.dirt_bricks.hit");
     public static final SoundEvent BLOCK_DIRT_BRICKS_PLACE = register("block.dirt_bricks.place");
     public static final SoundEvent BLOCK_DIRT_BRICKS_STEP = register("block.dirt_bricks.step");
+
+    public static final SoundEvent BLOCK_KILN_CRACKLE = register("block.kiln.crackle");
     
     public static final SoundEvent BLOCK_POLISHED_CALCITE_BREAK = register("block.polished_calcite.break");
     public static final SoundEvent BLOCK_POLISHED_CALCITE_FALL = register("block.polished_calcite.fall");

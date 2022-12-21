@@ -89,6 +89,8 @@ loom {
 			runDir "build/datagen"
 		}
 	}
+
+	accessWidenerPath = file("src/main/resources/chikoritalovermod.accesswidener")
 }
 
 // Add the datagenned files into the jar.

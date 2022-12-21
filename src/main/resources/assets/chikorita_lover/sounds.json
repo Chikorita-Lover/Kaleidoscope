@@ -147,6 +147,15 @@
       }
     ]
   },
+  "block.kiln.crackle": {
+    "subtitle": "subtitles.block.kiln.crackle",
+    "sounds": [
+      "chikorita_lover:block/kiln/crackle1",
+      "chikorita_lover:block/kiln/crackle2",
+      "chikorita_lover:block/kiln/crackle3",
+      "chikorita_lover:block/kiln/crackle4"
+    ]
+  },
   "block.polished_calcite.break": {
     "subtitle": "subtitles.block.generic.break",
     "sounds": [

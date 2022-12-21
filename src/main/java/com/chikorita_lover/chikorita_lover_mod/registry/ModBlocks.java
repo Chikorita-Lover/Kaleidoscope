@@ -3,13 +3,17 @@ package com.chikorita_lover.chikorita_lover_mod.registry;
 import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
 import com.chikorita_lover.chikorita_lover_mod.block.CopperDoorBlock;
 import com.chikorita_lover.chikorita_lover_mod.block.CopperTrapdoorBlock;
+import com.chikorita_lover.chikorita_lover_mod.block.KilnBlock;
 import com.chikorita_lover.chikorita_lover_mod.block.OxidizableWallBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+
+import java.util.function.ToIntFunction;
 
 import static net.minecraft.block.Blocks.*;
 
@@ -36,6 +40,8 @@ public class ModBlocks {
 
     public static final Block CRACKED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.of(Material.STONE, MapColor.DARK_RED).requiresTool().strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS));
     public static final Block CHISELED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.of(Material.STONE, MapColor.DARK_RED).requiresTool().strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS));
+
+    public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(3.5F).luminance(createLightLevelFromLitBlockState(13)));
 
     public static final Block RED_NETHER_BRICK_FENCE = new FenceBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.DARK_RED).requiresTool().strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS));
 
@@ -84,6 +90,8 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "chiseled_red_nether_bricks"), CHISELED_RED_NETHER_BRICKS);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
+
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "kiln"), KILN);
         
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "copper_door"), COPPER_DOOR);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "exposed_copper_door"), EXPOSED_COPPER_DOOR);
@@ -133,5 +141,9 @@ public class ModBlocks {
         OxidizableBlocksRegistry.registerWaxableBlockPair(EXPOSED_COPPER_TRAPDOOR, WAXED_EXPOSED_COPPER_TRAPDOOR);
         OxidizableBlocksRegistry.registerWaxableBlockPair(WEATHERED_COPPER_TRAPDOOR, WAXED_WEATHERED_COPPER_TRAPDOOR);
         OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_COPPER_TRAPDOOR, WAXED_OXIDIZED_COPPER_TRAPDOOR);
+    }
+
+    private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
+        return (state) -> (Boolean)state.get(Properties.LIT) ? litLevel : 0;
     }
 }

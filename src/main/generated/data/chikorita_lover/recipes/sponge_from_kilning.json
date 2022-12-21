@@ -1,0 +1,10 @@
+{
+  "type": "chikorita_lover:kilning",
+  "cookingtime": 100,
+  "experience": 0.15,
+  "group": "sponge",
+  "ingredient": {
+    "item": "minecraft:wet_sponge"
+  },
+  "result": "minecraft:sponge"
+}

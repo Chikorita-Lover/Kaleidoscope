@@ -1,0 +1,10 @@
+{
+  "type": "chikorita_lover:kilning",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "white_glazed_terracotta",
+  "ingredient": {
+    "item": "minecraft:white_terracotta"
+  },
+  "result": "minecraft:white_glazed_terracotta"
+}

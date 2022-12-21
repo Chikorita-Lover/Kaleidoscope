@@ -23,6 +23,8 @@
   "block.chikorita_lover.chiseled_red_nether_bricks": "Chiseled Red Nether Bricks",
 
   "block.chikorita_lover.red_nether_brick_fence": "Red Nether Brick Fence",
+
+  "block.chikorita_lover.kiln": "Kiln",
   
   "block.chikorita_lover.copper_door": "Copper Door",
   "block.chikorita_lover.exposed_copper_door": "Exposed Copper Door",
@@ -42,5 +44,11 @@
   "block.chikorita_lover.waxed_copper_trapdoor": "Waxed Copper Trapdoor",
   "block.chikorita_lover.waxed_exposed_copper_trapdoor": "Waxed Exposed Copper Trapdoor",
   "block.chikorita_lover.waxed_weathered_copper_trapdoor": "Waxed Weathered Copper Trapdoor",
-  "block.chikorita_lover.waxed_oxidized_copper_trapdoor": "Waxed Oxidized Copper Trapdoor"
+  "block.chikorita_lover.waxed_oxidized_copper_trapdoor": "Waxed Oxidized Copper Trapdoor",
+
+  "container.kiln": "Kiln",
+
+  "stat.chikorita_lover.interact_with_kiln": "Interactions with Kiln",
+
+  "subtitles.block.kiln.crackle": "Kiln crackles"
 }

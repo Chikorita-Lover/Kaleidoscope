@@ -1,0 +1,10 @@
+{
+  "type": "chikorita_lover:kilning",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "cracked_stone_bricks",
+  "ingredient": {
+    "item": "minecraft:stone_bricks"
+  },
+  "result": "minecraft:cracked_stone_bricks"
+}
