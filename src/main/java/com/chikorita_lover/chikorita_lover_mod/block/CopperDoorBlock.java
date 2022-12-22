@@ -67,7 +67,7 @@ public class CopperDoorBlock extends DoorBlock implements Oxidizable {
             return ActionResult.PASS;
         } else {
             world.createAndScheduleBlockTick(pos, this, getDelay());
-            this.playOpenCloseSound(world, pos, this.isOpen(state));
+            this.playOpenCloseSound(world, pos, !this.isOpen(state));
             world.emitGameEvent(player, this.isOpen(state) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
             return ActionResult.success(world.isClient);
         }

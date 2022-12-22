@@ -47,7 +47,7 @@ public class CopperTrapdoorBlock extends TrapdoorBlock implements Oxidizable {
             return ActionResult.PASS;
         } else {
             world.createAndScheduleBlockTick(pos, this, getDelay());
-            this.playToggleSound(player, world, pos, state.get(OPEN));
+            this.playToggleSound(player, world, pos, !state.get(OPEN));
             return ActionResult.success(world.isClient);
         }
     }
