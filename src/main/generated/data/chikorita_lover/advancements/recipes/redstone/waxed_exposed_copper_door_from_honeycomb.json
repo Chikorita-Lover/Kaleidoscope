@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:waxed_exposed_copper_door_from_honeycomb"
+        "recipe": "chikorita_lover:waxed_exposed_copper_door_from_honeycomb"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:waxed_exposed_copper_door_from_honeycomb"
+      "chikorita_lover:waxed_exposed_copper_door_from_honeycomb"
     ]
   }
 }

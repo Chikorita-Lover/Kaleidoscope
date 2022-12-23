@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_stone_bricks_from_kilning"
+        "recipe": "chikorita_lover:cracked_stone_bricks_from_kilning"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_stone_bricks_from_kilning"
+      "chikorita_lover:cracked_stone_bricks_from_kilning"
     ]
   }
 }

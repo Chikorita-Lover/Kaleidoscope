@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:exposed_cut_copper_wall_from_exposed_copper_stonecutting"
+        "recipe": "chikorita_lover:exposed_cut_copper_wall_from_exposed_copper_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:exposed_cut_copper_wall_from_exposed_copper_stonecutting"
+      "chikorita_lover:exposed_cut_copper_wall_from_exposed_copper_stonecutting"
     ]
   }
 }

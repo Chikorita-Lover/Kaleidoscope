@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_oxidized_copper": {
+    "has_log": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:oxidized_copper"
-            ]
+            "tag": "minecraft:logs_that_burn"
           }
         ]
       },
@@ -15,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "chikorita_lover:oxidized_cut_copper_wall_from_oxidized_copper_stonecutting"
+        "recipe": "chikorita_lover:charcoal_from_kilning"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_oxidized_copper",
+      "has_log",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "chikorita_lover:oxidized_cut_copper_wall_from_oxidized_copper_stonecutting"
+      "chikorita_lover:charcoal_from_kilning"
     ]
   }
 }

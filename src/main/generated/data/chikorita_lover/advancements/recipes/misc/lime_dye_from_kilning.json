@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_oxidized_copper": {
+    "has_sea_pickle": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:oxidized_copper"
+              "minecraft:sea_pickle"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "chikorita_lover:oxidized_cut_copper_wall_from_oxidized_copper_stonecutting"
+        "recipe": "chikorita_lover:lime_dye_from_kilning"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_oxidized_copper",
+      "has_sea_pickle",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "chikorita_lover:oxidized_cut_copper_wall_from_oxidized_copper_stonecutting"
+      "chikorita_lover:lime_dye_from_kilning"
     ]
   }
 }

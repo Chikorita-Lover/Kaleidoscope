@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:glass_from_kilning"
+        "recipe": "chikorita_lover:glass_from_kilning"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:glass_from_kilning"
+      "chikorita_lover:glass_from_kilning"
     ]
   }
 }

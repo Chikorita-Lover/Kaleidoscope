@@ -5,17 +5,17 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.tag.ItemTags;
+import net.minecraft.util.Identifier;
 
 import java.util.function.Consumer;
+
+import static net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder.getItemId;
 
 public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
     @Override
@@ -42,15 +42,21 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
         }
 
         public static void offerKilning(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input, float experience, int cookingTime) {
-            CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), output, experience, cookingTime, ChikoritaLoverMod.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(output)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, getItemPath(output) + "_from_kilning");
+            CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), output, experience, cookingTime, ChikoritaLoverMod.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(output)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, getItemPath(output) + "_from_kilning"));
         }
 
-        public static void offerTrapdoorRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+        public static void offerStonecuttingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+            offerStonecuttingRecipe(exporter, output, input, 1);
+        }
 
+        public static void offerStonecuttingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input, int count) {
+            SingleItemRecipeJsonBuilder var10000 = SingleItemRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(input), output, count).criterion(hasItem(input), conditionsFromItem(input));
+            String var10002 = convertBetween(output, input);
+            var10000.offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, var10002 + "_stonecutting"));
         }
 
         public static void offerWaxingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
-            ShapelessRecipeJsonBuilder.create(output).input(input).input(Items.HONEYCOMB).group(output.asItem().toString()).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, output.asItem().toString() + "_from_honeycomb");
+            ShapelessRecipeJsonBuilder.create(output).input(input).input(Items.HONEYCOMB).group(output.asItem().toString()).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, output.asItem().toString() + "_from_honeycomb"));
         }
 
         @Override
@@ -137,7 +143,7 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerWaxingRecipe(exporter, ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, ModBlocks.OXIDIZED_COPPER_TRAPDOOR);
 
             //Base kilning recipes
-            CookingRecipeJsonBuilder.create(Ingredient.fromTag(ItemTags.SAND), Blocks.GLASS, 0.1F, 100, ChikoritaLoverMod.KILN_COOKING_RECIPE_SERIALIZER).group("glass").criterion(hasItem(Blocks.SAND), conditionsFromTag(ItemTags.SAND)).offerTo(exporter, getItemPath(Blocks.GLASS) + "_from_kilning");
+            CookingRecipeJsonBuilder.create(Ingredient.fromTag(ItemTags.SAND), Blocks.GLASS, 0.1F, 100, ChikoritaLoverMod.KILN_COOKING_RECIPE_SERIALIZER).group("glass").criterion(hasItem(Blocks.SAND), conditionsFromTag(ItemTags.SAND)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, getItemPath(Blocks.GLASS) + "_from_kilning"));
             offerKilning(exporter, Blocks.STONE, Blocks.COBBLESTONE, 0.1F, 100);
             offerKilning(exporter, Blocks.SMOOTH_SANDSTONE, Blocks.SANDSTONE, 0.1F, 100);
             offerKilning(exporter, Blocks.SMOOTH_RED_SANDSTONE, Blocks.RED_SANDSTONE, 0.1F, 100);
@@ -169,8 +175,11 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerKilning(exporter, Blocks.GREEN_GLAZED_TERRACOTTA, Blocks.GREEN_TERRACOTTA, 0.1F, 100);
             offerKilning(exporter, Blocks.RED_GLAZED_TERRACOTTA, Blocks.RED_TERRACOTTA, 0.1F, 100);
             offerKilning(exporter, Blocks.BLACK_GLAZED_TERRACOTTA, Blocks.BLACK_TERRACOTTA, 0.1F, 100);
+            offerKilning(exporter, Items.GREEN_DYE, Blocks.CACTUS, 1.0F, 100);
+            CookingRecipeJsonBuilder.create(Ingredient.fromTag(ItemTags.LOGS_THAT_BURN), Items.CHARCOAL, 0.15F, 100, ChikoritaLoverMod.KILN_COOKING_RECIPE_SERIALIZER).group("charcoal").criterion("has_log", conditionsFromTag(ItemTags.LOGS_THAT_BURN)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, getItemPath(Items.CHARCOAL) + "_from_kilning"));
             offerKilning(exporter, Items.POPPED_CHORUS_FRUIT, Items.CHORUS_FRUIT, 0.1F, 100);
             offerKilning(exporter, Blocks.SPONGE, Blocks.WET_SPONGE, 0.15F, 100);
+            offerKilning(exporter, Items.LIME_DYE, Blocks.SEA_PICKLE, 0.1F, 100);
         }
     }
 }

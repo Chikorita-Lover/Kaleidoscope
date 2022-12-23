@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:dirt_brick_slab_from_dirt_bricks_stonecutting"
+        "recipe": "chikorita_lover:dirt_brick_slab_from_dirt_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:dirt_brick_slab_from_dirt_bricks_stonecutting"
+      "chikorita_lover:dirt_brick_slab_from_dirt_bricks_stonecutting"
     ]
   }
 }

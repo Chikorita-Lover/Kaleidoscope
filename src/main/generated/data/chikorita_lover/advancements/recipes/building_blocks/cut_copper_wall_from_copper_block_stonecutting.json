@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cut_copper_wall_from_copper_block_stonecutting"
+        "recipe": "chikorita_lover:cut_copper_wall_from_copper_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cut_copper_wall_from_copper_block_stonecutting"
+      "chikorita_lover:cut_copper_wall_from_copper_block_stonecutting"
     ]
   }
 }

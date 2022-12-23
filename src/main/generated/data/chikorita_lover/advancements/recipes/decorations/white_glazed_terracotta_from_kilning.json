@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:white_glazed_terracotta_from_kilning"
+        "recipe": "chikorita_lover:white_glazed_terracotta_from_kilning"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:white_glazed_terracotta_from_kilning"
+      "chikorita_lover:white_glazed_terracotta_from_kilning"
     ]
   }
 }

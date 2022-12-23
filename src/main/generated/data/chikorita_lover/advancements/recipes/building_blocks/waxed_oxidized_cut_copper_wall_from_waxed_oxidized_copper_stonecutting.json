@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:waxed_oxidized_cut_copper_wall_from_waxed_oxidized_copper_stonecutting"
+        "recipe": "chikorita_lover:waxed_oxidized_cut_copper_wall_from_waxed_oxidized_copper_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:waxed_oxidized_cut_copper_wall_from_waxed_oxidized_copper_stonecutting"
+      "chikorita_lover:waxed_oxidized_cut_copper_wall_from_waxed_oxidized_copper_stonecutting"
     ]
   }
 }
