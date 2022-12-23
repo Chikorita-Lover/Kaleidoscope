@@ -27,7 +27,7 @@
     ]
   },
   "mixins": [
-    "chikorita_lover.mixins.json"
+    "chikorita_lover_mod.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.11",

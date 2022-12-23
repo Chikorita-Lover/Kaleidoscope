@@ -4,9 +4,10 @@
   "package": "com.chikorita_lover.chikorita_lover_mod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "FarmlandBlockMixin"
   ],
-  "client": [
-  ],
+  "client": [],
+  "server": [],
   "injectors": {
     "defaultRequire": 1
   }
