@@ -18,13 +18,13 @@ import java.util.function.ToIntFunction;
 import static net.minecraft.block.Blocks.*;
 
 public class ModBlocks {
-    public static final Block DIRT_BRICKS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(1f, 1f).sounds(ModBlockSoundGroup.DIRT_BRICKS));
-    public static final Block DIRT_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(1f, 1f).sounds(ModBlockSoundGroup.DIRT_BRICKS));
+    public static final Block DIRT_BRICKS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(1.0F, 1.0F).sounds(ModBlockSoundGroup.DIRT_BRICKS));
+    public static final Block DIRT_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(DIRT_BRICKS));
     public static final Block DIRT_BRICK_STAIRS = new StairsBlock(DIRT_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(DIRT_BRICKS));
     public static final Block DIRT_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(DIRT_BRICKS));
 
-    public static final Block POLISHED_CALCITE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).strength(1.5f, 6f).sounds(BlockSoundGroup.CALCITE).requiresTool());
-    public static final Block POLISHED_CALCITE_SLAB = new SlabBlock(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).strength(1.5f, 6f).sounds(BlockSoundGroup.CALCITE).requiresTool());
+    public static final Block POLISHED_CALCITE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).strength(1.5F, 6F).sounds(BlockSoundGroup.CALCITE).requiresTool());
+    public static final Block POLISHED_CALCITE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE));
     public static final Block POLISHED_CALCITE_STAIRS = new StairsBlock(POLISHED_CALCITE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_CALCITE));
     public static final Block POLISHED_CALCITE_WALL = new WallBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE));
 
@@ -38,8 +38,8 @@ public class ModBlocks {
     public static final Block WAXED_WEATHERED_CUT_COPPER_WALL = new WallBlock(AbstractBlock.Settings.copy(WAXED_WEATHERED_CUT_COPPER));
     public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = new WallBlock(AbstractBlock.Settings.copy(WAXED_OXIDIZED_CUT_COPPER));
 
-    public static final Block CRACKED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.of(Material.STONE, MapColor.DARK_RED).requiresTool().strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS));
-    public static final Block CHISELED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.of(Material.STONE, MapColor.DARK_RED).requiresTool().strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS));
+    public static final Block CRACKED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS));
+    public static final Block CHISELED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS));
 
     public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.5F).luminance(createLightLevelFromLitBlockState(13)));
 
