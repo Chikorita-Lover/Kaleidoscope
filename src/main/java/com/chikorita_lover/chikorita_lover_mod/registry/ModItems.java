@@ -32,6 +32,8 @@ public class ModItems {
     public static final BlockItem CRACKED_RED_NETHER_BRICKS = new BlockItem(ModBlocks.CRACKED_RED_NETHER_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem CHISELED_RED_NETHER_BRICKS = new BlockItem(ModBlocks.CHISELED_RED_NETHER_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
+    public static final BlockItem POLISHED_END_STONE = new BlockItem(ModBlocks.POLISHED_END_STONE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
     public static final BlockItem RED_NETHER_BRICK_FENCE = new BlockItem(ModBlocks.RED_NETHER_BRICK_FENCE, new Item.Settings().group(ItemGroup.DECORATIONS));
 
     public static final BlockItem KILN = new BlockItem(ModBlocks.KILN, new Item.Settings().group(ItemGroup.DECORATIONS));
@@ -79,6 +81,8 @@ public class ModItems {
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cracked_red_nether_bricks"), CRACKED_RED_NETHER_BRICKS);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chiseled_red_nether_bricks"), CHISELED_RED_NETHER_BRICKS);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_end_stone"), POLISHED_END_STONE);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
 

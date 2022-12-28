@@ -124,6 +124,14 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerChiseledBlockRecipe(exporter, ModBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICK_SLAB);
             offerStonecuttingRecipe(exporter, ModBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);
 
+            offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_END_STONE, Blocks.END_STONE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE, Blocks.END_STONE);
+
+            offerStonecuttingRecipe(exporter, Blocks.END_STONE_BRICKS, ModBlocks.POLISHED_END_STONE);
+            offerStonecuttingRecipe(exporter, Blocks.END_STONE_BRICK_SLAB, ModBlocks.POLISHED_END_STONE, 2);
+            offerStonecuttingRecipe(exporter, Blocks.END_STONE_BRICK_STAIRS, ModBlocks.POLISHED_END_STONE);
+            offerStonecuttingRecipe(exporter, Blocks.END_STONE_BRICK_WALL, ModBlocks.POLISHED_END_STONE);
+
             ShapedRecipeJsonBuilder.create(ModBlocks.RED_NETHER_BRICK_FENCE, 6).input('W', Blocks.RED_NETHER_BRICKS).input('#', Items.NETHER_BRICK).pattern("W#W").pattern("W#W").criterion(hasItem(Blocks.RED_NETHER_BRICKS), conditionsFromItem(Blocks.RED_NETHER_BRICKS)).offerTo(exporter);
 
             ShapedRecipeJsonBuilder.create(ModBlocks.KILN).input('#', Items.BRICK).input('X', Blocks.FURNACE).pattern(" # ").pattern("#X#").pattern(" # ").criterion(hasItem(Blocks.FURNACE), conditionsFromItem(Blocks.FURNACE)).offerTo(exporter);

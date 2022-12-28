@@ -41,6 +41,8 @@ public class ModBlocks {
     public static final Block CRACKED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS));
     public static final Block CHISELED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS));
 
+    public static final Block POLISHED_END_STONE = new Block(AbstractBlock.Settings.of(Material.STONE, MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 9.0F));
+
     public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.5F).luminance(createLightLevelFromLitBlockState(13)));
 
     public static final Block RED_NETHER_BRICK_FENCE = new FenceBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.DARK_RED).requiresTool().strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS));
@@ -88,6 +90,8 @@ public class ModBlocks {
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "cracked_red_nether_bricks"), CRACKED_RED_NETHER_BRICKS);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "chiseled_red_nether_bricks"), CHISELED_RED_NETHER_BRICKS);
+
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_end_stone"), POLISHED_END_STONE);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
 
