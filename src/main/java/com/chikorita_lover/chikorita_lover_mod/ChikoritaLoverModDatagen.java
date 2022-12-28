@@ -188,7 +188,17 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, ModBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);
 
             offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_END_STONE, Blocks.END_STONE);
+            offerSlabRecipe(exporter, ModBlocks.POLISHED_END_STONE_SLAB, ModBlocks.POLISHED_END_STONE);
+            offerStairsRecipe(exporter, ModBlocks.POLISHED_END_STONE_STAIRS, ModBlocks.POLISHED_END_STONE);
+            offerWallRecipe(exporter, ModBlocks.POLISHED_END_STONE_WALL, ModBlocks.POLISHED_END_STONE);
+
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE, Blocks.END_STONE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_SLAB, Blocks.END_STONE, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_SLAB, ModBlocks.POLISHED_END_STONE, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_STAIRS, Blocks.END_STONE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_STAIRS, ModBlocks.POLISHED_END_STONE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_WALL, Blocks.END_STONE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_WALL, ModBlocks.POLISHED_END_STONE);
 
             offerStonecuttingRecipe(exporter, Blocks.END_STONE_BRICKS, ModBlocks.POLISHED_END_STONE);
             offerStonecuttingRecipe(exporter, Blocks.END_STONE_BRICK_SLAB, ModBlocks.POLISHED_END_STONE, 2);

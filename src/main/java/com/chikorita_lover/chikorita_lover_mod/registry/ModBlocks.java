@@ -42,6 +42,9 @@ public class ModBlocks {
     public static final Block CHISELED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS));
 
     public static final Block POLISHED_END_STONE = new Block(AbstractBlock.Settings.of(Material.STONE, MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 9.0F));
+    public static final Block POLISHED_END_STONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(POLISHED_END_STONE));
+    public static final Block POLISHED_END_STONE_STAIRS = new StairsBlock(POLISHED_END_STONE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_END_STONE));
+    public static final Block POLISHED_END_STONE_WALL = new WallBlock(AbstractBlock.Settings.copy(POLISHED_END_STONE));
 
     public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.5F).luminance(createLightLevelFromLitBlockState(13)));
 
@@ -92,6 +95,9 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "chiseled_red_nether_bricks"), CHISELED_RED_NETHER_BRICKS);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_end_stone"), POLISHED_END_STONE);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_end_stone_slab"), POLISHED_END_STONE_SLAB);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_end_stone_stairs"), POLISHED_END_STONE_STAIRS);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_end_stone_wall"), POLISHED_END_STONE_WALL);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
 
