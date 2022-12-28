@@ -183,6 +183,26 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerWaxingRecipe(exporter, ModBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, ModBlocks.WEATHERED_CUT_COPPER_WALL);
             offerWaxingRecipe(exporter, ModBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, ModBlocks.OXIDIZED_CUT_COPPER_WALL);
 
+            offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_PRISMARINE, Blocks.PRISMARINE);
+            offerSlabRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_SLAB, ModBlocks.POLISHED_PRISMARINE);
+            offerStairsRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_STAIRS, ModBlocks.POLISHED_PRISMARINE);
+            offerWallRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_WALL, ModBlocks.POLISHED_PRISMARINE);
+
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_PRISMARINE, Blocks.PRISMARINE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_SLAB, Blocks.PRISMARINE, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_SLAB, ModBlocks.POLISHED_PRISMARINE, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_STAIRS, Blocks.PRISMARINE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_STAIRS, ModBlocks.POLISHED_PRISMARINE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_WALL, Blocks.PRISMARINE);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_WALL, ModBlocks.POLISHED_PRISMARINE);
+
+            offerStonecuttingRecipe(exporter, Blocks.PRISMARINE_BRICKS, Blocks.PRISMARINE);
+            offerStonecuttingRecipe(exporter, Blocks.PRISMARINE_BRICKS, ModBlocks.POLISHED_PRISMARINE);
+            offerStonecuttingRecipe(exporter, Blocks.PRISMARINE_BRICK_SLAB, Blocks.PRISMARINE, 2);
+            offerStonecuttingRecipe(exporter, Blocks.PRISMARINE_BRICK_SLAB, ModBlocks.POLISHED_PRISMARINE, 2);
+            offerStonecuttingRecipe(exporter, Blocks.PRISMARINE_BRICK_STAIRS, Blocks.PRISMARINE);
+            offerStonecuttingRecipe(exporter, Blocks.PRISMARINE_BRICK_STAIRS, ModBlocks.POLISHED_PRISMARINE);
+
             offerCrackingRecipe(exporter, ModBlocks.CRACKED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);
             offerChiseledBlockRecipe(exporter, ModBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICK_SLAB);
             offerStonecuttingRecipe(exporter, ModBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);

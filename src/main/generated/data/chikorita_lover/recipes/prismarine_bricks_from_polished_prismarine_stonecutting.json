@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "chikorita_lover:polished_prismarine"
+  },
+  "result": "minecraft:prismarine_bricks"
+}

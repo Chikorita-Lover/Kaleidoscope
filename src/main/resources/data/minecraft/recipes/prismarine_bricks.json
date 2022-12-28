@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "chikorita_lover:polished_prismarine"
+    }
+  },
+  "result": {
+    "item": "minecraft:prismarine_bricks",
+    "count": 4
+  }
+}
