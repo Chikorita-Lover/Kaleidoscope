@@ -1,26 +1,89 @@
 package com.chikorita_lover.chikorita_lover_mod;
 
+import com.chikorita_lover.chikorita_lover_mod.registry.ModBlockFamilies;
 import com.chikorita_lover.chikorita_lover_mod.registry.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.client.*;
+import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Consumer;
 
-import static net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder.getItemId;
-
 public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
+        fabricDataGenerator.addProvider(ChikoritaLoverModModelGenerator::new);
         fabricDataGenerator.addProvider(ChikoritaLoverModRecipeGenerator::new);
+    }
+
+    private static class ChikoritaLoverModModelGenerator extends FabricModelProvider {
+        private ChikoritaLoverModModelGenerator(FabricDataGenerator generator) {
+            super(generator);
+        }
+
+        @Override
+        public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+            ModBlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach((family) -> blockStateModelGenerator.registerCubeAllModelTexturePool(family.getBaseBlock()).family(family));
+            blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.CUT_COPPER).family(ModBlockFamilies.CUT_COPPER).same(Blocks.WAXED_CUT_COPPER).family(ModBlockFamilies.WAXED_CUT_COPPER);
+            blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.EXPOSED_CUT_COPPER).family(ModBlockFamilies.EXPOSED_CUT_COPPER).same(Blocks.WAXED_EXPOSED_CUT_COPPER).family(ModBlockFamilies.WAXED_EXPOSED_CUT_COPPER);
+            blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.WEATHERED_CUT_COPPER).family(ModBlockFamilies.WEATHERED_CUT_COPPER).same(Blocks.WAXED_WEATHERED_CUT_COPPER).family(ModBlockFamilies.WAXED_WEATHERED_CUT_COPPER);
+            blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.OXIDIZED_CUT_COPPER).family(ModBlockFamilies.OXIDIZED_CUT_COPPER).same(Blocks.WAXED_OXIDIZED_CUT_COPPER).family(ModBlockFamilies.WAXED_OXIDIZED_CUT_COPPER);
+            blockStateModelGenerator.registerCooker(ModBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
+            registerOxidizableDoor(blockStateModelGenerator, ModBlocks.COPPER_DOOR, ModBlocks.WAXED_COPPER_DOOR);
+            registerOxidizableDoor(blockStateModelGenerator, ModBlocks.EXPOSED_COPPER_DOOR, ModBlocks.WAXED_EXPOSED_COPPER_DOOR);
+            registerOxidizableDoor(blockStateModelGenerator, ModBlocks.WEATHERED_COPPER_DOOR, ModBlocks.WAXED_WEATHERED_COPPER_DOOR);
+            registerOxidizableDoor(blockStateModelGenerator, ModBlocks.OXIDIZED_COPPER_DOOR, ModBlocks.WAXED_OXIDIZED_COPPER_DOOR);
+            registerOxidizableTrapdoor(blockStateModelGenerator, ModBlocks.COPPER_TRAPDOOR, ModBlocks.WAXED_COPPER_TRAPDOOR);
+            registerOxidizableTrapdoor(blockStateModelGenerator, ModBlocks.EXPOSED_COPPER_TRAPDOOR, ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR);
+            registerOxidizableTrapdoor(blockStateModelGenerator, ModBlocks.WEATHERED_COPPER_TRAPDOOR, ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR);
+            registerOxidizableTrapdoor(blockStateModelGenerator, ModBlocks.OXIDIZED_COPPER_TRAPDOOR, ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR);
+        }
+
+        @Override
+        public void generateItemModels(ItemModelGenerator itemModelGenerator) {}
+
+        public final void registerItemModel(BlockStateModelGenerator blockStateModelGenerator, Block block, String texturePath) {
+            Item item = block.asItem();
+            Models.GENERATED.upload(ModelIds.getItemModelId(item), TextureMap.layer0(new Identifier(ChikoritaLoverMod.MODID, "item/" + texturePath)), blockStateModelGenerator.modelCollector);
+        }
+
+        public void registerOxidizableDoor(BlockStateModelGenerator blockStateModelGenerator, Block doorBlock, Block waxedDoorBlock) {
+            TextureMap textureMap = TextureMap.topBottom(doorBlock);
+            Identifier identifier = Models.DOOR_BOTTOM_LEFT.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            Identifier identifier2 = Models.DOOR_BOTTOM_LEFT_OPEN.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            Identifier identifier3 = Models.DOOR_BOTTOM_RIGHT.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            Identifier identifier4 = Models.DOOR_BOTTOM_RIGHT_OPEN.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            Identifier identifier5 = Models.DOOR_TOP_LEFT.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            Identifier identifier6 = Models.DOOR_TOP_LEFT_OPEN.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            Identifier identifier7 = Models.DOOR_TOP_RIGHT.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            Identifier identifier8 = Models.DOOR_TOP_RIGHT_OPEN.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            blockStateModelGenerator.registerItemModel(doorBlock.asItem());
+            registerItemModel(blockStateModelGenerator, waxedDoorBlock, doorBlock.asItem().toString());
+            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createDoorBlockState(doorBlock, identifier, identifier2, identifier3, identifier4, identifier5, identifier6, identifier7, identifier8));
+            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createDoorBlockState(waxedDoorBlock, identifier, identifier2, identifier3, identifier4, identifier5, identifier6, identifier7, identifier8));
+        }
+
+        public void registerOxidizableTrapdoor(BlockStateModelGenerator blockStateModelGenerator, Block trapdoorBlock, Block waxedTrapdoorBlock) {
+            TextureMap textureMap = TextureMap.texture(trapdoorBlock);
+            Identifier identifier = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_TOP.upload(trapdoorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            Identifier identifier2 = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_BOTTOM.upload(trapdoorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            Identifier identifier3 = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_OPEN.upload(trapdoorBlock, textureMap, blockStateModelGenerator.modelCollector);
+            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createOrientableTrapdoorBlockState(trapdoorBlock, identifier, identifier2, identifier3));
+            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createOrientableTrapdoorBlockState(waxedTrapdoorBlock, identifier, identifier2, identifier3));
+            blockStateModelGenerator.registerParentedItemModel(trapdoorBlock, identifier2);
+            blockStateModelGenerator.registerParentedItemModel(waxedTrapdoorBlock, identifier2);
+        }
     }
 
     private static class ChikoritaLoverModRecipeGenerator extends FabricRecipeProvider {
