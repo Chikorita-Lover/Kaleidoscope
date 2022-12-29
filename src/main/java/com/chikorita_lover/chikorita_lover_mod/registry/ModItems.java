@@ -42,6 +42,8 @@ public class ModItems {
     public static final BlockItem POLISHED_END_STONE_STAIRS = new BlockItem(ModBlocks.POLISHED_END_STONE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem POLISHED_END_STONE_WALL = new BlockItem(ModBlocks.POLISHED_END_STONE_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
+    public static final BlockItem CHISELED_PURPUR = new BlockItem(ModBlocks.CHISELED_PURPUR, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
     public static final BlockItem RED_NETHER_BRICK_FENCE = new BlockItem(ModBlocks.RED_NETHER_BRICK_FENCE, new Item.Settings().group(ItemGroup.DECORATIONS));
 
     public static final BlockItem KILN = new BlockItem(ModBlocks.KILN, new Item.Settings().group(ItemGroup.DECORATIONS));
@@ -99,6 +101,8 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_end_stone_slab"), POLISHED_END_STONE_SLAB);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_end_stone_stairs"), POLISHED_END_STONE_STAIRS);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_end_stone_wall"), POLISHED_END_STONE_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chiseled_purpur"), CHISELED_PURPUR);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
 

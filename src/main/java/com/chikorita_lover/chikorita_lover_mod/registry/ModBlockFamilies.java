@@ -24,6 +24,7 @@ public class ModBlockFamilies {
     public static final BlockFamily POLISHED_PRISMARINE;
     public static final BlockFamily RED_NETHER_BRICKS;
     public static final BlockFamily POLISHED_END_STONE;
+    public static final BlockFamily PURPUR;
 
     public ModBlockFamilies() {
     }
@@ -59,5 +60,6 @@ public class ModBlockFamilies {
         POLISHED_PRISMARINE = register(ModBlocks.POLISHED_PRISMARINE).slab(ModBlocks.POLISHED_PRISMARINE_SLAB).stairs(ModBlocks.POLISHED_PRISMARINE_STAIRS).wall(ModBlocks.POLISHED_PRISMARINE_WALL).build();
         RED_NETHER_BRICKS = register(Blocks.RED_NETHER_BRICKS).chiseled(ModBlocks.CHISELED_RED_NETHER_BRICKS).cracked(ModBlocks.CRACKED_RED_NETHER_BRICKS).fence(ModBlocks.RED_NETHER_BRICK_FENCE).build();
         POLISHED_END_STONE = register(ModBlocks.POLISHED_END_STONE).slab(ModBlocks.POLISHED_END_STONE_SLAB).stairs(ModBlocks.POLISHED_END_STONE_STAIRS).wall(ModBlocks.POLISHED_END_STONE_WALL).build();
+        PURPUR = register(Blocks.PURPUR_BLOCK).chiseled(ModBlocks.CHISELED_PURPUR).build();
     }
 }
