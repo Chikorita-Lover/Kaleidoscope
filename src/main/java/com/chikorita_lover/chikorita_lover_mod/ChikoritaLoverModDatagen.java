@@ -136,7 +136,20 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_STAIRS, ModBlocks.DIRT_BRICKS);
             offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_WALL, Blocks.DIRT);
             offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_WALL, ModBlocks.DIRT_BRICKS);
-            
+
+            offerPolishedStoneRecipe(exporter, ModBlocks.STONE_TILES, Blocks.STONE_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.STONE_TILE_SLAB, ModBlocks.STONE_TILES);
+            offerStairsRecipe(exporter, ModBlocks.STONE_TILE_STAIRS, ModBlocks.STONE_TILES);
+
+            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILES, Blocks.STONE);
+            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILES, Blocks.STONE_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_SLAB, Blocks.STONE, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_SLAB, Blocks.STONE_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_SLAB, ModBlocks.STONE_TILES, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_STAIRS, Blocks.STONE);
+            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_STAIRS, Blocks.STONE_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_STAIRS, ModBlocks.STONE_TILES);
+
             offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_CALCITE, Blocks.CALCITE);
             offerSlabRecipe(exporter, ModBlocks.POLISHED_CALCITE_SLAB, ModBlocks.POLISHED_CALCITE);
             offerStairsRecipe(exporter, ModBlocks.POLISHED_CALCITE_STAIRS, ModBlocks.POLISHED_CALCITE);

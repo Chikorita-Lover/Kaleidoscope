@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:stone_bricks"
+  },
+  "result": "chikorita_lover:stone_tile_stairs"
+}

@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 public class ModBlockFamilies {
     private static final Map<Block, BlockFamily> BASE_BLOCKS_TO_FAMILIES = Maps.newHashMap();
     public static final BlockFamily DIRT_BRICKS;
+    public static final BlockFamily STONE_TILES;
     public static final BlockFamily POLISHED_CALCITE;
     public static final BlockFamily CUT_COPPER;
     public static final BlockFamily EXPOSED_CUT_COPPER;
@@ -45,6 +46,7 @@ public class ModBlockFamilies {
 
     static {
         DIRT_BRICKS = register(ModBlocks.DIRT_BRICKS).slab(ModBlocks.DIRT_BRICK_SLAB).stairs(ModBlocks.DIRT_BRICK_STAIRS).wall(ModBlocks.DIRT_BRICK_WALL).build();
+        STONE_TILES = register(ModBlocks.STONE_TILES).slab(ModBlocks.STONE_TILE_SLAB).stairs(ModBlocks.STONE_TILE_STAIRS).build();
         POLISHED_CALCITE = register(ModBlocks.POLISHED_CALCITE).slab(ModBlocks.POLISHED_CALCITE_SLAB).stairs(ModBlocks.POLISHED_CALCITE_STAIRS).wall(ModBlocks.POLISHED_CALCITE_WALL).build();
 
         CUT_COPPER = register(Blocks.CUT_COPPER).wall(ModBlocks.CUT_COPPER_WALL).noGenerateModels().build();

@@ -14,6 +14,11 @@ public class ModItems {
     public static final BlockItem DIRT_BRICK_STAIRS = new BlockItem(ModBlocks.DIRT_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem DIRT_BRICK_WALL = new BlockItem(ModBlocks.DIRT_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
+    public static final BlockItem STONE_TILES = new BlockItem(ModBlocks.STONE_TILES, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem STONE_TILE_SLAB = new BlockItem(ModBlocks.STONE_TILE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem STONE_TILE_STAIRS = new BlockItem(ModBlocks.STONE_TILE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+
     public static final BlockItem POLISHED_CALCITE = new BlockItem(ModBlocks.POLISHED_CALCITE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem POLISHED_CALCITE_SLAB = new BlockItem(ModBlocks.POLISHED_CALCITE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem POLISHED_CALCITE_STAIRS = new BlockItem(ModBlocks.POLISHED_CALCITE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
@@ -73,6 +78,10 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_brick_slab"), DIRT_BRICK_SLAB);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_brick_stairs"), DIRT_BRICK_STAIRS);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_brick_wall"), DIRT_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "stone_tiles"), STONE_TILES);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "stone_tile_slab"), STONE_TILE_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "stone_tile_stairs"), STONE_TILE_STAIRS);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite"), POLISHED_CALCITE);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite_slab"), POLISHED_CALCITE_SLAB);
