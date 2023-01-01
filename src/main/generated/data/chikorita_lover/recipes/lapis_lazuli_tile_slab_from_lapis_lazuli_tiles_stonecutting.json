@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "chikorita_lover:lapis_lazuli_tiles"
+  },
+  "result": "chikorita_lover:lapis_lazuli_tile_slab"
+}

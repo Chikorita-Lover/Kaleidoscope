@@ -199,6 +199,16 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerWaxingRecipe(exporter, ModBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, ModBlocks.WEATHERED_CUT_COPPER_WALL);
             offerWaxingRecipe(exporter, ModBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, ModBlocks.OXIDIZED_CUT_COPPER_WALL);
 
+            ShapedRecipeJsonBuilder.create(ModBlocks.LAPIS_LAZULI_TILES, 16).input('#', Blocks.LAPIS_BLOCK).pattern("##").pattern("##").criterion(hasItem(Blocks.LAPIS_BLOCK), conditionsFromItem(Blocks.LAPIS_BLOCK)).offerTo(exporter);
+            offerSlabRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_SLAB, ModBlocks.LAPIS_LAZULI_TILES);
+            offerStairsRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_STAIRS, ModBlocks.LAPIS_LAZULI_TILES);
+
+            offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILES, Blocks.LAPIS_BLOCK, 4);
+            offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_SLAB, Blocks.LAPIS_BLOCK, 8);
+            offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_SLAB, ModBlocks.LAPIS_LAZULI_TILES, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_STAIRS, Blocks.LAPIS_BLOCK, 4);
+            offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_STAIRS, ModBlocks.LAPIS_LAZULI_TILES);
+
             offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_PRISMARINE, Blocks.PRISMARINE);
             offerSlabRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_SLAB, ModBlocks.POLISHED_PRISMARINE);
             offerStairsRecipe(exporter, ModBlocks.POLISHED_PRISMARINE_STAIRS, ModBlocks.POLISHED_PRISMARINE);

@@ -42,6 +42,10 @@ public class ModBlocks {
     public static final Block WAXED_WEATHERED_CUT_COPPER_WALL = new WallBlock(AbstractBlock.Settings.copy(WAXED_WEATHERED_CUT_COPPER));
     public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = new WallBlock(AbstractBlock.Settings.copy(WAXED_OXIDIZED_CUT_COPPER));
 
+    public static final Block LAPIS_LAZULI_TILES = new Block(FabricBlockSettings.of(Material.METAL, MapColor.LAPIS_BLUE).requiresTool().strength(3.0F, 3.0F));
+    public static final Block LAPIS_LAZULI_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(LAPIS_LAZULI_TILES));
+    public static final Block LAPIS_LAZULI_TILE_STAIRS = new StairsBlock(LAPIS_LAZULI_TILES.getDefaultState(), AbstractBlock.Settings.copy(LAPIS_LAZULI_TILES));
+
     public static final Block POLISHED_PRISMARINE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.DIAMOND_BLUE).strength(1.5F, 6F).sounds(BlockSoundGroup.STONE).requiresTool());
     public static final Block POLISHED_PRISMARINE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(POLISHED_PRISMARINE));
     public static final Block POLISHED_PRISMARINE_STAIRS = new StairsBlock(POLISHED_PRISMARINE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_PRISMARINE));
@@ -105,6 +109,10 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "waxed_exposed_cut_copper_wall"), WAXED_EXPOSED_CUT_COPPER_WALL);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "waxed_weathered_cut_copper_wall"), WAXED_WEATHERED_CUT_COPPER_WALL);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_cut_copper_wall"), WAXED_OXIDIZED_CUT_COPPER_WALL);
+
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tiles"), LAPIS_LAZULI_TILES);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tile_slab"), LAPIS_LAZULI_TILE_SLAB);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tile_stairs"), LAPIS_LAZULI_TILE_STAIRS);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine"), POLISHED_PRISMARINE);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine_slab"), POLISHED_PRISMARINE_SLAB);

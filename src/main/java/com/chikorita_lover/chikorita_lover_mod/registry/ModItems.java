@@ -36,6 +36,10 @@ public class ModItems {
     public static final BlockItem WAXED_WEATHERED_CUT_COPPER_WALL = new BlockItem(ModBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem WAXED_OXIDIZED_CUT_COPPER_WALL = new BlockItem(ModBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
+    public static final BlockItem LAPIS_LAZULI_TILES = new BlockItem(ModBlocks.LAPIS_LAZULI_TILES, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LAPIS_LAZULI_TILE_SLAB = new BlockItem(ModBlocks.LAPIS_LAZULI_TILE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LAPIS_LAZULI_TILE_STAIRS = new BlockItem(ModBlocks.LAPIS_LAZULI_TILE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
     public static final BlockItem POLISHED_PRISMARINE = new BlockItem(ModBlocks.POLISHED_PRISMARINE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem POLISHED_PRISMARINE_SLAB = new BlockItem(ModBlocks.POLISHED_PRISMARINE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem POLISHED_PRISMARINE_STAIRS = new BlockItem(ModBlocks.POLISHED_PRISMARINE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
@@ -101,6 +105,10 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_exposed_cut_copper_wall"), WAXED_EXPOSED_CUT_COPPER_WALL);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_weathered_cut_copper_wall"), WAXED_WEATHERED_CUT_COPPER_WALL);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_cut_copper_wall"), WAXED_OXIDIZED_CUT_COPPER_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tiles"), LAPIS_LAZULI_TILES);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tile_slab"), LAPIS_LAZULI_TILE_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tile_stairs"), LAPIS_LAZULI_TILE_STAIRS);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine"), POLISHED_PRISMARINE);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine_slab"), POLISHED_PRISMARINE_SLAB);
