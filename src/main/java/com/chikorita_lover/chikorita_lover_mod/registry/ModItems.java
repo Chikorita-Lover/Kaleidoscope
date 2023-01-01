@@ -1,7 +1,9 @@
 package com.chikorita_lover.chikorita_lover_mod.registry;
 
 import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
+import com.chikorita_lover.chikorita_lover_mod.item.CakeSliceItem;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -73,6 +75,8 @@ public class ModItems {
     public static final BlockItem WAXED_WEATHERED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
     public static final BlockItem WAXED_OXIDIZED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
 
+    public static final Item CAKE_SLICE = new CakeSliceItem(new Item.Settings().food(ModFoodComponents.CAKE_SLICE).group(ItemGroup.FOOD).maxCount(16));
+
     public static void register(){
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_bricks"), DIRT_BRICKS);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_brick_slab"), DIRT_BRICK_SLAB);
@@ -136,5 +140,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_exposed_copper_trapdoor"), WAXED_EXPOSED_COPPER_TRAPDOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_weathered_copper_trapdoor"), WAXED_WEATHERED_COPPER_TRAPDOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_copper_trapdoor"), WAXED_OXIDIZED_COPPER_TRAPDOOR);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cake_slice"), CAKE_SLICE);
     }
 }

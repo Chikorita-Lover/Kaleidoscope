@@ -2,6 +2,7 @@ package com.chikorita_lover.chikorita_lover_mod;
 
 import com.chikorita_lover.chikorita_lover_mod.registry.ModBlockFamilies;
 import com.chikorita_lover.chikorita_lover_mod.registry.ModBlocks;
+import com.chikorita_lover.chikorita_lover_mod.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -51,7 +52,9 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
         }
 
         @Override
-        public void generateItemModels(ItemModelGenerator itemModelGenerator) {}
+        public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+            itemModelGenerator.register(ModItems.CAKE_SLICE, Models.GENERATED);
+        }
 
         public final void registerItemModel(BlockStateModelGenerator blockStateModelGenerator, Block block, String texturePath) {
             Item item = block.asItem();

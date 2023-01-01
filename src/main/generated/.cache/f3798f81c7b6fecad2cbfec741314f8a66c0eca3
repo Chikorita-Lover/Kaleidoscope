@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-28T23:06:01.9120944	Models
+// 1.19.2	2022-12-30T23:30:42.8883713	Models
 694c5308b8f8470f68ffeb2c5709c3f7820ac882 assets\chikorita_lover\blockstates\cracked_red_nether_bricks.json
 e7015f10df30bb51299bed20a5b272ea8970493b assets\chikorita_lover\models\block\stone_tile_slab.json
 ce10dca02db7477db9e3a302734b9ae59117ecf5 assets\chikorita_lover\blockstates\waxed_exposed_cut_copper_wall.json
@@ -73,6 +73,7 @@ cab1656354f0685c15bafa057af5c1153621759d assets\chikorita_lover\models\block\wax
 981653e3ffc2fed850a9b65ab99ac79cec55d854 assets\chikorita_lover\blockstates\polished_calcite_slab.json
 61d3b739fdefb7c066519e094e5189708a9bba6a assets\chikorita_lover\blockstates\polished_prismarine_wall.json
 cab1656354f0685c15bafa057af5c1153621759d assets\chikorita_lover\models\block\weathered_cut_copper_wall_post.json
+4e031c8e00328de343006cf38dd1d8edb9db0ddb assets\chikorita_lover\models\item\cake_slice.json
 10561022c768bea20b388d18957b68a36620faa2 assets\chikorita_lover\blockstates\oxidized_copper_trapdoor.json
 0a4b829d5805f14961e06ad61c1aa13e110e9fbf assets\chikorita_lover\models\block\weathered_cut_copper_wall_side.json
 e54b6cc3b2744821e69cea9b782cfaae9bb1d9fd assets\chikorita_lover\models\block\red_nether_brick_fence_inventory.json
