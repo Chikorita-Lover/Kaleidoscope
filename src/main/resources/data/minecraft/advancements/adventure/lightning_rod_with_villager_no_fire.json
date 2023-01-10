@@ -1,0 +1,56 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:lightning_rod"
+    },
+    "title": {
+      "translate": "advancements.adventure.lightning_rod_with_villager_no_fire.title"
+    },
+    "description": {
+      "translate": "advancements.adventure.lightning_rod_with_villager_no_fire.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:adventure/trade",
+  "criteria": {
+    "lightning_rod_with_villager_no_fire": {
+      "trigger": "minecraft:lightning_strike",
+      "conditions": {
+        "lightning": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "lightning",
+                "blocks_set_on_fire": 0
+              },
+              "distance": {
+                "absolute": {
+                  "max": 30
+                }
+              }
+            }
+          }
+        ],
+        "bystander": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:villager"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lightning_rod_with_villager_no_fire"
+    ]
+  ]
+}
