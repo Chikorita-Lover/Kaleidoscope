@@ -8,7 +8,9 @@
     "FarmlandBlockMixin",
     "ItemMixin"
   ],
-  "client": [],
+  "client": [
+    "ArmorItemMixin"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
