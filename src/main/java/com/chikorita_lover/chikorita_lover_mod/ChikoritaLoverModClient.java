@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.FoodComponent;
+import net.minecraft.item.HorseArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
@@ -45,6 +46,10 @@ public class ChikoritaLoverModClient implements ClientModInitializer {
             if (stack.getItem().isFood()) {
                 buildFoodTooltip(stack, tooltip);
             }
+
+            if (stack.getItem() instanceof HorseArmorItem) {
+                buildHorseArmorTooltip(stack, tooltip);
+            }
         });
     }
 
@@ -73,6 +78,24 @@ public class ChikoritaLoverModClient implements ClientModInitializer {
             list.add(Text.translatable("attribute.modifier.plus.0", saturationTooltip).formatted(Formatting.BLUE));
         } else if (foodSaturation < 0.0) {
             list.add(Text.translatable("attribute.modifier.take.0", saturationTooltip).formatted(Formatting.RED));
+        }
+    }
+
+    public void buildHorseArmorTooltip(ItemStack stack, List<Text> list) {
+        HorseArmorItem horseArmorItem = (HorseArmorItem) stack.getItem();
+        int armor = horseArmorItem.getBonus();
+
+        if (armor == 0.0) return;
+
+        Object[] armorTooltip = new Object[]{Math.abs(armor), Text.translatable("attribute.name.generic.armor")};
+
+        list.add(ScreenTexts.EMPTY);
+        list.add(Text.translatable("item.modifiers.horse").formatted(Formatting.GRAY));
+
+        if (armor > 0.0) {
+            list.add(Text.translatable("attribute.modifier.plus.0", armorTooltip).formatted(Formatting.BLUE));
+        } else if (armor < 0.0) {
+            list.add(Text.translatable("attribute.modifier.take.0", armorTooltip).formatted(Formatting.RED));
         }
     }
 }
