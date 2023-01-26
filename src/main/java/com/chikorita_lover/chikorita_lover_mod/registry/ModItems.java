@@ -2,11 +2,10 @@ package com.chikorita_lover.chikorita_lover_mod.registry;
 
 import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
 import com.chikorita_lover.chikorita_lover_mod.item.CakeSliceItem;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -83,7 +82,7 @@ public class ModItems {
 
     public static final Item CAKE_SLICE = new CakeSliceItem(new Item.Settings().food(ModFoodComponents.CAKE_SLICE).group(ItemGroup.FOOD).maxCount(16));
 
-    public static void register(){
+    public static void register() {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_bricks"), DIRT_BRICKS);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_brick_slab"), DIRT_BRICK_SLAB);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_brick_stairs"), DIRT_BRICK_STAIRS);
@@ -154,5 +153,9 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_copper_trapdoor"), WAXED_OXIDIZED_COPPER_TRAPDOOR);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cake_slice"), CAKE_SLICE);
+    }
+
+    public static void registerMaxItemCounts() {
+        MaxItemCountRegistry.registerMaxItemCount(Items.POTION, 16);
     }
 }
