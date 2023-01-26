@@ -80,7 +80,7 @@ public class ModItems {
     public static final BlockItem WAXED_WEATHERED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
     public static final BlockItem WAXED_OXIDIZED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
 
-    public static final Item CAKE_SLICE = new CakeSliceItem(new Item.Settings().food(ModFoodComponents.CAKE_SLICE).group(ItemGroup.FOOD).maxCount(16));
+    public static final Item CAKE_SLICE = new CakeSliceItem(new Item.Settings().food(ModFoodComponents.CAKE_SLICE).group(ItemGroup.FOOD));
 
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "dirt_bricks"), DIRT_BRICKS);
@@ -156,6 +156,9 @@ public class ModItems {
     }
 
     public static void registerMaxItemCounts() {
+        MaxItemCountRegistry.registerMaxItemCount(Items.CAKE, 16);
+        MaxItemCountRegistry.registerMaxItemCount(Items.EGG, 64);
         MaxItemCountRegistry.registerMaxItemCount(Items.POTION, 16);
+        MaxItemCountRegistry.registerMaxItemCount(Items.SNOWBALL, 64);
     }
 }
