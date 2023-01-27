@@ -16,6 +16,9 @@ import net.minecraft.village.VillagerProfession;
 
 public class ModTradeOffers {
     public static void register() {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 3, factories -> {
+            factories.add(new TradeOffers.SellItemFactory(ModItems.CHAINMAIL_HORSE_ARMOR, 3, 1, 12, 10));
+        });
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 3, factories -> {
             factories.add(new TradeOffers.BuyForOneEmeraldFactory(Blocks.CALCITE, 16, 16, 20));
             factories.add(new TradeOffers.SellItemFactory(ModBlocks.POLISHED_CALCITE, 1, 4, 16, 10));

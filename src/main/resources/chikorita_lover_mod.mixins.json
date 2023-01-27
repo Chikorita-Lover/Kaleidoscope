@@ -6,6 +6,7 @@
   "mixins": [
     "CakeBlockMixin",
     "FarmlandBlockMixin",
+    "HorseArmorItemMixin",
     "ItemMixin"
   ],
   "client": [

@@ -3,6 +3,7 @@ package com.chikorita_lover.chikorita_lover_mod.registry;
 import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
 import com.chikorita_lover.chikorita_lover_mod.item.CakeSliceItem;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.HorseArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
@@ -18,7 +19,6 @@ public class ModItems {
     public static final BlockItem STONE_TILES = new BlockItem(ModBlocks.STONE_TILES, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem STONE_TILE_SLAB = new BlockItem(ModBlocks.STONE_TILE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem STONE_TILE_STAIRS = new BlockItem(ModBlocks.STONE_TILE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
-
 
     public static final BlockItem POLISHED_CALCITE = new BlockItem(ModBlocks.POLISHED_CALCITE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem POLISHED_CALCITE_SLAB = new BlockItem(ModBlocks.POLISHED_CALCITE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
@@ -79,6 +79,8 @@ public class ModItems {
     public static final BlockItem WAXED_EXPOSED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
     public static final BlockItem WAXED_WEATHERED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
     public static final BlockItem WAXED_OXIDIZED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+
+    public static final Item CHAINMAIL_HORSE_ARMOR = new HorseArmorItem(4, "chainmail", new Item.Settings().maxCount(1).group(ItemGroup.MISC));
 
     public static final Item CAKE_SLICE = new CakeSliceItem(new Item.Settings().food(ModFoodComponents.CAKE_SLICE).group(ItemGroup.FOOD));
 
@@ -151,6 +153,8 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_exposed_copper_trapdoor"), WAXED_EXPOSED_COPPER_TRAPDOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_weathered_copper_trapdoor"), WAXED_WEATHERED_COPPER_TRAPDOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_copper_trapdoor"), WAXED_OXIDIZED_COPPER_TRAPDOOR);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chainmail_horse_armor"), CHAINMAIL_HORSE_ARMOR);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cake_slice"), CAKE_SLICE);
     }

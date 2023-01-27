@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "chikorita_lover:chainmail_horse_armor"
+  },
+  "result": "minecraft:iron_nugget"
+}
