@@ -2,14 +2,14 @@ package com.chikorita_lover.chikorita_lover_mod;
 
 import com.chikorita_lover.chikorita_lover_mod.client.gui.screen.ingame.KilnScreen;
 import com.chikorita_lover.chikorita_lover_mod.registry.ModBlocks;
+import com.chikorita_lover.chikorita_lover_mod.registry.ModItems;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.HorseArmorItem;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -20,6 +20,8 @@ public class ChikoritaLoverModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        ModItems.registerColorProviders();
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.COPPER_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EXPOSED_COPPER_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WEATHERED_COPPER_DOOR, RenderLayer.getCutout());

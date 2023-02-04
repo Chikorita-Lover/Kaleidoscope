@@ -2,11 +2,9 @@ package com.chikorita_lover.chikorita_lover_mod.registry;
 
 import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
 import com.chikorita_lover.chikorita_lover_mod.item.CakeSliceItem;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.HorseArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Items;
+import com.chikorita_lover.chikorita_lover_mod.mixin.BundleItemMixin;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -157,6 +155,10 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chainmail_horse_armor"), CHAINMAIL_HORSE_ARMOR);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cake_slice"), CAKE_SLICE);
+    }
+
+    public static void registerColorProviders() {
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem)stack.getItem()).getColor(stack), Items.BUNDLE);
     }
 
     public static void registerMaxItemCounts() {

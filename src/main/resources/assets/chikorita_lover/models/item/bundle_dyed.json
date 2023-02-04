@@ -1,0 +1,7 @@
+{
+  "parent": "item/bundle",
+  "textures": {
+    "layer0": "chikorita_lover:item/bundle_dyed",
+    "layer1": "chikorita_lover:item/bundle_dyed_overlay"
+  }
+}

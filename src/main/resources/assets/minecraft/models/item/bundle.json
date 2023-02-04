@@ -1,0 +1,27 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "item/bundle"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "filled": 0.0000001
+      },
+      "model": "item/bundle_filled"
+    },
+    {
+      "predicate": {
+        "dyed": 1
+      },
+      "model": "chikorita_lover:item/bundle_dyed"
+    },
+    {
+      "predicate": {
+        "dyed": 1,
+        "filled": 0.0000001
+      },
+      "model": "chikorita_lover:item/bundle_dyed_filled"
+    }
+  ]
+}

@@ -44,9 +44,11 @@ public class ChikoritaLoverMod implements ModInitializer {
 		ModBlocks.register();
 		ModBlocks.registerOxidizablePairs();
 		ModBlockEntities.register();
+		ModCauldronBehavior.register();
 		ModEnchantments.register();
 		ModItems.register();
 		ModItems.registerMaxItemCounts();
+		new ModModelPredicateProvider();
 		ModSoundEvents.register();
 		ModStats.register();
 		ModTradeOffers.register();
