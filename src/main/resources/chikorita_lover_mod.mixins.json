@@ -7,7 +7,6 @@
     "BundleItemMixin",
     "CakeBlockMixin",
     "FarmlandBlockMixin",
-    "HorseArmorItemMixin",
     "ItemMixin"
   ],
   "client": [
