@@ -57,8 +57,8 @@ public class ChikoritaLoverMod implements ModInitializer {
 	}
 
 	public void registerLootTableEvents() {
-		addLootTablePool(1, 1, 0.31F, LootTables.SIMPLE_DUNGEON_CHEST, ModItems.CHAINMAIL_HORSE_ARMOR);
-		addLootTablePool(1, 1, 0.375F, LootTables.VILLAGE_ARMORER_CHEST, ModItems.CHAINMAIL_HORSE_ARMOR);
+		addLootTablePool(1, 1, 0.294F, LootTables.SIMPLE_DUNGEON_CHEST, ModItems.CHAINMAIL_HORSE_ARMOR);
+		addLootTablePool(1, 1, 0.318F, LootTables.VILLAGE_ARMORER_CHEST, ModItems.CHAINMAIL_HORSE_ARMOR);
 	}
 
 	private void addLootTablePool(int minRolls, int maxRolls, float chance, Identifier lootTable, ItemConvertible item) {
