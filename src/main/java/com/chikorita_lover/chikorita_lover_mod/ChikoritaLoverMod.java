@@ -42,6 +42,7 @@ public class ChikoritaLoverMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModBlocks.register();
+		ModBlocks.registerMossyPairs();
 		ModBlocks.registerOxidizablePairs();
 		ModBlockEntities.register();
 		ModCauldronBehavior.register();

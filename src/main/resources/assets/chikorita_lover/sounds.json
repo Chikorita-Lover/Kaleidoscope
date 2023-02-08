@@ -266,5 +266,14 @@
       "chikorita_lover:block/polished_calcite/step5",
       "chikorita_lover:block/polished_calcite/step6"
     ]
+  },
+  "item.hoe.scrape": {
+    "subtitle": "subtitles.item.hoe.scrape",
+    "sounds": [
+      "chikorita_lover:item/hoe/scrape1",
+      "chikorita_lover:item/hoe/scrape2",
+      "chikorita_lover:item/hoe/scrape3",
+      "chikorita_lover:item/hoe/scrape4"
+    ]
   }
 }

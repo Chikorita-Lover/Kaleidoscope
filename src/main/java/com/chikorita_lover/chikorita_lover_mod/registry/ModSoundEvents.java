@@ -28,8 +28,10 @@ public class ModSoundEvents {
     public static final SoundEvent BLOCK_POLISHED_CALCITE_PLACE = register("block.polished_calcite.place");
     public static final SoundEvent BLOCK_POLISHED_CALCITE_STEP = register("block.polished_calcite.step");
 
+    public static final SoundEvent ITEM_HOE_SCRAPE = register("item.hoe.scrape");
+
     private static SoundEvent register(String id) {
-        return (SoundEvent)Registry.register(Registry.SOUND_EVENT, new Identifier(ChikoritaLoverMod.MODID, id), new SoundEvent(new Identifier(ChikoritaLoverMod.MODID, id)));
+        return Registry.register(Registry.SOUND_EVENT, new Identifier(ChikoritaLoverMod.MODID, id), new SoundEvent(new Identifier(ChikoritaLoverMod.MODID, id)));
     }
 
     public static void register() {}

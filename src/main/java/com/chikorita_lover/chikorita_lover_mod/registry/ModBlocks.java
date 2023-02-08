@@ -158,6 +158,20 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_copper_trapdoor"), WAXED_OXIDIZED_COPPER_TRAPDOOR);
     }
 
+    public static void registerMossyPairs() {
+        MossyBlocksRegistry.registerMossyBlockPair(MOSSY_COBBLESTONE, COBBLESTONE);
+        MossyBlocksRegistry.registerMossyBlockPair(MOSSY_COBBLESTONE_SLAB, COBBLESTONE_SLAB);
+        MossyBlocksRegistry.registerMossyBlockPair(MOSSY_COBBLESTONE_STAIRS, COBBLESTONE_STAIRS);
+        MossyBlocksRegistry.registerMossyBlockPair(MOSSY_COBBLESTONE_WALL, COBBLESTONE_WALL);
+
+        MossyBlocksRegistry.registerMossyBlockPair(MOSSY_STONE_BRICKS, STONE_BRICKS);
+        MossyBlocksRegistry.registerMossyBlockPair(MOSSY_STONE_BRICK_SLAB, STONE_BRICK_SLAB);
+        MossyBlocksRegistry.registerMossyBlockPair(MOSSY_STONE_BRICK_STAIRS, STONE_BRICK_STAIRS);
+        MossyBlocksRegistry.registerMossyBlockPair(MOSSY_STONE_BRICK_WALL, STONE_BRICK_WALL);
+
+        MossyBlocksRegistry.registerMossyBlockPair(INFESTED_MOSSY_STONE_BRICKS, INFESTED_STONE_BRICKS);
+    }
+
     public static void registerOxidizablePairs() {
         OxidizableBlocksRegistry.registerOxidizableBlockPair(CUT_COPPER_WALL, EXPOSED_CUT_COPPER_WALL);
         OxidizableBlocksRegistry.registerOxidizableBlockPair(EXPOSED_CUT_COPPER_WALL, WEATHERED_CUT_COPPER_WALL);

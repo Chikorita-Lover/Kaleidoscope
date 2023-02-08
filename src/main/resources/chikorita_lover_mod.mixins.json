@@ -8,6 +8,7 @@
     "CakeBlockMixin",
     "FarmlandBlockMixin",
     "FlowerPotBlockMixin",
+    "HoeItemMixin",
     "ItemMixin"
   ],
   "client": [
