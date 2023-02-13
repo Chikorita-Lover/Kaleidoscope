@@ -267,6 +267,13 @@
       "chikorita_lover:block/polished_calcite/step6"
     ]
   },
+  "entity.snowball.hit": {
+    "subtitle": "subtitles.entity.snowball.hit",
+    "sounds": [
+      "chikorita_lover:entity/snowball/hit1",
+      "chikorita_lover:entity/snowball/hit2"
+    ]
+  },
   "item.hoe.scrape": {
     "subtitle": "subtitles.item.hoe.scrape",
     "sounds": [

@@ -28,6 +28,8 @@ public class ModSoundEvents {
     public static final SoundEvent BLOCK_POLISHED_CALCITE_PLACE = register("block.polished_calcite.place");
     public static final SoundEvent BLOCK_POLISHED_CALCITE_STEP = register("block.polished_calcite.step");
 
+    public static final SoundEvent ENTITY_SNOWBALL_HIT = register("entity.snowball.hit");
+
     public static final SoundEvent ITEM_HOE_SCRAPE = register("item.hoe.scrape");
 
     private static SoundEvent register(String id) {

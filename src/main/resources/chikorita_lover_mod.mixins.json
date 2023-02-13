@@ -10,7 +10,8 @@
     "FlowerPotBlockMixin",
     "FoodComponentMixin",
     "HoeItemMixin",
-    "ItemMixin"
+    "ItemMixin",
+    "SnowballEntityMixin"
   ],
   "client": [
     "ArmorItemMixin"
