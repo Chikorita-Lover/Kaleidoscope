@@ -6,6 +6,7 @@ import com.chikorita_lover.chikorita_lover_mod.block.CopperTrapdoorBlock;
 import com.chikorita_lover.chikorita_lover_mod.block.KilnBlock;
 import com.chikorita_lover.chikorita_lover_mod.block.OxidizableWallBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
@@ -63,9 +64,11 @@ public class ModBlocks {
 
     public static final Block CHISELED_PURPUR = new Block(AbstractBlock.Settings.copy(PURPUR_BLOCK));
 
-    public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.5F).luminance(createLightLevelFromLitBlockState(13)));
+    public static final Block STICK_BUNDLE = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).sounds(ModBlockSoundGroup.STICK_BUNDLE).strength(2.0F));
 
     public static final Block RED_NETHER_BRICK_FENCE = new FenceBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.DARK_RED).requiresTool().strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS));
+
+    public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.5F).luminance(createLightLevelFromLitBlockState(13)));
 
     public static final Block COPPER_DOOR = new CopperDoorBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.of(Material.METAL, MapColor.ORANGE).requiresTool().strength(3.0F).sounds(BlockSoundGroup.COPPER).nonOpaque());
     public static final Block EXPOSED_COPPER_DOOR = new CopperDoorBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.of(Material.METAL, MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.0F).sounds(BlockSoundGroup.COPPER).nonOpaque());
@@ -133,6 +136,8 @@ public class ModBlocks {
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "chiseled_purpur"), CHISELED_PURPUR);
 
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "stick_bundle"), STICK_BUNDLE);
+
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "kiln"), KILN);
@@ -156,6 +161,10 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "waxed_exposed_copper_trapdoor"), WAXED_EXPOSED_COPPER_TRAPDOOR);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "waxed_weathered_copper_trapdoor"), WAXED_WEATHERED_COPPER_TRAPDOOR);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_copper_trapdoor"), WAXED_OXIDIZED_COPPER_TRAPDOOR);
+    }
+
+    public static void registerFlammableBlocks() {
+        FlammableBlockRegistry.getDefaultInstance().add(STICK_BUNDLE, 5, 5);
     }
 
     public static void registerMossyPairs() {

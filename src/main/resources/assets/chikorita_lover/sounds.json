@@ -267,6 +267,24 @@
       "chikorita_lover:block/polished_calcite/step6"
     ]
   },
+  "block.stick_bundle.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "chikorita_lover:block/stick_bundle/break1",
+      "chikorita_lover:block/stick_bundle/break2",
+      "chikorita_lover:block/stick_bundle/break3",
+      "chikorita_lover:block/stick_bundle/break4"
+    ]
+  },
+  "block.stick_bundle.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "chikorita_lover:block/stick_bundle/break1",
+      "chikorita_lover:block/stick_bundle/break2",
+      "chikorita_lover:block/stick_bundle/break3",
+      "chikorita_lover:block/stick_bundle/break4"
+    ]
+  },
   "entity.snowball.hit": {
     "subtitle": "subtitles.entity.snowball.hit",
     "sounds": [

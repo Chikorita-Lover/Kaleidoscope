@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "chikorita_lover:block/stick_bundle_top",
+    "side": "chikorita_lover:block/stick_bundle"
+  }
+}

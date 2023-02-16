@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.15,
+  "group": "charcoal",
+  "ingredient": {
+    "item": "chikorita_lover:stick_bundle"
+  },
+  "result": "minecraft:charcoal"
+}

@@ -42,12 +42,14 @@ public class ChikoritaLoverMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModBlocks.register();
+		ModBlocks.registerFlammableBlocks();
 		ModBlocks.registerMossyPairs();
 		ModBlocks.registerOxidizablePairs();
 		ModBlockEntities.register();
 		ModCauldronBehavior.register();
 		ModEnchantments.register();
 		ModItems.register();
+		ModItems.registerFuels();
 		ModItems.registerMaxItemCounts();
 		new ModModelPredicateProvider();
 		ModSoundEvents.register();

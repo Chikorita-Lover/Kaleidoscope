@@ -4,6 +4,7 @@ import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
 import com.chikorita_lover.chikorita_lover_mod.item.CakeSliceItem;
 import com.chikorita_lover.chikorita_lover_mod.mixin.BundleItemMixin;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -53,6 +54,8 @@ public class ModItems {
     public static final BlockItem END_STONE_PILLAR = new BlockItem(ModBlocks.END_STONE_PILLAR, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
     public static final BlockItem CHISELED_PURPUR = new BlockItem(ModBlocks.CHISELED_PURPUR, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem STICK_BUNDLE = new BlockItem(ModBlocks.STICK_BUNDLE, new Item.Settings().group(ItemGroup.DECORATIONS));
 
     public static final BlockItem RED_NETHER_BRICK_FENCE = new BlockItem(ModBlocks.RED_NETHER_BRICK_FENCE, new Item.Settings().group(ItemGroup.DECORATIONS));
 
@@ -128,6 +131,8 @@ public class ModItems {
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chiseled_purpur"), CHISELED_PURPUR);
 
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "stick_bundle"), STICK_BUNDLE);
+
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "kiln"), KILN);
@@ -159,6 +164,10 @@ public class ModItems {
 
     public static void registerColorProviders() {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem)stack.getItem()).getColor(stack), Items.BUNDLE);
+    }
+
+    public static void registerFuels() {
+        FuelRegistry.INSTANCE.add(ModBlocks.STICK_BUNDLE, 1000);
     }
 
     public static void registerMaxItemCounts() {
