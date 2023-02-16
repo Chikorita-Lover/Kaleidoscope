@@ -4,8 +4,12 @@ import com.chikorita_lover.chikorita_lover_mod.recipe.KilnCookingRecipe;
 import com.chikorita_lover.chikorita_lover_mod.registry.*;
 import com.chikorita_lover.chikorita_lover_mod.screen.KilnScreenHandler;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.mob.EndermanEntity;
+import net.minecraft.entity.mob.Monster;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
@@ -57,6 +61,12 @@ public class ChikoritaLoverMod implements ModInitializer {
 		ModTradeOffers.register();
 
 		registerLootTableEvents();
+
+		ServerEntityEvents.ENTITY_LOAD.register(((entity, world) -> {
+			if (entity instanceof EndermanEntity endermanEntity) {
+				endermanEntity.experiencePoints = Monster.STRONG_MONSTER_XP;
+			}
+		}));
 	}
 
 	public void registerLootTableEvents() {
