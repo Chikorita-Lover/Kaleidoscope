@@ -11,6 +11,7 @@
     "FoodComponentMixin",
     "HoeItemMixin",
     "ItemMixin",
+    "LivingEntityMixin",
     "SnowballEntityMixin"
   ],
   "client": [
