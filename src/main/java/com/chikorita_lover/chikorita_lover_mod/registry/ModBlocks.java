@@ -72,6 +72,10 @@ public class ModBlocks {
 
     public static final Block CHISELED_PURPUR = new Block(AbstractBlock.Settings.copy(PURPUR_BLOCK));
 
+    public static final Block SMOOTH_BASALT_SLAB = new SlabBlock(AbstractBlock.Settings.copy(SMOOTH_BASALT));
+    public static final Block SMOOTH_BASALT_STAIRS = new StairsBlock(SMOOTH_BASALT.getDefaultState(), AbstractBlock.Settings.copy(SMOOTH_BASALT));
+    public static final Block SMOOTH_BASALT_WALL = new WallBlock(AbstractBlock.Settings.copy(SMOOTH_BASALT));
+
     public static final Block STICK_BUNDLE = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).sounds(ModBlockSoundGroup.STICK_BUNDLE).strength(2.0F));
 
     public static final Block RED_NETHER_BRICK_FENCE = new FenceBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.DARK_RED).requiresTool().strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS));
@@ -151,6 +155,10 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "end_stone_pillar"), END_STONE_PILLAR);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "chiseled_purpur"), CHISELED_PURPUR);
+
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "smooth_basalt_slab"), SMOOTH_BASALT_SLAB);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "smooth_basalt_stairs"), SMOOTH_BASALT_STAIRS);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "smooth_basalt_wall"), SMOOTH_BASALT_WALL);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "stick_bundle"), STICK_BUNDLE);
 

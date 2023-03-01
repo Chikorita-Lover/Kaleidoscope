@@ -63,6 +63,10 @@ public class ModItems {
 
     public static final BlockItem CHISELED_PURPUR = new BlockItem(ModBlocks.CHISELED_PURPUR, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
+    public static final BlockItem SMOOTH_BASALT_SLAB = new BlockItem(ModBlocks.SMOOTH_BASALT_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem SMOOTH_BASALT_STAIRS = new BlockItem(ModBlocks.SMOOTH_BASALT_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem SMOOTH_BASALT_WALL = new BlockItem(ModBlocks.SMOOTH_BASALT_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
     public static final BlockItem STICK_BUNDLE = new BlockItem(ModBlocks.STICK_BUNDLE, new Item.Settings().group(ItemGroup.DECORATIONS));
 
     public static final BlockItem RED_NETHER_BRICK_FENCE = new BlockItem(ModBlocks.RED_NETHER_BRICK_FENCE, new Item.Settings().group(ItemGroup.DECORATIONS));
@@ -146,6 +150,10 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "end_stone_pillar"), END_STONE_PILLAR);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chiseled_purpur"), CHISELED_PURPUR);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "smooth_basalt_slab"), SMOOTH_BASALT_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "smooth_basalt_stairs"), SMOOTH_BASALT_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "smooth_basalt_wall"), SMOOTH_BASALT_WALL);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "stick_bundle"), STICK_BUNDLE);
 
