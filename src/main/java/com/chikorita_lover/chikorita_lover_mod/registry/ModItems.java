@@ -28,6 +28,10 @@ public class ModItems {
     public static final BlockItem POLISHED_CALCITE_STAIRS = new BlockItem(ModBlocks.POLISHED_CALCITE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem POLISHED_CALCITE_WALL = new BlockItem(ModBlocks.POLISHED_CALCITE_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
+    public static final BlockItem TUFF_SLAB = new BlockItem(ModBlocks.TUFF_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem TUFF_STAIRS = new BlockItem(ModBlocks.TUFF_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem TUFF_WALL = new BlockItem(ModBlocks.TUFF_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
     public static final BlockItem CUT_COPPER_WALL = new BlockItem(ModBlocks.CUT_COPPER_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem EXPOSED_CUT_COPPER_WALL = new BlockItem(ModBlocks.EXPOSED_CUT_COPPER_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem WEATHERED_CUT_COPPER_WALL = new BlockItem(ModBlocks.WEATHERED_CUT_COPPER_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
@@ -107,6 +111,10 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite_slab"), POLISHED_CALCITE_SLAB);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite_stairs"), POLISHED_CALCITE_STAIRS);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite_wall"), POLISHED_CALCITE_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "tuff_slab"), TUFF_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "tuff_stairs"), TUFF_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "tuff_wall"), TUFF_WALL);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cut_copper_wall"), CUT_COPPER_WALL);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "exposed_cut_copper_wall"), EXPOSED_CUT_COPPER_WALL);

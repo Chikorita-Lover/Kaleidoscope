@@ -15,6 +15,7 @@ public class ModBlockFamilies {
     public static final BlockFamily STONE_TILES;
     public static final BlockFamily CALCITE;
     public static final BlockFamily POLISHED_CALCITE;
+    public static final BlockFamily TUFF;
     public static final BlockFamily CUT_COPPER;
     public static final BlockFamily EXPOSED_CUT_COPPER;
     public static final BlockFamily WEATHERED_CUT_COPPER;
@@ -51,6 +52,7 @@ public class ModBlockFamilies {
         STONE_TILES = register(ModBlocks.STONE_TILES).slab(ModBlocks.STONE_TILE_SLAB).stairs(ModBlocks.STONE_TILE_STAIRS).build();
         CALCITE = register(Blocks.CALCITE).slab(ModBlocks.CALCITE_SLAB).stairs(ModBlocks.CALCITE_STAIRS).wall(ModBlocks.CALCITE_WALL).build();
         POLISHED_CALCITE = register(ModBlocks.POLISHED_CALCITE).slab(ModBlocks.POLISHED_CALCITE_SLAB).stairs(ModBlocks.POLISHED_CALCITE_STAIRS).wall(ModBlocks.POLISHED_CALCITE_WALL).build();
+        TUFF = register(Blocks.TUFF).slab(ModBlocks.TUFF_SLAB).stairs(ModBlocks.TUFF_STAIRS).wall(ModBlocks.TUFF_WALL).build();
 
         CUT_COPPER = register(Blocks.CUT_COPPER).wall(ModBlocks.CUT_COPPER_WALL).noGenerateModels().build();
         EXPOSED_CUT_COPPER = register(Blocks.EXPOSED_CUT_COPPER).wall(ModBlocks.EXPOSED_CUT_COPPER_WALL).noGenerateModels().build();
