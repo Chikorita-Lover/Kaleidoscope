@@ -24,14 +24,18 @@ public class ModBlocks {
     public static final Block DIRT_BRICK_STAIRS = new StairsBlock(DIRT_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(DIRT_BRICKS));
     public static final Block DIRT_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(DIRT_BRICKS));
 
+    public static final Block STONE_TILES = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6F));
+    public static final Block STONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(STONE_TILES));
+    public static final Block STONE_TILE_STAIRS = new StairsBlock(STONE_TILES.getDefaultState(), AbstractBlock.Settings.copy(STONE_TILES));
+
+    public static final Block CALCITE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(CALCITE));
+    public static final Block CALCITE_STAIRS = new StairsBlock(CALCITE.getDefaultState(), AbstractBlock.Settings.copy(CALCITE));
+    public static final Block CALCITE_WALL = new WallBlock(AbstractBlock.Settings.copy(CALCITE));
+
     public static final Block POLISHED_CALCITE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).strength(1.5F, 6F).sounds(BlockSoundGroup.CALCITE).requiresTool());
     public static final Block POLISHED_CALCITE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE));
     public static final Block POLISHED_CALCITE_STAIRS = new StairsBlock(POLISHED_CALCITE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_CALCITE));
     public static final Block POLISHED_CALCITE_WALL = new WallBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE));
-
-    public static final Block STONE_TILES = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6F));
-    public static final Block STONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(STONE_TILES));
-    public static final Block STONE_TILE_STAIRS = new StairsBlock(STONE_TILES.getDefaultState(), AbstractBlock.Settings.copy(STONE_TILES));
 
     public static final Block CUT_COPPER_WALL = new OxidizableWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(CUT_COPPER));
     public static final Block EXPOSED_CUT_COPPER_WALL = new OxidizableWallBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(EXPOSED_CUT_COPPER));
@@ -99,6 +103,10 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "stone_tiles"), STONE_TILES);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "stone_tile_slab"), STONE_TILE_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "stone_tile_stairs"), STONE_TILE_STAIRS);
+
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "calcite_slab"), CALCITE_SLAB);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "calcite_stairs"), CALCITE_STAIRS);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "calcite_wall"), CALCITE_WALL);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite"), POLISHED_CALCITE);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite_slab"), POLISHED_CALCITE_SLAB);
