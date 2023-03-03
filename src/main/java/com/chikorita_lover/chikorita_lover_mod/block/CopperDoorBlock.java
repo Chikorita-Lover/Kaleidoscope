@@ -1,18 +1,14 @@
 package com.chikorita_lover.chikorita_lover_mod.block;
 
-import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
 import com.chikorita_lover.chikorita_lover_mod.registry.ModBlockTags;
 import com.chikorita_lover.chikorita_lover_mod.registry.ModSoundEvents;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.DoorHinge;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.tag.TagKey;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -20,8 +16,6 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
-
-import java.util.Iterator;
 
 public class CopperDoorBlock extends DoorBlock implements Oxidizable {
     private final OxidationLevel oxidationLevel;
@@ -35,8 +29,8 @@ public class CopperDoorBlock extends DoorBlock implements Oxidizable {
         return switch (this.oxidationLevel) {
             case UNAFFECTED -> 0;
             case EXPOSED -> 2;
-            case WEATHERED -> 4;
-            case OXIDIZED -> 6; //Unused
+            case WEATHERED -> 3;
+            case OXIDIZED -> 4;
         };
     }
 
@@ -63,14 +57,10 @@ public class CopperDoorBlock extends DoorBlock implements Oxidizable {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (this.oxidationLevel == Oxidizable.OxidationLevel.OXIDIZED) {
-            return ActionResult.PASS;
-        } else {
-            world.createAndScheduleBlockTick(pos, this, getDelay());
-            this.playOpenCloseSound(world, pos, !this.isOpen(state));
-            world.emitGameEvent(player, this.isOpen(state) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
-            return ActionResult.success(world.isClient);
-        }
+        world.createAndScheduleBlockTick(pos, this, getDelay());
+        this.playOpenCloseSound(world, pos, !this.isOpen(state));
+        world.emitGameEvent(player, this.isOpen(state) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
+        return ActionResult.success(world.isClient);
     }
 
     @Override

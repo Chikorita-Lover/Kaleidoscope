@@ -27,8 +27,8 @@ public class CopperTrapdoorBlock extends TrapdoorBlock implements Oxidizable {
         return switch (this.oxidationLevel) {
             case UNAFFECTED -> 0;
             case EXPOSED -> 2;
-            case WEATHERED -> 4;
-            case OXIDIZED -> 6; //Unused
+            case WEATHERED -> 3;
+            case OXIDIZED -> 4;
         };
     }
 
@@ -43,13 +43,9 @@ public class CopperTrapdoorBlock extends TrapdoorBlock implements Oxidizable {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (this.oxidationLevel == Oxidizable.OxidationLevel.OXIDIZED) {
-            return ActionResult.PASS;
-        } else {
-            world.createAndScheduleBlockTick(pos, this, getDelay());
-            this.playToggleSound(player, world, pos, !state.get(OPEN));
-            return ActionResult.success(world.isClient);
-        }
+        world.createAndScheduleBlockTick(pos, this, getDelay());
+        this.playToggleSound(player, world, pos, !state.get(OPEN));
+        return ActionResult.success(world.isClient);
     }
 
     @Override
