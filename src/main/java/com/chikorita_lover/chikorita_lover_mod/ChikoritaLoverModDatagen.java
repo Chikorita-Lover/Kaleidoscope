@@ -130,6 +130,11 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
 
         @Override
         protected void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
+            offerStonecuttingRecipe(exporter, Blocks.MUD_BRICKS, Blocks.PACKED_MUD);
+            offerStonecuttingRecipe(exporter, Blocks.MUD_BRICK_SLAB, Blocks.PACKED_MUD, 2);
+            offerStonecuttingRecipe(exporter, Blocks.MUD_BRICK_STAIRS, Blocks.PACKED_MUD);
+            offerStonecuttingRecipe(exporter, Blocks.MUD_BRICK_WALL, Blocks.PACKED_MUD);
+
             offerPolishedStoneRecipe(exporter, ModBlocks.DIRT_BRICKS, Blocks.DIRT);
             offerSlabRecipe(exporter, ModBlocks.DIRT_BRICK_SLAB, ModBlocks.DIRT_BRICKS);
             offerStairsRecipe(exporter, ModBlocks.DIRT_BRICK_STAIRS, ModBlocks.DIRT_BRICKS);
