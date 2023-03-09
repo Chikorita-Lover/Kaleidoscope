@@ -41,6 +41,10 @@ public class ModBlocks {
     public static final Block TUFF_STAIRS = new StairsBlock(TUFF.getDefaultState(), AbstractBlock.Settings.copy(TUFF));
     public static final Block TUFF_WALL = new WallBlock(AbstractBlock.Settings.copy(TUFF));
 
+    public static final Block POLISHED_TUFF = new Block(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_GRAY).requiresTool().sounds(BlockSoundGroup.TUFF).strength(1.5F, 6F));
+    public static final Block POLISHED_TUFF_SLAB = new SlabBlock(AbstractBlock.Settings.copy(POLISHED_TUFF));
+    public static final Block POLISHED_TUFF_STAIRS = new StairsBlock(POLISHED_TUFF.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_TUFF));
+
     public static final Block CUT_COPPER_WALL = new OxidizableWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(CUT_COPPER));
     public static final Block EXPOSED_CUT_COPPER_WALL = new OxidizableWallBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(EXPOSED_CUT_COPPER));
     public static final Block WEATHERED_CUT_COPPER_WALL = new OxidizableWallBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(WEATHERED_CUT_COPPER));
@@ -124,6 +128,10 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "tuff_slab"), TUFF_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "tuff_stairs"), TUFF_STAIRS);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "tuff_wall"), TUFF_WALL);
+
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_tuff"), POLISHED_TUFF);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_tuff_slab"), POLISHED_TUFF_SLAB);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_tuff_stairs"), POLISHED_TUFF_STAIRS);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "cut_copper_wall"), CUT_COPPER_WALL);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "exposed_cut_copper_wall"), EXPOSED_CUT_COPPER_WALL);

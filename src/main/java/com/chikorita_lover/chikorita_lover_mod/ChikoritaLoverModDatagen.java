@@ -190,6 +190,16 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, ModBlocks.TUFF_STAIRS, Blocks.TUFF);
             offerStonecuttingRecipe(exporter, ModBlocks.TUFF_WALL, Blocks.TUFF);
 
+            offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_TUFF, Blocks.TUFF);
+            offerSlabRecipe(exporter, ModBlocks.POLISHED_TUFF_SLAB, ModBlocks.POLISHED_TUFF);
+            offerStairsRecipe(exporter, ModBlocks.POLISHED_TUFF_STAIRS, ModBlocks.POLISHED_TUFF);
+
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_TUFF, Blocks.TUFF);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_TUFF_SLAB, Blocks.TUFF, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_TUFF_SLAB, ModBlocks.POLISHED_TUFF, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_TUFF_STAIRS, Blocks.TUFF);
+            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_TUFF_STAIRS, ModBlocks.POLISHED_TUFF);
+
             offerWallRecipe(exporter, ModBlocks.CUT_COPPER_WALL, Blocks.CUT_COPPER);
             offerWallRecipe(exporter, ModBlocks.EXPOSED_CUT_COPPER_WALL, Blocks.EXPOSED_CUT_COPPER);
             offerWallRecipe(exporter, ModBlocks.WEATHERED_CUT_COPPER_WALL, Blocks.WEATHERED_CUT_COPPER);
