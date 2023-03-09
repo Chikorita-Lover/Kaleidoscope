@@ -55,8 +55,12 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
 
         @Override
         public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-            itemModelGenerator.register(ModItems.CAKE_SLICE, Models.GENERATED);
+            itemModelGenerator.register(ModItems.CRIMSON_BOAT, Models.GENERATED);
+            itemModelGenerator.register(ModItems.CRIMSON_CHEST_BOAT, Models.GENERATED);
+            itemModelGenerator.register(ModItems.WARPED_BOAT, Models.GENERATED);
+            itemModelGenerator.register(ModItems.WARPED_CHEST_BOAT, Models.GENERATED);
             itemModelGenerator.register(ModItems.CHAINMAIL_HORSE_ARMOR, Models.GENERATED);
+            itemModelGenerator.register(ModItems.CAKE_SLICE, Models.GENERATED);
         }
 
         public final void registerItemModel(BlockStateModelGenerator blockStateModelGenerator, Block block, String texturePath) {
@@ -316,6 +320,12 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerWaxingRecipe(exporter, ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR, ModBlocks.EXPOSED_COPPER_TRAPDOOR);
             offerWaxingRecipe(exporter, ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, ModBlocks.WEATHERED_COPPER_TRAPDOOR);
             offerWaxingRecipe(exporter, ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, ModBlocks.OXIDIZED_COPPER_TRAPDOOR);
+
+            offerBoatRecipe(exporter, ModItems.CRIMSON_BOAT, Blocks.CRIMSON_PLANKS);
+            offerBoatRecipe(exporter, ModItems.WARPED_BOAT, Blocks.WARPED_PLANKS);
+
+            offerChestBoatRecipe(exporter, ModItems.CRIMSON_CHEST_BOAT, ModItems.CRIMSON_BOAT);
+            offerChestBoatRecipe(exporter, ModItems.WARPED_CHEST_BOAT, ModItems.WARPED_BOAT);
 
             CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModBlocks.STICK_BUNDLE), Items.CHARCOAL, 0.15F, 200).group(getItemPath(Items.CHARCOAL)).criterion(hasItem(ModBlocks.STICK_BUNDLE), conditionsFromItem(ModBlocks.STICK_BUNDLE)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, getItemPath(Items.CHARCOAL) + "_from_stick_bundle_smelting"));
             CookingRecipeJsonBuilder.create(Ingredient.ofItems(ModBlocks.STICK_BUNDLE), Items.CHARCOAL, 0.15F, 100, ChikoritaLoverMod.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(Items.CHARCOAL)).criterion(hasItem(ModBlocks.STICK_BUNDLE), conditionsFromItem(ModBlocks.STICK_BUNDLE)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, getItemPath(Items.CHARCOAL) + "_from_stick_bundle_kilning"));

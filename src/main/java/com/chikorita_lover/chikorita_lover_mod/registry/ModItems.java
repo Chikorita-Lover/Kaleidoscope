@@ -96,6 +96,11 @@ public class ModItems {
     public static final BlockItem WAXED_WEATHERED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
     public static final BlockItem WAXED_OXIDIZED_COPPER_TRAPDOOR = new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
 
+    public static final Item CRIMSON_BOAT = new BoatItem(false, ModBoatType.CRIMSON, new Item.Settings().group(ItemGroup.TRANSPORTATION).maxCount(1));
+    public static final Item CRIMSON_CHEST_BOAT = new BoatItem(true, ModBoatType.CRIMSON, new Item.Settings().group(ItemGroup.TRANSPORTATION).maxCount(1));
+    public static final Item WARPED_BOAT = new BoatItem(false, ModBoatType.WARPED, new Item.Settings().group(ItemGroup.TRANSPORTATION).maxCount(1));
+    public static final Item WARPED_CHEST_BOAT = new BoatItem(true, ModBoatType.WARPED, new Item.Settings().group(ItemGroup.TRANSPORTATION).maxCount(1));
+
     public static final Item CHAINMAIL_HORSE_ARMOR = new HorseArmorItem(4, "chainmail", new Item.Settings().maxCount(1).group(ItemGroup.MISC));
 
     public static final Item CAKE_SLICE = new CakeSliceItem(new Item.Settings().food(ModFoodComponents.CAKE_SLICE).group(ItemGroup.FOOD));
@@ -186,6 +191,11 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_exposed_copper_trapdoor"), WAXED_EXPOSED_COPPER_TRAPDOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_weathered_copper_trapdoor"), WAXED_WEATHERED_COPPER_TRAPDOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_copper_trapdoor"), WAXED_OXIDIZED_COPPER_TRAPDOOR);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "crimson_boat"), CRIMSON_BOAT);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "crimson_chest_boat"), CRIMSON_CHEST_BOAT);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "warped_boat"), WARPED_BOAT);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "warped_chest_boat"), WARPED_CHEST_BOAT);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chainmail_horse_armor"), CHAINMAIL_HORSE_ARMOR);
 
