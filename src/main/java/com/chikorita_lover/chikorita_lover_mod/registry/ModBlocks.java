@@ -35,7 +35,6 @@ public class ModBlocks {
     public static final Block POLISHED_CALCITE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).strength(1.5F, 6F).sounds(BlockSoundGroup.CALCITE).requiresTool());
     public static final Block POLISHED_CALCITE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE));
     public static final Block POLISHED_CALCITE_STAIRS = new StairsBlock(POLISHED_CALCITE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_CALCITE));
-    public static final Block POLISHED_CALCITE_WALL = new WallBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE));
 
     public static final Block TUFF_SLAB = new SlabBlock(AbstractBlock.Settings.copy(TUFF));
     public static final Block TUFF_STAIRS = new StairsBlock(TUFF.getDefaultState(), AbstractBlock.Settings.copy(TUFF));
@@ -123,7 +122,6 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite"), POLISHED_CALCITE);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite_slab"), POLISHED_CALCITE_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite_stairs"), POLISHED_CALCITE_STAIRS);
-        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_calcite_wall"), POLISHED_CALCITE_WALL);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "tuff_slab"), TUFF_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "tuff_stairs"), TUFF_STAIRS);

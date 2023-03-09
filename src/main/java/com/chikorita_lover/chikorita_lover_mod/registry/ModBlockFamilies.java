@@ -53,7 +53,7 @@ public class ModBlockFamilies {
         DIRT_BRICKS = register(ModBlocks.DIRT_BRICKS).slab(ModBlocks.DIRT_BRICK_SLAB).stairs(ModBlocks.DIRT_BRICK_STAIRS).wall(ModBlocks.DIRT_BRICK_WALL).build();
         STONE_TILES = register(ModBlocks.STONE_TILES).slab(ModBlocks.STONE_TILE_SLAB).stairs(ModBlocks.STONE_TILE_STAIRS).build();
         CALCITE = register(Blocks.CALCITE).slab(ModBlocks.CALCITE_SLAB).stairs(ModBlocks.CALCITE_STAIRS).wall(ModBlocks.CALCITE_WALL).build();
-        POLISHED_CALCITE = register(ModBlocks.POLISHED_CALCITE).slab(ModBlocks.POLISHED_CALCITE_SLAB).stairs(ModBlocks.POLISHED_CALCITE_STAIRS).wall(ModBlocks.POLISHED_CALCITE_WALL).build();
+        POLISHED_CALCITE = register(ModBlocks.POLISHED_CALCITE).slab(ModBlocks.POLISHED_CALCITE_SLAB).stairs(ModBlocks.POLISHED_CALCITE_STAIRS).build();
         TUFF = register(Blocks.TUFF).slab(ModBlocks.TUFF_SLAB).stairs(ModBlocks.TUFF_STAIRS).wall(ModBlocks.TUFF_WALL).build();
         POLISHED_TUFF = register(ModBlocks.POLISHED_TUFF).slab(ModBlocks.POLISHED_TUFF_SLAB).stairs(ModBlocks.POLISHED_TUFF_STAIRS).build();
 
