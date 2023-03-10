@@ -4,3 +4,4 @@ accessible class net/minecraft/recipe/CookingRecipeSerializer$RecipeFactory
 accessible method net/minecraft/block/FlowerPotBlock isEmpty ()Z
 accessible field net/minecraft/block/FlowerPotBlock CONTENT_TO_POTTED Ljava/util/Map;
 accessible field net/minecraft/entity/mob/MobEntity experiencePoints I
+accessible field net/minecraft/block/AbstractBlock soundGroup Lnet/minecraft/sound/BlockSoundGroup;
