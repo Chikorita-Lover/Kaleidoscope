@@ -16,7 +16,8 @@
     "HoeItemMixin",
     "ItemMixin",
     "LivingEntityMixin",
-    "SnowballEntityMixin"
+    "SnowballEntityMixin",
+    "ZombieVillagerEntityMixin"
   ],
   "client": [
     "ArmorItemMixin"
