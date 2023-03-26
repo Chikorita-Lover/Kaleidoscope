@@ -292,6 +292,15 @@
       "chikorita_lover:entity/snowball/hit2"
     ]
   },
+  "entity.villager.work_glassblower": {
+    "subtitle": "subtitles.entity.villager.work_glassblower",
+    "sounds": [
+      "chikorita_lover:block/kiln/crackle1",
+      "chikorita_lover:block/kiln/crackle2",
+      "chikorita_lover:block/kiln/crackle3",
+      "chikorita_lover:block/kiln/crackle4"
+    ]
+  },
   "item.hoe.scrape": {
     "subtitle": "subtitles.item.hoe.scrape",
     "sounds": [

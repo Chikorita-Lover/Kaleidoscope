@@ -99,6 +99,8 @@
 
   "enchantment.chikorita_lover.illager_bane": "Illager's Bane",
 
+  "entity.minecraft.villager.glassblower": "Glassblower",
+
   "item.chikorita_lover.cake_slice": "Cake Slice",
   "item.chikorita_lover.chainmail_horse_armor": "Chainmail Horse Armor",
   "item.chikorita_lover.crimson_boat": "Crimson Boat",
@@ -116,5 +118,6 @@
   "subtitles.block.kiln.crackle": "Kiln crackles",
   "subtitles.block.flower_pot.plant": "Flower planted",
   "subtitles.entity.snowball.hit": "Snowball hits",
+  "subtitles.entity.villager.work_glassblower": "Glassblower works",
   "subtitles.item.hoe.scrape": "Hoe scrapes"
 }
