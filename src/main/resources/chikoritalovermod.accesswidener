@@ -8,3 +8,4 @@ accessible field net/minecraft/block/AbstractBlock soundGroup Lnet/minecraft/sou
 accessible method net/minecraft/world/poi/PointOfInterestTypes register (Lnet/minecraft/util/registry/Registry;Lnet/minecraft/util/registry/RegistryKey;Ljava/util/Set;II)Lnet/minecraft/world/poi/PointOfInterestType;
 accessible method net/minecraft/world/poi/PointOfInterestTypes getStatesOfBlock (Lnet/minecraft/block/Block;)Ljava/util/Set;
 accessible method net/minecraft/loot/LootTables registerLootTable (Lnet/minecraft/util/Identifier;)Lnet/minecraft/util/Identifier;
+accessible method net/minecraft/block/Block dropExperience (Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;I)V
