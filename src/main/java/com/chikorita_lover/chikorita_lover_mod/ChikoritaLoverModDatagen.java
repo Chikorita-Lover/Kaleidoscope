@@ -11,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.server.RecipeProvider;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
@@ -331,6 +332,8 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             CookingRecipeJsonBuilder.create(Ingredient.ofItems(ModBlocks.STICK_BUNDLE), Items.CHARCOAL, 0.15F, 100, ChikoritaLoverMod.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(Items.CHARCOAL)).criterion(hasItem(ModBlocks.STICK_BUNDLE), conditionsFromItem(ModBlocks.STICK_BUNDLE)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, getItemPath(Items.CHARCOAL) + "_from_stick_bundle_kilning"));
 
             ShapelessRecipeJsonBuilder.create(Items.STICK, 9).input(ModBlocks.STICK_BUNDLE).group(getItemPath(Items.STICK)).criterion(hasItem(ModBlocks.STICK_BUNDLE), conditionsFromItem(ModBlocks.STICK_BUNDLE)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, "stick_from_bundle"));
+
+            ShapelessRecipeJsonBuilder.create(Items.GREEN_DYE, 2).input(Items.BLUE_DYE).input(Items.YELLOW_DYE).criterion(hasItem(Items.BLUE_DYE), RecipeProvider.conditionsFromItem(Items.BLUE_DYE)).criterion(hasItem(Items.YELLOW_DYE), RecipeProvider.conditionsFromItem(Items.YELLOW_DYE)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, "green_dye_from_blue_yellow_dye"));
 
             CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.CHAINMAIL_HORSE_ARMOR), Items.IRON_NUGGET, 0.1F, 200).criterion(hasItem(ModItems.CHAINMAIL_HORSE_ARMOR), conditionsFromItem(ModItems.CHAINMAIL_HORSE_ARMOR)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, getItemPath(Items.IRON_NUGGET) + "_from_chainmail_horse_armor_smelting"));
             CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(ModItems.CHAINMAIL_HORSE_ARMOR), Items.IRON_NUGGET, 0.1F, 100).criterion(hasItem(ModItems.CHAINMAIL_HORSE_ARMOR), conditionsFromItem(ModItems.CHAINMAIL_HORSE_ARMOR)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, getItemPath(Items.IRON_NUGGET) + "_from_chainmail_horse_armor_blasting"));
