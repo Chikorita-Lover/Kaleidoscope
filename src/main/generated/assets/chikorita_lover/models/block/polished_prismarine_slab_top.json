@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "chikorita_lover:block/polished_prismarine",
-    "side": "chikorita_lover:block/polished_prismarine",
-    "top": "chikorita_lover:block/polished_prismarine"
-  }
-}

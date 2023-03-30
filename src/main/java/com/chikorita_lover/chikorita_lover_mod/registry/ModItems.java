@@ -49,11 +49,6 @@ public class ModItems {
     public static final BlockItem LAPIS_LAZULI_TILE_SLAB = new BlockItem(ModBlocks.LAPIS_LAZULI_TILE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem LAPIS_LAZULI_TILE_STAIRS = new BlockItem(ModBlocks.LAPIS_LAZULI_TILE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
-    public static final BlockItem POLISHED_PRISMARINE = new BlockItem(ModBlocks.POLISHED_PRISMARINE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final BlockItem POLISHED_PRISMARINE_SLAB = new BlockItem(ModBlocks.POLISHED_PRISMARINE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final BlockItem POLISHED_PRISMARINE_STAIRS = new BlockItem(ModBlocks.POLISHED_PRISMARINE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final BlockItem POLISHED_PRISMARINE_WALL = new BlockItem(ModBlocks.POLISHED_PRISMARINE_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
-
     public static final BlockItem CRACKED_RED_NETHER_BRICKS = new BlockItem(ModBlocks.CRACKED_RED_NETHER_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem CHISELED_RED_NETHER_BRICKS = new BlockItem(ModBlocks.CHISELED_RED_NETHER_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
@@ -144,11 +139,6 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tiles"), LAPIS_LAZULI_TILES);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tile_slab"), LAPIS_LAZULI_TILE_SLAB);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tile_stairs"), LAPIS_LAZULI_TILE_STAIRS);
-
-        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine"), POLISHED_PRISMARINE);
-        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine_slab"), POLISHED_PRISMARINE_SLAB);
-        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine_stairs"), POLISHED_PRISMARINE_STAIRS);
-        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine_wall"), POLISHED_PRISMARINE_WALL);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cracked_red_nether_bricks"), CRACKED_RED_NETHER_BRICKS);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chiseled_red_nether_bricks"), CHISELED_RED_NETHER_BRICKS);

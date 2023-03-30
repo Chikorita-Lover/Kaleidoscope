@@ -58,11 +58,6 @@ public class ModBlocks {
     public static final Block LAPIS_LAZULI_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(LAPIS_LAZULI_TILES));
     public static final Block LAPIS_LAZULI_TILE_STAIRS = new StairsBlock(LAPIS_LAZULI_TILES.getDefaultState(), AbstractBlock.Settings.copy(LAPIS_LAZULI_TILES));
 
-    public static final Block POLISHED_PRISMARINE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.DIAMOND_BLUE).strength(1.5F, 6F).sounds(BlockSoundGroup.STONE).requiresTool());
-    public static final Block POLISHED_PRISMARINE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(POLISHED_PRISMARINE));
-    public static final Block POLISHED_PRISMARINE_STAIRS = new StairsBlock(POLISHED_PRISMARINE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_PRISMARINE));
-    public static final Block POLISHED_PRISMARINE_WALL = new WallBlock(AbstractBlock.Settings.copy(POLISHED_PRISMARINE));
-
     public static final Block CRACKED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS));
     public static final Block CHISELED_RED_NETHER_BRICKS = new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS));
 
@@ -144,11 +139,6 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tiles"), LAPIS_LAZULI_TILES);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tile_slab"), LAPIS_LAZULI_TILE_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tile_stairs"), LAPIS_LAZULI_TILE_STAIRS);
-
-        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine"), POLISHED_PRISMARINE);
-        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine_slab"), POLISHED_PRISMARINE_SLAB);
-        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine_stairs"), POLISHED_PRISMARINE_STAIRS);
-        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "polished_prismarine_wall"), POLISHED_PRISMARINE_WALL);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "cracked_red_nether_bricks"), CRACKED_RED_NETHER_BRICKS);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "chiseled_red_nether_bricks"), CHISELED_RED_NETHER_BRICKS);
