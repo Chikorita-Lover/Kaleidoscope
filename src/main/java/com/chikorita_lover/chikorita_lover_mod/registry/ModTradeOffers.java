@@ -2,7 +2,6 @@ package com.chikorita_lover.chikorita_lover_mod.registry;
 
 import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -22,11 +21,8 @@ public class ModTradeOffers {
             factories.add(new TradeOffers.SellItemFactory(ModItems.CHAINMAIL_HORSE_ARMOR, 3, 1, 12, 10));
         });
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 3, factories -> {
-            factories.add(new TradeOffers.BuyForOneEmeraldFactory(Blocks.CALCITE, 16, 16, 20));
-            factories.add(new TradeOffers.SellItemFactory(ModBlocks.POLISHED_CALCITE, 1, 4, 16, 10));
-        });
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 5, factories -> {
-            factories.add(new TradeOffers.SellItemFactory(ModBlocks.LAPIS_LAZULI_TILES, 1, 1, 12, 30));
+            factories.add(new TradeOffers.BuyForOneEmeraldFactory(Blocks.TUFF, 16, 16, 20));
+            factories.add(new TradeOffers.SellItemFactory(ModBlocks.POLISHED_TUFF, 1, 4, 16, 10));
         });
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.LIBRARIAN, 5, factories -> {
             factories.add(new IllagerBaneFactory(30));
