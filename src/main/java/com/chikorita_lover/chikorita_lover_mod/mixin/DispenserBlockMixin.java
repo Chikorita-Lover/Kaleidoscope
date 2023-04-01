@@ -1,12 +1,13 @@
 package com.chikorita_lover.chikorita_lover_mod.mixin;
 
-import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.DispenserBehavior;
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.MiningToolItem;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
@@ -23,7 +24,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class DispenserBlockMixin {
     @Inject(method = "getBehaviorForItem", at = @At("HEAD"), cancellable = true)
     public void getBehaviorForItem(ItemStack stack, CallbackInfoReturnable<DispenserBehavior> callbackInfo) {
-        if (stack.isIn(ConventionalItemTags.AXES) || stack.isIn(ConventionalItemTags.HOES) || stack.isIn(ConventionalItemTags.SHOVELS)) {
+        Item item = stack.getItem();
+        if (item instanceof MiningToolItem) {
             callbackInfo.setReturnValue(new FallibleItemDispenserBehavior() {
                 @Override
                 protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
