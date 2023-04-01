@@ -1,10 +1,14 @@
 package com.chikorita_lover.chikorita_lover_mod.mixin;
 
 import com.chikorita_lover.chikorita_lover_mod.registry.ModItems;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.CakeBlock;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
@@ -17,19 +21,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Block.class)
 public class BlockMixin {
-    @Inject(at = @At("TAIL"), method = "afterBreak")
-    public void dropStacks(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack, CallbackInfo info) {
-        int count = 0;
+    @Inject(at = @At("TAIL"), method = "dropStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)V")
+    private static void dropStacks(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack stack, CallbackInfo callbackInfo) {
+        if (world instanceof ServerWorld) {
+            int count = 0;
 
-        if (state.getBlock() == Blocks.CAKE) {
-            count = 7 - state.get(CakeBlock.BITES);
-        } else if (state.isIn(BlockTags.CANDLE_CAKES)) {
-            count = 7;
-        }
+            if (state.getBlock() == Blocks.CAKE) {
+                count = 7 - state.get(CakeBlock.BITES);
+            } else if (state.isIn(BlockTags.CANDLE_CAKES)) {
+                count = 7;
+            }
 
-        if (count > 0) {
-            ItemStack dropStack = new ItemStack(ModItems.CAKE_SLICE, count);
-            Block.dropStack(world, pos, dropStack);
+            if (count > 0) {
+                ItemStack dropStack = new ItemStack(ModItems.CAKE_SLICE, count);
+                Block.dropStack(world, pos, dropStack);
+            }
         }
     }
 
