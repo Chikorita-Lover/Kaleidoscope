@@ -43,7 +43,6 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.EXPOSED_CUT_COPPER).family(ModBlockFamilies.EXPOSED_CUT_COPPER).same(Blocks.WAXED_EXPOSED_CUT_COPPER).family(ModBlockFamilies.WAXED_EXPOSED_CUT_COPPER);
             blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.WEATHERED_CUT_COPPER).family(ModBlockFamilies.WEATHERED_CUT_COPPER).same(Blocks.WAXED_WEATHERED_CUT_COPPER).family(ModBlockFamilies.WAXED_WEATHERED_CUT_COPPER);
             blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.OXIDIZED_CUT_COPPER).family(ModBlockFamilies.OXIDIZED_CUT_COPPER).same(Blocks.WAXED_OXIDIZED_CUT_COPPER).family(ModBlockFamilies.WAXED_OXIDIZED_CUT_COPPER);
-            blockStateModelGenerator.registerAxisRotated(ModBlocks.END_STONE_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
             blockStateModelGenerator.registerAxisRotated(ModBlocks.STICK_BUNDLE, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
             blockStateModelGenerator.registerCooker(ModBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
             registerOxidizableDoor(blockStateModelGenerator, ModBlocks.COPPER_DOOR, ModBlocks.WAXED_COPPER_DOOR);
@@ -258,24 +257,17 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_END_STONE, Blocks.END_STONE);
             offerSlabRecipe(exporter, ModBlocks.POLISHED_END_STONE_SLAB, ModBlocks.POLISHED_END_STONE);
             offerStairsRecipe(exporter, ModBlocks.POLISHED_END_STONE_STAIRS, ModBlocks.POLISHED_END_STONE);
-            offerWallRecipe(exporter, ModBlocks.POLISHED_END_STONE_WALL, ModBlocks.POLISHED_END_STONE);
 
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE, Blocks.END_STONE);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_SLAB, Blocks.END_STONE, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_SLAB, ModBlocks.POLISHED_END_STONE, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_STAIRS, Blocks.END_STONE);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_STAIRS, ModBlocks.POLISHED_END_STONE);
-            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_WALL, Blocks.END_STONE);
-            offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_WALL, ModBlocks.POLISHED_END_STONE);
 
             offerStonecuttingRecipe(exporter, Blocks.END_STONE_BRICKS, ModBlocks.POLISHED_END_STONE);
             offerStonecuttingRecipe(exporter, Blocks.END_STONE_BRICK_SLAB, ModBlocks.POLISHED_END_STONE, 2);
             offerStonecuttingRecipe(exporter, Blocks.END_STONE_BRICK_STAIRS, ModBlocks.POLISHED_END_STONE);
             offerStonecuttingRecipe(exporter, Blocks.END_STONE_BRICK_WALL, ModBlocks.POLISHED_END_STONE);
-
-            ShapedRecipeJsonBuilder.create(ModBlocks.END_STONE_PILLAR, 2).input('#', ModBlocks.POLISHED_END_STONE).pattern("#").pattern("#").criterion(hasItem(ModBlocks.POLISHED_END_STONE), conditionsFromItem(ModBlocks.POLISHED_END_STONE)).offerTo(exporter);
-            offerStonecuttingRecipe(exporter, ModBlocks.END_STONE_PILLAR, Blocks.END_STONE);
-            offerStonecuttingRecipe(exporter, ModBlocks.END_STONE_PILLAR, ModBlocks.POLISHED_END_STONE);
 
             offerChiseledBlockRecipe(exporter, ModBlocks.CHISELED_PURPUR, Blocks.PURPUR_SLAB);
             offerStonecuttingRecipe(exporter, ModBlocks.CHISELED_PURPUR, Blocks.PURPUR_BLOCK);

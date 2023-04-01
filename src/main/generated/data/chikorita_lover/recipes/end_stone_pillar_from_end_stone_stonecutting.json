@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:end_stone"
-  },
-  "result": "chikorita_lover:end_stone_pillar"
-}
