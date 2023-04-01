@@ -11,6 +11,7 @@
     "BundleItemMixin",
     "CakeBlockMixin",
     "ChestBoatEntityMixin",
+    "DispenserBlockMixin",
     "FarmlandBlockMixin",
     "FlowerPotBlockMixin",
     "FoodComponentMixin",
