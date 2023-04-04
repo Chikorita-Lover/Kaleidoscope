@@ -3,6 +3,7 @@ package com.chikorita_lover.chikorita_lover_mod.registry;
 import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
 import com.chikorita_lover.chikorita_lover_mod.item.CakeSliceItem;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
@@ -259,6 +260,10 @@ public class ModItems {
 
     public static void registerColorProviders() {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem)stack.getItem()).getColor(stack), Items.BUNDLE);
+    }
+
+    public static void registerCompostingChances() {
+        CompostingChanceRegistry.INSTANCE.add(Items.BAMBOO, 0.3F);
     }
 
     public static void registerFuels() {
