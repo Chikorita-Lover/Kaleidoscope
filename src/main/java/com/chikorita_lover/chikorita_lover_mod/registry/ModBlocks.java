@@ -1,10 +1,7 @@
 package com.chikorita_lover.chikorita_lover_mod.registry;
 
 import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
-import com.chikorita_lover.chikorita_lover_mod.block.CopperDoorBlock;
-import com.chikorita_lover.chikorita_lover_mod.block.CopperTrapdoorBlock;
-import com.chikorita_lover.chikorita_lover_mod.block.KilnBlock;
-import com.chikorita_lover.chikorita_lover_mod.block.OxidizableWallBlock;
+import com.chikorita_lover.chikorita_lover_mod.block.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
@@ -97,6 +94,8 @@ public class ModBlocks {
     public static final Block WAXED_WEATHERED_COPPER_TRAPDOOR = new CopperTrapdoorBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.of(Material.METAL, MapColor.DARK_AQUA).requiresTool().strength(3.0F).sounds(BlockSoundGroup.COPPER).nonOpaque());
     public static final Block WAXED_OXIDIZED_COPPER_TRAPDOOR = new CopperTrapdoorBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.of(Material.METAL, MapColor.TEAL).requiresTool().strength(3.0F).sounds(BlockSoundGroup.COPPER).nonOpaque());
 
+    public static final Block POTION_CAULDRON = new PotionCauldronBlock(AbstractBlock.Settings.copy(CAULDRON));
+
     public static void register() {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "dirt_bricks"), DIRT_BRICKS);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "dirt_brick_slab"), DIRT_BRICK_SLAB);
@@ -175,6 +174,8 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "waxed_exposed_copper_trapdoor"), WAXED_EXPOSED_COPPER_TRAPDOOR);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "waxed_weathered_copper_trapdoor"), WAXED_WEATHERED_COPPER_TRAPDOOR);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "waxed_oxidized_copper_trapdoor"), WAXED_OXIDIZED_COPPER_TRAPDOOR);
+
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "potion_cauldron"), POTION_CAULDRON);
     }
 
     public static void registerFlammableBlocks() {
