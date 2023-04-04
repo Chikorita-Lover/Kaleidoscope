@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "chikorita_lover:block/light_gray_stained_glass_door_bottom",
+    "top": "chikorita_lover:block/light_gray_stained_glass_door_top"
+  }
+}

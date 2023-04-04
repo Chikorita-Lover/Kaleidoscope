@@ -2,7 +2,6 @@ package com.chikorita_lover.chikorita_lover_mod.registry;
 
 import com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod;
 import com.chikorita_lover.chikorita_lover_mod.item.CakeSliceItem;
-import com.chikorita_lover.chikorita_lover_mod.mixin.BundleItemMixin;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.item.*;
@@ -67,7 +66,43 @@ public class ModItems {
     public static final BlockItem RED_NETHER_BRICK_FENCE = new BlockItem(ModBlocks.RED_NETHER_BRICK_FENCE, new Item.Settings().group(ItemGroup.DECORATIONS));
 
     public static final BlockItem KILN = new BlockItem(ModBlocks.KILN, new Item.Settings().group(ItemGroup.DECORATIONS));
-    
+
+    public static final BlockItem GLASS_DOOR = new BlockItem(ModBlocks.GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem BLACK_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.BLACK_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem BLUE_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.BLUE_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem BROWN_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.BROWN_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem CYAN_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.CYAN_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem GRAY_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.GRAY_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem GREEN_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.GREEN_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem LIGHT_BLUE_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem LIGHT_GRAY_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem LIME_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.LIME_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem MAGENTA_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.MAGENTA_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem ORANGE_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.ORANGE_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem PINK_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.PINK_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem PURPLE_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.PURPLE_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem RED_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.RED_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem WHITE_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.WHITE_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem YELLOW_STAINED_GLASS_DOOR = new BlockItem(ModBlocks.YELLOW_STAINED_GLASS_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+
+    public static final BlockItem GLASS_TRAPDOOR = new BlockItem(ModBlocks.GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem BLACK_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.BLACK_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem BLUE_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.BLUE_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem BROWN_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.BROWN_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem CYAN_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.CYAN_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem GRAY_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.GRAY_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem GREEN_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.GREEN_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem LIGHT_BLUE_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem LIGHT_GRAY_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem LIME_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.LIME_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem MAGENTA_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem ORANGE_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.ORANGE_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem PINK_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.PINK_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem PURPLE_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.PURPLE_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem RED_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.RED_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem WHITE_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.WHITE_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+    public static final BlockItem YELLOW_STAINED_GLASS_TRAPDOOR = new BlockItem(ModBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+
     public static final BlockItem COPPER_DOOR = new BlockItem(ModBlocks.COPPER_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
     public static final BlockItem EXPOSED_COPPER_DOOR = new BlockItem(ModBlocks.EXPOSED_COPPER_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
     public static final BlockItem WEATHERED_COPPER_DOOR = new BlockItem(ModBlocks.WEATHERED_COPPER_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
@@ -155,6 +190,42 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "kiln"), KILN);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "glass_door"), GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "black_stained_glass_door"), BLACK_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "blue_stained_glass_door"), BLUE_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "brown_stained_glass_door"), BROWN_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cyan_stained_glass_door"), CYAN_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "gray_stained_glass_door"), GRAY_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "green_stained_glass_door"), GREEN_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_blue_stained_glass_door"), LIGHT_BLUE_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_gray_stained_glass_door"), LIGHT_GRAY_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lime_stained_glass_door"), LIME_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "magenta_stained_glass_door"), MAGENTA_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "orange_stained_glass_door"), ORANGE_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "pink_stained_glass_door"), PINK_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "purple_stained_glass_door"), PURPLE_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_stained_glass_door"), RED_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "white_stained_glass_door"), WHITE_STAINED_GLASS_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "yellow_stained_glass_door"), YELLOW_STAINED_GLASS_DOOR);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "glass_trapdoor"), GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "black_stained_glass_trapdoor"), BLACK_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "blue_stained_glass_trapdoor"), BLUE_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "brown_stained_glass_trapdoor"), BROWN_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cyan_stained_glass_trapdoor"), CYAN_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "gray_stained_glass_trapdoor"), GRAY_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "green_stained_glass_trapdoor"), GREEN_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_blue_stained_glass_trapdoor"), LIGHT_BLUE_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_gray_stained_glass_trapdoor"), LIGHT_GRAY_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lime_stained_glass_trapdoor"), LIME_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "magenta_stained_glass_trapdoor"), MAGENTA_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "orange_stained_glass_trapdoor"), ORANGE_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "pink_stained_glass_trapdoor"), PINK_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "purple_stained_glass_trapdoor"), PURPLE_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_stained_glass_trapdoor"), RED_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "white_stained_glass_trapdoor"), WHITE_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "yellow_stained_glass_trapdoor"), YELLOW_STAINED_GLASS_TRAPDOOR);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "copper_door"), COPPER_DOOR);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "exposed_copper_door"), EXPOSED_COPPER_DOOR);

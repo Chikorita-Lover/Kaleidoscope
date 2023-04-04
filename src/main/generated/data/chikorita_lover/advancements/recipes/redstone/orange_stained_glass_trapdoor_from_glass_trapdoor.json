@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glass_trapdoor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "chikorita_lover:glass_trapdoor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "chikorita_lover:orange_stained_glass_trapdoor_from_glass_trapdoor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_glass_trapdoor",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "chikorita_lover:orange_stained_glass_trapdoor_from_glass_trapdoor"
+    ]
+  }
+}

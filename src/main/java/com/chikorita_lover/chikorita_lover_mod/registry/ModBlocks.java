@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -73,6 +74,42 @@ public class ModBlocks {
     public static final Block RED_NETHER_BRICK_FENCE = new FenceBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.DARK_RED).requiresTool().strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS));
 
     public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.5F).luminance(createLightLevelFromLitBlockState(13)));
+
+    public static final Block GLASS_DOOR = new GlassDoorBlock(AbstractBlock.Settings.of(Material.GLASS, MapColor.CLEAR).nonOpaque().sounds(BlockSoundGroup.GLASS).strength(0.3F));
+    public static final Block BLACK_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.BLACK, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.BLACK));
+    public static final Block BLUE_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.BLUE, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.BLUE));
+    public static final Block BROWN_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.BROWN, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.BROWN));
+    public static final Block CYAN_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.CYAN, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.CYAN));
+    public static final Block GRAY_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.GRAY, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.GRAY));
+    public static final Block GREEN_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.GREEN, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.GREEN));
+    public static final Block LIGHT_BLUE_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.LIGHT_BLUE, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.LIGHT_BLUE));
+    public static final Block LIGHT_GRAY_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.LIGHT_GRAY, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.LIGHT_GRAY));
+    public static final Block LIME_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.LIME, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.LIME));
+    public static final Block MAGENTA_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.MAGENTA, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.MAGENTA));
+    public static final Block ORANGE_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.ORANGE, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.ORANGE));
+    public static final Block PINK_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.PINK, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.PINK));
+    public static final Block PURPLE_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.PURPLE, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.PURPLE));
+    public static final Block RED_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.RED, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.RED));
+    public static final Block WHITE_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.WHITE, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.WHITE));
+    public static final Block YELLOW_STAINED_GLASS_DOOR = new StainedGlassDoorBlock(DyeColor.YELLOW, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.YELLOW));
+
+    public static final Block GLASS_TRAPDOOR = new GlassTrapdoorBlock(AbstractBlock.Settings.of(Material.GLASS, MapColor.CLEAR).nonOpaque().sounds(BlockSoundGroup.GLASS).strength(0.3F));
+    public static final Block BLACK_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.BLACK, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.BLACK));
+    public static final Block BLUE_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.BLUE, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.BLUE));
+    public static final Block BROWN_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.BROWN, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.BROWN));
+    public static final Block CYAN_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.CYAN, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.CYAN));
+    public static final Block GRAY_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.GRAY, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.GRAY));
+    public static final Block GREEN_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.GREEN, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.GREEN));
+    public static final Block LIGHT_BLUE_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.LIGHT_BLUE, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.LIGHT_BLUE));
+    public static final Block LIGHT_GRAY_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.LIGHT_GRAY, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.LIGHT_GRAY));
+    public static final Block LIME_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.LIME, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.LIME));
+    public static final Block MAGENTA_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.MAGENTA, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.MAGENTA));
+    public static final Block ORANGE_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.ORANGE, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.ORANGE));
+    public static final Block PINK_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.PINK, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.PINK));
+    public static final Block PURPLE_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.PURPLE, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.PURPLE));
+    public static final Block RED_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.RED, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.RED));
+    public static final Block WHITE_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.WHITE, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.WHITE));
+    public static final Block YELLOW_STAINED_GLASS_TRAPDOOR = new StainedGlassTrapdoorBlock(DyeColor.YELLOW, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.YELLOW));
 
     public static final Block COPPER_DOOR = new CopperDoorBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.of(Material.METAL, MapColor.ORANGE).requiresTool().strength(3.0F).sounds(BlockSoundGroup.COPPER).nonOpaque());
     public static final Block EXPOSED_COPPER_DOOR = new CopperDoorBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.of(Material.METAL, MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.0F).sounds(BlockSoundGroup.COPPER).nonOpaque());
@@ -154,6 +191,42 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "red_nether_brick_fence"), RED_NETHER_BRICK_FENCE);
 
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "kiln"), KILN);
+
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "glass_door"), GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "black_stained_glass_door"), BLACK_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "blue_stained_glass_door"), BLUE_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "brown_stained_glass_door"), BROWN_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "cyan_stained_glass_door"), CYAN_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "gray_stained_glass_door"), GRAY_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "green_stained_glass_door"), GREEN_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "light_blue_stained_glass_door"), LIGHT_BLUE_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "light_gray_stained_glass_door"), LIGHT_GRAY_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "lime_stained_glass_door"), LIME_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "magenta_stained_glass_door"), MAGENTA_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "orange_stained_glass_door"), ORANGE_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "pink_stained_glass_door"), PINK_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "purple_stained_glass_door"), PURPLE_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "red_stained_glass_door"), RED_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "white_stained_glass_door"), WHITE_STAINED_GLASS_DOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "yellow_stained_glass_door"), YELLOW_STAINED_GLASS_DOOR);
+
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "glass_trapdoor"), GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "black_stained_glass_trapdoor"), BLACK_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "blue_stained_glass_trapdoor"), BLUE_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "brown_stained_glass_trapdoor"), BROWN_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "cyan_stained_glass_trapdoor"), CYAN_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "gray_stained_glass_trapdoor"), GRAY_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "green_stained_glass_trapdoor"), GREEN_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "light_blue_stained_glass_trapdoor"), LIGHT_BLUE_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "light_gray_stained_glass_trapdoor"), LIGHT_GRAY_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "lime_stained_glass_trapdoor"), LIME_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "magenta_stained_glass_trapdoor"), MAGENTA_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "orange_stained_glass_trapdoor"), ORANGE_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "pink_stained_glass_trapdoor"), PINK_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "purple_stained_glass_trapdoor"), PURPLE_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "red_stained_glass_trapdoor"), RED_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "white_stained_glass_trapdoor"), WHITE_STAINED_GLASS_TRAPDOOR);
+        Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "yellow_stained_glass_trapdoor"), YELLOW_STAINED_GLASS_TRAPDOOR);
         
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "copper_door"), COPPER_DOOR);
         Registry.register(Registry.BLOCK, new Identifier(ChikoritaLoverMod.MODID, "exposed_copper_door"), EXPOSED_COPPER_DOOR);

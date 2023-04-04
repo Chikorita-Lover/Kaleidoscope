@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "stained_glass_door",
+  "ingredients": [
+    {
+      "item": "chikorita_lover:glass_door"
+    },
+    {
+      "item": "minecraft:light_gray_dye"
+    }
+  ],
+  "result": {
+    "item": "chikorita_lover:light_gray_stained_glass_door"
+  }
+}

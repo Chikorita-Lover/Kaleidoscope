@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "stained_glass_trapdoor",
+  "ingredients": [
+    {
+      "item": "chikorita_lover:glass_trapdoor"
+    },
+    {
+      "item": "minecraft:yellow_dye"
+    }
+  ],
+  "result": {
+    "item": "chikorita_lover:yellow_stained_glass_trapdoor"
+  }
+}

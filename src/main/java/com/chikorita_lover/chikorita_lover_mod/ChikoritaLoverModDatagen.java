@@ -7,29 +7,91 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.api.mininglevel.v1.FabricMineableTags;
+import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LeveledCauldronBlock;
 import net.minecraft.data.client.*;
 import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.server.BlockLootTableGenerator;
 import net.minecraft.data.server.RecipeProvider;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
+        fabricDataGenerator.addProvider(ChikoritaLoverModLootTableGenerator::new);
         fabricDataGenerator.addProvider(ChikoritaLoverModModelGenerator::new);
         fabricDataGenerator.addProvider(ChikoritaLoverModRecipeGenerator::new);
+    }
+
+    private static class ChikoritaLoverModLootTableGenerator extends SimpleFabricLootTableProvider {
+        public ChikoritaLoverModLootTableGenerator(FabricDataGenerator dataGenerator) {
+            super(dataGenerator, LootContextTypes.BLOCK);
+        }
+
+        @Override
+        public void accept(BiConsumer<Identifier, LootTable.Builder> biConsumer) {
+            this.addDrop(biConsumer, ModBlocks.GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.BLACK_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.BLACK_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.BLUE_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.BLUE_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.BROWN_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.BROWN_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.CYAN_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.CYAN_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.GRAY_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.GRAY_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.GREEN_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.GREEN_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.LIME_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.LIME_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.MAGENTA_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.MAGENTA_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.ORANGE_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.ORANGE_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.PINK_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.PINK_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.PURPLE_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.PURPLE_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.RED_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.RED_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.WHITE_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.WHITE_STAINED_GLASS_DOOR));
+            this.addDrop(biConsumer, ModBlocks.YELLOW_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.YELLOW_STAINED_GLASS_DOOR));
+
+            this.addDrop(biConsumer, ModBlocks.GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.BLACK_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.BLUE_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.BROWN_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.CYAN_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.GRAY_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.GREEN_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.LIME_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.ORANGE_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.PINK_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.PURPLE_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.RED_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.WHITE_STAINED_GLASS_TRAPDOOR);
+            this.addDrop(biConsumer, ModBlocks.YELLOW_STAINED_GLASS_TRAPDOOR);
+        }
+
+        private void addDrop(BiConsumer<Identifier, LootTable.Builder> biConsumer, Block block, LootTable.Builder builder) {
+            biConsumer.accept(block.getLootTableId(), builder);
+        }
+
+        private void addDrop(BiConsumer<Identifier, LootTable.Builder> biConsumer, Block block, ItemConvertible itemConvertible) {
+            this.addDrop(biConsumer, block, BlockLootTableGenerator.drops(itemConvertible));
+        }
+
+        private void addDrop(BiConsumer<Identifier, LootTable.Builder> biConsumer, Block block) {
+            this.addDrop(biConsumer, block, block);
+        }
     }
 
     private static class ChikoritaLoverModModelGenerator extends FabricModelProvider {
@@ -46,6 +108,40 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.OXIDIZED_CUT_COPPER).family(ModBlockFamilies.OXIDIZED_CUT_COPPER).same(Blocks.WAXED_OXIDIZED_CUT_COPPER).family(ModBlockFamilies.WAXED_OXIDIZED_CUT_COPPER);
             blockStateModelGenerator.registerAxisRotated(ModBlocks.STICK_BUNDLE, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
             blockStateModelGenerator.registerCooker(ModBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
+            blockStateModelGenerator.registerDoor(ModBlocks.GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.BLACK_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.BLUE_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.BROWN_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.CYAN_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.GRAY_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.GREEN_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.LIME_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.MAGENTA_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.ORANGE_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.PINK_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.PURPLE_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.RED_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.WHITE_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerDoor(ModBlocks.YELLOW_STAINED_GLASS_DOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.BLACK_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.BLUE_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.BROWN_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.CYAN_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.GRAY_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.GREEN_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.LIME_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.ORANGE_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.PINK_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.PURPLE_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.RED_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.WHITE_STAINED_GLASS_TRAPDOOR);
+            blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.YELLOW_STAINED_GLASS_TRAPDOOR);
             registerOxidizableDoor(blockStateModelGenerator, ModBlocks.COPPER_DOOR, ModBlocks.WAXED_COPPER_DOOR);
             registerOxidizableDoor(blockStateModelGenerator, ModBlocks.EXPOSED_COPPER_DOOR, ModBlocks.WAXED_EXPOSED_COPPER_DOOR);
             registerOxidizableDoor(blockStateModelGenerator, ModBlocks.WEATHERED_COPPER_DOOR, ModBlocks.WAXED_WEATHERED_COPPER_DOOR);
@@ -118,6 +214,14 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             ShapedRecipeJsonBuilder.create(output, 3).input('#', input).pattern("##").pattern("##").pattern("##").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
         }
 
+        public static void offerGlassDoorDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+            ShapelessRecipeJsonBuilder.create(output).input(ModBlocks.GLASS_DOOR).input(input).group("stained_glass_door").criterion("has_glass_door", RecipeProvider.conditionsFromItem(ModBlocks.GLASS_DOOR)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, RecipeProvider.convertBetween(output, ModBlocks.GLASS_DOOR)));
+        }
+
+        public static void offerGlassTrapdoorDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+            ShapelessRecipeJsonBuilder.create(output).input(ModBlocks.GLASS_TRAPDOOR).input(input).group("stained_glass_trapdoor").criterion("has_glass_trapdoor", RecipeProvider.conditionsFromItem(ModBlocks.GLASS_TRAPDOOR)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, RecipeProvider.convertBetween(output, ModBlocks.GLASS_TRAPDOOR)));
+        }
+
         public static void offerKilning(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input, float experience, int cookingTime) {
             CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), output, experience, cookingTime, ChikoritaLoverMod.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(output)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, getItemPath(output) + "_from_kilning"));
         }
@@ -130,6 +234,10 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             SingleItemRecipeJsonBuilder var10000 = SingleItemRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(input), output, count).criterion(hasItem(input), conditionsFromItem(input));
             String var10002 = convertBetween(output, input);
             var10000.offerTo(exporter, new Identifier(ChikoritaLoverMod.MODID, var10002 + "_stonecutting"));
+        }
+
+        public static void offerTrapdoorRecipe2(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+            ShapedRecipeJsonBuilder.create(output, 1).input('#', input).pattern("##").pattern("##").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
         }
 
         public static void offerWaxingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
@@ -287,6 +395,76 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             ShapedRecipeJsonBuilder.create(ModBlocks.RED_NETHER_BRICK_FENCE, 6).input('W', Blocks.RED_NETHER_BRICKS).input('#', Items.NETHER_BRICK).pattern("W#W").pattern("W#W").criterion(hasItem(Blocks.RED_NETHER_BRICKS), conditionsFromItem(Blocks.RED_NETHER_BRICKS)).offerTo(exporter);
 
             ShapedRecipeJsonBuilder.create(ModBlocks.KILN).input('#', Items.BRICK).input('X', Blocks.FURNACE).pattern(" # ").pattern("#X#").pattern(" # ").criterion(hasItem(Blocks.FURNACE), conditionsFromItem(Blocks.FURNACE)).offerTo(exporter);
+
+            offerDoorRecipe(exporter, ModBlocks.GLASS_DOOR, Blocks.GLASS);
+            offerDoorRecipe(exporter, ModBlocks.BLACK_STAINED_GLASS_DOOR, Blocks.BLACK_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.BLUE_STAINED_GLASS_DOOR, Blocks.BLUE_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.BROWN_STAINED_GLASS_DOOR, Blocks.BROWN_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.CYAN_STAINED_GLASS_DOOR, Blocks.CYAN_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.GRAY_STAINED_GLASS_DOOR, Blocks.GRAY_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.GREEN_STAINED_GLASS_DOOR, Blocks.GREEN_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, Blocks.LIGHT_BLUE_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, Blocks.LIGHT_GRAY_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.LIME_STAINED_GLASS_DOOR, Blocks.LIME_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.MAGENTA_STAINED_GLASS_DOOR, Blocks.MAGENTA_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.ORANGE_STAINED_GLASS_DOOR, Blocks.ORANGE_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.PINK_STAINED_GLASS_DOOR, Blocks.PINK_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.PURPLE_STAINED_GLASS_DOOR, Blocks.PURPLE_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.RED_STAINED_GLASS_DOOR, Blocks.RED_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.WHITE_STAINED_GLASS_DOOR, Blocks.WHITE_STAINED_GLASS);
+            offerDoorRecipe(exporter, ModBlocks.YELLOW_STAINED_GLASS_DOOR, Blocks.YELLOW_STAINED_GLASS);
+
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.BLACK_STAINED_GLASS_DOOR, Items.BLACK_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.BLUE_STAINED_GLASS_DOOR, Items.BLUE_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.BROWN_STAINED_GLASS_DOOR, Items.BROWN_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.CYAN_STAINED_GLASS_DOOR, Items.CYAN_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.GRAY_STAINED_GLASS_DOOR, Items.GRAY_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.GREEN_STAINED_GLASS_DOOR, Items.GREEN_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, Items.LIGHT_BLUE_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, Items.LIGHT_GRAY_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.LIME_STAINED_GLASS_DOOR, Items.LIME_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.MAGENTA_STAINED_GLASS_DOOR, Items.MAGENTA_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.ORANGE_STAINED_GLASS_DOOR, Items.ORANGE_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.PINK_STAINED_GLASS_DOOR, Items.PINK_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.PURPLE_STAINED_GLASS_DOOR, Items.PURPLE_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.RED_STAINED_GLASS_DOOR, Items.RED_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.WHITE_STAINED_GLASS_DOOR, Items.WHITE_DYE);
+            offerGlassDoorDyeingRecipe(exporter, ModBlocks.YELLOW_STAINED_GLASS_DOOR, Items.YELLOW_DYE);
+
+            offerTrapdoorRecipe2(exporter, ModBlocks.GLASS_TRAPDOOR, Blocks.GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.BLACK_STAINED_GLASS_TRAPDOOR, Blocks.BLACK_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.BLUE_STAINED_GLASS_TRAPDOOR, Blocks.BLUE_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.BROWN_STAINED_GLASS_TRAPDOOR, Blocks.BROWN_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.CYAN_STAINED_GLASS_TRAPDOOR, Blocks.CYAN_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.GRAY_STAINED_GLASS_TRAPDOOR, Blocks.GRAY_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.GREEN_STAINED_GLASS_TRAPDOOR, Blocks.GREEN_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR, Blocks.LIGHT_BLUE_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR, Blocks.LIGHT_GRAY_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.LIME_STAINED_GLASS_TRAPDOOR, Blocks.LIME_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR, Blocks.MAGENTA_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.ORANGE_STAINED_GLASS_TRAPDOOR, Blocks.ORANGE_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.PINK_STAINED_GLASS_TRAPDOOR, Blocks.PINK_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.PURPLE_STAINED_GLASS_TRAPDOOR, Blocks.PURPLE_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.RED_STAINED_GLASS_TRAPDOOR, Blocks.RED_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.WHITE_STAINED_GLASS_TRAPDOOR, Blocks.WHITE_STAINED_GLASS);
+            offerTrapdoorRecipe2(exporter, ModBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, Blocks.YELLOW_STAINED_GLASS);
+
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.BLACK_STAINED_GLASS_TRAPDOOR, Items.BLACK_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.BLUE_STAINED_GLASS_TRAPDOOR, Items.BLUE_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.BROWN_STAINED_GLASS_TRAPDOOR, Items.BROWN_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.CYAN_STAINED_GLASS_TRAPDOOR, Items.CYAN_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.GRAY_STAINED_GLASS_TRAPDOOR, Items.GRAY_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.GREEN_STAINED_GLASS_TRAPDOOR, Items.GREEN_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR, Items.LIGHT_BLUE_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR, Items.LIGHT_GRAY_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.LIME_STAINED_GLASS_TRAPDOOR, Items.LIME_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR, Items.MAGENTA_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.ORANGE_STAINED_GLASS_TRAPDOOR, Items.ORANGE_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.PINK_STAINED_GLASS_TRAPDOOR, Items.PINK_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.PURPLE_STAINED_GLASS_TRAPDOOR, Items.PURPLE_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.RED_STAINED_GLASS_TRAPDOOR, Items.RED_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.WHITE_STAINED_GLASS_TRAPDOOR, Items.WHITE_DYE);
+            offerGlassTrapdoorDyeingRecipe(exporter, ModBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, Items.YELLOW_DYE);
 
             offerDoorRecipe(exporter, ModBlocks.COPPER_DOOR, Items.COPPER_INGOT);
 
