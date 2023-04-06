@@ -44,6 +44,71 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
 
         @Override
         public void accept(BiConsumer<Identifier, LootTable.Builder> biConsumer) {
+            this.addDrop(biConsumer, ModBlocks.BLACK_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.BLACK_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.BLACK_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.BLACK_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.BLACK_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.BLUE_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.BLUE_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.BLUE_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.BLUE_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.BLUE_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.BROWN_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.BROWN_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.BROWN_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.BROWN_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.BROWN_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.CYAN_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.CYAN_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.CYAN_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.CYAN_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.CYAN_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.GRAY_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.GRAY_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.GRAY_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.GRAY_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.GRAY_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.GREEN_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.GREEN_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.GREEN_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.GREEN_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.GREEN_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.LIGHT_BLUE_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.LIGHT_GRAY_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.LIME_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.LIME_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.LIME_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.LIME_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.LIME_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.MAGENTA_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.MAGENTA_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.MAGENTA_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.MAGENTA_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.MAGENTA_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.ORANGE_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.ORANGE_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.ORANGE_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.ORANGE_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.ORANGE_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.PINK_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.PINK_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.PINK_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.PINK_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.PINK_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.PURPLE_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.PURPLE_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.PURPLE_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.PURPLE_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.PURPLE_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.RED_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.RED_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.RED_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.RED_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.RED_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.WHITE_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.WHITE_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.WHITE_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.WHITE_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.WHITE_PAINTED_BRICK_WALL);
+            this.addDrop(biConsumer, ModBlocks.YELLOW_PAINTED_BRICKS);
+            this.addDrop(biConsumer, ModBlocks.YELLOW_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.YELLOW_PAINTED_BRICK_SLAB));
+            this.addDrop(biConsumer, ModBlocks.YELLOW_PAINTED_BRICK_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.YELLOW_PAINTED_BRICK_WALL);
+            
             this.addDrop(biConsumer, ModBlocks.GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.GLASS_DOOR));
             this.addDrop(biConsumer, ModBlocks.BLACK_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.BLACK_STAINED_GLASS_DOOR));
             this.addDrop(biConsumer, ModBlocks.BLUE_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.BLUE_STAINED_GLASS_DOOR));
@@ -205,6 +270,10 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             ShapedRecipeJsonBuilder.create(output, 4).input('#', input).pattern("#  ").pattern("## ").pattern("###").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
         }
 
+        public static void offerBrickDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+            ShapedRecipeJsonBuilder.create(output, 8).input('#', Blocks.BRICKS).input('X', input).pattern("###").pattern("#X#").pattern("###").group("painted_bricks").criterion("has_bricks", RecipeProvider.conditionsFromItem(Blocks.BRICKS)).offerTo(exporter);
+        }
+
         public static void offerCrackingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), output, 0.1F, 200).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
             offerKilning(exporter, output, input, 0.1F, 100);
@@ -355,6 +424,125 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_SLAB, ModBlocks.LAPIS_LAZULI_TILES, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_STAIRS, Blocks.LAPIS_BLOCK, 4);
             offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_STAIRS, ModBlocks.LAPIS_LAZULI_TILES);
+
+            offerBrickDyeingRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICKS, Items.BLACK_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICKS, Items.BLUE_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.BROWN_PAINTED_BRICKS, Items.BROWN_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.CYAN_PAINTED_BRICKS, Items.CYAN_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.GRAY_PAINTED_BRICKS, Items.GRAY_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.GREEN_PAINTED_BRICKS, Items.GREEN_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS, Items.LIGHT_BLUE_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS, Items.LIGHT_GRAY_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.LIME_PAINTED_BRICKS, Items.LIME_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.MAGENTA_PAINTED_BRICKS, Items.MAGENTA_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.ORANGE_PAINTED_BRICKS, Items.ORANGE_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.PINK_PAINTED_BRICKS, Items.PINK_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.PURPLE_PAINTED_BRICKS, Items.PURPLE_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.RED_PAINTED_BRICKS, Items.RED_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICKS, Items.WHITE_DYE);
+            offerBrickDyeingRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICKS, Items.YELLOW_DYE);
+            
+            offerSlabRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICK_SLAB, ModBlocks.BLACK_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICK_SLAB, ModBlocks.BLUE_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.BROWN_PAINTED_BRICK_SLAB, ModBlocks.BROWN_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.CYAN_PAINTED_BRICK_SLAB, ModBlocks.CYAN_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.GRAY_PAINTED_BRICK_SLAB, ModBlocks.GRAY_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.GREEN_PAINTED_BRICK_SLAB, ModBlocks.GREEN_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_SLAB, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_SLAB, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.LIME_PAINTED_BRICK_SLAB, ModBlocks.LIME_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.MAGENTA_PAINTED_BRICK_SLAB, ModBlocks.MAGENTA_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.ORANGE_PAINTED_BRICK_SLAB, ModBlocks.ORANGE_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.PINK_PAINTED_BRICK_SLAB, ModBlocks.PINK_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.PURPLE_PAINTED_BRICK_SLAB, ModBlocks.PURPLE_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.RED_PAINTED_BRICK_SLAB, ModBlocks.RED_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICK_SLAB, ModBlocks.WHITE_PAINTED_BRICKS);
+            offerSlabRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICK_SLAB, ModBlocks.YELLOW_PAINTED_BRICKS);
+
+            offerStairsRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICK_STAIRS, ModBlocks.BLACK_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICK_STAIRS, ModBlocks.BLUE_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.BROWN_PAINTED_BRICK_STAIRS, ModBlocks.BROWN_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.CYAN_PAINTED_BRICK_STAIRS, ModBlocks.CYAN_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.GRAY_PAINTED_BRICK_STAIRS, ModBlocks.GRAY_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.GREEN_PAINTED_BRICK_STAIRS, ModBlocks.GREEN_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_STAIRS, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_STAIRS, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.LIME_PAINTED_BRICK_STAIRS, ModBlocks.LIME_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.MAGENTA_PAINTED_BRICK_STAIRS, ModBlocks.MAGENTA_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.ORANGE_PAINTED_BRICK_STAIRS, ModBlocks.ORANGE_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.PINK_PAINTED_BRICK_STAIRS, ModBlocks.PINK_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.PURPLE_PAINTED_BRICK_STAIRS, ModBlocks.PURPLE_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.RED_PAINTED_BRICK_STAIRS, ModBlocks.RED_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICK_STAIRS, ModBlocks.WHITE_PAINTED_BRICKS);
+            offerStairsRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICK_STAIRS, ModBlocks.YELLOW_PAINTED_BRICKS);
+
+            offerWallRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICK_WALL, ModBlocks.BLACK_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICK_WALL, ModBlocks.BLUE_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.BROWN_PAINTED_BRICK_WALL, ModBlocks.BROWN_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.CYAN_PAINTED_BRICK_WALL, ModBlocks.CYAN_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.GRAY_PAINTED_BRICK_WALL, ModBlocks.GRAY_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.GREEN_PAINTED_BRICK_WALL, ModBlocks.GREEN_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_WALL, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_WALL, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.LIME_PAINTED_BRICK_WALL, ModBlocks.LIME_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.MAGENTA_PAINTED_BRICK_WALL, ModBlocks.MAGENTA_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.ORANGE_PAINTED_BRICK_WALL, ModBlocks.ORANGE_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.PINK_PAINTED_BRICK_WALL, ModBlocks.PINK_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.PURPLE_PAINTED_BRICK_WALL, ModBlocks.PURPLE_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.RED_PAINTED_BRICK_WALL, ModBlocks.RED_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICK_WALL, ModBlocks.WHITE_PAINTED_BRICKS);
+            offerWallRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICK_WALL, ModBlocks.YELLOW_PAINTED_BRICKS);
+
+            offerStonecuttingRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICK_SLAB, ModBlocks.BLACK_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICK_SLAB, ModBlocks.BLUE_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.BROWN_PAINTED_BRICK_SLAB, ModBlocks.BROWN_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.CYAN_PAINTED_BRICK_SLAB, ModBlocks.CYAN_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.GRAY_PAINTED_BRICK_SLAB, ModBlocks.GRAY_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.GREEN_PAINTED_BRICK_SLAB, ModBlocks.GREEN_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_SLAB, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_SLAB, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.LIME_PAINTED_BRICK_SLAB, ModBlocks.LIME_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.MAGENTA_PAINTED_BRICK_SLAB, ModBlocks.MAGENTA_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.ORANGE_PAINTED_BRICK_SLAB, ModBlocks.ORANGE_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.PINK_PAINTED_BRICK_SLAB, ModBlocks.PINK_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.PURPLE_PAINTED_BRICK_SLAB, ModBlocks.PURPLE_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.RED_PAINTED_BRICK_SLAB, ModBlocks.RED_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICK_SLAB, ModBlocks.WHITE_PAINTED_BRICKS, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICK_SLAB, ModBlocks.YELLOW_PAINTED_BRICKS, 2);
+
+            offerStonecuttingRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICK_STAIRS, ModBlocks.BLACK_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICK_STAIRS, ModBlocks.BLUE_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.BROWN_PAINTED_BRICK_STAIRS, ModBlocks.BROWN_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.CYAN_PAINTED_BRICK_STAIRS, ModBlocks.CYAN_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.GRAY_PAINTED_BRICK_STAIRS, ModBlocks.GRAY_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.GREEN_PAINTED_BRICK_STAIRS, ModBlocks.GREEN_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_STAIRS, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_STAIRS, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.LIME_PAINTED_BRICK_STAIRS, ModBlocks.LIME_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.MAGENTA_PAINTED_BRICK_STAIRS, ModBlocks.MAGENTA_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.ORANGE_PAINTED_BRICK_STAIRS, ModBlocks.ORANGE_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.PINK_PAINTED_BRICK_STAIRS, ModBlocks.PINK_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.PURPLE_PAINTED_BRICK_STAIRS, ModBlocks.PURPLE_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.RED_PAINTED_BRICK_STAIRS, ModBlocks.RED_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICK_STAIRS, ModBlocks.WHITE_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICK_STAIRS, ModBlocks.YELLOW_PAINTED_BRICKS);
+
+            offerStonecuttingRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICK_WALL, ModBlocks.BLACK_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICK_WALL, ModBlocks.BLUE_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.BROWN_PAINTED_BRICK_WALL, ModBlocks.BROWN_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.CYAN_PAINTED_BRICK_WALL, ModBlocks.CYAN_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.GRAY_PAINTED_BRICK_WALL, ModBlocks.GRAY_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.GREEN_PAINTED_BRICK_WALL, ModBlocks.GREEN_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_WALL, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_WALL, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.LIME_PAINTED_BRICK_WALL, ModBlocks.LIME_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.MAGENTA_PAINTED_BRICK_WALL, ModBlocks.MAGENTA_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.ORANGE_PAINTED_BRICK_WALL, ModBlocks.ORANGE_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.PINK_PAINTED_BRICK_WALL, ModBlocks.PINK_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.PURPLE_PAINTED_BRICK_WALL, ModBlocks.PURPLE_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.RED_PAINTED_BRICK_WALL, ModBlocks.RED_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICK_WALL, ModBlocks.WHITE_PAINTED_BRICKS);
+            offerStonecuttingRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICK_WALL, ModBlocks.YELLOW_PAINTED_BRICKS);
 
             offerStonecuttingRecipe(exporter, Blocks.PRISMARINE_BRICKS, Blocks.PRISMARINE);
             offerStonecuttingRecipe(exporter, Blocks.PRISMARINE_BRICK_SLAB, Blocks.PRISMARINE, 2);

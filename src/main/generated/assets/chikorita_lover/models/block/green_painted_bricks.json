@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "chikorita_lover:block/green_painted_bricks"
+  }
+}

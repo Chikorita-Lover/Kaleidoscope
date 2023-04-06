@@ -49,6 +49,86 @@ public class ModItems {
     public static final BlockItem LAPIS_LAZULI_TILE_SLAB = new BlockItem(ModBlocks.LAPIS_LAZULI_TILE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem LAPIS_LAZULI_TILE_STAIRS = new BlockItem(ModBlocks.LAPIS_LAZULI_TILE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
+    public static final BlockItem BLACK_PAINTED_BRICKS = new BlockItem(ModBlocks.BLACK_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem BLACK_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.BLACK_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem BLACK_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.BLACK_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem BLACK_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.BLACK_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem BLUE_PAINTED_BRICKS = new BlockItem(ModBlocks.BLUE_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem BLUE_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.BLUE_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem BLUE_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.BLUE_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem BLUE_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.BLUE_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem BROWN_PAINTED_BRICKS = new BlockItem(ModBlocks.BROWN_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem BROWN_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.BROWN_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem BROWN_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.BROWN_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem BROWN_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.BROWN_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem CYAN_PAINTED_BRICKS = new BlockItem(ModBlocks.CYAN_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem CYAN_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.CYAN_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem CYAN_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.CYAN_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem CYAN_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.CYAN_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem GRAY_PAINTED_BRICKS = new BlockItem(ModBlocks.GRAY_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem GRAY_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.GRAY_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem GRAY_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.GRAY_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem GRAY_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.GRAY_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem GREEN_PAINTED_BRICKS = new BlockItem(ModBlocks.GREEN_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem GREEN_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.GREEN_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem GREEN_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.GREEN_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem GREEN_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.GREEN_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem LIGHT_BLUE_PAINTED_BRICKS = new BlockItem(ModBlocks.LIGHT_BLUE_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LIGHT_BLUE_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.LIGHT_BLUE_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LIGHT_BLUE_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.LIGHT_BLUE_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LIGHT_BLUE_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.LIGHT_BLUE_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem LIGHT_GRAY_PAINTED_BRICKS = new BlockItem(ModBlocks.LIGHT_GRAY_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LIGHT_GRAY_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.LIGHT_GRAY_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LIGHT_GRAY_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.LIGHT_GRAY_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LIGHT_GRAY_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.LIGHT_GRAY_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem LIME_PAINTED_BRICKS = new BlockItem(ModBlocks.LIME_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LIME_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.LIME_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LIME_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.LIME_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem LIME_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.LIME_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem MAGENTA_PAINTED_BRICKS = new BlockItem(ModBlocks.MAGENTA_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem MAGENTA_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.MAGENTA_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem MAGENTA_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.MAGENTA_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem MAGENTA_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.MAGENTA_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem ORANGE_PAINTED_BRICKS = new BlockItem(ModBlocks.ORANGE_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem ORANGE_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.ORANGE_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem ORANGE_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.ORANGE_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem ORANGE_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.ORANGE_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem PINK_PAINTED_BRICKS = new BlockItem(ModBlocks.PINK_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem PINK_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.PINK_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem PINK_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.PINK_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem PINK_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.PINK_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem PURPLE_PAINTED_BRICKS = new BlockItem(ModBlocks.PURPLE_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem PURPLE_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.PURPLE_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem PURPLE_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.PURPLE_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem PURPLE_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.PURPLE_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem RED_PAINTED_BRICKS = new BlockItem(ModBlocks.RED_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem RED_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.RED_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem RED_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.RED_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem RED_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.RED_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem WHITE_PAINTED_BRICKS = new BlockItem(ModBlocks.WHITE_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem WHITE_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.WHITE_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem WHITE_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.WHITE_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem WHITE_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.WHITE_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static final BlockItem YELLOW_PAINTED_BRICKS = new BlockItem(ModBlocks.YELLOW_PAINTED_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem YELLOW_PAINTED_BRICK_SLAB = new BlockItem(ModBlocks.YELLOW_PAINTED_BRICK_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem YELLOW_PAINTED_BRICK_STAIRS = new BlockItem(ModBlocks.YELLOW_PAINTED_BRICK_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final BlockItem YELLOW_PAINTED_BRICK_WALL = new BlockItem(ModBlocks.YELLOW_PAINTED_BRICK_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
     public static final BlockItem CRACKED_RED_NETHER_BRICKS = new BlockItem(ModBlocks.CRACKED_RED_NETHER_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem CHISELED_RED_NETHER_BRICKS = new BlockItem(ModBlocks.CHISELED_RED_NETHER_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
@@ -172,6 +252,86 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tiles"), LAPIS_LAZULI_TILES);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tile_slab"), LAPIS_LAZULI_TILE_SLAB);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lapis_lazuli_tile_stairs"), LAPIS_LAZULI_TILE_STAIRS);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "black_painted_bricks"), BLACK_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "black_painted_brick_slab"), BLACK_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "black_painted_brick_stairs"), BLACK_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "black_painted_brick_wall"), BLACK_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "blue_painted_bricks"), BLUE_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "blue_painted_brick_slab"), BLUE_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "blue_painted_brick_stairs"), BLUE_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "blue_painted_brick_wall"), BLUE_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "brown_painted_bricks"), BROWN_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "brown_painted_brick_slab"), BROWN_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "brown_painted_brick_stairs"), BROWN_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "brown_painted_brick_wall"), BROWN_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cyan_painted_bricks"), CYAN_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cyan_painted_brick_slab"), CYAN_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cyan_painted_brick_stairs"), CYAN_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cyan_painted_brick_wall"), CYAN_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "gray_painted_bricks"), GRAY_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "gray_painted_brick_slab"), GRAY_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "gray_painted_brick_stairs"), GRAY_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "gray_painted_brick_wall"), GRAY_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "green_painted_bricks"), GREEN_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "green_painted_brick_slab"), GREEN_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "green_painted_brick_stairs"), GREEN_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "green_painted_brick_wall"), GREEN_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_blue_painted_bricks"), LIGHT_BLUE_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_blue_painted_brick_slab"), LIGHT_BLUE_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_blue_painted_brick_stairs"), LIGHT_BLUE_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_blue_painted_brick_wall"), LIGHT_BLUE_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_gray_painted_bricks"), LIGHT_GRAY_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_gray_painted_brick_slab"), LIGHT_GRAY_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_gray_painted_brick_stairs"), LIGHT_GRAY_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "light_gray_painted_brick_wall"), LIGHT_GRAY_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lime_painted_bricks"), LIME_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lime_painted_brick_slab"), LIME_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lime_painted_brick_stairs"), LIME_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "lime_painted_brick_wall"), LIME_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "magenta_painted_bricks"), MAGENTA_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "magenta_painted_brick_slab"), MAGENTA_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "magenta_painted_brick_stairs"), MAGENTA_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "magenta_painted_brick_wall"), MAGENTA_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "orange_painted_bricks"), ORANGE_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "orange_painted_brick_slab"), ORANGE_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "orange_painted_brick_stairs"), ORANGE_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "orange_painted_brick_wall"), ORANGE_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "pink_painted_bricks"), PINK_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "pink_painted_brick_slab"), PINK_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "pink_painted_brick_stairs"), PINK_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "pink_painted_brick_wall"), PINK_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "purple_painted_bricks"), PURPLE_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "purple_painted_brick_slab"), PURPLE_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "purple_painted_brick_stairs"), PURPLE_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "purple_painted_brick_wall"), PURPLE_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_painted_bricks"), RED_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_painted_brick_slab"), RED_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_painted_brick_stairs"), RED_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "red_painted_brick_wall"), RED_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "white_painted_bricks"), WHITE_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "white_painted_brick_slab"), WHITE_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "white_painted_brick_stairs"), WHITE_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "white_painted_brick_wall"), WHITE_PAINTED_BRICK_WALL);
+
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "yellow_painted_bricks"), YELLOW_PAINTED_BRICKS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "yellow_painted_brick_slab"), YELLOW_PAINTED_BRICK_SLAB);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "yellow_painted_brick_stairs"), YELLOW_PAINTED_BRICK_STAIRS);
+        Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "yellow_painted_brick_wall"), YELLOW_PAINTED_BRICK_WALL);
 
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "cracked_red_nether_bricks"), CRACKED_RED_NETHER_BRICKS);
         Registry.register(Registry.ITEM, new Identifier(ChikoritaLoverMod.MODID, "chiseled_red_nether_bricks"), CHISELED_RED_NETHER_BRICKS);

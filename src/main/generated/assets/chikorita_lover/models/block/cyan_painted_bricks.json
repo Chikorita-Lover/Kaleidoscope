@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "chikorita_lover:block/cyan_painted_bricks"
+  }
+}

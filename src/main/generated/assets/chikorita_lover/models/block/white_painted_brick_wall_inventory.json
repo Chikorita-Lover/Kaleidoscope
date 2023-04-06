@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "chikorita_lover:block/white_painted_bricks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "chikorita_lover:pink_painted_bricks"
+  },
+  "result": "chikorita_lover:pink_painted_brick_wall"
+}
