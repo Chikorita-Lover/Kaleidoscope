@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top_left_open",
-  "textures": {
-    "bottom": "chikorita_lover:block/copper_door_bottom",
-    "top": "chikorita_lover:block/copper_door_top"
-  }
-}

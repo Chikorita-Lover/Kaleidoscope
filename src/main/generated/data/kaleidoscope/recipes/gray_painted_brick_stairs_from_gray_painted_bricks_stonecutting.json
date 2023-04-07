@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "kaleidoscope:gray_painted_bricks"
+  },
+  "result": "kaleidoscope:gray_painted_brick_stairs"
+}

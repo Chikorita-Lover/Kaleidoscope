@@ -1,0 +1,10 @@
+{
+  "type": "kaleidoscope:kilning",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "stone",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "result": "minecraft:stone"
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "chikorita_lover:block/black_painted_bricks",
-    "side": "chikorita_lover:block/black_painted_bricks",
-    "top": "chikorita_lover:block/black_painted_bricks"
-  }
-}

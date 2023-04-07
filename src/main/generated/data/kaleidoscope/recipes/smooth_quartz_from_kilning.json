@@ -1,0 +1,10 @@
+{
+  "type": "kaleidoscope:kilning",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "smooth_quartz",
+  "ingredient": {
+    "item": "minecraft:quartz_block"
+  },
+  "result": "minecraft:smooth_quartz"
+}

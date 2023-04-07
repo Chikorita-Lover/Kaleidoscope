@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_orientable_trapdoor_bottom",
+  "textures": {
+    "texture": "kaleidoscope:block/pink_stained_glass_trapdoor"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/bundle",
+  "textures": {
+    "layer0": "kaleidoscope:item/bundle_filled_dyed",
+    "layer1": "kaleidoscope:item/bundle_filled_dyed_overlay"
+  }
+}

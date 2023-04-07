@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kaleidoscope:block/smooth_basalt_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/smooth_basalt"
+    },
+    "type=top": {
+      "model": "kaleidoscope:block/smooth_basalt_slab_top"
+    }
+  }
+}

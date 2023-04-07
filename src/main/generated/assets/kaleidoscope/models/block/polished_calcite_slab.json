@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "kaleidoscope:block/polished_calcite",
+    "side": "kaleidoscope:block/polished_calcite",
+    "top": "kaleidoscope:block/polished_calcite"
+  }
+}

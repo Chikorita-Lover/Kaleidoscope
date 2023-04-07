@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/wall_inventory",
-  "textures": {
-    "wall": "chikorita_lover:block/purple_painted_bricks"
-  }
-}

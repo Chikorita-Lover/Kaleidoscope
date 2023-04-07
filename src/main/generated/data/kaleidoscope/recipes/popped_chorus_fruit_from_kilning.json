@@ -1,0 +1,10 @@
+{
+  "type": "kaleidoscope:kilning",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "popped_chorus_fruit",
+  "ingredient": {
+    "item": "minecraft:chorus_fruit"
+  },
+  "result": "minecraft:popped_chorus_fruit"
+}

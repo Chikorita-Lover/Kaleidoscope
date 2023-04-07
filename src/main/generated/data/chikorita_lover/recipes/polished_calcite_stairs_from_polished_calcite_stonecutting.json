@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "chikorita_lover:polished_calcite"
-  },
-  "result": "chikorita_lover:polished_calcite_stairs"
-}

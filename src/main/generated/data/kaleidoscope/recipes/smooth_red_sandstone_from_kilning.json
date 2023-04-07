@@ -1,0 +1,10 @@
+{
+  "type": "kaleidoscope:kilning",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "smooth_red_sandstone",
+  "ingredient": {
+    "item": "minecraft:red_sandstone"
+  },
+  "result": "minecraft:smooth_red_sandstone"
+}

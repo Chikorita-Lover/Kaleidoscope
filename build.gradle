@@ -90,7 +90,7 @@ loom {
 		}
 	}
 
-	accessWidenerPath = file("src/main/resources/chikoritalovermod.accesswidener")
+	accessWidenerPath = file("src/main/resources/kaleidoscope.accesswidener")
 }
 
 // Add the datagenned files into the jar.

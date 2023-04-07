@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left_open",
+  "textures": {
+    "bottom": "kaleidoscope:block/blue_stained_glass_door_bottom",
+    "top": "kaleidoscope:block/blue_stained_glass_door_top"
+  }
+}

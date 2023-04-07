@@ -1,33 +1,33 @@
 {
   "schemaVersion": 1,
-  "id": "chikorita_lover",
+  "id": "kaleidoscope",
   "version": "${version}",
-  "name": "Chikorita Lover's Mod",
-  "description": "Adds new blocks and items to compliment and expand upon the base game.",
+  "name": "Kaleidoscope",
+  "description": "Adds new items and enhancements to compliment and expand upon the base game.",
   "authors": [
     "Chikorita-Lover"
   ],
   "contact": {
-    "homepage": "https://github.com/Chikorita-Lover/Chikorita-Lover-Mod-Fabric",
-    "sources": "https://github.com/Chikorita-Lover/Chikorita-Lover-Mod-Fabric",
-    "issues": "https://github.com/Chikorita-Lover/Chikorita-Lover-Mod-Fabric/issues"
+    "homepage": "https://github.com/Chikorita-Lover/Kaleidoscope",
+    "sources": "https://github.com/Chikorita-Lover/Kaleidoscope",
+    "issues": "https://github.com/Chikorita-Lover/Kaleidoscope/issues"
   },
   "license": "CC0-1.0",
-  "icon": "assets/chikorita_lover/icon.png",
+  "icon": "assets/kaleidoscope/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverModClient"
+      "com.chikoritalover.kaleidoscope.KaleidoscopeClient"
     ],
     "fabric-datagen": [
-      "com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverModDatagen"
+      "com.chikoritalover.kaleidoscope.KaleidoscopeDataGenerator"
     ],
     "main": [
-      "com.chikorita_lover.chikorita_lover_mod.ChikoritaLoverMod"
+      "com.chikoritalover.kaleidoscope.Kaleidoscope"
     ]
   },
   "mixins": [
-    "chikorita_lover_mod.mixins.json"
+    "kaleidoscope.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.11",
@@ -38,5 +38,5 @@
   "suggests": {
     "another-mod": "*"
   },
-  "accessWidener": "chikoritalovermod.accesswidener"
+  "accessWidener": "kaleidoscope.accesswidener"
 }

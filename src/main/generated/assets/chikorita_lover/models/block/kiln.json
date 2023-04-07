@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/orientable_with_bottom",
-  "textures": {
-    "bottom": "chikorita_lover:block/kiln_bottom",
-    "front": "chikorita_lover:block/kiln_front",
-    "side": "chikorita_lover:block/kiln_side",
-    "top": "chikorita_lover:block/kiln_top"
-  }
-}

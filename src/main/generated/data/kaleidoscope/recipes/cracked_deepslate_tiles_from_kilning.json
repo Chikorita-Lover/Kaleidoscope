@@ -1,0 +1,10 @@
+{
+  "type": "kaleidoscope:kilning",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "cracked_deepslate_tiles",
+  "ingredient": {
+    "item": "minecraft:deepslate_tiles"
+  },
+  "result": "minecraft:cracked_deepslate_tiles"
+}

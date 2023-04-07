@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "chikorita_lover:block/polished_end_stone",
-    "side": "chikorita_lover:block/polished_end_stone",
-    "top": "chikorita_lover:block/polished_end_stone"
-  }
-}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "item": "minecraft:copper_block"
+  },
+  "result": "kaleidoscope:cut_copper_wall"
+}

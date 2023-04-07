@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "stained_glass_trapdoor",
+  "ingredients": [
+    {
+      "item": "kaleidoscope:glass_trapdoor"
+    },
+    {
+      "item": "minecraft:red_dye"
+    }
+  ],
+  "result": {
+    "item": "kaleidoscope:red_stained_glass_trapdoor"
+  }
+}

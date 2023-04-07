@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "waxed_weathered_cut_copper_wall",
+  "key": {
+    "#": {
+      "item": "minecraft:waxed_weathered_cut_copper"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "item": "kaleidoscope:waxed_weathered_cut_copper_wall"
+  }
+}

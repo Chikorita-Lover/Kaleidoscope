@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "kaleidoscope:block/kiln_bottom",
+    "front": "kaleidoscope:block/kiln_front",
+    "side": "kaleidoscope:block/kiln_side",
+    "top": "kaleidoscope:block/kiln_top"
+  }
+}

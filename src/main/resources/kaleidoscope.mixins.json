@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.chikoritalover.kaleidoscope.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AbstractBlockMixin",
+    "BlockMixin",
+    "BoatEntityMixin",
+    "BoatEntityTypeMixin",
+    "BundleItemMixin",
+    "CakeBlockMixin",
+    "ChestBoatEntityMixin",
+    "DefaultRegistryMixin",
+    "DispenserBlockMixin",
+    "FarmlandBlockMixin",
+    "FlowerPotBlockMixin",
+    "FoodComponentMixin",
+    "HoeItemMixin",
+    "ItemMixin",
+    "LivingEntityMixin",
+    "SnowballEntityMixin",
+    "ZombieVillagerEntityMixin"
+  ],
+  "client": [
+    "ArmorItemMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

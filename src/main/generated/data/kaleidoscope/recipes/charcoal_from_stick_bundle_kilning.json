@@ -1,0 +1,10 @@
+{
+  "type": "kaleidoscope:kilning",
+  "cookingtime": 100,
+  "experience": 0.15,
+  "group": "charcoal",
+  "ingredient": {
+    "item": "kaleidoscope:stick_bundle"
+  },
+  "result": "minecraft:charcoal"
+}

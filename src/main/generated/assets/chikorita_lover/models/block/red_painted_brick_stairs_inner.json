@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "chikorita_lover:block/red_painted_bricks",
-    "side": "chikorita_lover:block/red_painted_bricks",
-    "top": "chikorita_lover:block/red_painted_bricks"
-  }
-}

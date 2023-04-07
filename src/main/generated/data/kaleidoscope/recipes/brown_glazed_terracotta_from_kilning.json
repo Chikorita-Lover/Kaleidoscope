@@ -1,0 +1,10 @@
+{
+  "type": "kaleidoscope:kilning",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "brown_glazed_terracotta",
+  "ingredient": {
+    "item": "minecraft:brown_terracotta"
+  },
+  "result": "minecraft:brown_glazed_terracotta"
+}

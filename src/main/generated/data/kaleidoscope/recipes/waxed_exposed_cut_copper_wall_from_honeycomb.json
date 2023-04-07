@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "waxed_exposed_cut_copper_wall",
+  "ingredients": [
+    {
+      "item": "kaleidoscope:exposed_cut_copper_wall"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "kaleidoscope:waxed_exposed_cut_copper_wall"
+  }
+}

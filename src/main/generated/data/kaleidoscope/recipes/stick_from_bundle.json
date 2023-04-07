@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "stick",
+  "ingredients": [
+    {
+      "item": "kaleidoscope:stick_bundle"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "minecraft:stick"
+  }
+}

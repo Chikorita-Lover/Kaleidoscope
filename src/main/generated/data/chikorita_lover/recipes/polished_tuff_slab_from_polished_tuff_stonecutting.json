@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "chikorita_lover:polished_tuff"
-  },
-  "result": "chikorita_lover:polished_tuff_slab"
-}

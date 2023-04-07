@@ -14,14 +14,14 @@
       "predicate": {
         "dyed": 1
       },
-      "model": "chikorita_lover:item/bundle_dyed"
+      "model": "kaleidoscope:item/bundle_dyed"
     },
     {
       "predicate": {
         "dyed": 1,
         "filled": 0.0000001
       },
-      "model": "chikorita_lover:item/bundle_dyed_filled"
+      "model": "kaleidoscope:item/bundle_dyed_filled"
     }
   ]
 }
