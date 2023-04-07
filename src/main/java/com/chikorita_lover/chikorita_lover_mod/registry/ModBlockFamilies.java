@@ -10,8 +10,6 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class ModBlockFamilies {
-    public static final BlockFamily DIRT_BRICKS;
-    public static final BlockFamily STONE_TILES;
     public static final BlockFamily CALCITE;
     public static final BlockFamily POLISHED_CALCITE;
     public static final BlockFamily TUFF;
@@ -24,7 +22,6 @@ public class ModBlockFamilies {
     public static final BlockFamily WAXED_EXPOSED_CUT_COPPER;
     public static final BlockFamily WAXED_WEATHERED_CUT_COPPER;
     public static final BlockFamily WAXED_OXIDIZED_CUT_COPPER;
-    public static final BlockFamily LAPIS_LAZULI_TILES;
     public static final BlockFamily BLACK_PAINTED_BRICKS;
     public static final BlockFamily BLUE_PAINTED_BRICKS;
     public static final BlockFamily BROWN_PAINTED_BRICKS;
@@ -48,8 +45,6 @@ public class ModBlockFamilies {
     private static final Map<Block, BlockFamily> BASE_BLOCKS_TO_FAMILIES = Maps.newHashMap();
 
     static {
-        DIRT_BRICKS = register(ModBlocks.DIRT_BRICKS).slab(ModBlocks.DIRT_BRICK_SLAB).stairs(ModBlocks.DIRT_BRICK_STAIRS).wall(ModBlocks.DIRT_BRICK_WALL).build();
-        STONE_TILES = register(ModBlocks.STONE_TILES).slab(ModBlocks.STONE_TILE_SLAB).stairs(ModBlocks.STONE_TILE_STAIRS).build();
         CALCITE = register(Blocks.CALCITE).slab(ModBlocks.CALCITE_SLAB).stairs(ModBlocks.CALCITE_STAIRS).wall(ModBlocks.CALCITE_WALL).build();
         POLISHED_CALCITE = register(ModBlocks.POLISHED_CALCITE).slab(ModBlocks.POLISHED_CALCITE_SLAB).stairs(ModBlocks.POLISHED_CALCITE_STAIRS).build();
         TUFF = register(Blocks.TUFF).slab(ModBlocks.TUFF_SLAB).stairs(ModBlocks.TUFF_STAIRS).wall(ModBlocks.TUFF_WALL).build();
@@ -64,8 +59,6 @@ public class ModBlockFamilies {
         WAXED_EXPOSED_CUT_COPPER = register(Blocks.WAXED_EXPOSED_CUT_COPPER).wall(ModBlocks.WAXED_EXPOSED_CUT_COPPER_WALL).group("waxed_exposed_cut_copper").noGenerateModels().build();
         WAXED_WEATHERED_CUT_COPPER = register(Blocks.WAXED_WEATHERED_CUT_COPPER).wall(ModBlocks.WAXED_WEATHERED_CUT_COPPER_WALL).group("waxed_weathered_cut_copper").noGenerateModels().build();
         WAXED_OXIDIZED_CUT_COPPER = register(Blocks.WAXED_OXIDIZED_CUT_COPPER).wall(ModBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL).group("waxed_oxidized_cut_copper").noGenerateModels().build();
-
-        LAPIS_LAZULI_TILES = register(ModBlocks.LAPIS_LAZULI_TILES).slab(ModBlocks.LAPIS_LAZULI_TILE_SLAB).stairs(ModBlocks.LAPIS_LAZULI_TILE_STAIRS).build();
 
         BLACK_PAINTED_BRICKS = register(ModBlocks.BLACK_PAINTED_BRICKS).slab(ModBlocks.BLACK_PAINTED_BRICK_SLAB).stairs(ModBlocks.BLACK_PAINTED_BRICK_STAIRS).wall(ModBlocks.BLACK_PAINTED_BRICK_WALL).build();
         BLUE_PAINTED_BRICKS = register(ModBlocks.BLUE_PAINTED_BRICKS).slab(ModBlocks.BLUE_PAINTED_BRICK_SLAB).stairs(ModBlocks.BLUE_PAINTED_BRICK_STAIRS).wall(ModBlocks.BLUE_PAINTED_BRICK_WALL).build();
@@ -84,9 +77,9 @@ public class ModBlockFamilies {
         WHITE_PAINTED_BRICKS = register(ModBlocks.WHITE_PAINTED_BRICKS).slab(ModBlocks.WHITE_PAINTED_BRICK_SLAB).stairs(ModBlocks.WHITE_PAINTED_BRICK_STAIRS).wall(ModBlocks.WHITE_PAINTED_BRICK_WALL).build();
         YELLOW_PAINTED_BRICKS = register(ModBlocks.YELLOW_PAINTED_BRICKS).slab(ModBlocks.YELLOW_PAINTED_BRICK_SLAB).stairs(ModBlocks.YELLOW_PAINTED_BRICK_STAIRS).wall(ModBlocks.YELLOW_PAINTED_BRICK_WALL).build();
         
-        RED_NETHER_BRICKS = register(Blocks.RED_NETHER_BRICKS).chiseled(ModBlocks.CHISELED_RED_NETHER_BRICKS).cracked(ModBlocks.CRACKED_RED_NETHER_BRICKS).fence(ModBlocks.RED_NETHER_BRICK_FENCE).build();
+        RED_NETHER_BRICKS = register(Blocks.RED_NETHER_BRICKS).chiseled(ModBlocks.CHISELED_RED_NETHER_BRICKS).cracked(ModBlocks.CRACKED_RED_NETHER_BRICKS).fence(ModBlocks.RED_NETHER_BRICK_FENCE).noGenerateRecipes().build();
         POLISHED_END_STONE = register(ModBlocks.POLISHED_END_STONE).slab(ModBlocks.POLISHED_END_STONE_SLAB).stairs(ModBlocks.POLISHED_END_STONE_STAIRS).build();
-        PURPUR = register(Blocks.PURPUR_BLOCK).chiseled(ModBlocks.CHISELED_PURPUR).build();
+        PURPUR = register(Blocks.PURPUR_BLOCK).chiseled(ModBlocks.CHISELED_PURPUR).noGenerateRecipes().build();
         SMOOTH_BASALT = register(Blocks.SMOOTH_BASALT).slab(ModBlocks.SMOOTH_BASALT_SLAB).stairs(ModBlocks.SMOOTH_BASALT_STAIRS).wall(ModBlocks.SMOOTH_BASALT_WALL).build();
     }
 

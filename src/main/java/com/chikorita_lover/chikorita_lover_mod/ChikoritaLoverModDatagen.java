@@ -266,10 +266,6 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             super(generator);
         }
 
-        public static void offerStairsRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
-            ShapedRecipeJsonBuilder.create(output, 4).input('#', input).pattern("#  ").pattern("## ").pattern("###").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
-        }
-
         public static void offerBrickDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             ShapedRecipeJsonBuilder.create(output, 8).input('#', Blocks.BRICKS).input('X', input).pattern("###").pattern("#X#").pattern("###").group("painted_bricks").criterion("has_bricks", RecipeProvider.conditionsFromItem(Blocks.BRICKS)).offerTo(exporter);
         }
@@ -322,27 +318,6 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, Blocks.MUD_BRICK_STAIRS, Blocks.PACKED_MUD);
             offerStonecuttingRecipe(exporter, Blocks.MUD_BRICK_WALL, Blocks.PACKED_MUD);
 
-            offerPolishedStoneRecipe(exporter, ModBlocks.DIRT_BRICKS, Blocks.DIRT);
-
-            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICKS, Blocks.DIRT);
-            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_SLAB, Blocks.DIRT, 2);
-            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_SLAB, ModBlocks.DIRT_BRICKS, 2);
-            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_STAIRS, Blocks.DIRT);
-            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_STAIRS, ModBlocks.DIRT_BRICKS);
-            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_WALL, Blocks.DIRT);
-            offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_WALL, ModBlocks.DIRT_BRICKS);
-
-            offerPolishedStoneRecipe(exporter, ModBlocks.STONE_TILES, Blocks.STONE_BRICKS);
-
-            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILES, Blocks.STONE);
-            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILES, Blocks.STONE_BRICKS);
-            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_SLAB, Blocks.STONE, 2);
-            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_SLAB, Blocks.STONE_BRICKS, 2);
-            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_SLAB, ModBlocks.STONE_TILES, 2);
-            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_STAIRS, Blocks.STONE);
-            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_STAIRS, Blocks.STONE_BRICKS);
-            offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_STAIRS, ModBlocks.STONE_TILES);
-
             offerStonecuttingRecipe(exporter, ModBlocks.CALCITE_SLAB, Blocks.CALCITE, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.CALCITE_STAIRS, Blocks.CALCITE);
             offerStonecuttingRecipe(exporter, ModBlocks.CALCITE_WALL, Blocks.CALCITE);
@@ -389,14 +364,6 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerWaxingRecipe(exporter, ModBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, ModBlocks.EXPOSED_CUT_COPPER_WALL);
             offerWaxingRecipe(exporter, ModBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, ModBlocks.WEATHERED_CUT_COPPER_WALL);
             offerWaxingRecipe(exporter, ModBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, ModBlocks.OXIDIZED_CUT_COPPER_WALL);
-
-            ShapedRecipeJsonBuilder.create(ModBlocks.LAPIS_LAZULI_TILES, 16).input('#', Blocks.LAPIS_BLOCK).pattern("##").pattern("##").criterion(hasItem(Blocks.LAPIS_BLOCK), conditionsFromItem(Blocks.LAPIS_BLOCK)).offerTo(exporter);
-
-            offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILES, Blocks.LAPIS_BLOCK, 4);
-            offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_SLAB, Blocks.LAPIS_BLOCK, 8);
-            offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_SLAB, ModBlocks.LAPIS_LAZULI_TILES, 2);
-            offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_STAIRS, Blocks.LAPIS_BLOCK, 4);
-            offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_STAIRS, ModBlocks.LAPIS_LAZULI_TILES);
 
             offerBrickDyeingRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICKS, Items.BLACK_DYE);
             offerBrickDyeingRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICKS, Items.BLUE_DYE);

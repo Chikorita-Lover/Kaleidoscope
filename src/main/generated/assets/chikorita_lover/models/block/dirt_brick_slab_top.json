@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "chikorita_lover:block/dirt_bricks",
-    "side": "chikorita_lover:block/dirt_bricks",
-    "top": "chikorita_lover:block/dirt_bricks"
-  }
-}

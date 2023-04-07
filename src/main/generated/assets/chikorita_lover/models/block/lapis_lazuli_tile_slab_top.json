@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "chikorita_lover:block/lapis_lazuli_tiles",
-    "side": "chikorita_lover:block/lapis_lazuli_tiles",
-    "top": "chikorita_lover:block/lapis_lazuli_tiles"
-  }
-}

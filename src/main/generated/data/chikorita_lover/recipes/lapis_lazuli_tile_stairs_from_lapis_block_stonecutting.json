@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 4,
-  "ingredient": {
-    "item": "minecraft:lapis_block"
-  },
-  "result": "chikorita_lover:lapis_lazuli_tile_stairs"
-}

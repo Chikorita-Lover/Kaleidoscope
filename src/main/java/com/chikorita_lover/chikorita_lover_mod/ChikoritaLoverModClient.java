@@ -3,16 +3,13 @@ package com.chikorita_lover.chikorita_lover_mod;
 import com.chikorita_lover.chikorita_lover_mod.block.entity.PotionCauldronBlockEntity;
 import com.chikorita_lover.chikorita_lover_mod.client.gui.screen.ingame.KilnScreen;
 import com.chikorita_lover.chikorita_lover_mod.registry.ModBlocks;
-import com.chikorita_lover.chikorita_lover_mod.registry.ModItems;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.HorseArmorItem;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -23,13 +20,13 @@ public class ChikoritaLoverModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ModItems.registerColorProviders();
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
             if (world == null || pos == null || world.getBlockEntity(pos) == null) {
                 return 3694022;
             }
             return ((PotionCauldronBlockEntity) world.getBlockEntity(pos)).getColor();
         }, ModBlocks.POTION_CAULDRON);
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem)stack.getItem()).getColor(stack), Items.BUNDLE);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GLASS_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLACK_STAINED_GLASS_DOOR, RenderLayer.getTranslucent());

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "chikorita_lover:block/stone_tiles",
-    "side": "chikorita_lover:block/stone_tiles",
-    "top": "chikorita_lover:block/stone_tiles"
-  }
-}

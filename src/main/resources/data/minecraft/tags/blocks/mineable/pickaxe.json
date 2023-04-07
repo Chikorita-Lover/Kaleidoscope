@@ -1,9 +1,6 @@
 {
   "values": [
     "#chikorita_lover:copper_doors",
-    "chikorita_lover:stone_tiles",
-    "chikorita_lover:stone_tile_slab",
-    "chikorita_lover:stone_tile_stairs",
     "chikorita_lover:calcite_slab",
     "chikorita_lover:calcite_stairs",
     "chikorita_lover:calcite_wall",
@@ -24,9 +21,6 @@
     "chikorita_lover:waxed_exposed_cut_copper_wall",
     "chikorita_lover:waxed_weathered_cut_copper_wall",
     "chikorita_lover:waxed_oxidized_cut_copper_wall",
-    "chikorita_lover:lapis_lazuli_tiles",
-    "chikorita_lover:lapis_lazuli_tile_slab",
-    "chikorita_lover:lapis_lazuli_tile_stairs",
     "chikorita_lover:black_painted_bricks",
     "chikorita_lover:blue_painted_bricks",
     "chikorita_lover:brown_painted_bricks",
