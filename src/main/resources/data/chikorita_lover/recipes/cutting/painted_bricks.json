@@ -1,0 +1,18 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "tag": "chikorita_lover:painted_bricks"
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:tool",
+    "tag": "c:tools/pickaxes"
+  },
+  "result": [
+    {
+      "item": "minecraft:brick",
+      "count": 4
+    }
+  ]
+}
