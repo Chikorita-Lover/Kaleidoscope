@@ -315,15 +315,14 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
 
         @Override
         protected void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
+            ModBlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateRecipes).forEach(family -> RecipeProvider.generateFamily(exporter, family));
+
             offerStonecuttingRecipe(exporter, Blocks.MUD_BRICKS, Blocks.PACKED_MUD);
             offerStonecuttingRecipe(exporter, Blocks.MUD_BRICK_SLAB, Blocks.PACKED_MUD, 2);
             offerStonecuttingRecipe(exporter, Blocks.MUD_BRICK_STAIRS, Blocks.PACKED_MUD);
             offerStonecuttingRecipe(exporter, Blocks.MUD_BRICK_WALL, Blocks.PACKED_MUD);
 
             offerPolishedStoneRecipe(exporter, ModBlocks.DIRT_BRICKS, Blocks.DIRT);
-            offerSlabRecipe(exporter, ModBlocks.DIRT_BRICK_SLAB, ModBlocks.DIRT_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.DIRT_BRICK_STAIRS, ModBlocks.DIRT_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.DIRT_BRICK_WALL, ModBlocks.DIRT_BRICKS);
 
             offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICKS, Blocks.DIRT);
             offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_SLAB, Blocks.DIRT, 2);
@@ -334,8 +333,6 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, ModBlocks.DIRT_BRICK_WALL, ModBlocks.DIRT_BRICKS);
 
             offerPolishedStoneRecipe(exporter, ModBlocks.STONE_TILES, Blocks.STONE_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.STONE_TILE_SLAB, ModBlocks.STONE_TILES);
-            offerStairsRecipe(exporter, ModBlocks.STONE_TILE_STAIRS, ModBlocks.STONE_TILES);
 
             offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILES, Blocks.STONE);
             offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILES, Blocks.STONE_BRICKS);
@@ -346,17 +343,11 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_STAIRS, Blocks.STONE_BRICKS);
             offerStonecuttingRecipe(exporter, ModBlocks.STONE_TILE_STAIRS, ModBlocks.STONE_TILES);
 
-            offerSlabRecipe(exporter, ModBlocks.CALCITE_SLAB, Blocks.CALCITE);
-            offerStairsRecipe(exporter, ModBlocks.CALCITE_STAIRS, Blocks.CALCITE);
-            offerWallRecipe(exporter, ModBlocks.CALCITE_WALL, Blocks.CALCITE);
-
             offerStonecuttingRecipe(exporter, ModBlocks.CALCITE_SLAB, Blocks.CALCITE, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.CALCITE_STAIRS, Blocks.CALCITE);
             offerStonecuttingRecipe(exporter, ModBlocks.CALCITE_WALL, Blocks.CALCITE);
 
             offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_CALCITE, Blocks.CALCITE);
-            offerSlabRecipe(exporter, ModBlocks.POLISHED_CALCITE_SLAB, ModBlocks.POLISHED_CALCITE);
-            offerStairsRecipe(exporter, ModBlocks.POLISHED_CALCITE_STAIRS, ModBlocks.POLISHED_CALCITE);
 
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE, Blocks.CALCITE);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE_SLAB, Blocks.CALCITE, 2);
@@ -364,28 +355,17 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE_STAIRS, Blocks.CALCITE);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_CALCITE_STAIRS, ModBlocks.POLISHED_CALCITE);
 
-            offerSlabRecipe(exporter, ModBlocks.TUFF_SLAB, Blocks.TUFF);
-            offerStairsRecipe(exporter, ModBlocks.TUFF_STAIRS, Blocks.TUFF);
-            offerWallRecipe(exporter, ModBlocks.TUFF_WALL, Blocks.TUFF);
-
             offerStonecuttingRecipe(exporter, ModBlocks.TUFF_SLAB, Blocks.TUFF, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.TUFF_STAIRS, Blocks.TUFF);
             offerStonecuttingRecipe(exporter, ModBlocks.TUFF_WALL, Blocks.TUFF);
 
             offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_TUFF, Blocks.TUFF);
-            offerSlabRecipe(exporter, ModBlocks.POLISHED_TUFF_SLAB, ModBlocks.POLISHED_TUFF);
-            offerStairsRecipe(exporter, ModBlocks.POLISHED_TUFF_STAIRS, ModBlocks.POLISHED_TUFF);
 
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_TUFF, Blocks.TUFF);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_TUFF_SLAB, Blocks.TUFF, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_TUFF_SLAB, ModBlocks.POLISHED_TUFF, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_TUFF_STAIRS, Blocks.TUFF);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_TUFF_STAIRS, ModBlocks.POLISHED_TUFF);
-
-            offerWallRecipe(exporter, ModBlocks.CUT_COPPER_WALL, Blocks.CUT_COPPER);
-            offerWallRecipe(exporter, ModBlocks.EXPOSED_CUT_COPPER_WALL, Blocks.EXPOSED_CUT_COPPER);
-            offerWallRecipe(exporter, ModBlocks.WEATHERED_CUT_COPPER_WALL, Blocks.WEATHERED_CUT_COPPER);
-            offerWallRecipe(exporter, ModBlocks.OXIDIZED_CUT_COPPER_WALL, Blocks.OXIDIZED_CUT_COPPER);
 
             offerStonecuttingRecipe(exporter, ModBlocks.CUT_COPPER_WALL, Blocks.COPPER_BLOCK, 4);
             offerStonecuttingRecipe(exporter, ModBlocks.EXPOSED_CUT_COPPER_WALL, Blocks.EXPOSED_COPPER, 4);
@@ -395,11 +375,6 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, ModBlocks.EXPOSED_CUT_COPPER_WALL, Blocks.EXPOSED_CUT_COPPER);
             offerStonecuttingRecipe(exporter, ModBlocks.WEATHERED_CUT_COPPER_WALL, Blocks.WEATHERED_CUT_COPPER);
             offerStonecuttingRecipe(exporter, ModBlocks.OXIDIZED_CUT_COPPER_WALL, Blocks.OXIDIZED_CUT_COPPER);
-
-            offerWallRecipe(exporter, ModBlocks.WAXED_CUT_COPPER_WALL, Blocks.WAXED_CUT_COPPER);
-            offerWallRecipe(exporter, ModBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, Blocks.WAXED_EXPOSED_CUT_COPPER);
-            offerWallRecipe(exporter, ModBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, Blocks.WAXED_WEATHERED_CUT_COPPER);
-            offerWallRecipe(exporter, ModBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, Blocks.WAXED_OXIDIZED_CUT_COPPER);
 
             offerStonecuttingRecipe(exporter, ModBlocks.WAXED_CUT_COPPER_WALL, Blocks.WAXED_COPPER_BLOCK, 4);
             offerStonecuttingRecipe(exporter, ModBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, Blocks.WAXED_EXPOSED_COPPER, 4);
@@ -416,8 +391,6 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerWaxingRecipe(exporter, ModBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, ModBlocks.OXIDIZED_CUT_COPPER_WALL);
 
             ShapedRecipeJsonBuilder.create(ModBlocks.LAPIS_LAZULI_TILES, 16).input('#', Blocks.LAPIS_BLOCK).pattern("##").pattern("##").criterion(hasItem(Blocks.LAPIS_BLOCK), conditionsFromItem(Blocks.LAPIS_BLOCK)).offerTo(exporter);
-            offerSlabRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_SLAB, ModBlocks.LAPIS_LAZULI_TILES);
-            offerStairsRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_STAIRS, ModBlocks.LAPIS_LAZULI_TILES);
 
             offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILES, Blocks.LAPIS_BLOCK, 4);
             offerStonecuttingRecipe(exporter, ModBlocks.LAPIS_LAZULI_TILE_SLAB, Blocks.LAPIS_BLOCK, 8);
@@ -441,57 +414,6 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerBrickDyeingRecipe(exporter, ModBlocks.RED_PAINTED_BRICKS, Items.RED_DYE);
             offerBrickDyeingRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICKS, Items.WHITE_DYE);
             offerBrickDyeingRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICKS, Items.YELLOW_DYE);
-            
-            offerSlabRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICK_SLAB, ModBlocks.BLACK_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICK_SLAB, ModBlocks.BLUE_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.BROWN_PAINTED_BRICK_SLAB, ModBlocks.BROWN_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.CYAN_PAINTED_BRICK_SLAB, ModBlocks.CYAN_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.GRAY_PAINTED_BRICK_SLAB, ModBlocks.GRAY_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.GREEN_PAINTED_BRICK_SLAB, ModBlocks.GREEN_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_SLAB, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_SLAB, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.LIME_PAINTED_BRICK_SLAB, ModBlocks.LIME_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.MAGENTA_PAINTED_BRICK_SLAB, ModBlocks.MAGENTA_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.ORANGE_PAINTED_BRICK_SLAB, ModBlocks.ORANGE_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.PINK_PAINTED_BRICK_SLAB, ModBlocks.PINK_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.PURPLE_PAINTED_BRICK_SLAB, ModBlocks.PURPLE_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.RED_PAINTED_BRICK_SLAB, ModBlocks.RED_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICK_SLAB, ModBlocks.WHITE_PAINTED_BRICKS);
-            offerSlabRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICK_SLAB, ModBlocks.YELLOW_PAINTED_BRICKS);
-
-            offerStairsRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICK_STAIRS, ModBlocks.BLACK_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICK_STAIRS, ModBlocks.BLUE_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.BROWN_PAINTED_BRICK_STAIRS, ModBlocks.BROWN_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.CYAN_PAINTED_BRICK_STAIRS, ModBlocks.CYAN_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.GRAY_PAINTED_BRICK_STAIRS, ModBlocks.GRAY_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.GREEN_PAINTED_BRICK_STAIRS, ModBlocks.GREEN_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_STAIRS, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_STAIRS, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.LIME_PAINTED_BRICK_STAIRS, ModBlocks.LIME_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.MAGENTA_PAINTED_BRICK_STAIRS, ModBlocks.MAGENTA_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.ORANGE_PAINTED_BRICK_STAIRS, ModBlocks.ORANGE_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.PINK_PAINTED_BRICK_STAIRS, ModBlocks.PINK_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.PURPLE_PAINTED_BRICK_STAIRS, ModBlocks.PURPLE_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.RED_PAINTED_BRICK_STAIRS, ModBlocks.RED_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICK_STAIRS, ModBlocks.WHITE_PAINTED_BRICKS);
-            offerStairsRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICK_STAIRS, ModBlocks.YELLOW_PAINTED_BRICKS);
-
-            offerWallRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICK_WALL, ModBlocks.BLACK_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICK_WALL, ModBlocks.BLUE_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.BROWN_PAINTED_BRICK_WALL, ModBlocks.BROWN_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.CYAN_PAINTED_BRICK_WALL, ModBlocks.CYAN_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.GRAY_PAINTED_BRICK_WALL, ModBlocks.GRAY_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.GREEN_PAINTED_BRICK_WALL, ModBlocks.GREEN_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.LIGHT_BLUE_PAINTED_BRICK_WALL, ModBlocks.LIGHT_BLUE_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.LIGHT_GRAY_PAINTED_BRICK_WALL, ModBlocks.LIGHT_GRAY_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.LIME_PAINTED_BRICK_WALL, ModBlocks.LIME_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.MAGENTA_PAINTED_BRICK_WALL, ModBlocks.MAGENTA_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.ORANGE_PAINTED_BRICK_WALL, ModBlocks.ORANGE_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.PINK_PAINTED_BRICK_WALL, ModBlocks.PINK_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.PURPLE_PAINTED_BRICK_WALL, ModBlocks.PURPLE_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.RED_PAINTED_BRICK_WALL, ModBlocks.RED_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.WHITE_PAINTED_BRICK_WALL, ModBlocks.WHITE_PAINTED_BRICKS);
-            offerWallRecipe(exporter, ModBlocks.YELLOW_PAINTED_BRICK_WALL, ModBlocks.YELLOW_PAINTED_BRICKS);
 
             offerStonecuttingRecipe(exporter, ModBlocks.BLACK_PAINTED_BRICK_SLAB, ModBlocks.BLACK_PAINTED_BRICKS, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.BLUE_PAINTED_BRICK_SLAB, ModBlocks.BLUE_PAINTED_BRICKS, 2);
@@ -553,8 +475,6 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, ModBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);
 
             offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_END_STONE, Blocks.END_STONE);
-            offerSlabRecipe(exporter, ModBlocks.POLISHED_END_STONE_SLAB, ModBlocks.POLISHED_END_STONE);
-            offerStairsRecipe(exporter, ModBlocks.POLISHED_END_STONE_STAIRS, ModBlocks.POLISHED_END_STONE);
 
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE, Blocks.END_STONE);
             offerStonecuttingRecipe(exporter, ModBlocks.POLISHED_END_STONE_SLAB, Blocks.END_STONE, 2);
@@ -569,10 +489,6 @@ public class ChikoritaLoverModDatagen implements DataGeneratorEntrypoint {
 
             offerChiseledBlockRecipe(exporter, ModBlocks.CHISELED_PURPUR, Blocks.PURPUR_SLAB);
             offerStonecuttingRecipe(exporter, ModBlocks.CHISELED_PURPUR, Blocks.PURPUR_BLOCK);
-
-            offerSlabRecipe(exporter, ModBlocks.SMOOTH_BASALT_SLAB, Blocks.SMOOTH_BASALT);
-            offerStairsRecipe(exporter, ModBlocks.SMOOTH_BASALT_STAIRS, Blocks.SMOOTH_BASALT);
-            offerWallRecipe(exporter, ModBlocks.SMOOTH_BASALT_WALL, Blocks.SMOOTH_BASALT);
 
             offerStonecuttingRecipe(exporter, ModBlocks.SMOOTH_BASALT_SLAB, Blocks.SMOOTH_BASALT, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.SMOOTH_BASALT_STAIRS, Blocks.SMOOTH_BASALT);
