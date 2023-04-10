@@ -13,6 +13,7 @@
     "ChestBoatEntityMixin",
     "DefaultRegistryMixin",
     "DispenserBlockMixin",
+    "FallingBlockMixin",
     "FarmlandBlockMixin",
     "FlowerPotBlockMixin",
     "FoodComponentMixin",
