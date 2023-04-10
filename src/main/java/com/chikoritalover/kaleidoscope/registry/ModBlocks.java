@@ -133,6 +133,41 @@ public class ModBlocks {
     public static final Block POLISHED_END_STONE_SLAB = registerBlockWithItem("polished_end_stone_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_END_STONE)), ItemGroup.BUILDING_BLOCKS);
     public static final Block POLISHED_END_STONE_STAIRS = registerBlockWithItem("polished_end_stone_stairs", new StairsBlock(POLISHED_END_STONE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_END_STONE)), ItemGroup.BUILDING_BLOCKS);
 
+    public static final Block WHITE_TERRACOTTA_SLAB = registerBlockWithItem("white_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(WHITE_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block WHITE_TERRACOTTA_STAIRS = registerBlockWithItem("white_terracotta_stairs", new StairsBlock(WHITE_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(WHITE_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block ORANGE_TERRACOTTA_SLAB = registerBlockWithItem("orange_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(ORANGE_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block ORANGE_TERRACOTTA_STAIRS = registerBlockWithItem("orange_terracotta_stairs", new StairsBlock(ORANGE_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(ORANGE_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block MAGENTA_TERRACOTTA_SLAB = registerBlockWithItem("magenta_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(MAGENTA_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block MAGENTA_TERRACOTTA_STAIRS = registerBlockWithItem("magenta_terracotta_stairs", new StairsBlock(MAGENTA_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(MAGENTA_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block LIGHT_BLUE_TERRACOTTA_SLAB = registerBlockWithItem("light_blue_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(LIGHT_BLUE_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block LIGHT_BLUE_TERRACOTTA_STAIRS = registerBlockWithItem("light_blue_terracotta_stairs", new StairsBlock(LIGHT_BLUE_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(LIGHT_BLUE_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block YELLOW_TERRACOTTA_SLAB = registerBlockWithItem("yellow_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(YELLOW_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block YELLOW_TERRACOTTA_STAIRS = registerBlockWithItem("yellow_terracotta_stairs", new StairsBlock(YELLOW_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(YELLOW_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block LIME_TERRACOTTA_SLAB = registerBlockWithItem("lime_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(LIME_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block LIME_TERRACOTTA_STAIRS = registerBlockWithItem("lime_terracotta_stairs", new StairsBlock(LIME_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(LIME_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block PINK_TERRACOTTA_SLAB = registerBlockWithItem("pink_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(PINK_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block PINK_TERRACOTTA_STAIRS = registerBlockWithItem("pink_terracotta_stairs", new StairsBlock(PINK_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(PINK_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block GRAY_TERRACOTTA_SLAB = registerBlockWithItem("gray_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(GRAY_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block GRAY_TERRACOTTA_STAIRS = registerBlockWithItem("gray_terracotta_stairs", new StairsBlock(GRAY_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(GRAY_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block LIGHT_GRAY_TERRACOTTA_SLAB = registerBlockWithItem("light_gray_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(LIGHT_GRAY_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block LIGHT_GRAY_TERRACOTTA_STAIRS = registerBlockWithItem("light_gray_terracotta_stairs", new StairsBlock(LIGHT_GRAY_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(LIGHT_GRAY_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block CYAN_TERRACOTTA_SLAB = registerBlockWithItem("cyan_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(CYAN_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block CYAN_TERRACOTTA_STAIRS = registerBlockWithItem("cyan_terracotta_stairs", new StairsBlock(CYAN_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(CYAN_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block PURPLE_TERRACOTTA_SLAB = registerBlockWithItem("purple_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(PURPLE_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block PURPLE_TERRACOTTA_STAIRS = registerBlockWithItem("purple_terracotta_stairs", new StairsBlock(PURPLE_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(PURPLE_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block BLUE_TERRACOTTA_SLAB = registerBlockWithItem("blue_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(BLUE_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block BLUE_TERRACOTTA_STAIRS = registerBlockWithItem("blue_terracotta_stairs", new StairsBlock(BLUE_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(BLUE_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block BROWN_TERRACOTTA_SLAB = registerBlockWithItem("brown_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(BROWN_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block BROWN_TERRACOTTA_STAIRS = registerBlockWithItem("brown_terracotta_stairs", new StairsBlock(BROWN_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(BROWN_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block GREEN_TERRACOTTA_SLAB = registerBlockWithItem("green_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(GREEN_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block GREEN_TERRACOTTA_STAIRS = registerBlockWithItem("green_terracotta_stairs", new StairsBlock(GREEN_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(GREEN_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block RED_TERRACOTTA_SLAB = registerBlockWithItem("red_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(RED_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block RED_TERRACOTTA_STAIRS = registerBlockWithItem("red_terracotta_stairs", new StairsBlock(RED_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(RED_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block BLACK_TERRACOTTA_SLAB = registerBlockWithItem("black_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(BLACK_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block BLACK_TERRACOTTA_STAIRS = registerBlockWithItem("black_terracotta_stairs", new StairsBlock(BLACK_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(BLACK_TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block TERRACOTTA_SLAB = registerBlockWithItem("terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block TERRACOTTA_STAIRS = registerBlockWithItem("terracotta_stairs", new StairsBlock(TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(TERRACOTTA)), ItemGroup.BUILDING_BLOCKS);
+
     public static final Block CHISELED_PURPUR = registerBlockWithItem("chiseled_purpur", new Block(AbstractBlock.Settings.copy(PURPUR_BLOCK)), ItemGroup.BUILDING_BLOCKS);
 
     public static final Block SMOOTH_BASALT_SLAB = registerBlockWithItem("smooth_basalt_slab", new SlabBlock(AbstractBlock.Settings.copy(SMOOTH_BASALT)), ItemGroup.BUILDING_BLOCKS);

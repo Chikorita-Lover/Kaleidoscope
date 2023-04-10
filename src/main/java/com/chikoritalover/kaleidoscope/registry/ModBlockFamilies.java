@@ -40,6 +40,23 @@ public class ModBlockFamilies {
     public static final BlockFamily YELLOW_PAINTED_BRICKS;
     public static final BlockFamily RED_NETHER_BRICKS;
     public static final BlockFamily POLISHED_END_STONE;
+    public static final BlockFamily WHITE_TERRACOTTA;
+    public static final BlockFamily ORANGE_TERRACOTTA;
+    public static final BlockFamily MAGENTA_TERRACOTTA;
+    public static final BlockFamily LIGHT_BLUE_TERRACOTTA;
+    public static final BlockFamily YELLOW_TERRACOTTA;
+    public static final BlockFamily LIME_TERRACOTTA;
+    public static final BlockFamily PINK_TERRACOTTA;
+    public static final BlockFamily GRAY_TERRACOTTA;
+    public static final BlockFamily LIGHT_GRAY_TERRACOTTA;
+    public static final BlockFamily CYAN_TERRACOTTA;
+    public static final BlockFamily PURPLE_TERRACOTTA;
+    public static final BlockFamily BLUE_TERRACOTTA;
+    public static final BlockFamily BROWN_TERRACOTTA;
+    public static final BlockFamily GREEN_TERRACOTTA;
+    public static final BlockFamily RED_TERRACOTTA;
+    public static final BlockFamily BLACK_TERRACOTTA;
+    public static final BlockFamily TERRACOTTA;
     public static final BlockFamily PURPUR;
     public static final BlockFamily SMOOTH_BASALT;
     private static final Map<Block, BlockFamily> BASE_BLOCKS_TO_FAMILIES = Maps.newHashMap();
@@ -79,6 +96,25 @@ public class ModBlockFamilies {
         
         RED_NETHER_BRICKS = register(Blocks.RED_NETHER_BRICKS).chiseled(ModBlocks.CHISELED_RED_NETHER_BRICKS).cracked(ModBlocks.CRACKED_RED_NETHER_BRICKS).fence(ModBlocks.RED_NETHER_BRICK_FENCE).noGenerateRecipes().build();
         POLISHED_END_STONE = register(ModBlocks.POLISHED_END_STONE).slab(ModBlocks.POLISHED_END_STONE_SLAB).stairs(ModBlocks.POLISHED_END_STONE_STAIRS).build();
+
+        WHITE_TERRACOTTA = register(Blocks.WHITE_TERRACOTTA).slab(ModBlocks.WHITE_TERRACOTTA_SLAB).stairs(ModBlocks.WHITE_TERRACOTTA_STAIRS).build();
+        ORANGE_TERRACOTTA = register(Blocks.ORANGE_TERRACOTTA).slab(ModBlocks.ORANGE_TERRACOTTA_SLAB).stairs(ModBlocks.ORANGE_TERRACOTTA_STAIRS).build();
+        MAGENTA_TERRACOTTA = register(Blocks.MAGENTA_TERRACOTTA).slab(ModBlocks.MAGENTA_TERRACOTTA_SLAB).stairs(ModBlocks.MAGENTA_TERRACOTTA_STAIRS).build();
+        LIGHT_BLUE_TERRACOTTA = register(Blocks.LIGHT_BLUE_TERRACOTTA).slab(ModBlocks.LIGHT_BLUE_TERRACOTTA_SLAB).stairs(ModBlocks.LIGHT_BLUE_TERRACOTTA_STAIRS).build();
+        YELLOW_TERRACOTTA = register(Blocks.YELLOW_TERRACOTTA).slab(ModBlocks.YELLOW_TERRACOTTA_SLAB).stairs(ModBlocks.YELLOW_TERRACOTTA_STAIRS).build();
+        LIME_TERRACOTTA = register(Blocks.LIME_TERRACOTTA).slab(ModBlocks.LIME_TERRACOTTA_SLAB).stairs(ModBlocks.LIME_TERRACOTTA_STAIRS).build();
+        PINK_TERRACOTTA = register(Blocks.PINK_TERRACOTTA).slab(ModBlocks.PINK_TERRACOTTA_SLAB).stairs(ModBlocks.PINK_TERRACOTTA_STAIRS).build();
+        GRAY_TERRACOTTA = register(Blocks.GRAY_TERRACOTTA).slab(ModBlocks.GRAY_TERRACOTTA_SLAB).stairs(ModBlocks.GRAY_TERRACOTTA_STAIRS).build();
+        LIGHT_GRAY_TERRACOTTA = register(Blocks.LIGHT_GRAY_TERRACOTTA).slab(ModBlocks.LIGHT_GRAY_TERRACOTTA_SLAB).stairs(ModBlocks.LIGHT_GRAY_TERRACOTTA_STAIRS).build();
+        CYAN_TERRACOTTA = register(Blocks.CYAN_TERRACOTTA).slab(ModBlocks.CYAN_TERRACOTTA_SLAB).stairs(ModBlocks.CYAN_TERRACOTTA_STAIRS).build();
+        PURPLE_TERRACOTTA = register(Blocks.PURPLE_TERRACOTTA).slab(ModBlocks.PURPLE_TERRACOTTA_SLAB).stairs(ModBlocks.PURPLE_TERRACOTTA_STAIRS).build();
+        BLUE_TERRACOTTA = register(Blocks.BLUE_TERRACOTTA).slab(ModBlocks.BLUE_TERRACOTTA_SLAB).stairs(ModBlocks.BLUE_TERRACOTTA_STAIRS).build();
+        BROWN_TERRACOTTA = register(Blocks.BROWN_TERRACOTTA).slab(ModBlocks.BROWN_TERRACOTTA_SLAB).stairs(ModBlocks.BROWN_TERRACOTTA_STAIRS).build();
+        GREEN_TERRACOTTA = register(Blocks.GREEN_TERRACOTTA).slab(ModBlocks.GREEN_TERRACOTTA_SLAB).stairs(ModBlocks.GREEN_TERRACOTTA_STAIRS).build();
+        RED_TERRACOTTA = register(Blocks.RED_TERRACOTTA).slab(ModBlocks.RED_TERRACOTTA_SLAB).stairs(ModBlocks.RED_TERRACOTTA_STAIRS).build();
+        BLACK_TERRACOTTA = register(Blocks.BLACK_TERRACOTTA).slab(ModBlocks.BLACK_TERRACOTTA_SLAB).stairs(ModBlocks.BLACK_TERRACOTTA_STAIRS).build();
+        TERRACOTTA = register(Blocks.TERRACOTTA).slab(ModBlocks.TERRACOTTA_SLAB).stairs(ModBlocks.TERRACOTTA_STAIRS).build();
+
         PURPUR = register(Blocks.PURPUR_BLOCK).chiseled(ModBlocks.CHISELED_PURPUR).noGenerateRecipes().build();
         SMOOTH_BASALT = register(Blocks.SMOOTH_BASALT).slab(ModBlocks.SMOOTH_BASALT_SLAB).stairs(ModBlocks.SMOOTH_BASALT_STAIRS).wall(ModBlocks.SMOOTH_BASALT_WALL).build();
     }
