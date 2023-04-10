@@ -170,6 +170,8 @@ public class ModBlocks {
 
     public static final Block CHISELED_PURPUR = registerBlockWithItem("chiseled_purpur", new Block(AbstractBlock.Settings.copy(PURPUR_BLOCK)), ItemGroup.BUILDING_BLOCKS);
 
+    public static final Block SOUL_JACK_O_LANTERN = registerBlockWithItem("soul_jack_o_lantern", new CarvedPumpkinBlock(AbstractBlock.Settings.copy(JACK_O_LANTERN).luminance(state -> 10)), ItemGroup.BUILDING_BLOCKS);
+
     public static final Block SMOOTH_BASALT_SLAB = registerBlockWithItem("smooth_basalt_slab", new SlabBlock(AbstractBlock.Settings.copy(SMOOTH_BASALT)), ItemGroup.BUILDING_BLOCKS);
     public static final Block SMOOTH_BASALT_STAIRS = registerBlockWithItem("smooth_basalt_stairs", new StairsBlock(SMOOTH_BASALT.getDefaultState(), AbstractBlock.Settings.copy(SMOOTH_BASALT)), ItemGroup.BUILDING_BLOCKS);
     public static final Block SMOOTH_BASALT_WALL = registerBlockWithItem("smooth_basalt_wall", new WallBlock(AbstractBlock.Settings.copy(SMOOTH_BASALT)), ItemGroup.BUILDING_BLOCKS);

@@ -1,4 +1,4 @@
-// 1.19.2	2023-04-09T22:36:26.8157087	minecraft:block Loot Table
+// 1.19.2	2023-04-10T09:56:16.1229209	minecraft:block Loot Table
 9e3e631b5ffe6de7068de8380b2b3b4c30414578 data\kaleidoscope\loot_tables\blocks\white_stained_glass_door.json
 98182cf48d184679ce7be98c888334abe32bd23f data\kaleidoscope\loot_tables\blocks\blue_painted_brick_wall.json
 ee4208ba30763b573ee8355f8bca0a10d0c29bad data\kaleidoscope\loot_tables\blocks\glass_door.json
@@ -83,6 +83,7 @@ ce64e1ea525f0c6ebf0b7aa7421ab64075b2164e data\kaleidoscope\loot_tables\blocks\pi
 ae6bc6a05d283be26fd632d4b82d1147c24d24e6 data\kaleidoscope\loot_tables\blocks\white_painted_brick_slab.json
 b61e73ae5e6a552c1f26e81a90f7c0ae1d5c3da9 data\kaleidoscope\loot_tables\blocks\light_blue_terracotta_stairs.json
 57c9d201e7c3285b860b8fc1737b2a3a54c8c3f0 data\kaleidoscope\loot_tables\blocks\white_terracotta_slab.json
+6a0318fe2629d6e0d14d5912c18a5a4179bd85f1 data\kaleidoscope\loot_tables\blocks\soul_jack_o_lantern.json
 48ce6121a576a8e30e87371b19a91c909ee799c0 data\kaleidoscope\loot_tables\blocks\green_terracotta_slab.json
 eb44c49cf0a9ebbf0ebbee62ab6686d27b8cfbac data\kaleidoscope\loot_tables\blocks\pink_painted_brick_wall.json
 463b7e6906f24f7bdb91f5fe31b637f017c8033c data\kaleidoscope\loot_tables\blocks\light_blue_terracotta_slab.json

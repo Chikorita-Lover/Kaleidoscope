@@ -143,6 +143,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             this.addDrop(biConsumer, ModBlocks.BLACK_TERRACOTTA_STAIRS);
             this.addDrop(biConsumer, ModBlocks.TERRACOTTA_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.TERRACOTTA_SLAB));
             this.addDrop(biConsumer, ModBlocks.TERRACOTTA_STAIRS);
+
+            this.addDrop(biConsumer, ModBlocks.SOUL_JACK_O_LANTERN);
             
             this.addDrop(biConsumer, ModBlocks.GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.GLASS_DOOR));
             this.addDrop(biConsumer, ModBlocks.BLACK_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.BLACK_STAINED_GLASS_DOOR));
@@ -206,6 +208,7 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.EXPOSED_CUT_COPPER).family(ModBlockFamilies.EXPOSED_CUT_COPPER).same(Blocks.WAXED_EXPOSED_CUT_COPPER).family(ModBlockFamilies.WAXED_EXPOSED_CUT_COPPER);
             blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.WEATHERED_CUT_COPPER).family(ModBlockFamilies.WEATHERED_CUT_COPPER).same(Blocks.WAXED_WEATHERED_CUT_COPPER).family(ModBlockFamilies.WAXED_WEATHERED_CUT_COPPER);
             blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.OXIDIZED_CUT_COPPER).family(ModBlockFamilies.OXIDIZED_CUT_COPPER).same(Blocks.WAXED_OXIDIZED_CUT_COPPER).family(ModBlockFamilies.WAXED_OXIDIZED_CUT_COPPER);
+            blockStateModelGenerator.registerNorthDefaultHorizontalRotatable(ModBlocks.SOUL_JACK_O_LANTERN, TextureMap.sideEnd(Blocks.PUMPKIN));
             blockStateModelGenerator.registerAxisRotated(ModBlocks.STICK_BUNDLE, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
             blockStateModelGenerator.registerCooker(ModBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
             blockStateModelGenerator.registerDoor(ModBlocks.GLASS_DOOR);
@@ -527,6 +530,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
             offerChiseledBlockRecipe(exporter, ModBlocks.CHISELED_PURPUR, Blocks.PURPUR_SLAB);
             offerStonecuttingRecipe(exporter, ModBlocks.CHISELED_PURPUR, Blocks.PURPUR_BLOCK);
+
+            ShapedRecipeJsonBuilder.create(ModBlocks.SOUL_JACK_O_LANTERN).input('#', Blocks.CARVED_PUMPKIN).input('S', Blocks.SOUL_TORCH).pattern("#").pattern("S").criterion("has_carved_pumpkin", conditionsFromItem(Blocks.CARVED_PUMPKIN)).offerTo(exporter);
 
             offerStonecuttingRecipe(exporter, ModBlocks.SMOOTH_BASALT_SLAB, Blocks.SMOOTH_BASALT, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.SMOOTH_BASALT_STAIRS, Blocks.SMOOTH_BASALT);

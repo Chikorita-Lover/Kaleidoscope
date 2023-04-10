@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:carved_pumpkin"
+    },
+    "S": {
+      "item": "minecraft:soul_torch"
+    }
+  },
+  "pattern": [
+    "#",
+    "S"
+  ],
+  "result": {
+    "item": "kaleidoscope:soul_jack_o_lantern"
+  }
+}
