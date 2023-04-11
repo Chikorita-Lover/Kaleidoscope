@@ -6,6 +6,9 @@
     "minecraft:end_stone_brick_wall",
     "kaleidoscope:polished_end_stone",
     "kaleidoscope:polished_end_stone_slab",
-    "kaleidoscope:polished_end_stone_stairs"
+    "kaleidoscope:polished_end_stone_stairs",
+    "kaleidoscope:end_stone_slab",
+    "kaleidoscope:end_stone_stairs",
+    "kaleidoscope:end_stone_wall"
   ]
 }

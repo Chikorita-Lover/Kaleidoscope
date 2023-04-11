@@ -129,6 +129,10 @@ public class ModBlocks {
     public static final Block CRACKED_RED_NETHER_BRICKS = registerBlockWithItem("cracked_red_nether_bricks", new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS)), ItemGroup.BUILDING_BLOCKS);
     public static final Block CHISELED_RED_NETHER_BRICKS = registerBlockWithItem("chiseled_red_nether_bricks", new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS)), ItemGroup.BUILDING_BLOCKS);
 
+    public static final Block END_STONE_SLAB = registerBlockWithItem("end_stone_slab", new SlabBlock(AbstractBlock.Settings.copy(END_STONE)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block END_STONE_STAIRS = registerBlockWithItem("end_stone_stairs", new StairsBlock(END_STONE.getDefaultState(), AbstractBlock.Settings.copy(END_STONE)), ItemGroup.BUILDING_BLOCKS);
+    public static final Block END_STONE_WALL = registerBlockWithItem("end_stone_wall", new WallBlock(AbstractBlock.Settings.copy(END_STONE)), ItemGroup.BUILDING_BLOCKS);
+
     public static final Block POLISHED_END_STONE = registerBlockWithItem("polished_end_stone", new Block(AbstractBlock.Settings.of(Material.STONE, MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 9.0F)), ItemGroup.BUILDING_BLOCKS);
     public static final Block POLISHED_END_STONE_SLAB = registerBlockWithItem("polished_end_stone_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_END_STONE)), ItemGroup.BUILDING_BLOCKS);
     public static final Block POLISHED_END_STONE_STAIRS = registerBlockWithItem("polished_end_stone_stairs", new StairsBlock(POLISHED_END_STONE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_END_STONE)), ItemGroup.BUILDING_BLOCKS);

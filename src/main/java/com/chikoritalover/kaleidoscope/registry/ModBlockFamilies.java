@@ -39,6 +39,7 @@ public class ModBlockFamilies {
     public static final BlockFamily WHITE_PAINTED_BRICKS;
     public static final BlockFamily YELLOW_PAINTED_BRICKS;
     public static final BlockFamily RED_NETHER_BRICKS;
+    public static final BlockFamily END_STONE;
     public static final BlockFamily POLISHED_END_STONE;
     public static final BlockFamily WHITE_TERRACOTTA;
     public static final BlockFamily ORANGE_TERRACOTTA;
@@ -95,6 +96,7 @@ public class ModBlockFamilies {
         YELLOW_PAINTED_BRICKS = register(ModBlocks.YELLOW_PAINTED_BRICKS).slab(ModBlocks.YELLOW_PAINTED_BRICK_SLAB).stairs(ModBlocks.YELLOW_PAINTED_BRICK_STAIRS).wall(ModBlocks.YELLOW_PAINTED_BRICK_WALL).build();
         
         RED_NETHER_BRICKS = register(Blocks.RED_NETHER_BRICKS).chiseled(ModBlocks.CHISELED_RED_NETHER_BRICKS).cracked(ModBlocks.CRACKED_RED_NETHER_BRICKS).fence(ModBlocks.RED_NETHER_BRICK_FENCE).noGenerateRecipes().build();
+        END_STONE = register(Blocks.END_STONE).slab(ModBlocks.END_STONE_SLAB).stairs(ModBlocks.END_STONE_STAIRS).wall(ModBlocks.END_STONE_WALL).build();
         POLISHED_END_STONE = register(ModBlocks.POLISHED_END_STONE).slab(ModBlocks.POLISHED_END_STONE_SLAB).stairs(ModBlocks.POLISHED_END_STONE_STAIRS).build();
 
         WHITE_TERRACOTTA = register(Blocks.WHITE_TERRACOTTA).slab(ModBlocks.WHITE_TERRACOTTA_SLAB).stairs(ModBlocks.WHITE_TERRACOTTA_STAIRS).build();

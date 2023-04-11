@@ -137,6 +137,9 @@
     "kaleidoscope:red_terracotta_stairs",
     "kaleidoscope:white_terracotta_stairs",
     "kaleidoscope:yellow_terracotta_stairs",
-    "kaleidoscope:terracotta_stairs"
+    "kaleidoscope:terracotta_stairs",
+    "kaleidoscope:end_stone_slab",
+    "kaleidoscope:end_stone_stairs",
+    "kaleidoscope:end_stone_wall"
   ]
 }

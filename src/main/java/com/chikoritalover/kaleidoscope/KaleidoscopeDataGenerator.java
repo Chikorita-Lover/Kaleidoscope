@@ -44,6 +44,10 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
         @Override
         public void accept(BiConsumer<Identifier, LootTable.Builder> biConsumer) {
+            this.addDrop(biConsumer, ModBlocks.END_STONE_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.END_STONE_SLAB));
+            this.addDrop(biConsumer, ModBlocks.END_STONE_STAIRS);
+            this.addDrop(biConsumer, ModBlocks.END_STONE_WALL);
+
             this.addDrop(biConsumer, ModBlocks.BLACK_PAINTED_BRICKS);
             this.addDrop(biConsumer, ModBlocks.BLACK_PAINTED_BRICK_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.BLACK_PAINTED_BRICK_SLAB));
             this.addDrop(biConsumer, ModBlocks.BLACK_PAINTED_BRICK_STAIRS);
@@ -478,6 +482,10 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerCrackingRecipe(exporter, ModBlocks.CRACKED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);
             offerChiseledBlockRecipe(exporter, ModBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICK_SLAB);
             offerStonecuttingRecipe(exporter, ModBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);
+
+            offerStonecuttingRecipe(exporter, ModBlocks.END_STONE_SLAB, Blocks.END_STONE, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.END_STONE_STAIRS, Blocks.END_STONE);
+            offerStonecuttingRecipe(exporter, ModBlocks.END_STONE_WALL, Blocks.END_STONE);
 
             offerPolishedStoneRecipe(exporter, ModBlocks.POLISHED_END_STONE, Blocks.END_STONE);
 
