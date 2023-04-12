@@ -60,6 +60,7 @@ public class ModBlockFamilies {
     public static final BlockFamily TERRACOTTA;
     public static final BlockFamily PURPUR;
     public static final BlockFamily SMOOTH_BASALT;
+    public static final BlockFamily PACKED_MUD;
     private static final Map<Block, BlockFamily> BASE_BLOCKS_TO_FAMILIES = Maps.newHashMap();
 
     static {
@@ -119,6 +120,7 @@ public class ModBlockFamilies {
 
         PURPUR = register(Blocks.PURPUR_BLOCK).chiseled(ModBlocks.CHISELED_PURPUR).noGenerateRecipes().build();
         SMOOTH_BASALT = register(Blocks.SMOOTH_BASALT).slab(ModBlocks.SMOOTH_BASALT_SLAB).stairs(ModBlocks.SMOOTH_BASALT_STAIRS).wall(ModBlocks.SMOOTH_BASALT_WALL).build();
+        PACKED_MUD = register(Blocks.PACKED_MUD).slab(ModBlocks.PACKED_MUD_SLAB).stairs(ModBlocks.PACKED_MUD_STAIRS).build();
     }
 
     public ModBlockFamilies() {

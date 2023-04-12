@@ -1,4 +1,4 @@
-// 1.19.2	2023-04-10T22:25:27.3955517	minecraft:block Loot Table
+// 1.19.2	2023-04-11T22:33:01.2723583	minecraft:block Loot Table
 9e3e631b5ffe6de7068de8380b2b3b4c30414578 data\kaleidoscope\loot_tables\blocks\white_stained_glass_door.json
 98182cf48d184679ce7be98c888334abe32bd23f data\kaleidoscope\loot_tables\blocks\blue_painted_brick_wall.json
 ee4208ba30763b573ee8355f8bca0a10d0c29bad data\kaleidoscope\loot_tables\blocks\glass_door.json
@@ -65,6 +65,7 @@ bff5370c053ce0ab1aa002a97f6454cddc5cfbad data\kaleidoscope\loot_tables\blocks\or
 17427b2266881c1da7aec79219ef126602b7c0fc data\kaleidoscope\loot_tables\blocks\lime_terracotta_stairs.json
 f57d64268b453ca813decab36ef89ff2a1df2dd4 data\kaleidoscope\loot_tables\blocks\light_gray_stained_glass_door.json
 3605ce09c61ed71c7a1d764852c3b535e0fd4aae data\kaleidoscope\loot_tables\blocks\light_gray_painted_brick_slab.json
+6a2fcb0e2bb6e0d9a2618d9e8bfd3dff64e70ea6 data\kaleidoscope\loot_tables\blocks\packed_mud_slab.json
 bca8960641583322d6d4e95232555658e9ba7c9f data\kaleidoscope\loot_tables\blocks\gray_stained_glass_door.json
 99dd34d0115daa09bc232dd3c9475dd60f6ac193 data\kaleidoscope\loot_tables\blocks\light_blue_stained_glass_door.json
 3e767bcc806f743046cfc30010957b5b6decc37a data\kaleidoscope\loot_tables\blocks\terracotta_slab.json
@@ -92,6 +93,7 @@ eb44c49cf0a9ebbf0ebbee62ab6686d27b8cfbac data\kaleidoscope\loot_tables\blocks\pi
 3e995d8d8cd99b0b7c76e5ec752b64b6ba8e0ae1 data\kaleidoscope\loot_tables\blocks\light_blue_painted_bricks.json
 0283a9782e890c658f5235ba5ff6ebef4b56035d data\kaleidoscope\loot_tables\blocks\black_painted_brick_wall.json
 dcb1698b277029b5ed4df658daa3ebe521a9cd8b data\kaleidoscope\loot_tables\blocks\end_stone_slab.json
+c1dbb6c3396870c55db8727e5c33408fc661c6ae data\kaleidoscope\loot_tables\blocks\packed_mud_stairs.json
 afa37c5cf86c1f3cb91e9a4d17520a1979fc8eea data\kaleidoscope\loot_tables\blocks\pink_terracotta_stairs.json
 d71c807ba28261ae10b56d2f512d7b1ac1a7258f data\kaleidoscope\loot_tables\blocks\light_blue_stained_glass_trapdoor.json
 9c2eff1ba5a81cc5f4fe607eb6ae1da3386550ad data\kaleidoscope\loot_tables\blocks\light_gray_painted_brick_stairs.json

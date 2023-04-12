@@ -140,6 +140,8 @@
     "kaleidoscope:terracotta_stairs",
     "kaleidoscope:end_stone_slab",
     "kaleidoscope:end_stone_stairs",
-    "kaleidoscope:end_stone_wall"
+    "kaleidoscope:end_stone_wall",
+    "kaleidoscope:packed_mud_slab",
+    "kaleidoscope:packed_mud_stairs"
   ]
 }

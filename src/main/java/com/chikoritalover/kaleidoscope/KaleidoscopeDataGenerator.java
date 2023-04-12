@@ -149,6 +149,9 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             this.addDrop(biConsumer, ModBlocks.TERRACOTTA_STAIRS);
 
             this.addDrop(biConsumer, ModBlocks.SOUL_JACK_O_LANTERN);
+
+            this.addDrop(biConsumer, ModBlocks.PACKED_MUD_SLAB, BlockLootTableGenerator.slabDrops(ModBlocks.PACKED_MUD_SLAB));
+            this.addDrop(biConsumer, ModBlocks.PACKED_MUD_STAIRS);
             
             this.addDrop(biConsumer, ModBlocks.GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.GLASS_DOOR));
             this.addDrop(biConsumer, ModBlocks.BLACK_STAINED_GLASS_DOOR, BlockLootTableGenerator.doorDrops(ModBlocks.BLACK_STAINED_GLASS_DOOR));
@@ -544,6 +547,9 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, ModBlocks.SMOOTH_BASALT_SLAB, Blocks.SMOOTH_BASALT, 2);
             offerStonecuttingRecipe(exporter, ModBlocks.SMOOTH_BASALT_STAIRS, Blocks.SMOOTH_BASALT);
             offerStonecuttingRecipe(exporter, ModBlocks.SMOOTH_BASALT_WALL, Blocks.SMOOTH_BASALT);
+
+            offerStonecuttingRecipe(exporter, ModBlocks.PACKED_MUD_SLAB, Blocks.PACKED_MUD, 2);
+            offerStonecuttingRecipe(exporter, ModBlocks.PACKED_MUD_STAIRS, Blocks.PACKED_MUD);
 
             ShapedRecipeJsonBuilder.create(ModBlocks.STICK_BUNDLE).input('#', Items.STICK).pattern("###").pattern("###").pattern("###").criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK)).offerTo(exporter);
 
