@@ -42,15 +42,15 @@ public class BlockMixin {
     @Inject(at = @At("HEAD"), method = "getSoundGroup", cancellable = true)
     public void getSoundGroup(BlockState state, CallbackInfoReturnable<BlockSoundGroup> info) {
         Block block = Block.class.cast(this);
-
+        if (block == Blocks.WET_SPONGE) {
+            info.setReturnValue(BlockSoundGroup.WET_GRASS);
+        }
         if (state.isIn(BlockTags.SAPLINGS) && block.soundGroup == BlockSoundGroup.GRASS) {
             info.setReturnValue(BlockSoundGroup.AZALEA);
         }
-
         if (state.isIn(BlockTags.SMALL_FLOWERS) && block.soundGroup == BlockSoundGroup.GRASS) {
             info.setReturnValue(BlockSoundGroup.CROP);
         }
-
         if (state.isIn(BlockTags.TALL_FLOWERS) && block.soundGroup == BlockSoundGroup.GRASS) {
             info.setReturnValue(BlockSoundGroup.FLOWERING_AZALEA);
         }
