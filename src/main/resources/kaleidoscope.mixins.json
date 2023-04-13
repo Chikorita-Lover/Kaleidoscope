@@ -24,7 +24,8 @@
     "ZombieVillagerEntityMixin"
   ],
   "client": [
-    "ArmorItemMixin"
+    "ArmorItemMixin",
+    "ClientWorldMixin"
   ],
   "server": [],
   "injectors": {

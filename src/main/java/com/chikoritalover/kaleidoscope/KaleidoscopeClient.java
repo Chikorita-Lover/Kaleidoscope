@@ -2,10 +2,13 @@ package com.chikoritalover.kaleidoscope;
 
 import com.chikoritalover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
 import com.chikoritalover.kaleidoscope.client.gui.screen.ingame.KilnScreen;
+import com.chikoritalover.kaleidoscope.client.particle.FireflyParticle;
 import com.chikoritalover.kaleidoscope.registry.ModBlocks;
+import com.chikoritalover.kaleidoscope.registry.ModParticleTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
@@ -95,6 +98,8 @@ public class KaleidoscopeClient implements ClientModInitializer {
                 buildHorseArmorTooltip(stack, tooltip);
             }
         });
+
+        ParticleFactoryRegistry.getInstance().register(ModParticleTypes.FIREFLY, FireflyParticle.Factory::new);
     }
 
     public void buildFoodTooltip(ItemStack stack, List<Text> list) {
