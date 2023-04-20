@@ -46,13 +46,13 @@ public class BlockMixin {
             info.setReturnValue(BlockSoundGroup.WET_GRASS);
         }
         if (state.isIn(BlockTags.SAPLINGS) && block.soundGroup == BlockSoundGroup.GRASS) {
-            info.setReturnValue(BlockSoundGroup.AZALEA);
+            info.setReturnValue(BlockSoundGroup.BAMBOO_SAPLING);
         }
-        if (state.isIn(BlockTags.SMALL_FLOWERS) && block.soundGroup == BlockSoundGroup.GRASS) {
+        if (state.isIn(BlockTags.LEAVES) && block.soundGroup == BlockSoundGroup.GRASS) {
+            info.setReturnValue(BlockSoundGroup.AZALEA_LEAVES);
+        }
+        if (state.isIn(BlockTags.FLOWERS) && block.soundGroup == BlockSoundGroup.GRASS) {
             info.setReturnValue(BlockSoundGroup.CROP);
-        }
-        if (state.isIn(BlockTags.TALL_FLOWERS) && block.soundGroup == BlockSoundGroup.GRASS) {
-            info.setReturnValue(BlockSoundGroup.FLOWERING_AZALEA);
         }
     }
 }
