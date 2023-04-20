@@ -183,7 +183,7 @@ public class ModBlocks {
     public static final Block PACKED_MUD_SLAB = registerBlockWithItem("packed_mud_slab", new SlabBlock(AbstractBlock.Settings.copy(PACKED_MUD)), ItemGroup.BUILDING_BLOCKS);
     public static final Block PACKED_MUD_STAIRS = registerBlockWithItem("packed_mud_stairs", new StairsBlock(PACKED_MUD.getDefaultState(), AbstractBlock.Settings.copy(PACKED_MUD)), ItemGroup.BUILDING_BLOCKS);
 
-    public static final Block STICK_BUNDLE = registerBlockWithItem("stick_bundle", new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).sounds(ModBlockSoundGroup.STICK_BUNDLE).strength(2.0F)), ItemGroup.DECORATIONS);
+    public static final Block STICK_BUNDLE = registerBlockWithItem("stick_bundle", new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).sounds(BlockSoundGroup.MANGROVE_ROOTS).strength(2.0F)), ItemGroup.DECORATIONS);
 
     public static final Block RED_NETHER_BRICK_FENCE = registerBlockWithItem("red_nether_brick_fence", new FenceBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.DARK_RED).requiresTool().strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS)), ItemGroup.DECORATIONS);
 

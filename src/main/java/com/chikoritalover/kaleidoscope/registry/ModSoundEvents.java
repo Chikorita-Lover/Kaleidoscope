@@ -12,7 +12,6 @@ public class ModSoundEvents {
     public static final SoundEvent BLOCK_COPPER_TRAPDOOR_OPEN = register("block.copper_trapdoor.open");
     public static final SoundEvent BLOCK_FLOWER_POT_PLANT = register("block.flower_pot.plant");
     public static final SoundEvent BLOCK_KILN_CRACKLE = register("block.kiln.crackle");
-    public static final SoundEvent BLOCK_STICK_BUNDLE_BREAK = register("block.stick_bundle.break");
     public static final SoundEvent BLOCK_STICK_BUNDLE_PLACE = register("block.stick_bundle.place");
 
     public static final SoundEvent ENTITY_SNOWBALL_HIT = register("entity.snowball.hit");

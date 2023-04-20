@@ -47,24 +47,6 @@
       "kaleidoscope:block/kiln/crackle4"
     ]
   },
-  "block.stick_bundle.break": {
-    "subtitle": "subtitles.block.generic.break",
-    "sounds": [
-      "kaleidoscope:block/stick_bundle/break1",
-      "kaleidoscope:block/stick_bundle/break2",
-      "kaleidoscope:block/stick_bundle/break3",
-      "kaleidoscope:block/stick_bundle/break4"
-    ]
-  },
-  "block.stick_bundle.place": {
-    "subtitle": "subtitles.block.generic.place",
-    "sounds": [
-      "kaleidoscope:block/stick_bundle/break1",
-      "kaleidoscope:block/stick_bundle/break2",
-      "kaleidoscope:block/stick_bundle/break3",
-      "kaleidoscope:block/stick_bundle/break4"
-    ]
-  },
   "entity.snowball.hit": {
     "subtitle": "subtitles.entity.snowball.hit",
     "sounds": [
