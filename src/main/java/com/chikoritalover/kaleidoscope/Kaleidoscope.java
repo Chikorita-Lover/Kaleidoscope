@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.fabric.mixin.content.registry.GiveGiftsToHeroTaskAccessor;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.EndermanEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.item.ItemConvertible;
@@ -17,6 +18,7 @@ import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LootTableEntry;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeType;
@@ -87,6 +89,12 @@ public class Kaleidoscope implements ModInitializer {
 	public void registerLootTableEvents() {
 		addLootTablePool(1, 1, 0.294F, LootTables.SIMPLE_DUNGEON_CHEST, ModItems.CHAINMAIL_HORSE_ARMOR);
 		addLootTablePool(1, 1, 0.318F, LootTables.VILLAGE_ARMORER_CHEST, ModItems.CHAINMAIL_HORSE_ARMOR);
+
+		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
+			if (id.equals(EntityType.GOAT.getLootTableId())) {
+				supplier.pool(LootPool.builder().with(LootTableEntry.builder(new Identifier(Kaleidoscope.MODID, "entities/goat")).build()).build());
+			}
+		});
 	}
 
 	private void addLootTablePool(int minRolls, int maxRolls, float chance, Identifier lootTable, ItemConvertible item) {
