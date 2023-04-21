@@ -15,6 +15,7 @@ public class ModItems {
     public static final Item WARPED_CHEST_BOAT = register("warped_chest_boat", new BoatItem(true, ModBoatType.WARPED, new Item.Settings().group(ItemGroup.TRANSPORTATION).maxCount(1)));
 
     public static final Item CHAINMAIL_HORSE_ARMOR = register("chainmail_horse_armor", new HorseArmorItem(4, "chainmail", new Item.Settings().maxCount(1).group(ItemGroup.MISC)));
+    public static final Item DISC_FRAGMENT_PIGSTEP = register("disc_fragment_pigstep", new DiscFragmentItem(new Item.Settings().group(ItemGroup.MISC)));
 
     public static final Item CAKE_SLICE = register("cake_slice", new CakeSliceItem(new Item.Settings().food(ModFoodComponents.CAKE_SLICE).group(ItemGroup.FOOD)));
 

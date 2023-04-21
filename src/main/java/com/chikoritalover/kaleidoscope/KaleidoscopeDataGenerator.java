@@ -270,6 +270,7 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             itemModelGenerator.register(ModItems.WARPED_BOAT, Models.GENERATED);
             itemModelGenerator.register(ModItems.WARPED_CHEST_BOAT, Models.GENERATED);
             itemModelGenerator.register(ModItems.CHAINMAIL_HORSE_ARMOR, Models.GENERATED);
+            itemModelGenerator.register(ModItems.DISC_FRAGMENT_PIGSTEP, Models.GENERATED);
             itemModelGenerator.register(ModItems.CAKE_SLICE, Models.GENERATED);
         }
 
@@ -656,6 +657,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
             CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.CHAINMAIL_HORSE_ARMOR), Items.IRON_NUGGET, 0.1F, 200).criterion(hasItem(ModItems.CHAINMAIL_HORSE_ARMOR), conditionsFromItem(ModItems.CHAINMAIL_HORSE_ARMOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.IRON_NUGGET) + "_from_chainmail_horse_armor_smelting"));
             CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(ModItems.CHAINMAIL_HORSE_ARMOR), Items.IRON_NUGGET, 0.1F, 100).criterion(hasItem(ModItems.CHAINMAIL_HORSE_ARMOR), conditionsFromItem(ModItems.CHAINMAIL_HORSE_ARMOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.IRON_NUGGET) + "_from_chainmail_horse_armor_blasting"));
+
+            ShapedRecipeJsonBuilder.create(Items.MUSIC_DISC_PIGSTEP).input('S', ModItems.DISC_FRAGMENT_PIGSTEP).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(ModItems.DISC_FRAGMENT_PIGSTEP), RecipeProvider.conditionsFromItem(ModItems.DISC_FRAGMENT_PIGSTEP)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.MUSIC_DISC_PIGSTEP)));
 
             //Base kilning recipes
             CookingRecipeJsonBuilder.create(Ingredient.fromTag(ItemTags.SAND), Blocks.GLASS, 0.1F, 100, Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER).group("glass").criterion(hasItem(Blocks.SAND), conditionsFromTag(ItemTags.SAND)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Blocks.GLASS) + "_from_kilning"));

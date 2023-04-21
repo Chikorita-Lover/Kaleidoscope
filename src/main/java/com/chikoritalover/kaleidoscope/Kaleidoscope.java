@@ -19,6 +19,7 @@ import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootTableEntry;
+import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeType;
@@ -93,6 +94,9 @@ public class Kaleidoscope implements ModInitializer {
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
 			if (id.equals(EntityType.GOAT.getLootTableId())) {
 				supplier.pool(LootPool.builder().with(LootTableEntry.builder(new Identifier(Kaleidoscope.MODID, "entities/goat")).build()).build());
+			}
+			if (id.equals(LootTables.PIGLIN_BARTERING_GAMEPLAY)) {
+				supplier.modifyPools(builder -> builder.with((ItemEntry.builder(ModItems.DISC_FRAGMENT_PIGSTEP).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).build());
 			}
 		});
 	}
