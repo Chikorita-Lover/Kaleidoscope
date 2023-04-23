@@ -1,4 +1,48 @@
 {
+  "block.andesite.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "kaleidoscope:block/andesite/break1",
+      "kaleidoscope:block/andesite/break2",
+      "kaleidoscope:block/andesite/break3",
+      "kaleidoscope:block/andesite/break4"
+    ]
+  },
+  "block.andesite.fall": {
+    "sounds": [
+      "kaleidoscope:block/andesite/step1",
+      "kaleidoscope:block/andesite/step2",
+      "kaleidoscope:block/andesite/step3",
+      "kaleidoscope:block/andesite/step4"
+    ]
+  },
+  "block.andesite.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "kaleidoscope:block/andesite/step1",
+      "kaleidoscope:block/andesite/step2",
+      "kaleidoscope:block/andesite/step3",
+      "kaleidoscope:block/andesite/step4"
+    ]
+  },
+  "block.andesite.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "kaleidoscope:block/andesite/break1",
+      "kaleidoscope:block/andesite/break2",
+      "kaleidoscope:block/andesite/break3",
+      "kaleidoscope:block/andesite/break4"
+    ]
+  },
+  "block.andesite.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "kaleidoscope:block/andesite/step1",
+      "kaleidoscope:block/andesite/step2",
+      "kaleidoscope:block/andesite/step3",
+      "kaleidoscope:block/andesite/step4"
+    ]
+  },
   "block.copper_door.close": {
     "subtitle": "subtitles.block.door.toggle",
     "sounds": [

@@ -1,6 +1,8 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
+import com.chikoritalover.kaleidoscope.registry.ModBlockSoundGroup;
 import com.chikoritalover.kaleidoscope.registry.ModItems;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -18,6 +20,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.List;
+
+import static net.minecraft.block.Blocks.*;
 
 @Mixin(Block.class)
 public class BlockMixin {
@@ -39,19 +45,22 @@ public class BlockMixin {
         }
     }
 
-    @Inject(at = @At("HEAD"), method = "getSoundGroup", cancellable = true)
+    @Inject(at = @At("RETURN"), method = "getSoundGroup", cancellable = true)
     public void getSoundGroup(BlockState state, CallbackInfoReturnable<BlockSoundGroup> info) {
-        Block block = Block.class.cast(this);
+        Block block = state.getBlock();
+        BlockSoundGroup soundGroup = info.getReturnValue();
+        if (ImmutableList.of(ANDESITE, ANDESITE_SLAB, ANDESITE_STAIRS, ANDESITE_WALL, POLISHED_ANDESITE, POLISHED_ANDESITE_SLAB, POLISHED_ANDESITE_STAIRS).contains(block))
+            info.setReturnValue(ModBlockSoundGroup.ANDESITE);
         if (block == Blocks.WET_SPONGE) {
             info.setReturnValue(BlockSoundGroup.WET_GRASS);
         }
-        if (state.isIn(BlockTags.SAPLINGS) && block.soundGroup == BlockSoundGroup.GRASS) {
+        if (state.isIn(BlockTags.SAPLINGS) && soundGroup == BlockSoundGroup.GRASS) {
             info.setReturnValue(BlockSoundGroup.BAMBOO_SAPLING);
         }
-        if (state.isIn(BlockTags.LEAVES) && block.soundGroup == BlockSoundGroup.GRASS) {
+        if (state.isIn(BlockTags.LEAVES) && soundGroup == BlockSoundGroup.GRASS) {
             info.setReturnValue(BlockSoundGroup.AZALEA_LEAVES);
         }
-        if (state.isIn(BlockTags.FLOWERS) && block.soundGroup == BlockSoundGroup.GRASS) {
+        if (state.isIn(BlockTags.FLOWERS) && soundGroup == BlockSoundGroup.GRASS) {
             info.setReturnValue(BlockSoundGroup.CROP);
         }
     }
