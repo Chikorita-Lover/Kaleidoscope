@@ -51,6 +51,8 @@ public class BlockMixin {
         BlockSoundGroup soundGroup = info.getReturnValue();
         if (ImmutableList.of(ANDESITE, ANDESITE_SLAB, ANDESITE_STAIRS, ANDESITE_WALL, POLISHED_ANDESITE, POLISHED_ANDESITE_SLAB, POLISHED_ANDESITE_STAIRS).contains(block))
             info.setReturnValue(ModBlockSoundGroup.ANDESITE);
+        if (ImmutableList.of(DIORITE, DIORITE_SLAB, DIORITE_STAIRS, DIORITE_WALL, POLISHED_DIORITE, POLISHED_DIORITE_SLAB, POLISHED_DIORITE_STAIRS).contains(block))
+            info.setReturnValue(ModBlockSoundGroup.DIORITE);
         if (block == Blocks.WET_SPONGE) {
             info.setReturnValue(BlockSoundGroup.WET_GRASS);
         }

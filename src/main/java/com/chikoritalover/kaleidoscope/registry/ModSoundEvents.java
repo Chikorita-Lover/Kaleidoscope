@@ -15,6 +15,11 @@ public class ModSoundEvents {
     public static final SoundEvent BLOCK_COPPER_DOOR_OPEN = register("block.copper_door.open");
     public static final SoundEvent BLOCK_COPPER_TRAPDOOR_CLOSE = register("block.copper_trapdoor.close");
     public static final SoundEvent BLOCK_COPPER_TRAPDOOR_OPEN = register("block.copper_trapdoor.open");
+    public static final SoundEvent BLOCK_DIORITE_BREAK = register("block.diorite.break");
+    public static final SoundEvent BLOCK_DIORITE_FALL = register("block.diorite.fall");
+    public static final SoundEvent BLOCK_DIORITE_HIT = register("block.diorite.hit");
+    public static final SoundEvent BLOCK_DIORITE_PLACE = register("block.diorite.place");
+    public static final SoundEvent BLOCK_DIORITE_STEP = register("block.diorite.step");
     public static final SoundEvent BLOCK_FLOWER_POT_PLANT = register("block.flower_pot.plant");
     public static final SoundEvent BLOCK_KILN_CRACKLE = register("block.kiln.crackle");
 

@@ -71,6 +71,50 @@
       "kaleidoscope:block/copper_trapdoor/open3"
     ]
   },
+  "block.diorite.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "kaleidoscope:block/diorite/break1",
+      "kaleidoscope:block/diorite/break2",
+      "kaleidoscope:block/diorite/break3",
+      "kaleidoscope:block/diorite/break4"
+    ]
+  },
+  "block.diorite.fall": {
+    "sounds": [
+      "kaleidoscope:block/diorite/step1",
+      "kaleidoscope:block/diorite/step2",
+      "kaleidoscope:block/diorite/step3",
+      "kaleidoscope:block/diorite/step4"
+    ]
+  },
+  "block.diorite.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "kaleidoscope:block/diorite/step1",
+      "kaleidoscope:block/diorite/step2",
+      "kaleidoscope:block/diorite/step3",
+      "kaleidoscope:block/diorite/step4"
+    ]
+  },
+  "block.diorite.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "kaleidoscope:block/diorite/break1",
+      "kaleidoscope:block/diorite/break2",
+      "kaleidoscope:block/diorite/break3",
+      "kaleidoscope:block/diorite/break4"
+    ]
+  },
+  "block.diorite.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "kaleidoscope:block/diorite/step1",
+      "kaleidoscope:block/diorite/step2",
+      "kaleidoscope:block/diorite/step3",
+      "kaleidoscope:block/diorite/step4"
+    ]
+  },
   "block.flower_pot.plant": {
     "subtitle": "subtitles.block.flower_pot.plant",
     "sounds": [
