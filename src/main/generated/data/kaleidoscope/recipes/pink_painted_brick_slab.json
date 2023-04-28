@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
+  "group": "painted_brick_slab",
   "key": {
     "#": {
       "item": "kaleidoscope:pink_painted_bricks"

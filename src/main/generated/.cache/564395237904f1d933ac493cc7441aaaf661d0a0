@@ -1,4 +1,4 @@
-// 1.19.4	2023-04-27T23:23:42.077687	Kaleidoscope/Block Loot Tables
+// 1.19.4	2023-04-28T00:30:37.9810797	Kaleidoscope/Block Loot Tables
 9e3e631b5ffe6de7068de8380b2b3b4c30414578 data\kaleidoscope\loot_tables\blocks\white_stained_glass_door.json
 98182cf48d184679ce7be98c888334abe32bd23f data\kaleidoscope\loot_tables\blocks\blue_painted_brick_wall.json
 ee4208ba30763b573ee8355f8bca0a10d0c29bad data\kaleidoscope\loot_tables\blocks\glass_door.json
@@ -116,8 +116,8 @@ d37d0558d460b9afbffea7dc4d7e5040e65eefff data\kaleidoscope\loot_tables\blocks\bl
 3afabda7f9765f9b3a9f07a431bbb5c609e86230 data\kaleidoscope\loot_tables\blocks\magenta_terracotta_stairs.json
 712104651030ef59d358a310f6043c33c193ba85 data\kaleidoscope\loot_tables\blocks\pink_painted_brick_slab.json
 ac1f9d14a26f74412408dccae49a91f9a699576f data\kaleidoscope\loot_tables\blocks\pink_terracotta_slab.json
-c05eda0e50dccef7faebe8e1f51de71c4ef481f2 data\kaleidoscope\loot_tables\blocks\lime_painted_brick_stairs.json
 677d729eed5a31ecbbe298de6b7e4d597a719520 data\kaleidoscope\loot_tables\blocks\black_terracotta_stairs.json
+c05eda0e50dccef7faebe8e1f51de71c4ef481f2 data\kaleidoscope\loot_tables\blocks\lime_painted_brick_stairs.json
 a15f27182619b0bf0a394709e7304667080d561a data\kaleidoscope\loot_tables\blocks\gray_painted_brick_stairs.json
 61f8d2e22937892cbd6d2d93a69fb4bacd19ae7b data\kaleidoscope\loot_tables\blocks\gray_painted_brick_slab.json
 c507be6352ee6ff399f8cc91c464c55aead04d5b data\kaleidoscope\loot_tables\blocks\white_painted_bricks.json

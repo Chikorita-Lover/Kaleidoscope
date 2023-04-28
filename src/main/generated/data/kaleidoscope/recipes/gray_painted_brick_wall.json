@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "painted_brick_wall",
   "key": {
     "#": {
       "item": "kaleidoscope:gray_painted_bricks"
