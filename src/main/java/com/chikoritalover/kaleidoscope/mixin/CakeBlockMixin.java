@@ -1,6 +1,6 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
-import com.chikoritalover.kaleidoscope.registry.ModItems;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CakeBlock;
@@ -27,7 +27,7 @@ public class CakeBlockMixin extends Block {
     @Inject(at = @At("HEAD"), method = "onUse", cancellable = true)
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> info) {
         ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.isOf(ModItems.CAKE_SLICE) && state.get(BITES) > 0) {
+        if (itemStack.isOf(KaleidoscopeItems.CAKE_SLICE) && state.get(BITES) > 0) {
             info.setReturnValue(ActionResult.PASS);
         }
     }

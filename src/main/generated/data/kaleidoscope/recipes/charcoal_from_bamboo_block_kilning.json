@@ -1,0 +1,11 @@
+{
+  "type": "kaleidoscope:kilning",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.15,
+  "group": "charcoal",
+  "ingredient": {
+    "tag": "minecraft:bamboo_blocks"
+  },
+  "result": "minecraft:charcoal"
+}

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:gray_terracotta_stairs_from_gray_terracotta_stonecutting"
+        "recipe": "minecraft:gray_terracotta_stairs_from_gray_terracotta_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:gray_terracotta_stairs_from_gray_terracotta_stonecutting"
+      "minecraft:gray_terracotta_stairs_from_gray_terracotta_stonecutting"
     ]
   }
 }

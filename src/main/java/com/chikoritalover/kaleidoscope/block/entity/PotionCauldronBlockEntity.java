@@ -1,6 +1,6 @@
 package com.chikoritalover.kaleidoscope.block.entity;
 
-import com.chikoritalover.kaleidoscope.registry.ModBlockEntities;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -20,7 +20,7 @@ public class PotionCauldronBlockEntity extends BlockEntity {
     private ItemStack stack = ItemStack.EMPTY;
 
     public PotionCauldronBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.POTION_CAULDRON, pos, state);
+        super(KaleidoscopeBlockEntities.POTION_CAULDRON, pos, state);
     }
 
     @Override

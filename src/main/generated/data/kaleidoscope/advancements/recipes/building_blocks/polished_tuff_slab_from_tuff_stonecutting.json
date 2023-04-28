@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:polished_tuff_slab_from_tuff_stonecutting"
+        "recipe": "minecraft:polished_tuff_slab_from_tuff_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:polished_tuff_slab_from_tuff_stonecutting"
+      "minecraft:polished_tuff_slab_from_tuff_stonecutting"
     ]
   }
 }

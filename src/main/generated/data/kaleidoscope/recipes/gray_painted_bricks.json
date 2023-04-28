@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "group": "painted_bricks",
   "key": {
     "#": {
@@ -17,5 +18,6 @@
   "result": {
     "count": 8,
     "item": "kaleidoscope:gray_painted_bricks"
-  }
+  },
+  "show_notification": true
 }

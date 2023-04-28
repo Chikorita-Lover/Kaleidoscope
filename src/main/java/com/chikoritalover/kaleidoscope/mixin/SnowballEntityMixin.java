@@ -1,6 +1,6 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
-import com.chikoritalover.kaleidoscope.registry.ModSoundEvents;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.sound.SoundCategory;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,7 +15,7 @@ public class SnowballEntityMixin {
         SnowballEntity entity = SnowballEntity.class.cast(this);
 
         if (status == 3) {
-            entity.world.playSound(entity.getX(), entity.getY(), entity.getZ(), ModSoundEvents.ENTITY_SNOWBALL_HIT, SoundCategory.NEUTRAL, 1.0F, 1.0F, true);
+            entity.world.playSound(entity.getX(), entity.getY(), entity.getZ(), KaleidoscopeSoundEvents.ENTITY_SNOWBALL_HIT, SoundCategory.NEUTRAL, 1.0F, 1.0F, true);
         }
     }
 }

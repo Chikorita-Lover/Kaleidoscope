@@ -11,7 +11,7 @@
     "BundleItemMixin",
     "CakeBlockMixin",
     "ChestBoatEntityMixin",
-    "DefaultRegistryMixin",
+    "CookingRecipeJsonBuilderMixin",
     "DispenserBlockMixin",
     "FallingBlockMixin",
     "FarmlandBlockMixin",

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "S": {
       "item": "kaleidoscope:disc_fragment_pigstep"
@@ -12,5 +13,6 @@
   ],
   "result": {
     "item": "minecraft:music_disc_pigstep"
-  }
+  },
+  "show_notification": true
 }

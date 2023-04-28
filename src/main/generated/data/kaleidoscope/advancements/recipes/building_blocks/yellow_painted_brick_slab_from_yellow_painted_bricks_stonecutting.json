@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:yellow_painted_brick_slab_from_yellow_painted_bricks_stonecutting"
+        "recipe": "minecraft:yellow_painted_brick_slab_from_yellow_painted_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:yellow_painted_brick_slab_from_yellow_painted_bricks_stonecutting"
+      "minecraft:yellow_painted_brick_slab_from_yellow_painted_bricks_stonecutting"
     ]
   }
 }

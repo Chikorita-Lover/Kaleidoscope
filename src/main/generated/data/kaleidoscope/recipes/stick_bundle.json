@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:stick"
@@ -12,5 +13,6 @@
   ],
   "result": {
     "item": "kaleidoscope:stick_bundle"
-  }
+  },
+  "show_notification": true
 }

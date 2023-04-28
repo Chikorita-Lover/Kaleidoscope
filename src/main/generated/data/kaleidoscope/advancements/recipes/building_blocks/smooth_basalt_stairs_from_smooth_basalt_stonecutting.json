@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:smooth_basalt_stairs_from_smooth_basalt_stonecutting"
+        "recipe": "minecraft:smooth_basalt_stairs_from_smooth_basalt_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:smooth_basalt_stairs_from_smooth_basalt_stonecutting"
+      "minecraft:smooth_basalt_stairs_from_smooth_basalt_stonecutting"
     ]
   }
 }

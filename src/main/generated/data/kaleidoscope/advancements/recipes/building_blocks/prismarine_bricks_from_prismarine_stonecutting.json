@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:prismarine_bricks_from_prismarine_stonecutting"
+        "recipe": "minecraft:prismarine_bricks_from_prismarine_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:prismarine_bricks_from_prismarine_stonecutting"
+      "minecraft:prismarine_bricks_from_prismarine_stonecutting"
     ]
   }
 }

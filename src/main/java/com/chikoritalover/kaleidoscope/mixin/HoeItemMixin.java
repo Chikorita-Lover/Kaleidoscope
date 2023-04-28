@@ -1,6 +1,6 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
-import com.chikoritalover.kaleidoscope.registry.ModSoundEvents;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import com.chikoritalover.kaleidoscope.registry.MossyBlocksRegistry;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
@@ -37,7 +37,7 @@ public class HoeItemMixin {
         if (optional.isPresent()) {
             BlockState blockState = optional.get().getStateWithProperties(state);
 
-            world.playSound(playerEntity, pos, ModSoundEvents.ITEM_HOE_SCRAPE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(playerEntity, pos, KaleidoscopeSoundEvents.ITEM_HOE_SCRAPE, SoundCategory.BLOCKS, 1.0F, 1.0F);
             world.addBlockBreakParticles(pos, Blocks.MOSS_BLOCK.getDefaultState());
 
             if (playerEntity instanceof ServerPlayerEntity) {

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:chiseled_purpur_from_purpur_block_stonecutting"
+        "recipe": "minecraft:chiseled_purpur_from_purpur_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:chiseled_purpur_from_purpur_block_stonecutting"
+      "minecraft:chiseled_purpur_from_purpur_block_stonecutting"
     ]
   }
 }

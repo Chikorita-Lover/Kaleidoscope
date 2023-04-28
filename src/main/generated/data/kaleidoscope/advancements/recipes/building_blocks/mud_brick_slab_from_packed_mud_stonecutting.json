@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:mud_brick_slab_from_packed_mud_stonecutting"
+        "recipe": "minecraft:mud_brick_slab_from_packed_mud_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:mud_brick_slab_from_packed_mud_stonecutting"
+      "minecraft:mud_brick_slab_from_packed_mud_stonecutting"
     ]
   }
 }

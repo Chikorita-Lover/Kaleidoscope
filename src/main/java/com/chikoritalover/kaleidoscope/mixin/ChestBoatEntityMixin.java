@@ -1,7 +1,7 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
-import com.chikoritalover.kaleidoscope.registry.ModBoatType;
-import com.chikoritalover.kaleidoscope.registry.ModItems;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBoatType;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.vehicle.ChestBoatEntity;
@@ -17,18 +17,18 @@ public class ChestBoatEntityMixin {
     public void asItem(CallbackInfoReturnable<Item> info) {
         ChestBoatEntity chestBoat = ChestBoatEntity.class.cast(this);
 
-        if (chestBoat.getBoatType() == ModBoatType.CRIMSON) {
-            info.setReturnValue(ModItems.CRIMSON_CHEST_BOAT);
+        if (chestBoat.getVariant() == KaleidoscopeBoatType.CRIMSON) {
+            info.setReturnValue(KaleidoscopeItems.CRIMSON_CHEST_BOAT);
         }
 
-        if (chestBoat.getBoatType() == ModBoatType.WARPED) {
-            info.setReturnValue(ModItems.WARPED_CHEST_BOAT);
+        if (chestBoat.getVariant() == KaleidoscopeBoatType.WARPED) {
+            info.setReturnValue(KaleidoscopeItems.WARPED_CHEST_BOAT);
         }
     }
 
     public boolean isFireImmune() {
         ChestBoatEntity chestBoat = ChestBoatEntity.class.cast(this);
-        Block baseBlock = chestBoat.getBoatType().getBaseBlock();
+        Block baseBlock = chestBoat.getVariant().getBaseBlock();
 
         return FlammableBlockRegistry.getDefaultInstance().get(baseBlock).getBurnChance() == 0;
     }

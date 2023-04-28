@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:light_blue_painted_brick_stairs_from_light_blue_painted_bricks_stonecutting"
+        "recipe": "minecraft:light_blue_painted_brick_stairs_from_light_blue_painted_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:light_blue_painted_brick_stairs_from_light_blue_painted_bricks_stonecutting"
+      "minecraft:light_blue_painted_brick_stairs_from_light_blue_painted_bricks_stonecutting"
     ]
   }
 }

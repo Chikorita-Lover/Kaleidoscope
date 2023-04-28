@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:red_nether_brick_slab"
@@ -11,5 +12,6 @@
   ],
   "result": {
     "item": "kaleidoscope:chiseled_red_nether_bricks"
-  }
+  },
+  "show_notification": true
 }

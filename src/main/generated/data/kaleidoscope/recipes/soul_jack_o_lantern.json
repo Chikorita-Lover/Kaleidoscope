@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:carved_pumpkin"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "kaleidoscope:soul_jack_o_lantern"
-  }
+  },
+  "show_notification": true
 }

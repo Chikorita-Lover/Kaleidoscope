@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:white_painted_brick_stairs_from_white_painted_bricks_stonecutting"
+        "recipe": "minecraft:white_painted_brick_stairs_from_white_painted_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:white_painted_brick_stairs_from_white_painted_bricks_stonecutting"
+      "minecraft:white_painted_brick_stairs_from_white_painted_bricks_stonecutting"
     ]
   }
 }

@@ -1,9 +1,9 @@
 package com.chikoritalover.kaleidoscope.block;
 
 import com.chikoritalover.kaleidoscope.block.entity.KilnBlockEntity;
-import com.chikoritalover.kaleidoscope.registry.ModBlockEntities;
-import com.chikoritalover.kaleidoscope.registry.ModSoundEvents;
-import com.chikoritalover.kaleidoscope.registry.ModStats;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlockEntities;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeSoundEvents;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeStats;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
@@ -31,14 +31,14 @@ public class KilnBlock extends AbstractFurnaceBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(world, type, ModBlockEntities.KILN);
+        return checkType(world, type, KaleidoscopeBlockEntities.KILN);
     }
 
     protected void openScreen(World world, BlockPos pos, PlayerEntity player) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof KilnBlockEntity) {
             player.openHandledScreen((NamedScreenHandlerFactory)blockEntity);
-            player.incrementStat(ModStats.INTERACT_WITH_KILN);
+            player.incrementStat(KaleidoscopeStats.INTERACT_WITH_KILN);
         }
 
     }
@@ -49,7 +49,7 @@ public class KilnBlock extends AbstractFurnaceBlock {
             double e = pos.getY();
             double f = (double)pos.getZ() + 0.5;
             if (random.nextDouble() < 0.1) {
-                world.playSound(d, e, f, ModSoundEvents.BLOCK_KILN_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+                world.playSound(d, e, f, KaleidoscopeSoundEvents.BLOCK_KILN_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
             }
 
             Direction direction = state.get(FACING);

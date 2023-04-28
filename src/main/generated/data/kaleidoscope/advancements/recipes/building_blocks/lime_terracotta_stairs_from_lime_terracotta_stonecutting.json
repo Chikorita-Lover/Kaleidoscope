@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:lime_terracotta_stairs_from_lime_terracotta_stonecutting"
+        "recipe": "minecraft:lime_terracotta_stairs_from_lime_terracotta_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:lime_terracotta_stairs_from_lime_terracotta_stonecutting"
+      "minecraft:lime_terracotta_stairs_from_lime_terracotta_stonecutting"
     ]
   }
 }

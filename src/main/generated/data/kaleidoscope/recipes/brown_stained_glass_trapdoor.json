@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "redstone",
   "key": {
     "#": {
       "item": "minecraft:brown_stained_glass"
@@ -11,5 +12,6 @@
   ],
   "result": {
     "item": "kaleidoscope:brown_stained_glass_trapdoor"
-  }
+  },
+  "show_notification": true
 }

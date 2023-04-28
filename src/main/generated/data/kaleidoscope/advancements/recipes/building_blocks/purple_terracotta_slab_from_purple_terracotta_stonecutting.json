@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:purple_terracotta_slab_from_purple_terracotta_stonecutting"
+        "recipe": "minecraft:purple_terracotta_slab_from_purple_terracotta_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:purple_terracotta_slab_from_purple_terracotta_stonecutting"
+      "minecraft:purple_terracotta_slab_from_purple_terracotta_stonecutting"
     ]
   }
 }

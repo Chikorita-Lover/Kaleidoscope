@@ -23,10 +23,12 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.poi.PointOfInterestType;
 import net.minecraft.world.poi.PointOfInterestTypes;
@@ -43,11 +45,11 @@ public class Kaleidoscope implements ModInitializer {
 	public static final RecipeType<KilnCookingRecipe> KILNING;
 
 	static {
-		GLASSBLOWER_POINT_OF_INTEREST = RegistryKey.of(Registry.POINT_OF_INTEREST_TYPE_KEY, new Identifier(MODID, "glassblower"));
-		GLASSBLOWER = new VillagerProfession("glassblower", entry -> entry.matchesKey(GLASSBLOWER_POINT_OF_INTEREST), entry -> entry.matchesKey(GLASSBLOWER_POINT_OF_INTEREST), ImmutableSet.of(), ImmutableSet.of(), ModSoundEvents.ENTITY_VILLAGER_WORK_GLASSBLOWER);
-		KILN_COOKING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(MODID, "kilning"), new CookingRecipeSerializer(KilnCookingRecipe::new, 100));
+		GLASSBLOWER_POINT_OF_INTEREST = RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, new Identifier(MODID, "glassblower"));
+		GLASSBLOWER = new VillagerProfession("glassblower", entry -> entry.matchesKey(GLASSBLOWER_POINT_OF_INTEREST), entry -> entry.matchesKey(GLASSBLOWER_POINT_OF_INTEREST), ImmutableSet.of(), ImmutableSet.of(), KaleidoscopeSoundEvents.ENTITY_VILLAGER_WORK_GLASSBLOWER);
+		KILN_COOKING_RECIPE_SERIALIZER = Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(MODID, "kilning"), new CookingRecipeSerializer(KilnCookingRecipe::new, 100));
 		KILN_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(MODID, "kilning"), KilnScreenHandler::new);
-		KILNING = Registry.register(Registry.RECIPE_TYPE, new Identifier(MODID, "kilning"), new RecipeType<KilnCookingRecipe>() {
+		KILNING = Registry.register(Registries.RECIPE_TYPE, new Identifier(MODID, "kilning"), new RecipeType<KilnCookingRecipe>() {
 			@Override
 			public String toString() {
 				return "kilning";
@@ -57,26 +59,25 @@ public class Kaleidoscope implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModBlocks.register();
-		ModBlocks.registerFlammableBlocks();
-		ModBlocks.registerMossyPairs();
-		ModBlocks.registerOxidizablePairs();
-		ModBlockEntities.register();
-		ModCauldronBehavior.register();
-		ModEnchantments.register();
-		ModItems.register();
-		ModItems.registerCompostingChances();
-		ModItems.registerFuels();
-		ModItems.registerMaxItemCounts();
-		new ModModelPredicateProvider();
-		ModSoundEvents.register();
-		ModStats.register();
-		ModTradeOffers.register();
+		KaleidoscopeBlocks.registerFlammableBlocks();
+		KaleidoscopeBlocks.registerMossyPairs();
+		KaleidoscopeBlocks.registerOxidizablePairs();
+		KaleidoscopeBlockEntities.register();
+		KaleidoscopeCauldronBehavior.register();
+		KaleidoscopeEnchantments.register();
+		KaleidoscopeItems.registerCompostingChances();
+		KaleidoscopeItems.registerFuels();
+		KaleidoscopeItems.registerItemGroups();
+		KaleidoscopeItems.registerMaxItemCounts();
+		new KaleidoscopeModelPredicateProvider();
+		KaleidoscopeSoundEvents.register();
+		KaleidoscopeStats.register();
+		KaleidoscopeTradeOffers.register();
 
 		registerLootTableEvents();
 
-		PointOfInterestTypes.register(Registry.POINT_OF_INTEREST_TYPE, GLASSBLOWER_POINT_OF_INTEREST, PointOfInterestTypes.getStatesOfBlock(ModBlocks.KILN), 1, 1);
-		Registry.register(Registry.VILLAGER_PROFESSION, new Identifier(MODID, "glassblower"), GLASSBLOWER);
+		PointOfInterestTypes.register(Registries.POINT_OF_INTEREST_TYPE, GLASSBLOWER_POINT_OF_INTEREST, PointOfInterestTypes.getStatesOfBlock(KaleidoscopeBlocks.KILN), 1, 1);
+		Registry.register(Registries.VILLAGER_PROFESSION, new Identifier(MODID, "glassblower"), GLASSBLOWER);
 
 		GiveGiftsToHeroTaskAccessor.fabric_getGifts().put(GLASSBLOWER, LootTables.registerLootTable(new Identifier(MODID, "gameplay/hero_of_the_village/glassblower_gift")));
 
@@ -88,15 +89,15 @@ public class Kaleidoscope implements ModInitializer {
 	}
 
 	public void registerLootTableEvents() {
-		addLootTablePool(1, 1, 0.294F, LootTables.SIMPLE_DUNGEON_CHEST, ModItems.CHAINMAIL_HORSE_ARMOR);
-		addLootTablePool(1, 1, 0.318F, LootTables.VILLAGE_ARMORER_CHEST, ModItems.CHAINMAIL_HORSE_ARMOR);
+		addLootTablePool(1, 1, 0.294F, LootTables.SIMPLE_DUNGEON_CHEST, KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR);
+		addLootTablePool(1, 1, 0.318F, LootTables.VILLAGE_ARMORER_CHEST, KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR);
 
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
 			if (id.equals(EntityType.GOAT.getLootTableId())) {
 				supplier.pool(LootPool.builder().with(LootTableEntry.builder(new Identifier(Kaleidoscope.MODID, "entities/goat")).build()).build());
 			}
 			if (id.equals(LootTables.PIGLIN_BARTERING_GAMEPLAY)) {
-				supplier.modifyPools(builder -> builder.with((ItemEntry.builder(ModItems.DISC_FRAGMENT_PIGSTEP).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).build());
+				supplier.modifyPools(builder -> builder.with((ItemEntry.builder(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).build());
 			}
 		});
 	}

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:calcite_slab_from_calcite_stonecutting"
+        "recipe": "minecraft:calcite_slab_from_calcite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:calcite_slab_from_calcite_stonecutting"
+      "minecraft:calcite_slab_from_calcite_stonecutting"
     ]
   }
 }

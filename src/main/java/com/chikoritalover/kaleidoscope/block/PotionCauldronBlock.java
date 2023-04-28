@@ -1,7 +1,7 @@
 package com.chikoritalover.kaleidoscope.block;
 
 import com.chikoritalover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
-import com.chikoritalover.kaleidoscope.registry.ModCauldronBehavior;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeCauldronBehavior;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
@@ -22,7 +22,7 @@ import java.util.List;
 
 public class PotionCauldronBlock extends LeveledCauldronBlock implements BlockEntityProvider {
     public PotionCauldronBlock(AbstractBlock.Settings settings) {
-        super(settings, null, ModCauldronBehavior.POTION_CAULDRON_BEHAVIOR);
+        super(settings, null, KaleidoscopeCauldronBehavior.POTION_CAULDRON_BEHAVIOR);
     }
 
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {

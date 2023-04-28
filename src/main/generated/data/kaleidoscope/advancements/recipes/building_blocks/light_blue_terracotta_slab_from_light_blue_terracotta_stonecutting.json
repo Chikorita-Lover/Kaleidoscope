@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:light_blue_terracotta_slab_from_light_blue_terracotta_stonecutting"
+        "recipe": "minecraft:light_blue_terracotta_slab_from_light_blue_terracotta_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:light_blue_terracotta_slab_from_light_blue_terracotta_stonecutting"
+      "minecraft:light_blue_terracotta_slab_from_light_blue_terracotta_stonecutting"
     ]
   }
 }

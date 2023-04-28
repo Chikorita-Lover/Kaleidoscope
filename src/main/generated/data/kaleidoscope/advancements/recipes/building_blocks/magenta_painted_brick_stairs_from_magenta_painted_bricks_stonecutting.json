@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:magenta_painted_brick_stairs_from_magenta_painted_bricks_stonecutting"
+        "recipe": "minecraft:magenta_painted_brick_stairs_from_magenta_painted_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:magenta_painted_brick_stairs_from_magenta_painted_bricks_stonecutting"
+      "minecraft:magenta_painted_brick_stairs_from_magenta_painted_bricks_stonecutting"
     ]
   }
 }

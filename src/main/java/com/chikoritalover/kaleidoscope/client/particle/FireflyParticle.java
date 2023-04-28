@@ -8,11 +8,11 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3f;
+import org.joml.Vector3f;
 
 public class FireflyParticle extends SpriteBillboardParticle {
-    private static final Vec3f GLOW_COLOR_VECTOR = new Vec3f(0.62F, 0.89F, 0.26F);
-    private static final Vec3f DIM_COLOR_VECTOR = new Vec3f(0.16F, 0.18F, 0.16F);
+    private static final Vector3f GLOW_COLOR_VECTOR = new Vector3f(0.62F, 0.89F, 0.26F);
+    private static final Vector3f DIM_COLOR_VECTOR = new Vector3f(0.16F, 0.18F, 0.16F);
 
     FireflyParticle(ClientWorld world, SpriteProvider spriteProvider, double x, double y, double z) {
         super(world, x, y - 0.125, z);
@@ -41,11 +41,11 @@ public class FireflyParticle extends SpriteBillboardParticle {
     @Override
     public void buildGeometry(VertexConsumer vertexConsumer, Camera camera, float tickDelta) {
         float f = (float) this.age + tickDelta;
-        Vec3f vec3f = GLOW_COLOR_VECTOR.copy();
+        Vector3f vec3f = new Vector3f(GLOW_COLOR_VECTOR);
         vec3f.lerp(DIM_COLOR_VECTOR, (float) (Math.cos(MathHelper.PI * f / 10.0F) + 1.0F) / 2.0F);
-        this.red = vec3f.getX();
-        this.green = vec3f.getY();
-        this.blue = vec3f.getZ();
+        this.red = vec3f.x();
+        this.green = vec3f.y();
+        this.blue = vec3f.z();
         super.buildGeometry(vertexConsumer, camera, tickDelta);
     }
 

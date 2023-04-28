@@ -1,6 +1,6 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
-import com.chikoritalover.kaleidoscope.registry.ModBoatType;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBoatType;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.vehicle.BoatEntity;
@@ -33,11 +33,11 @@ public class BoatEntityTypeMixin {
         var last = types.get(types.size() - 1);
 
         var crimson = newType("CRIMSON", last.ordinal() + 1, Blocks.CRIMSON_PLANKS, "crimson");
-        ModBoatType.CRIMSON = crimson;
+        KaleidoscopeBoatType.CRIMSON = crimson;
         types.add(crimson);
 
         var warped = newType("WARPED", last.ordinal() + 2, Blocks.WARPED_PLANKS, "warped");
-        ModBoatType.WARPED = warped;
+        KaleidoscopeBoatType.WARPED = warped;
         types.add(warped);
 
         field_7724 = types.toArray(new BoatEntity.Type[0]);

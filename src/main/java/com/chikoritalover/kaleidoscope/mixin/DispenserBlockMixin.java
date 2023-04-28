@@ -31,7 +31,7 @@ public class DispenserBlockMixin {
                 protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
                     World world = pointer.getWorld();
                     Position pos = DispenserBlock.getOutputLocation(pointer);
-                    BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
+                    BlockPos blockPos = new BlockPos((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
                     BlockState blockState = world.getBlockState(blockPos);
                     ActionResult actionResult = stack.getItem().useOnBlock(new ItemUsageContext(world, null, null, stack, pointer.getWorld().raycastBlock(new Vec3d(pointer.getX(), pointer.getY(), pointer.getZ()), new Vec3d(pos.getX(), pos.getY(), pos.getZ()), blockPos, VoxelShapes.UNBOUNDED, blockState)));
                     this.setSuccess(actionResult != ActionResult.FAIL && actionResult != ActionResult.PASS);

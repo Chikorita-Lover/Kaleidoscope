@@ -1,6 +1,6 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
-import com.chikoritalover.kaleidoscope.registry.ModSoundEvents;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
@@ -32,7 +32,7 @@ public class FlowerPotBlockMixin {
         boolean bl2 = flowerPotBlock.isEmpty();
 
         if (!bl && bl2) {
-            world.playSound(null, pos, ModSoundEvents.BLOCK_FLOWER_POT_PLANT, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(null, pos, KaleidoscopeSoundEvents.BLOCK_FLOWER_POT_PLANT, SoundCategory.BLOCKS, 1.0F, 1.0F);
         }
     }
 }

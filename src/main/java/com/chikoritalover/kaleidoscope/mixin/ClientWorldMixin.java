@@ -1,8 +1,8 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
-import com.chikoritalover.kaleidoscope.registry.ModBiomeTags;
-import com.chikoritalover.kaleidoscope.registry.ModBlockTags;
-import com.chikoritalover.kaleidoscope.registry.ModParticleTypes;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBiomeTags;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlockTags;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeParticleTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.world.ClientWorld;
@@ -20,9 +20,9 @@ public class ClientWorldMixin {
         ClientWorld clientWorld = ClientWorld.class.cast(this);
         BlockState blockState = clientWorld.getBlockState(pos);
         if (pos.getY() < 64 || !isFireflyNight(clientWorld)) return;
-        if (clientWorld.getBiome(pos).isIn(ModBiomeTags.SPAWNS_FIREFLIES)) {
-            if (clientWorld.getBlockState(pos.down()).isIn(ModBlockTags.FIREFLIES_SPAWNABLE_ON) && !blockState.getMaterial().isSolid() && random.nextFloat() < 0.015F) {
-                clientWorld.addParticle(ModParticleTypes.FIREFLY, (double) pos.getX() + random.nextDouble(), (double) pos.getY() + random.nextDouble() * 3.0, (double) pos.getZ() + random.nextDouble(), 0.0, 0.0, 0.0);
+        if (clientWorld.getBiome(pos).isIn(KaleidoscopeBiomeTags.SPAWNS_FIREFLIES)) {
+            if (clientWorld.getBlockState(pos.down()).isIn(KaleidoscopeBlockTags.FIREFLIES_SPAWNABLE_ON) && !blockState.getMaterial().isSolid() && random.nextFloat() < 0.015F) {
+                clientWorld.addParticle(KaleidoscopeParticleTypes.FIREFLY, (double) pos.getX() + random.nextDouble(), (double) pos.getY() + random.nextDouble() * 3.0, (double) pos.getZ() + random.nextDouble(), 0.0, 0.0, 0.0);
             }
         }
     }

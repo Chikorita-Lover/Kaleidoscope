@@ -1,7 +1,7 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
-import com.chikoritalover.kaleidoscope.registry.ModBlockSoundGroup;
-import com.chikoritalover.kaleidoscope.registry.ModItems;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlockSoundGroup;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -10,9 +10,9 @@ import net.minecraft.block.CakeBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,8 +20,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.List;
 
 import static net.minecraft.block.Blocks.*;
 
@@ -31,15 +29,13 @@ public class BlockMixin {
     private static void dropStacks(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack stack, CallbackInfo callbackInfo) {
         if (world instanceof ServerWorld) {
             int count = 0;
-
             if (state.getBlock() == Blocks.CAKE) {
                 count = 7 - state.get(CakeBlock.BITES);
             } else if (state.isIn(BlockTags.CANDLE_CAKES)) {
                 count = 7;
             }
-
             if (count > 0) {
-                ItemStack dropStack = new ItemStack(ModItems.CAKE_SLICE, count);
+                ItemStack dropStack = new ItemStack(KaleidoscopeItems.CAKE_SLICE, count);
                 Block.dropStack(world, pos, dropStack);
             }
         }
@@ -50,9 +46,9 @@ public class BlockMixin {
         Block block = state.getBlock();
         BlockSoundGroup soundGroup = info.getReturnValue();
         if (ImmutableList.of(ANDESITE, ANDESITE_SLAB, ANDESITE_STAIRS, ANDESITE_WALL, POLISHED_ANDESITE, POLISHED_ANDESITE_SLAB, POLISHED_ANDESITE_STAIRS).contains(block))
-            info.setReturnValue(ModBlockSoundGroup.ANDESITE);
+            info.setReturnValue(KaleidoscopeBlockSoundGroup.ANDESITE);
         if (ImmutableList.of(DIORITE, DIORITE_SLAB, DIORITE_STAIRS, DIORITE_WALL, POLISHED_DIORITE, POLISHED_DIORITE_SLAB, POLISHED_DIORITE_STAIRS).contains(block))
-            info.setReturnValue(ModBlockSoundGroup.DIORITE);
+            info.setReturnValue(KaleidoscopeBlockSoundGroup.DIORITE);
         if (block == Blocks.WET_SPONGE) {
             info.setReturnValue(BlockSoundGroup.WET_GRASS);
         }

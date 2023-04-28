@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:black_painted_brick_slab_from_black_painted_bricks_stonecutting"
+        "recipe": "minecraft:black_painted_brick_slab_from_black_painted_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:black_painted_brick_slab_from_black_painted_bricks_stonecutting"
+      "minecraft:black_painted_brick_slab_from_black_painted_bricks_stonecutting"
     ]
   }
 }
