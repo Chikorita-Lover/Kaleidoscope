@@ -3,6 +3,7 @@ package com.chikoritalover.kaleidoscope.mixin;
 import com.chikoritalover.kaleidoscope.registry.MaxItemCountRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.MusicDiscItem;
+import net.minecraft.item.StewItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -19,6 +20,9 @@ public class ItemMixin {
         }
         if (item instanceof MusicDiscItem) {
             info.setReturnValue(64);
+        }
+        if (item instanceof StewItem) {
+            info.setReturnValue(16);
         }
     }
 }
