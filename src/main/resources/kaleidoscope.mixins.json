@@ -21,6 +21,7 @@
     "LivingEntityMixin",
     "SnowballEntityMixin",
     "StewItemMixin",
+    "StructurePoolMixin",
     "ZombieVillagerEntityMixin"
   ],
   "client": [

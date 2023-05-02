@@ -1,11 +1,14 @@
 package com.chikoritalover.kaleidoscope;
 
+import com.chikoritalover.kaleidoscope.mixin.StructurePoolMixin;
 import com.chikoritalover.kaleidoscope.recipe.KilnCookingRecipe;
 import com.chikoritalover.kaleidoscope.registry.*;
 import com.chikoritalover.kaleidoscope.screen.KilnScreenHandler;
 import com.google.common.collect.ImmutableSet;
+import com.mojang.datafixers.util.Pair;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.fabric.mixin.content.registry.GiveGiftsToHeroTaskAccessor;
@@ -27,13 +30,20 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.structure.pool.StructurePool;
+import net.minecraft.structure.pool.StructurePoolElement;
+import net.minecraft.structure.processor.StructureProcessorList;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.poi.PointOfInterestType;
 import net.minecraft.world.poi.PointOfInterestTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
 
 public class Kaleidoscope implements ModInitializer {
 	public static final VillagerProfession GLASSBLOWER;
@@ -81,11 +91,35 @@ public class Kaleidoscope implements ModInitializer {
 
 		GiveGiftsToHeroTaskAccessor.fabric_getGifts().put(GLASSBLOWER, LootTables.registerLootTable(new Identifier(MODID, "gameplay/hero_of_the_village/glassblower_gift")));
 
+		ServerLifecycleEvents.SERVER_STARTING.register(server -> {
+			addToStructurePool(server, new Identifier("minecraft", "village/desert/houses"), new Identifier(MODID, "village/desert/houses/desert_glassblower_1"), 4);
+			addToStructurePool(server, new Identifier("minecraft", "village/plains/houses"), new Identifier(MODID, "village/plains/houses/plains_glassblower_1"), 4);
+			addToStructurePool(server, new Identifier("minecraft", "village/savanna/houses"), new Identifier(MODID, "village/savanna/houses/savanna_glassblower_1"), 4);
+			addToStructurePool(server, new Identifier("minecraft", "village/snowy/houses"), new Identifier(MODID, "village/snowy/houses/snowy_glassblower_1"), 4);
+			addToStructurePool(server, new Identifier("minecraft", "village/taiga/houses"), new Identifier(MODID, "village/taiga/houses/taiga_glassblower_1"), 4);
+		});
+
 		ServerEntityEvents.ENTITY_LOAD.register(((entity, world) -> {
 			if (entity instanceof EndermanEntity endermanEntity) {
 				endermanEntity.experiencePoints = Monster.STRONG_MONSTER_XP;
 			}
 		}));
+	}
+
+	public static void addToStructurePool(MinecraftServer server, Identifier village, Identifier jigsaw, int weight) {
+		RegistryEntry<StructureProcessorList> emptyProcessorList = server.getRegistryManager().get(RegistryKeys.PROCESSOR_LIST).entryOf(RegistryKey.of(RegistryKeys.PROCESSOR_LIST, new Identifier("minecraft", "empty")));
+		var poolGetter = server.getRegistryManager().get(RegistryKeys.TEMPLATE_POOL).getOrEmpty(village);
+		var pool = poolGetter.get();
+		var pieceList = ((StructurePoolMixin) pool).getElements();
+		var piece = StructurePoolElement.ofProcessedSingle(jigsaw.toString(), emptyProcessorList).apply(StructurePool.Projection.RIGID);
+		var list = new ArrayList<>(((StructurePoolMixin) pool).getElementCounts());
+		list.add(Pair.of(piece, weight));
+		((StructurePoolMixin) pool).setElementCounts(list);
+		for (int i = 0; i < weight; ++i) {
+			pieceList.add(piece);
+		}
+		System.out.println(pool);
+		System.out.println(piece);
 	}
 
 	public void registerLootTableEvents() {
