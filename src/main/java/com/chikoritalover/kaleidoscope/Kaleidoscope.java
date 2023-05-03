@@ -26,16 +26,15 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.structure.pool.SinglePoolElement;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolElement;
 import net.minecraft.structure.processor.StructureProcessorList;
+import net.minecraft.structure.processor.StructureProcessorLists;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.poi.PointOfInterestType;
@@ -44,6 +43,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Kaleidoscope implements ModInitializer {
 	public static final VillagerProfession GLASSBLOWER;
@@ -92,8 +92,9 @@ public class Kaleidoscope implements ModInitializer {
 		GiveGiftsToHeroTaskAccessor.fabric_getGifts().put(GLASSBLOWER, LootTables.registerLootTable(new Identifier(MODID, "gameplay/hero_of_the_village/glassblower_gift")));
 
 		ServerLifecycleEvents.SERVER_STARTING.register(server -> {
+			RegistryEntryLookup<StructureProcessorList> registryEntryLookup = server.getRegistryManager().createRegistryLookup().getOrThrow(RegistryKeys.PROCESSOR_LIST);
 			addToStructurePool(server, new Identifier("minecraft", "village/desert/houses"), new Identifier(MODID, "village/desert/houses/desert_glassblower_1"), 4);
-			addToStructurePool(server, new Identifier("minecraft", "village/plains/houses"), new Identifier(MODID, "village/plains/houses/plains_glassblower_1"), 4);
+			addToStructurePool(server, new Identifier("minecraft", "village/plains/houses"), new Identifier(MODID, "village/plains/houses/plains_glassblower_1"), registryEntryLookup.getOrThrow(StructureProcessorLists.MOSSIFY_10_PERCENT), 4);
 			addToStructurePool(server, new Identifier("minecraft", "village/savanna/houses"), new Identifier(MODID, "village/savanna/houses/savanna_glassblower_1"), 4);
 			addToStructurePool(server, new Identifier("minecraft", "village/snowy/houses"), new Identifier(MODID, "village/snowy/houses/snowy_glassblower_1"), 4);
 			addToStructurePool(server, new Identifier("minecraft", "village/taiga/houses"), new Identifier(MODID, "village/taiga/houses/taiga_glassblower_1"), 4);
@@ -106,12 +107,16 @@ public class Kaleidoscope implements ModInitializer {
 		}));
 	}
 
-	public static void addToStructurePool(MinecraftServer server, Identifier village, Identifier jigsaw, int weight) {
+	public static void addToStructurePool(MinecraftServer server, Identifier village, Identifier structure, int weight) {
 		RegistryEntry<StructureProcessorList> emptyProcessorList = server.getRegistryManager().get(RegistryKeys.PROCESSOR_LIST).entryOf(RegistryKey.of(RegistryKeys.PROCESSOR_LIST, new Identifier("minecraft", "empty")));
-		var poolGetter = server.getRegistryManager().get(RegistryKeys.TEMPLATE_POOL).getOrEmpty(village);
-		var pool = poolGetter.get();
+		addToStructurePool(server, village, structure, emptyProcessorList, weight);
+	}
+
+	public static void addToStructurePool(MinecraftServer server, Identifier village, Identifier structure, RegistryEntry<StructureProcessorList> processorList, int weight) {
+		Optional<StructurePool> poolGetter = server.getRegistryManager().get(RegistryKeys.TEMPLATE_POOL).getOrEmpty(village);
+		StructurePool pool = poolGetter.get();
 		var pieceList = ((StructurePoolMixin) pool).getElements();
-		var piece = StructurePoolElement.ofProcessedSingle(jigsaw.toString(), emptyProcessorList).apply(StructurePool.Projection.RIGID);
+		SinglePoolElement piece = StructurePoolElement.ofProcessedSingle(structure.toString(), processorList).apply(StructurePool.Projection.RIGID);
 		var list = new ArrayList<>(((StructurePoolMixin) pool).getElementCounts());
 		list.add(Pair.of(piece, weight));
 		((StructurePoolMixin) pool).setElementCounts(list);
