@@ -30,6 +30,7 @@ import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.structure.pool.FeaturePoolElement;
 import net.minecraft.structure.pool.SinglePoolElement;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolElement;
@@ -37,6 +38,8 @@ import net.minecraft.structure.processor.StructureProcessorList;
 import net.minecraft.structure.processor.StructureProcessorLists;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerProfession;
+import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.poi.PointOfInterestType;
 import net.minecraft.world.poi.PointOfInterestTypes;
 import org.slf4j.Logger;
@@ -92,11 +95,14 @@ public class Kaleidoscope implements ModInitializer {
 		GiveGiftsToHeroTaskAccessor.fabric_getGifts().put(GLASSBLOWER, LootTables.registerLootTable(new Identifier(MODID, "gameplay/hero_of_the_village/glassblower_gift")));
 
 		ServerLifecycleEvents.SERVER_STARTING.register(server -> {
-			RegistryEntryLookup<StructureProcessorList> registryEntryLookup = server.getRegistryManager().createRegistryLookup().getOrThrow(RegistryKeys.PROCESSOR_LIST);
+			RegistryEntryLookup<PlacedFeature> registryEntryLookup = server.getRegistryManager().createRegistryLookup().getOrThrow(RegistryKeys.PLACED_FEATURE);
+			RegistryEntryLookup<StructureProcessorList> registryEntryLookup2 = server.getRegistryManager().createRegistryLookup().getOrThrow(RegistryKeys.PROCESSOR_LIST);
 			addToStructurePool(server, new Identifier("minecraft", "village/desert/houses"), new Identifier(MODID, "village/desert/houses/desert_glassblower_1"), 4);
-			addToStructurePool(server, new Identifier("minecraft", "village/plains/houses"), new Identifier(MODID, "village/plains/houses/plains_glassblower_1"), registryEntryLookup.getOrThrow(StructureProcessorLists.MOSSIFY_10_PERCENT), 4);
+			addToStructurePool(server, new Identifier("minecraft", "village/plains/houses"), new Identifier(MODID, "village/plains/houses/plains_glassblower_1"), registryEntryLookup2.getOrThrow(StructureProcessorLists.MOSSIFY_10_PERCENT), 4);
 			addToStructurePool(server, new Identifier("minecraft", "village/savanna/houses"), new Identifier(MODID, "village/savanna/houses/savanna_glassblower_1"), 4);
+			addToStructurePool(server, new Identifier("minecraft", "village/snowy/decor"), registryEntryLookup.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BUNDLE), 1);
 			addToStructurePool(server, new Identifier("minecraft", "village/snowy/houses"), new Identifier(MODID, "village/snowy/houses/snowy_glassblower_1"), 4);
+			addToStructurePool(server, new Identifier("minecraft", "village/taiga/decor"), registryEntryLookup.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BUNDLE), 1);
 			addToStructurePool(server, new Identifier("minecraft", "village/taiga/houses"), new Identifier(MODID, "village/taiga/houses/taiga_glassblower_1"), 4);
 		});
 
@@ -123,8 +129,19 @@ public class Kaleidoscope implements ModInitializer {
 		for (int i = 0; i < weight; ++i) {
 			pieceList.add(piece);
 		}
-		System.out.println(pool);
-		System.out.println(piece);
+	}
+
+	public static void addToStructurePool(MinecraftServer server, Identifier village, RegistryEntry<PlacedFeature> placedFeature, int weight) {
+		Optional<StructurePool> poolGetter = server.getRegistryManager().get(RegistryKeys.TEMPLATE_POOL).getOrEmpty(village);
+		StructurePool pool = poolGetter.get();
+		var pieceList = ((StructurePoolMixin) pool).getElements();
+		FeaturePoolElement piece = StructurePoolElement.ofFeature(placedFeature).apply(StructurePool.Projection.RIGID);
+		var list = new ArrayList<>(((StructurePoolMixin) pool).getElementCounts());
+		list.add(Pair.of(piece, weight));
+		((StructurePoolMixin) pool).setElementCounts(list);
+		for (int i = 0; i < weight; ++i) {
+			pieceList.add(piece);
+		}
 	}
 
 	public void registerLootTableEvents() {
