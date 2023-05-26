@@ -67,6 +67,15 @@ public class KaleidoscopeTradeOffers {
         TradeOfferHelper.registerVillagerOffers(Kaleidoscope.GLASSBLOWER, 5, factories -> {
             factories.add(new TradeOffers.SellItemFactory(Blocks.TINTED_GLASS, 1, 1, 12, 15));
         });
+        TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
+            factories.add(new TradeOffers.SellItemFactory(Items.SWEET_BERRIES, 1, 1, 12, 1));
+            factories.add(new TradeOffers.SellItemFactory(Items.PINK_PETALS, 1, 2, 7, 1));
+            factories.add(new TradeOffers.SellItemFactory(Items.BAMBOO, 3, 1, 8, 1));
+            factories.add(new TradeOffers.SellItemFactory(Items.COCOA_BEANS, 4, 1, 12, 1));
+        });
+        TradeOfferHelper.registerWanderingTraderOffers(2, factories -> {
+            factories.add(new TradeOffers.SellItemFactory(Items.TADPOLE_BUCKET, 5, 1, 4, 1));
+        });
     }
 
     public static class IllagerBaneFactory implements TradeOffers.Factory {
