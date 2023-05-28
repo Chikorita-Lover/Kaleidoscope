@@ -52,7 +52,7 @@ public class KaleidoscopeItems {
     }
 
     public static void registerFuels() {
-        FuelRegistry.INSTANCE.add(KaleidoscopeBlocks.STICK_BUNDLE, 1000);
+        FuelRegistry.INSTANCE.add(KaleidoscopeBlocks.STICK_BUNDLE, 300);
     }
 
     public static void registerMaxItemCounts() {
