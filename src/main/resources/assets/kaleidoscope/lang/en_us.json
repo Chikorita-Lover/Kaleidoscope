@@ -196,6 +196,10 @@
   "block.kaleidoscope.yellow_terracotta_slab": "Yellow Terracotta Slab",
   "block.kaleidoscope.yellow_terracotta_stairs": "Yellow Terracotta Stairs",
 
+  "block.minecraft.chest.obstructed": "This chest is obstructed",
+  "block.minecraft.respawn_anchor.not_charged": "This Respawn Anchor is not charged; use Glowstone to charge it",
+  "block.minecraft.shulker_box.obstructed": "This Shulker Box is obstructed",
+
   "container.kiln": "Kiln",
 
   "enchantment.kaleidoscope.illager_bane": "Illager's Bane",
