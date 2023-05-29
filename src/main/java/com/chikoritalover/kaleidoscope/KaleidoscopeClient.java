@@ -10,6 +10,8 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.*;
@@ -20,6 +22,7 @@ import net.minecraft.util.Formatting;
 import java.util.List;
 
 public class KaleidoscopeClient implements ClientModInitializer {
+    private static final List<Block> BLOCKS_WITH_TOOLTIPS = List.of(Blocks.CHISELED_BOOKSHELF, Blocks.END_PORTAL_FRAME, Blocks.FLOWER_POT, Blocks.LECTERN, Blocks.LODESTONE, Blocks.RESPAWN_ANCHOR);
 
     @Override
     public void onInitializeClient() {
@@ -90,16 +93,27 @@ public class KaleidoscopeClient implements ClientModInitializer {
         HandledScreens.register(Kaleidoscope.KILN_SCREEN_HANDLER, KilnScreen::new);
 
         ItemTooltipCallback.EVENT.register((stack, context, tooltip) -> {
+            for (Block block : BLOCKS_WITH_TOOLTIPS) {
+                buildBlockInteractTooltip(stack, tooltip, block);
+            }
             if (stack.getItem().isFood()) {
                 buildFoodTooltip(stack, tooltip);
             }
-
             if (stack.getItem() instanceof HorseArmorItem) {
                 buildHorseArmorTooltip(stack, tooltip);
             }
         });
 
         ParticleFactoryRegistry.getInstance().register(KaleidoscopeParticleTypes.FIREFLY, FireflyParticle.Factory::new);
+    }
+
+    public void buildBlockInteractTooltip(ItemStack itemStack, List<Text> list, Block block) {
+        if (!itemStack.isOf(block.asItem())) {
+            return;
+        }
+        list.add(ScreenTexts.EMPTY);
+        list.add(Text.translatable(block.getTranslationKey() + ".desc1").formatted(Formatting.GRAY));
+        list.add(ScreenTexts.space().append(Text.translatable(block.getTranslationKey() + ".desc2").formatted(Formatting.BLUE)));
     }
 
     public void buildFoodTooltip(ItemStack stack, List<Text> list) {

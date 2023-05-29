@@ -197,6 +197,18 @@
   "block.kaleidoscope.yellow_terracotta_stairs": "Yellow Terracotta Stairs",
 
   "block.minecraft.chest.obstructed": "This chest is obstructed",
+  "block.minecraft.chiseled_bookshelf.desc1": "Interact with Book:",
+  "block.minecraft.chiseled_bookshelf.desc2": "Stores Book",
+  "block.minecraft.end_portal_frame.desc1": "Interact with Eye of Ender:",
+  "block.minecraft.end_portal_frame.desc2": "Fills End Portal Frame",
+  "block.minecraft.flower_pot.desc1": "Interact with Plant:",
+  "block.minecraft.flower_pot.desc2": "Sets Potted Plant",
+  "block.minecraft.lectern.desc1": "Interact with Written Book:",
+  "block.minecraft.lectern.desc2": "Places Written Book",
+  "block.minecraft.lodestone.desc1": "Interact with Compass:",
+  "block.minecraft.lodestone.desc2": "Redirects Compass",
+  "block.minecraft.respawn_anchor.desc1": "Interact with Glowstone:",
+  "block.minecraft.respawn_anchor.desc2": "Increases Charge Level",
   "block.minecraft.respawn_anchor.not_charged": "This Respawn Anchor is not charged; use Glowstone to charge it",
   "block.minecraft.shulker_box.obstructed": "This Shulker Box is obstructed",
 
