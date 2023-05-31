@@ -49,6 +49,9 @@ public class BlockMixin {
             info.setReturnValue(KaleidoscopeBlockSoundGroup.ANDESITE);
         if (ImmutableList.of(DIORITE, DIORITE_SLAB, DIORITE_STAIRS, DIORITE_WALL, POLISHED_DIORITE, POLISHED_DIORITE_SLAB, POLISHED_DIORITE_STAIRS).contains(block))
             info.setReturnValue(KaleidoscopeBlockSoundGroup.DIORITE);
+        if (block == SPONGE) {
+            info.setReturnValue(KaleidoscopeBlockSoundGroup.SPONGE);
+        }
         if (block == Blocks.WET_SPONGE) {
             info.setReturnValue(BlockSoundGroup.WET_GRASS);
         }

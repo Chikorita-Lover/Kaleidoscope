@@ -28,6 +28,7 @@
     "RespawnAnchorBlockMixin",
     "ShulkerBoxBlockMixin",
     "SnowballEntityMixin",
+    "SpongeBlockMixin",
     "StewItemMixin",
     "StructurePoolMixin",
     "ZombieVillagerEntityMixin"

@@ -23,6 +23,12 @@ public class KaleidoscopeSoundEvents {
     public static final SoundEvent BLOCK_DIORITE_STEP = register("block.diorite.step");
     public static final SoundEvent BLOCK_FLOWER_POT_PLANT = register("block.flower_pot.plant");
     public static final SoundEvent BLOCK_KILN_CRACKLE = register("block.kiln.crackle");
+    public static final SoundEvent BLOCK_SPONGE_ABSORB = register("block.sponge.absorb");
+    public static final SoundEvent BLOCK_SPONGE_BREAK = register("block.sponge.break");
+    public static final SoundEvent BLOCK_SPONGE_FALL = register("block.sponge.fall");
+    public static final SoundEvent BLOCK_SPONGE_HIT = register("block.sponge.hit");
+    public static final SoundEvent BLOCK_SPONGE_PLACE = register("block.sponge.place");
+    public static final SoundEvent BLOCK_SPONGE_STEP = register("block.sponge.step");
 
     public static final SoundEvent ENTITY_SNOWBALL_HIT = register("entity.snowball.hit");
     public static final SoundEvent ENTITY_VILLAGER_WORK_GLASSBLOWER = register("entity.villager.work_glassblower");

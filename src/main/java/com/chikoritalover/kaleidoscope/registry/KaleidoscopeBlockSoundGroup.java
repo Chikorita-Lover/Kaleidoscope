@@ -17,4 +17,11 @@ public class KaleidoscopeBlockSoundGroup {
             KaleidoscopeSoundEvents.BLOCK_DIORITE_HIT,
             KaleidoscopeSoundEvents.BLOCK_DIORITE_FALL
     );
+    public static final BlockSoundGroup SPONGE = new BlockSoundGroup(1.0F, 1.0F,
+            KaleidoscopeSoundEvents.BLOCK_SPONGE_BREAK,
+            KaleidoscopeSoundEvents.BLOCK_SPONGE_STEP,
+            KaleidoscopeSoundEvents.BLOCK_SPONGE_PLACE,
+            KaleidoscopeSoundEvents.BLOCK_SPONGE_HIT,
+            KaleidoscopeSoundEvents.BLOCK_SPONGE_FALL
+    );
 }

@@ -135,6 +135,63 @@
       "kaleidoscope:block/kiln/crackle4"
     ]
   },
+  "block.sponge.absorb": {
+    "subtitle": "subtitles.block.sponge.absorb",
+    "sounds": [
+      "kaleidoscope:block/sponge/absorb1",
+      "kaleidoscope:block/sponge/absorb2"
+    ]
+  },
+  "block.sponge.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "kaleidoscope:block/sponge/break1",
+      "kaleidoscope:block/sponge/break2",
+      "kaleidoscope:block/sponge/break3",
+      "kaleidoscope:block/sponge/break4"
+    ]
+  },
+  "block.sponge.fall": {
+    "sounds": [
+      "kaleidoscope:block/sponge/step1",
+      "kaleidoscope:block/sponge/step2",
+      "kaleidoscope:block/sponge/step3",
+      "kaleidoscope:block/sponge/step4",
+      "kaleidoscope:block/sponge/step5",
+      "kaleidoscope:block/sponge/step6"
+    ]
+  },
+  "block.sponge.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "kaleidoscope:block/sponge/step1",
+      "kaleidoscope:block/sponge/step2",
+      "kaleidoscope:block/sponge/step3",
+      "kaleidoscope:block/sponge/step4",
+      "kaleidoscope:block/sponge/step5",
+      "kaleidoscope:block/sponge/step6"
+    ]
+  },
+  "block.sponge.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "kaleidoscope:block/sponge/break1",
+      "kaleidoscope:block/sponge/break2",
+      "kaleidoscope:block/sponge/break3",
+      "kaleidoscope:block/sponge/break4"
+    ]
+  },
+  "block.sponge.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "kaleidoscope:block/sponge/step1",
+      "kaleidoscope:block/sponge/step2",
+      "kaleidoscope:block/sponge/step3",
+      "kaleidoscope:block/sponge/step4",
+      "kaleidoscope:block/sponge/step5",
+      "kaleidoscope:block/sponge/step6"
+    ]
+  },
   "entity.snowball.hit": {
     "subtitle": "subtitles.entity.snowball.hit",
     "sounds": [
