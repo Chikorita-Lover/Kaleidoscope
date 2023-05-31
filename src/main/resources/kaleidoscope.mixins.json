@@ -4,6 +4,7 @@
   "package": "com.chikoritalover.kaleidoscope.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AbstractFurnaceBlockEntityMixin",
     "BlockMixin",
     "BoatEntityMixin",
     "BoatEntityTypeMixin",
@@ -19,6 +20,7 @@
     "FarmlandBlockMixin",
     "FlowerPotBlockMixin",
     "FoodComponentMixin",
+    "FurnaceFuelSlotMixin",
     "GrindstoneScreenHandlerMixin",
     "GrindstoneScreenHandlerMixin$GrindstoneScreenHandler2Mixin",
     "GrindstoneScreenHandlerMixin$GrindstoneScreenHandler3Mixin",
