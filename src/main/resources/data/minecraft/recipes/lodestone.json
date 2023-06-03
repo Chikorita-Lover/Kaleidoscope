@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "SIS",
-    "I#I",
-    "SIS"
+    "SRS",
+    "R#R",
+    "SRS"
   ],
   "key": {
     "#": {
-      "item": "minecraft:redstone_block"
-    },
-    "I": {
       "item": "minecraft:iron_block"
+    },
+    "R": {
+      "item": "minecraft:redstone"
     },
     "S": {
       "item": "minecraft:chiseled_stone_bricks"
