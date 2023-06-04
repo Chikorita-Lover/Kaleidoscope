@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AbstractFurnaceBlockEntityMixin",
+    "AbstractHorseEntityMixin",
     "BlockMixin",
     "BoatEntityMixin",
     "BoatEntityTypeMixin",
@@ -26,6 +27,7 @@
     "GrindstoneScreenHandlerMixin$GrindstoneScreenHandler2Mixin",
     "GrindstoneScreenHandlerMixin$GrindstoneScreenHandler3Mixin",
     "HoeItemMixin",
+    "HorseEntityMixin",
     "ItemMixin",
     "LivingEntityMixin",
     "PaintingEntityMixin",

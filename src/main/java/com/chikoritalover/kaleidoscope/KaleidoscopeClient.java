@@ -4,6 +4,7 @@ import com.chikoritalover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
 import com.chikoritalover.kaleidoscope.client.gui.screen.ingame.KilnScreen;
 import com.chikoritalover.kaleidoscope.client.particle.FireflyParticle;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlocks;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeParticleTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -159,6 +160,10 @@ public class KaleidoscopeClient implements ClientModInitializer {
             list.add(Text.translatable("attribute.modifier.plus.0", armorTooltip).formatted(Formatting.BLUE));
         } else if (armor < 0.0) {
             list.add(Text.translatable("attribute.modifier.take.0", armorTooltip).formatted(Formatting.RED));
+        }
+        if (stack.isOf(KaleidoscopeItems.NETHERITE_HORSE_ARMOR)) {
+            list.add(Text.translatable("attribute.modifier.plus.0", 3, Text.translatable("attribute.name.generic.armor_toughness")).formatted(Formatting.BLUE));
+            list.add(Text.translatable("attribute.modifier.plus.0", 2, Text.translatable("attribute.name.generic.knockback_resistance")).formatted(Formatting.BLUE));
         }
     }
 }

@@ -18,6 +18,7 @@ public class KaleidoscopeItems {
     public static final Item WARPED_BOAT = register("warped_boat", new BoatItem(false, KaleidoscopeBoatType.WARPED, new Item.Settings().maxCount(1)));
     public static final Item WARPED_CHEST_BOAT = register("warped_chest_boat", new BoatItem(true, KaleidoscopeBoatType.WARPED, new Item.Settings().maxCount(1)));
     public static final Item CHAINMAIL_HORSE_ARMOR = register("chainmail_horse_armor", new HorseArmorItem(4, "chainmail", new Item.Settings().maxCount(1)));
+    public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new HorseArmorItem(11, "netherite", new Item.Settings().fireproof().maxCount(1)));
     public static final Item CAKE_SLICE = register("cake_slice", new CakeSliceItem(new Item.Settings().food(KaleidoscopeFoodComponents.CAKE_SLICE)));
     public static final Item DISC_FRAGMENT_PIGSTEP = register("disc_fragment_pigstep", new DiscFragmentItem(new Item.Settings()));
 
@@ -109,6 +110,7 @@ public class KaleidoscopeItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.addAfter(Items.BAMBOO_CHEST_RAFT, KaleidoscopeItems.CRIMSON_BOAT, KaleidoscopeItems.CRIMSON_CHEST_BOAT, KaleidoscopeItems.WARPED_BOAT, KaleidoscopeItems.WARPED_CHEST_BOAT));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> entries.addAfter(Items.CAKE, KaleidoscopeItems.CAKE_SLICE));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.addAfter(Items.LEATHER_HORSE_ARMOR, KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.addAfter(Items.DIAMOND_HORSE_ARMOR, NETHERITE_HORSE_ARMOR));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.addAfter(Items.DISC_FRAGMENT_5, KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP));
     }
 }
