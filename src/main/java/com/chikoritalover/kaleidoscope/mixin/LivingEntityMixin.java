@@ -14,7 +14,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "onDeath", at = @At(value = "INVOKE", target = "Lorg/slf4j/Logger;info(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", shift = At.Shift.BEFORE))
     public void onDeath(DamageSource damageSource, CallbackInfo callbackInfo) {
         LivingEntity livingEntity = LivingEntity.class.cast(this);
-        if (!livingEntity.world.isClient && livingEntity.world.getGameRules().getBoolean(GameRules.SHOW_DEATH_MESSAGES) && livingEntity.hasCustomName()) {
+        if (!livingEntity.getWorld().isClient && livingEntity.getWorld().getGameRules().getBoolean(GameRules.SHOW_DEATH_MESSAGES) && livingEntity.hasCustomName()) {
             if (livingEntity instanceof TameableEntity entity && entity.isTamed()) return;
             livingEntity.getServer().getPlayerManager().broadcast(livingEntity.getDamageTracker().getDeathMessage(), false);
         }

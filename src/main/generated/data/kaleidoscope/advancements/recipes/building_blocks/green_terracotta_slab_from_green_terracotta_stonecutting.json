@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:green_terracotta_slab_from_green_terracotta_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

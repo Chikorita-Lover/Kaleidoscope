@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:brick_from_kilning"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

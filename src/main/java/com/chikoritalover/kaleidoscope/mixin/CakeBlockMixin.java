@@ -49,7 +49,7 @@ public class CakeBlockMixin extends Block {
             vec3d2 = vec3d2.rotateX(-player.getPitch() * 0.017453292F);
             vec3d2 = vec3d2.rotateY(-player.getYaw() * 0.017453292F);
             vec3d2 = vec3d2.add(player.getX(), player.getEyeY(), player.getZ());
-            player.world.addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, new ItemStack(Items.CAKE)), vec3d2.x, vec3d2.y, vec3d2.z, vec3d.x, vec3d.y + 0.05, vec3d.z);
+            player.getWorld().addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, new ItemStack(Items.CAKE)), vec3d2.x, vec3d2.y, vec3d2.z, vec3d.x, vec3d.y + 0.05, vec3d.z);
         }
     }
 }

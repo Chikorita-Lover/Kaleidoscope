@@ -21,7 +21,7 @@ public class ClientWorldMixin {
         BlockState blockState = clientWorld.getBlockState(pos);
         if (pos.getY() < 64 || !isFireflyNight(clientWorld)) return;
         if (clientWorld.getBiome(pos).isIn(KaleidoscopeBiomeTags.SPAWNS_FIREFLIES)) {
-            if (clientWorld.getBlockState(pos.down()).isIn(KaleidoscopeBlockTags.FIREFLIES_SPAWNABLE_ON) && !blockState.getMaterial().isSolid() && random.nextFloat() < 0.015F) {
+            if (clientWorld.getBlockState(pos.down()).isIn(KaleidoscopeBlockTags.FIREFLIES_SPAWNABLE_ON) && !blockState.isSolid() && random.nextFloat() < 0.015F) {
                 clientWorld.addParticle(KaleidoscopeParticleTypes.FIREFLY, (double) pos.getX() + random.nextDouble(), (double) pos.getY() + random.nextDouble() * 3.0, (double) pos.getZ() + random.nextDouble(), 0.0, 0.0, 0.0);
             }
         }

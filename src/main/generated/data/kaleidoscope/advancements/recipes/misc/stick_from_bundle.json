@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:stick_from_bundle"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

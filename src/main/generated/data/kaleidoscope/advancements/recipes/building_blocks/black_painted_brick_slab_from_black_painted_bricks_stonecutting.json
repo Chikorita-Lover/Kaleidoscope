@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:black_painted_brick_slab_from_black_painted_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:kiln"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

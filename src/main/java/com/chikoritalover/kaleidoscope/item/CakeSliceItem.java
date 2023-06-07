@@ -47,7 +47,7 @@ public class CakeSliceItem extends Item {
             BlockPos blockPos2 = context.getBlockPos().add(context.getSide().getVector());
 
             //Check if we can place a cake, or if there is a cake we can add slices to
-            if (Blocks.CAKE.canPlaceAt(Blocks.CAKE.getDefaultState(), world, blockPos2) && world.getBlockState(blockPos2).getMaterial().isReplaceable() || world.getBlockState(blockPos2).isOf(Blocks.CAKE) && world.getBlockState(blockPos2).get(Properties.BITES) > 0) {
+            if (Blocks.CAKE.canPlaceAt(Blocks.CAKE.getDefaultState(), world, blockPos2) && world.getBlockState(blockPos2).isReplaceable() || world.getBlockState(blockPos2).isOf(Blocks.CAKE) && world.getBlockState(blockPos2).get(Properties.BITES) > 0) {
                 addSliceFromStack(blockPos2, itemStack, player, world);
                 return ActionResult.SUCCESS;
             }

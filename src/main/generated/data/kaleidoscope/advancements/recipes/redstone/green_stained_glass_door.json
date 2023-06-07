@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:green_stained_glass_door"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

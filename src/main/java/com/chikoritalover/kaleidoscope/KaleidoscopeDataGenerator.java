@@ -637,7 +637,6 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR), RecipeCategory.MISC, Items.IRON_NUGGET, 0.1F, 100).criterion(hasItem(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR), conditionsFromItem(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.IRON_NUGGET) + "_from_chainmail_horse_armor_blasting"));
 
             offerNetheriteUpgradeRecipe(exporter, Items.DIAMOND_HORSE_ARMOR, RecipeCategory.COMBAT, KaleidoscopeItems.NETHERITE_HORSE_ARMOR);
-            LegacySmithingRecipeJsonBuilder.create(Ingredient.ofItems(Items.DIAMOND_HORSE_ARMOR), Ingredient.ofItems(Items.NETHERITE_INGOT), RecipeCategory.COMBAT, KaleidoscopeItems.NETHERITE_HORSE_ARMOR).criterion("has_netherite_ingot", RecipeProvider.conditionsFromItem(Items.NETHERITE_INGOT)).offerTo(exporter, RecipeProvider.getItemPath(KaleidoscopeItems.NETHERITE_HORSE_ARMOR) + "_smithing_legacy");
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MUSIC_DISC_PIGSTEP).input('S', KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP), RecipeProvider.conditionsFromItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.MUSIC_DISC_PIGSTEP)));
 

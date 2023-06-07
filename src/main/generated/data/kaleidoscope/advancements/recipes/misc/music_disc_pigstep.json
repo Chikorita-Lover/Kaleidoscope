@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:music_disc_pigstep"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

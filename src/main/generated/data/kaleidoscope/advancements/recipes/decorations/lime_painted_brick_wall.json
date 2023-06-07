@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:lime_painted_brick_wall"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

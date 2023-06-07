@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:brown_painted_brick_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

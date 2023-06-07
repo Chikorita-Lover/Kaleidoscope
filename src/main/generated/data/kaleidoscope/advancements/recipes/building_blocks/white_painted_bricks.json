@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:white_painted_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

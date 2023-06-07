@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:charcoal_from_stick_bundle_kilning"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

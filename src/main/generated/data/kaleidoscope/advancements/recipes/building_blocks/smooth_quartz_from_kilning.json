@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:smooth_quartz_from_kilning"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

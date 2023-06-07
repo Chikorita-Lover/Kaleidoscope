@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:pink_glazed_terracotta_from_kilning"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

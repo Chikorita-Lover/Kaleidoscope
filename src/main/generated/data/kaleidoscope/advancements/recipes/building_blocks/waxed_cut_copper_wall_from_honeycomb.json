@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:waxed_cut_copper_wall_from_honeycomb"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

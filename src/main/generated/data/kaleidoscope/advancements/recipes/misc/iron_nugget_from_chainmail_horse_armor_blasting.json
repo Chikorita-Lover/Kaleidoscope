@@ -30,5 +30,6 @@
     "recipes": [
       "kaleidoscope:iron_nugget_from_chainmail_horse_armor_blasting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
