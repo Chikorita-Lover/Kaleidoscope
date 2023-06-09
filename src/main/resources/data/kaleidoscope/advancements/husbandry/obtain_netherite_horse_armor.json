@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "item": "kaleidoscope:netherite_horse_armor"
+    },
+    "title": {
+      "translate": "advancements.husbandry.netherite_horse_armor.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.netherite_horse_armor.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:husbandry/tame_an_animal",
+  "criteria": {
+    "netherite_horse_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kaleidoscope:netherite_horse_armor"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "netherite_horse_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

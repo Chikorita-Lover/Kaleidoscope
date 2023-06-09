@@ -33,6 +33,7 @@
     "PaintingEntityMixin",
     "RespawnAnchorBlockMixin",
     "ShulkerBoxBlockMixin",
+    "SmithingTemplateItemMixin",
     "SnowballEntityMixin",
     "SpongeBlockMixin",
     "StewItemMixin",
