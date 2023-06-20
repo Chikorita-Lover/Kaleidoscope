@@ -20,7 +20,6 @@
     "EnderChestBlockMixin",
     "FallingBlockMixin",
     "FarmlandBlockMixin",
-    "FlowerPotBlockMixin",
     "FoodComponentMixin",
     "FurnaceFuelSlotMixin",
     "GrindstoneScreenHandlerMixin",
@@ -34,8 +33,6 @@
     "RespawnAnchorBlockMixin",
     "ShulkerBoxBlockMixin",
     "SmithingTemplateItemMixin",
-    "SnowballEntityMixin",
-    "SpongeBlockMixin",
     "StewItemMixin",
     "StructurePoolMixin",
     "ZombieVillagerEntityMixin"

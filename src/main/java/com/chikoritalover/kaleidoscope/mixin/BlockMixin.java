@@ -1,8 +1,6 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
-import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlockSoundGroup;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
-import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,16 +10,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import static net.minecraft.block.Blocks.*;
 
 @Mixin(Block.class)
 public class BlockMixin {
@@ -38,31 +32,6 @@ public class BlockMixin {
                 ItemStack dropStack = new ItemStack(KaleidoscopeItems.CAKE_SLICE, count);
                 Block.dropStack(world, pos, dropStack);
             }
-        }
-    }
-
-    @Inject(at = @At("RETURN"), method = "getSoundGroup", cancellable = true)
-    public void getSoundGroup(BlockState state, CallbackInfoReturnable<BlockSoundGroup> info) {
-        Block block = state.getBlock();
-        BlockSoundGroup soundGroup = info.getReturnValue();
-        if (ImmutableList.of(ANDESITE, ANDESITE_SLAB, ANDESITE_STAIRS, ANDESITE_WALL, POLISHED_ANDESITE, POLISHED_ANDESITE_SLAB, POLISHED_ANDESITE_STAIRS).contains(block))
-            info.setReturnValue(KaleidoscopeBlockSoundGroup.ANDESITE);
-        if (ImmutableList.of(DIORITE, DIORITE_SLAB, DIORITE_STAIRS, DIORITE_WALL, POLISHED_DIORITE, POLISHED_DIORITE_SLAB, POLISHED_DIORITE_STAIRS).contains(block))
-            info.setReturnValue(KaleidoscopeBlockSoundGroup.DIORITE);
-        if (block == SPONGE) {
-            info.setReturnValue(KaleidoscopeBlockSoundGroup.SPONGE);
-        }
-        if (block == Blocks.WET_SPONGE) {
-            info.setReturnValue(BlockSoundGroup.WET_GRASS);
-        }
-        if (state.isIn(BlockTags.SAPLINGS) && soundGroup == BlockSoundGroup.GRASS) {
-            info.setReturnValue(BlockSoundGroup.BAMBOO_SAPLING);
-        }
-        if (state.isIn(BlockTags.LEAVES) && soundGroup == BlockSoundGroup.GRASS) {
-            info.setReturnValue(BlockSoundGroup.AZALEA_LEAVES);
-        }
-        if (state.isIn(BlockTags.FLOWERS) && soundGroup == BlockSoundGroup.GRASS) {
-            info.setReturnValue(BlockSoundGroup.CROP);
         }
     }
 }
