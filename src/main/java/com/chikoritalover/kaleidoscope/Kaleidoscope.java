@@ -78,9 +78,9 @@ public class Kaleidoscope implements ModInitializer {
 		KaleidoscopeBlockEntities.register();
 		KaleidoscopeCauldronBehavior.register();
 		KaleidoscopeEnchantments.register();
+		KaleidoscopeItemGroups.register();
 		KaleidoscopeItems.registerCompostingChances();
 		KaleidoscopeItems.registerFuels();
-		KaleidoscopeItems.registerItemGroups();
 		KaleidoscopeItems.registerMaxItemCounts();
 		new KaleidoscopeModelPredicateProvider();
 		KaleidoscopeSoundEvents.register();

@@ -43,6 +43,10 @@ public class KaleidoscopeBlocks {
     public static final Block WAXED_WEATHERED_CUT_COPPER_WALL = registerBlockWithItem("waxed_weathered_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(WAXED_WEATHERED_CUT_COPPER)));
     public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = registerBlockWithItem("waxed_oxidized_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.copy(WAXED_OXIDIZED_CUT_COPPER)));
 
+    public static final Block BRICK_MOSAIC = registerBlockWithItem("brick_mosaic", new Block(AbstractBlock.Settings.copy(BRICKS)));
+    public static final Block BRICK_MOSAIC_STAIRS = registerBlockWithItem("brick_mosaic_stairs", new StairsBlock(BRICK_MOSAIC.getDefaultState(), AbstractBlock.Settings.copy(BRICK_MOSAIC)));
+    public static final Block BRICK_MOSAIC_SLAB = registerBlockWithItem("brick_mosaic_slab", new SlabBlock(AbstractBlock.Settings.copy(BRICK_MOSAIC)));
+
     public static final Block BLACK_PAINTED_BRICKS = registerBlockWithItem("black_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.BLACK)));
     public static final Block BLACK_PAINTED_BRICK_SLAB = registerBlockWithItem("black_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(BLACK_PAINTED_BRICKS)));
     public static final Block BLACK_PAINTED_BRICK_STAIRS = registerBlockWithItem("black_painted_brick_stairs", new StairsBlock(BLACK_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(BLACK_PAINTED_BRICKS)));

@@ -45,6 +45,10 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             addDrop(KaleidoscopeBlocks.END_STONE_STAIRS);
             addDrop(KaleidoscopeBlocks.END_STONE_WALL);
 
+            addDrop(KaleidoscopeBlocks.BRICK_MOSAIC);
+            addDrop(KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS);
+            addDrop(KaleidoscopeBlocks.BRICK_MOSAIC_SLAB, slabDrops(KaleidoscopeBlocks.BRICK_MOSAIC_SLAB));
+
             this.addDrop(KaleidoscopeBlocks.BLACK_PAINTED_BRICKS);
             this.addDrop(KaleidoscopeBlocks.BLACK_PAINTED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.BLACK_PAINTED_BRICK_SLAB));
             this.addDrop(KaleidoscopeBlocks.BLACK_PAINTED_BRICK_STAIRS);
@@ -386,6 +390,13 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);
             offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL);
             offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL);
+
+            offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BRICK_MOSAIC, Blocks.BRICK_SLAB);
+            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BRICK_MOSAIC, Blocks.BRICKS);
+            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS, Blocks.BRICKS);
+            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BRICK_MOSAIC_SLAB, Blocks.BRICKS, 2);
+            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS, KaleidoscopeBlocks.BRICK_MOSAIC);
+            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BRICK_MOSAIC_SLAB, KaleidoscopeBlocks.BRICK_MOSAIC, 2);
 
             offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BLACK_PAINTED_BRICKS, Items.BLACK_DYE);
             offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BLUE_PAINTED_BRICKS, Items.BLUE_DYE);

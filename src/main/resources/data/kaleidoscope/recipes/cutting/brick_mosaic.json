@@ -1,0 +1,18 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "kaleidoscope:brick_mosaic"
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:tool",
+    "tag": "c:tools/pickaxes"
+  },
+  "result": [
+    {
+      "item": "minecraft:brick",
+      "count": 4
+    }
+  ]
+}

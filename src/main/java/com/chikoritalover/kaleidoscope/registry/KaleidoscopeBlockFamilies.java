@@ -22,6 +22,7 @@ public class KaleidoscopeBlockFamilies {
     public static final BlockFamily WAXED_EXPOSED_CUT_COPPER;
     public static final BlockFamily WAXED_WEATHERED_CUT_COPPER;
     public static final BlockFamily WAXED_OXIDIZED_CUT_COPPER;
+    public static final BlockFamily BRICK_MOSAIC;
     public static final BlockFamily BLACK_PAINTED_BRICKS;
     public static final BlockFamily BLUE_PAINTED_BRICKS;
     public static final BlockFamily BROWN_PAINTED_BRICKS;
@@ -78,6 +79,8 @@ public class KaleidoscopeBlockFamilies {
         WAXED_EXPOSED_CUT_COPPER = register(Blocks.WAXED_EXPOSED_CUT_COPPER).wall(KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL).group("waxed_exposed_cut_copper").noGenerateModels().build();
         WAXED_WEATHERED_CUT_COPPER = register(Blocks.WAXED_WEATHERED_CUT_COPPER).wall(KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL).group("waxed_weathered_cut_copper").noGenerateModels().build();
         WAXED_OXIDIZED_CUT_COPPER = register(Blocks.WAXED_OXIDIZED_CUT_COPPER).wall(KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL).group("waxed_oxidized_cut_copper").noGenerateModels().build();
+
+        BRICK_MOSAIC = register(KaleidoscopeBlocks.BRICK_MOSAIC).slab(KaleidoscopeBlocks.BRICK_MOSAIC_SLAB).stairs(KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS).build();
 
         BLACK_PAINTED_BRICKS = register(KaleidoscopeBlocks.BLACK_PAINTED_BRICKS).slab(KaleidoscopeBlocks.BLACK_PAINTED_BRICK_SLAB).stairs(KaleidoscopeBlocks.BLACK_PAINTED_BRICK_STAIRS).wall(KaleidoscopeBlocks.BLACK_PAINTED_BRICK_WALL).group("painted_brick").build();
         BLUE_PAINTED_BRICKS = register(KaleidoscopeBlocks.BLUE_PAINTED_BRICKS).slab(KaleidoscopeBlocks.BLUE_PAINTED_BRICK_SLAB).stairs(KaleidoscopeBlocks.BLUE_PAINTED_BRICK_STAIRS).wall(KaleidoscopeBlocks.BLUE_PAINTED_BRICK_WALL).group("painted_brick").build();

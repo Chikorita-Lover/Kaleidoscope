@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kaleidoscope:block/brick_mosaic_slab"
+    },
+    "type=double": {
+      "model": "kaleidoscope:block/brick_mosaic"
+    },
+    "type=top": {
+      "model": "kaleidoscope:block/brick_mosaic_slab_top"
+    }
+  }
+}

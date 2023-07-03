@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "kaleidoscope:block/brick_mosaic",
+    "side": "kaleidoscope:block/brick_mosaic",
+    "top": "kaleidoscope:block/brick_mosaic"
+  }
+}
