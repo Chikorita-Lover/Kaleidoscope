@@ -70,9 +70,7 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             addDrops(KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER);
             addDrops(KaleidoscopeBlockFamilies.WAXED_OXIDIZED_SMOOTH_COPPER);
 
-            addDrop(KaleidoscopeBlocks.BRICK_MOSAIC);
-            addDrop(KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS);
-            addDrop(KaleidoscopeBlocks.BRICK_MOSAIC_SLAB, slabDrops(KaleidoscopeBlocks.BRICK_MOSAIC_SLAB));
+            addDrops(KaleidoscopeBlockFamilies.BRICK_MOSAIC);
 
             this.addDrop(KaleidoscopeBlocks.BLACK_PAINTED_BRICKS);
             this.addDrop(KaleidoscopeBlocks.BLACK_PAINTED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.BLACK_PAINTED_BRICK_SLAB));
