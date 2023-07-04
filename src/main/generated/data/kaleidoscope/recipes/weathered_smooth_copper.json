@@ -3,7 +3,6 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "group": "weathered_smooth_copper",
   "ingredient": {
     "item": "minecraft:weathered_cut_copper"
   },

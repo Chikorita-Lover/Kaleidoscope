@@ -3,16 +3,16 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:weathered_smooth_copper_from_smelting_weathered_cut_copper"
+        "recipe": "kaleidoscope:waxed_oxidized_smooth_copper"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_weathered_cut_copper": {
+    "has_waxed_oxidized_cut_copper": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:weathered_cut_copper"
+              "minecraft:waxed_oxidized_cut_copper"
             ]
           }
         ]
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "has_weathered_cut_copper",
+      "has_waxed_oxidized_cut_copper",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:weathered_smooth_copper_from_smelting_weathered_cut_copper"
+      "kaleidoscope:waxed_oxidized_smooth_copper"
     ]
   },
   "sends_telemetry_event": false

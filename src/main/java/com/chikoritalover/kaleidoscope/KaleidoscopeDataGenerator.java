@@ -356,7 +356,7 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
         public static void offerSmoothCopperRecipes(Consumer<RecipeJsonProvider> exporter, BlockFamily blockFamily, ItemConvertible input) {
             Block block = blockFamily.getBaseBlock();
-            offerSmelting(exporter, List.of(input), RecipeCategory.BUILDING_BLOCKS, block, 0.1F, 200, getItemPath(block));
+            CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), RecipeCategory.BUILDING_BLOCKS, block, 0.1F, 200).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
             offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, block, input, 0.1F, 100);
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.STAIRS), block);
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.SLAB), block, 2);

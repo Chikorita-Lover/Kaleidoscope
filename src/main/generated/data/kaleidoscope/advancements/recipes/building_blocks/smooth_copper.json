@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_exposed_cut_copper": {
+    "has_cut_copper": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:exposed_cut_copper"
+              "minecraft:cut_copper"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:exposed_smooth_copper_from_smelting_exposed_cut_copper"
+        "recipe": "kaleidoscope:smooth_copper"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_exposed_cut_copper",
+      "has_cut_copper",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:exposed_smooth_copper_from_smelting_exposed_cut_copper"
+      "kaleidoscope:smooth_copper"
     ]
   },
   "sends_telemetry_event": false
