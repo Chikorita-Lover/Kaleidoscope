@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "kaleidoscope:waxed_exposed_smooth_copper_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_waxed_exposed_smooth_copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kaleidoscope:waxed_exposed_smooth_copper"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_waxed_exposed_smooth_copper",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "kaleidoscope:waxed_exposed_smooth_copper_slab"
+    ]
+  },
+  "sends_telemetry_event": false
+}

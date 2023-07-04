@@ -25,6 +25,7 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.util.Identifier;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
@@ -39,11 +40,35 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             super(dataOutput);
         }
 
+        private void addDrops(BlockFamily blockFamily) {
+            addDrop(blockFamily.getBaseBlock());
+            if (blockFamily.getVariants().containsKey(BlockFamily.Variant.STAIRS)) {
+                addDrop(blockFamily.getVariant(BlockFamily.Variant.STAIRS));
+            }
+            if (blockFamily.getVariants().containsKey(BlockFamily.Variant.SLAB)) {
+                Block slabBlock = blockFamily.getVariant(BlockFamily.Variant.SLAB);
+                addDrop(slabBlock, slabDrops(slabBlock));
+            }
+            if (blockFamily.getVariants().containsKey(BlockFamily.Variant.WALL)) {
+                addDrop(blockFamily.getVariant(BlockFamily.Variant.WALL));
+            }
+        }
+
         @Override
         public void generate() {
             addDrop(KaleidoscopeBlocks.END_STONE_SLAB, slabDrops(KaleidoscopeBlocks.END_STONE_SLAB));
             addDrop(KaleidoscopeBlocks.END_STONE_STAIRS);
             addDrop(KaleidoscopeBlocks.END_STONE_WALL);
+
+            addDrops(KaleidoscopeBlockFamilies.SMOOTH_COPPER);
+            addDrops(KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER);
+            addDrops(KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER);
+            addDrops(KaleidoscopeBlockFamilies.OXIDIZED_SMOOTH_COPPER);
+
+            addDrops(KaleidoscopeBlockFamilies.WAXED_SMOOTH_COPPER);
+            addDrops(KaleidoscopeBlockFamilies.WAXED_EXPOSED_SMOOTH_COPPER);
+            addDrops(KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER);
+            addDrops(KaleidoscopeBlockFamilies.WAXED_OXIDIZED_SMOOTH_COPPER);
 
             addDrop(KaleidoscopeBlocks.BRICK_MOSAIC);
             addDrop(KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS);
@@ -204,6 +229,10 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.EXPOSED_CUT_COPPER).family(KaleidoscopeBlockFamilies.EXPOSED_CUT_COPPER).same(Blocks.WAXED_EXPOSED_CUT_COPPER).family(KaleidoscopeBlockFamilies.WAXED_EXPOSED_CUT_COPPER);
             blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.WEATHERED_CUT_COPPER).family(KaleidoscopeBlockFamilies.WEATHERED_CUT_COPPER).same(Blocks.WAXED_WEATHERED_CUT_COPPER).family(KaleidoscopeBlockFamilies.WAXED_WEATHERED_CUT_COPPER);
             blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.OXIDIZED_CUT_COPPER).family(KaleidoscopeBlockFamilies.OXIDIZED_CUT_COPPER).same(Blocks.WAXED_OXIDIZED_CUT_COPPER).family(KaleidoscopeBlockFamilies.WAXED_OXIDIZED_CUT_COPPER);
+            blockStateModelGenerator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.SMOOTH_COPPER).same(KaleidoscopeBlocks.WAXED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_SMOOTH_COPPER);
+            blockStateModelGenerator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER).same(KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_EXPOSED_SMOOTH_COPPER);
+            blockStateModelGenerator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER).same(KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER);
+            blockStateModelGenerator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.OXIDIZED_SMOOTH_COPPER).same(KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_OXIDIZED_SMOOTH_COPPER);
             blockStateModelGenerator.registerNorthDefaultHorizontalRotatable(KaleidoscopeBlocks.SOUL_JACK_O_LANTERN, TextureMap.sideEnd(Blocks.PUMPKIN));
             blockStateModelGenerator.registerAxisRotated(KaleidoscopeBlocks.STICK_BUNDLE, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
             blockStateModelGenerator.registerCooker(KaleidoscopeBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
@@ -327,8 +356,23 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), recipeCategory, output, experience, cookingTime, Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(output)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(output) + "_from_kilning"));
         }
 
+        public static void offerSmoothCopperRecipes(Consumer<RecipeJsonProvider> exporter, BlockFamily blockFamily, ItemConvertible input) {
+            Block block = blockFamily.getBaseBlock();
+            offerSmelting(exporter, List.of(input), RecipeCategory.BUILDING_BLOCKS, block, 0.1F, 200, getItemPath(block));
+            offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, block, input, 0.1F, 100);
+            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.STAIRS), block);
+            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.SLAB), block, 2);
+        }
+
         public static void offerTrapdoorRecipe2(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 1).input('#', input).pattern("##").pattern("##").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
+        }
+
+        public static void offerWaxedSmoothCopperRecipes(Consumer<RecipeJsonProvider> exporter, BlockFamily blockFamily, ItemConvertible input, BlockFamily blockFamily2) {
+            offerSmoothCopperRecipes(exporter, blockFamily, input);
+            offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getBaseBlock(), blockFamily2.getBaseBlock());
+            offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.STAIRS), blockFamily2.getVariant(BlockFamily.Variant.STAIRS));
+            offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.SLAB), blockFamily2.getVariant(BlockFamily.Variant.SLAB));
         }
 
         public static void offerWaxingRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory recipeCategory, ItemConvertible output, ItemConvertible input) {
@@ -390,6 +434,16 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);
             offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL);
             offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL);
+
+            offerSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.SMOOTH_COPPER, Blocks.CUT_COPPER);
+            offerSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER, Blocks.EXPOSED_CUT_COPPER);
+            offerSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER, Blocks.WEATHERED_CUT_COPPER);
+            offerSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.OXIDIZED_SMOOTH_COPPER, Blocks.OXIDIZED_CUT_COPPER);
+
+            offerWaxedSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.WAXED_SMOOTH_COPPER, Blocks.WAXED_CUT_COPPER, KaleidoscopeBlockFamilies.SMOOTH_COPPER);
+            offerWaxedSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.WAXED_EXPOSED_SMOOTH_COPPER, Blocks.WAXED_EXPOSED_CUT_COPPER, KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER);
+            offerWaxedSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER, Blocks.WAXED_WEATHERED_CUT_COPPER, KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER);
+            offerWaxedSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.WAXED_OXIDIZED_SMOOTH_COPPER, Blocks.WAXED_OXIDIZED_CUT_COPPER, KaleidoscopeBlockFamilies.OXIDIZED_SMOOTH_COPPER);
 
             offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BRICK_MOSAIC, Blocks.BRICK_SLAB);
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BRICK_MOSAIC, Blocks.BRICKS);

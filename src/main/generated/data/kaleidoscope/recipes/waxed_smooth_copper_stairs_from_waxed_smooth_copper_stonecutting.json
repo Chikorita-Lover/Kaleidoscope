@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "kaleidoscope:waxed_smooth_copper"
+  },
+  "result": "kaleidoscope:waxed_smooth_copper_stairs"
+}

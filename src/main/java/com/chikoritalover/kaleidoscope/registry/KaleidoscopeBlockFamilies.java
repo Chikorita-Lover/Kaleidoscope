@@ -22,6 +22,14 @@ public class KaleidoscopeBlockFamilies {
     public static final BlockFamily WAXED_EXPOSED_CUT_COPPER;
     public static final BlockFamily WAXED_WEATHERED_CUT_COPPER;
     public static final BlockFamily WAXED_OXIDIZED_CUT_COPPER;
+    public static final BlockFamily SMOOTH_COPPER;
+    public static final BlockFamily EXPOSED_SMOOTH_COPPER;
+    public static final BlockFamily WEATHERED_SMOOTH_COPPER;
+    public static final BlockFamily OXIDIZED_SMOOTH_COPPER;
+    public static final BlockFamily WAXED_SMOOTH_COPPER;
+    public static final BlockFamily WAXED_EXPOSED_SMOOTH_COPPER;
+    public static final BlockFamily WAXED_WEATHERED_SMOOTH_COPPER;
+    public static final BlockFamily WAXED_OXIDIZED_SMOOTH_COPPER;
     public static final BlockFamily BRICK_MOSAIC;
     public static final BlockFamily BLACK_PAINTED_BRICKS;
     public static final BlockFamily BLUE_PAINTED_BRICKS;
@@ -79,6 +87,16 @@ public class KaleidoscopeBlockFamilies {
         WAXED_EXPOSED_CUT_COPPER = register(Blocks.WAXED_EXPOSED_CUT_COPPER).wall(KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL).group("waxed_exposed_cut_copper").noGenerateModels().build();
         WAXED_WEATHERED_CUT_COPPER = register(Blocks.WAXED_WEATHERED_CUT_COPPER).wall(KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL).group("waxed_weathered_cut_copper").noGenerateModels().build();
         WAXED_OXIDIZED_CUT_COPPER = register(Blocks.WAXED_OXIDIZED_CUT_COPPER).wall(KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL).group("waxed_oxidized_cut_copper").noGenerateModels().build();
+
+        SMOOTH_COPPER = register(KaleidoscopeBlocks.SMOOTH_COPPER).stairs(KaleidoscopeBlocks.SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.SMOOTH_COPPER_SLAB).noGenerateModels().build();
+        EXPOSED_SMOOTH_COPPER = register(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER).stairs(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER_SLAB).noGenerateModels().build();
+        WEATHERED_SMOOTH_COPPER = register(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER).stairs(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER_SLAB).noGenerateModels().build();
+        OXIDIZED_SMOOTH_COPPER = register(KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER).stairs(KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER_SLAB).noGenerateModels().build();
+
+        WAXED_SMOOTH_COPPER = register(KaleidoscopeBlocks.WAXED_SMOOTH_COPPER).stairs(KaleidoscopeBlocks.WAXED_SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.WAXED_SMOOTH_COPPER_SLAB).noGenerateModels().build();
+        WAXED_EXPOSED_SMOOTH_COPPER = register(KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER).stairs(KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER_SLAB).noGenerateModels().build();
+        WAXED_WEATHERED_SMOOTH_COPPER = register(KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER).stairs(KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER_SLAB).noGenerateModels().build();
+        WAXED_OXIDIZED_SMOOTH_COPPER = register(KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER).stairs(KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER_SLAB).noGenerateModels().build();
 
         BRICK_MOSAIC = register(KaleidoscopeBlocks.BRICK_MOSAIC).slab(KaleidoscopeBlocks.BRICK_MOSAIC_SLAB).stairs(KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS).build();
 

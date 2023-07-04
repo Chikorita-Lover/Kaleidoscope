@@ -1,0 +1,11 @@
+{
+  "type": "kaleidoscope:kilning",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "smooth_copper",
+  "ingredient": {
+    "item": "minecraft:cut_copper"
+  },
+  "result": "kaleidoscope:smooth_copper"
+}

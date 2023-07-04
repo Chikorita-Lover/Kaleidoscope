@@ -43,6 +43,38 @@ public class KaleidoscopeBlocks {
     public static final Block WAXED_WEATHERED_CUT_COPPER_WALL = registerBlockWithItem("waxed_weathered_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(WAXED_WEATHERED_CUT_COPPER)));
     public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = registerBlockWithItem("waxed_oxidized_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.copy(WAXED_OXIDIZED_CUT_COPPER)));
 
+    public static final Block SMOOTH_COPPER = registerBlockWithItem("smooth_copper", new OxidizableBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(COPPER_BLOCK)));
+    public static final Block SMOOTH_COPPER_SLAB = registerBlockWithItem("smooth_copper_slab", new OxidizableSlabBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(SMOOTH_COPPER)));
+    public static final Block SMOOTH_COPPER_STAIRS = registerBlockWithItem("smooth_copper_stairs", new OxidizableStairsBlock(Oxidizable.OxidationLevel.UNAFFECTED, SMOOTH_COPPER.getDefaultState(), AbstractBlock.Settings.copy(SMOOTH_COPPER)));
+
+    public static final Block EXPOSED_SMOOTH_COPPER = registerBlockWithItem("exposed_smooth_copper", new OxidizableBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(EXPOSED_COPPER)));
+    public static final Block EXPOSED_SMOOTH_COPPER_SLAB = registerBlockWithItem("exposed_smooth_copper_slab", new OxidizableSlabBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(EXPOSED_SMOOTH_COPPER)));
+    public static final Block EXPOSED_SMOOTH_COPPER_STAIRS = registerBlockWithItem("exposed_smooth_copper_stairs", new OxidizableStairsBlock(Oxidizable.OxidationLevel.EXPOSED, EXPOSED_SMOOTH_COPPER.getDefaultState(), AbstractBlock.Settings.copy(EXPOSED_SMOOTH_COPPER)));
+
+    public static final Block WEATHERED_SMOOTH_COPPER = registerBlockWithItem("weathered_smooth_copper", new OxidizableBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(WEATHERED_COPPER)));
+    public static final Block WEATHERED_SMOOTH_COPPER_SLAB = registerBlockWithItem("weathered_smooth_copper_slab", new OxidizableSlabBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(WEATHERED_SMOOTH_COPPER)));
+    public static final Block WEATHERED_SMOOTH_COPPER_STAIRS = registerBlockWithItem("weathered_smooth_copper_stairs", new OxidizableStairsBlock(Oxidizable.OxidationLevel.WEATHERED, WEATHERED_SMOOTH_COPPER.getDefaultState(), AbstractBlock.Settings.copy(WEATHERED_SMOOTH_COPPER)));
+
+    public static final Block OXIDIZED_SMOOTH_COPPER = registerBlockWithItem("oxidized_smooth_copper", new OxidizableBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.copy(OXIDIZED_COPPER)));
+    public static final Block OXIDIZED_SMOOTH_COPPER_SLAB = registerBlockWithItem("oxidized_smooth_copper_slab", new OxidizableSlabBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.copy(OXIDIZED_SMOOTH_COPPER)));
+    public static final Block OXIDIZED_SMOOTH_COPPER_STAIRS = registerBlockWithItem("oxidized_smooth_copper_stairs", new OxidizableStairsBlock(Oxidizable.OxidationLevel.OXIDIZED, OXIDIZED_SMOOTH_COPPER.getDefaultState(), AbstractBlock.Settings.copy(OXIDIZED_SMOOTH_COPPER)));
+
+    public static final Block WAXED_SMOOTH_COPPER = registerBlockWithItem("waxed_smooth_copper", new OxidizableBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(WAXED_COPPER_BLOCK)));
+    public static final Block WAXED_SMOOTH_COPPER_SLAB = registerBlockWithItem("waxed_smooth_copper_slab", new OxidizableSlabBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(WAXED_SMOOTH_COPPER)));
+    public static final Block WAXED_SMOOTH_COPPER_STAIRS = registerBlockWithItem("waxed_smooth_copper_stairs", new OxidizableStairsBlock(Oxidizable.OxidationLevel.UNAFFECTED, WAXED_SMOOTH_COPPER.getDefaultState(), AbstractBlock.Settings.copy(WAXED_SMOOTH_COPPER)));
+
+    public static final Block WAXED_EXPOSED_SMOOTH_COPPER = registerBlockWithItem("waxed_exposed_smooth_copper", new OxidizableBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(WAXED_EXPOSED_COPPER)));
+    public static final Block WAXED_EXPOSED_SMOOTH_COPPER_SLAB = registerBlockWithItem("waxed_exposed_smooth_copper_slab", new OxidizableSlabBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(WAXED_EXPOSED_SMOOTH_COPPER)));
+    public static final Block WAXED_EXPOSED_SMOOTH_COPPER_STAIRS = registerBlockWithItem("waxed_exposed_smooth_copper_stairs", new OxidizableStairsBlock(Oxidizable.OxidationLevel.EXPOSED, WAXED_EXPOSED_SMOOTH_COPPER.getDefaultState(), AbstractBlock.Settings.copy(WAXED_EXPOSED_SMOOTH_COPPER)));
+
+    public static final Block WAXED_WEATHERED_SMOOTH_COPPER = registerBlockWithItem("waxed_weathered_smooth_copper", new OxidizableBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(WAXED_WEATHERED_COPPER)));
+    public static final Block WAXED_WEATHERED_SMOOTH_COPPER_SLAB = registerBlockWithItem("waxed_weathered_smooth_copper_slab", new OxidizableSlabBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(WAXED_WEATHERED_SMOOTH_COPPER)));
+    public static final Block WAXED_WEATHERED_SMOOTH_COPPER_STAIRS = registerBlockWithItem("waxed_weathered_smooth_copper_stairs", new OxidizableStairsBlock(Oxidizable.OxidationLevel.WEATHERED, WAXED_WEATHERED_SMOOTH_COPPER.getDefaultState(), AbstractBlock.Settings.copy(WAXED_WEATHERED_SMOOTH_COPPER)));
+
+    public static final Block WAXED_OXIDIZED_SMOOTH_COPPER = registerBlockWithItem("waxed_oxidized_smooth_copper", new OxidizableBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.copy(WAXED_OXIDIZED_COPPER)));
+    public static final Block WAXED_OXIDIZED_SMOOTH_COPPER_SLAB = registerBlockWithItem("waxed_oxidized_smooth_copper_slab", new OxidizableSlabBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.copy(WAXED_OXIDIZED_SMOOTH_COPPER)));
+    public static final Block WAXED_OXIDIZED_SMOOTH_COPPER_STAIRS = registerBlockWithItem("waxed_oxidized_smooth_copper_stairs", new OxidizableStairsBlock(Oxidizable.OxidationLevel.OXIDIZED, WAXED_OXIDIZED_SMOOTH_COPPER.getDefaultState(), AbstractBlock.Settings.copy(WAXED_OXIDIZED_SMOOTH_COPPER)));
+
     public static final Block BRICK_MOSAIC = registerBlockWithItem("brick_mosaic", new Block(AbstractBlock.Settings.copy(BRICKS)));
     public static final Block BRICK_MOSAIC_STAIRS = registerBlockWithItem("brick_mosaic_stairs", new StairsBlock(BRICK_MOSAIC.getDefaultState(), AbstractBlock.Settings.copy(BRICK_MOSAIC)));
     public static final Block BRICK_MOSAIC_SLAB = registerBlockWithItem("brick_mosaic_slab", new SlabBlock(AbstractBlock.Settings.copy(BRICK_MOSAIC)));
@@ -285,6 +317,29 @@ public class KaleidoscopeBlocks {
         OxidizableBlocksRegistry.registerWaxableBlockPair(EXPOSED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL);
         OxidizableBlocksRegistry.registerWaxableBlockPair(WEATHERED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL);
         OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
+
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(SMOOTH_COPPER, EXPOSED_SMOOTH_COPPER);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(SMOOTH_COPPER_STAIRS, EXPOSED_SMOOTH_COPPER_STAIRS);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(SMOOTH_COPPER_SLAB, EXPOSED_SMOOTH_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(EXPOSED_SMOOTH_COPPER, WEATHERED_SMOOTH_COPPER);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(EXPOSED_SMOOTH_COPPER_STAIRS, WEATHERED_SMOOTH_COPPER_STAIRS);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(EXPOSED_SMOOTH_COPPER_SLAB, WEATHERED_SMOOTH_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(WEATHERED_SMOOTH_COPPER, OXIDIZED_SMOOTH_COPPER);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(WEATHERED_SMOOTH_COPPER_STAIRS, OXIDIZED_SMOOTH_COPPER_STAIRS);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(WEATHERED_SMOOTH_COPPER_SLAB, OXIDIZED_SMOOTH_COPPER_SLAB);
+
+        OxidizableBlocksRegistry.registerWaxableBlockPair(SMOOTH_COPPER, WAXED_SMOOTH_COPPER);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(SMOOTH_COPPER_STAIRS, WAXED_SMOOTH_COPPER_STAIRS);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(SMOOTH_COPPER_SLAB, WAXED_SMOOTH_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(EXPOSED_SMOOTH_COPPER, WAXED_EXPOSED_SMOOTH_COPPER);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(EXPOSED_SMOOTH_COPPER_STAIRS, WAXED_EXPOSED_SMOOTH_COPPER_STAIRS);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(EXPOSED_SMOOTH_COPPER_SLAB, WAXED_EXPOSED_SMOOTH_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(WEATHERED_SMOOTH_COPPER, WAXED_WEATHERED_SMOOTH_COPPER);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(WEATHERED_SMOOTH_COPPER_STAIRS, WAXED_WEATHERED_SMOOTH_COPPER_STAIRS);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(WEATHERED_SMOOTH_COPPER_SLAB, WAXED_WEATHERED_SMOOTH_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_SMOOTH_COPPER, WAXED_OXIDIZED_SMOOTH_COPPER);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_SMOOTH_COPPER_STAIRS, WAXED_OXIDIZED_SMOOTH_COPPER_STAIRS);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_SMOOTH_COPPER_SLAB, WAXED_OXIDIZED_SMOOTH_COPPER_SLAB);
         
         OxidizableBlocksRegistry.registerOxidizableBlockPair(COPPER_DOOR, EXPOSED_COPPER_DOOR);
         OxidizableBlocksRegistry.registerOxidizableBlockPair(EXPOSED_COPPER_DOOR, WEATHERED_COPPER_DOOR);

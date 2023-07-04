@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "kaleidoscope:block/smooth_copper",
+    "side": "kaleidoscope:block/smooth_copper",
+    "top": "kaleidoscope:block/smooth_copper"
+  }
+}

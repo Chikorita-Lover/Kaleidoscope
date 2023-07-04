@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kaleidoscope:block/smooth_copper_slab"
+    },
+    "type=double": {
+      "model": "kaleidoscope:block/smooth_copper"
+    },
+    "type=top": {
+      "model": "kaleidoscope:block/smooth_copper_slab_top"
+    }
+  }
+}

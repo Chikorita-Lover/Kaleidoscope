@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "kaleidoscope:weathered_smooth_copper"
+  },
+  "result": "kaleidoscope:weathered_smooth_copper_slab"
+}
