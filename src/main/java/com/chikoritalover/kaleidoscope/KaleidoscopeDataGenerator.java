@@ -60,6 +60,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             addDrop(KaleidoscopeBlocks.END_STONE_STAIRS);
             addDrop(KaleidoscopeBlocks.END_STONE_WALL);
 
+            addDrop(KaleidoscopeBlocks.CHARCOAL_BLOCK);
+
             addDrops(KaleidoscopeBlockFamilies.SMOOTH_COPPER);
             addDrops(KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER);
             addDrops(KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER);
@@ -231,6 +233,7 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             blockStateModelGenerator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER).same(KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_EXPOSED_SMOOTH_COPPER);
             blockStateModelGenerator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER).same(KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER);
             blockStateModelGenerator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.OXIDIZED_SMOOTH_COPPER).same(KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_OXIDIZED_SMOOTH_COPPER);
+            blockStateModelGenerator.registerAxisRotated(KaleidoscopeBlocks.CHARCOAL_BLOCK, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
             blockStateModelGenerator.registerNorthDefaultHorizontalRotatable(KaleidoscopeBlocks.SOUL_JACK_O_LANTERN, TextureMap.sideEnd(Blocks.PUMPKIN));
             blockStateModelGenerator.registerAxisRotated(KaleidoscopeBlocks.STICK_BUNDLE, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
             blockStateModelGenerator.registerCooker(KaleidoscopeBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
@@ -409,6 +412,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_TUFF_SLAB, KaleidoscopeBlocks.POLISHED_TUFF, 2);
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_TUFF_STAIRS, Blocks.TUFF);
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_TUFF_STAIRS, KaleidoscopeBlocks.POLISHED_TUFF);
+
+            offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CHARCOAL_BLOCK, Items.CHARCOAL);
 
             offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.CUT_COPPER_WALL, Blocks.COPPER_BLOCK, 4);
             offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL, Blocks.EXPOSED_COPPER, 4);
@@ -686,11 +691,6 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
             offerChestBoatRecipe(exporter, KaleidoscopeItems.CRIMSON_CHEST_BOAT, KaleidoscopeItems.CRIMSON_BOAT);
             offerChestBoatRecipe(exporter, KaleidoscopeItems.WARPED_CHEST_BOAT, KaleidoscopeItems.WARPED_BOAT);
-
-            CookingRecipeJsonBuilder.createSmelting(Ingredient.fromTag(ItemTags.BAMBOO_BLOCKS), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 200).group(getItemPath(Items.CHARCOAL)).criterion(hasItem(Blocks.BAMBOO_BLOCK), conditionsFromItem(Blocks.BAMBOO_BLOCK)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.CHARCOAL) + "_from_bamboo_block_smelting"));
-            CookingRecipeJsonBuilder.create(Ingredient.fromTag(ItemTags.BAMBOO_BLOCKS), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 100, Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(Items.CHARCOAL)).criterion(hasItem(Blocks.BAMBOO_BLOCK), conditionsFromItem(Blocks.BAMBOO_BLOCK)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.CHARCOAL) + "_from_bamboo_block_kilning"));
-            CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(KaleidoscopeBlocks.STICK_BUNDLE), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 200).group(getItemPath(Items.CHARCOAL)).criterion(hasItem(KaleidoscopeBlocks.STICK_BUNDLE), conditionsFromItem(KaleidoscopeBlocks.STICK_BUNDLE)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.CHARCOAL) + "_from_stick_bundle_smelting"));
-            CookingRecipeJsonBuilder.create(Ingredient.ofItems(KaleidoscopeBlocks.STICK_BUNDLE), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 100, Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(Items.CHARCOAL)).criterion(hasItem(KaleidoscopeBlocks.STICK_BUNDLE), conditionsFromItem(KaleidoscopeBlocks.STICK_BUNDLE)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.CHARCOAL) + "_from_stick_bundle_kilning"));
 
             ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 9).input(KaleidoscopeBlocks.STICK_BUNDLE).group(getItemPath(Items.STICK)).criterion(hasItem(KaleidoscopeBlocks.STICK_BUNDLE), conditionsFromItem(KaleidoscopeBlocks.STICK_BUNDLE)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, "stick_from_bundle"));
 

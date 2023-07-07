@@ -5,6 +5,7 @@ import com.chikoritalover.kaleidoscope.block.*;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -32,6 +33,8 @@ public class KaleidoscopeBlocks {
     public static final Block POLISHED_TUFF = registerBlockWithItem("polished_tuff", new Block(AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_GRAY).requiresTool().sounds(BlockSoundGroup.TUFF).strength(1.5F, 6F)));
     public static final Block POLISHED_TUFF_SLAB = registerBlockWithItem("polished_tuff_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_TUFF)));
     public static final Block POLISHED_TUFF_STAIRS = registerBlockWithItem("polished_tuff_stairs", new StairsBlock(POLISHED_TUFF.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_TUFF)));
+
+    public static final Block CHARCOAL_BLOCK = registerBlockWithItem("charcoal_block", new PillarBlock(AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().sounds(BlockSoundGroup.DEEPSLATE).strength(3.0F, 6.0F)));
 
     public static final Block CUT_COPPER_WALL = registerBlockWithItem("cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(CUT_COPPER)));
     public static final Block EXPOSED_CUT_COPPER_WALL = registerBlockWithItem("exposed_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(EXPOSED_CUT_COPPER)));
@@ -291,6 +294,7 @@ public class KaleidoscopeBlocks {
     }
 
     public static void registerFlammableBlocks() {
+        FlammableBlockRegistry.getDefaultInstance().remove(COAL_BLOCK);
         FlammableBlockRegistry.getDefaultInstance().add(STICK_BUNDLE, 5, 5);
     }
 

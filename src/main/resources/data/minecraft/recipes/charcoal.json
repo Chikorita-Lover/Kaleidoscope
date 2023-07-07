@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "group": "charcoal",
   "ingredient": {
-    "tag": "minecraft:logs_that_burn"
+    "tag": "kaleidoscope:burns_into_charcoal"
   },
   "result": "minecraft:charcoal",
   "experience": 0.15,

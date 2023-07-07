@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "kaleidoscope:block/charcoal_block_top",
+    "side": "kaleidoscope:block/charcoal_block"
+  }
+}
