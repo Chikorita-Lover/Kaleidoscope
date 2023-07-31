@@ -1,11 +1,14 @@
 package com.chikoritalover.kaleidoscope;
 
 import com.chikoritalover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
-import com.chikoritalover.kaleidoscope.client.gui.screen.ingame.KilnScreen;
+import com.chikoritalover.kaleidoscope.client.gui.screen.KilnScreen;
 import com.chikoritalover.kaleidoscope.client.particle.FireflyParticle;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlocks;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeParticleTypes;
+import com.google.common.collect.Lists;
+import me.melontini.dark_matter.enums.util.EnumWrapper;
+import me.melontini.dark_matter.recipe_book.RecipeBookHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
@@ -14,8 +17,11 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.recipebook.RecipeBookGroup;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.*;
+import net.minecraft.recipe.AbstractCookingRecipe;
+import net.minecraft.recipe.book.CookingRecipeCategory;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -24,6 +30,9 @@ import java.util.List;
 
 public class KaleidoscopeClient implements ClientModInitializer {
     private static final List<Block> BLOCKS_WITH_TOOLTIPS = List.of(Blocks.CHISELED_BOOKSHELF, Blocks.END_PORTAL_FRAME, Blocks.FLOWER_POT, Blocks.LECTERN, Blocks.LODESTONE, Blocks.RESPAWN_ANCHOR);
+    private static final RecipeBookGroup KILN_SEARCH = EnumWrapper.RecipeBookGroup.extend("KALEIDOSCOPE_KILN_SEARCH", Items.COMPASS.getDefaultStack());
+    private static final RecipeBookGroup KILN_BLOCKS = EnumWrapper.RecipeBookGroup.extend("KALEIDOSCOPE_KILN_BLOCKS", Items.STONE.getDefaultStack());
+    private static final RecipeBookGroup KILN_MISC = EnumWrapper.RecipeBookGroup.extend("KALEIDOSCOPE_KILN_MISC", Items.BRICK.getDefaultStack(), Items.CHARCOAL.getDefaultStack());
 
     @Override
     public void onInitializeClient() {
@@ -106,6 +115,13 @@ public class KaleidoscopeClient implements ClientModInitializer {
         });
 
         ParticleFactoryRegistry.getInstance().register(KaleidoscopeParticleTypes.FIREFLY, FireflyParticle.Factory::new);
+
+        RecipeBookHelper.addRecipePredicate(Kaleidoscope.KILNING, recipe -> {
+            AbstractCookingRecipe abstractCookingRecipe = (AbstractCookingRecipe) recipe;
+            return abstractCookingRecipe.getCategory() == CookingRecipeCategory.BLOCKS ? KILN_BLOCKS : KILN_MISC;
+        });
+        RecipeBookHelper.addToGetGroups(Kaleidoscope.KILNING_CATEGORY, Lists.newArrayList(KILN_SEARCH, KILN_BLOCKS, KILN_MISC));
+        RecipeBookHelper.addToSearchMap(KILN_SEARCH, Lists.newArrayList(KILN_BLOCKS, KILN_MISC));
     }
 
     public void buildBlockInteractTooltip(ItemStack itemStack, List<Text> list, Block block) {

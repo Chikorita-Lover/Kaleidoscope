@@ -2,6 +2,7 @@ package com.chikoritalover.kaleidoscope;
 
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlockFamilies;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlocks;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItemTags;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -737,7 +738,7 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.RED_GLAZED_TERRACOTTA, Blocks.RED_TERRACOTTA, 0.1F, 100);
             offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.BLACK_GLAZED_TERRACOTTA, Blocks.BLACK_TERRACOTTA, 0.1F, 100);
             offerKilning(exporter, RecipeCategory.MISC, Items.GREEN_DYE, Blocks.CACTUS, 1.0F, 100);
-            CookingRecipeJsonBuilder.create(Ingredient.fromTag(ItemTags.LOGS_THAT_BURN), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 100, Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(Items.CHARCOAL)).criterion("has_log", conditionsFromTag(ItemTags.LOGS_THAT_BURN)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.CHARCOAL) + "_from_kilning"));
+            CookingRecipeJsonBuilder.create(Ingredient.fromTag(KaleidoscopeItemTags.BURNS_INTO_CHARCOAL), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 100, Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(Items.CHARCOAL)).criterion("has_wood", conditionsFromTag(KaleidoscopeItemTags.BURNS_INTO_CHARCOAL)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.CHARCOAL) + "_from_kilning"));
             offerKilning(exporter, RecipeCategory.MISC, Items.POPPED_CHORUS_FRUIT, Items.CHORUS_FRUIT, 0.1F, 100);
             offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.SPONGE, Blocks.WET_SPONGE, 0.15F, 100);
             offerKilning(exporter, RecipeCategory.MISC, Items.LIME_DYE, Blocks.SEA_PICKLE, 0.1F, 100);

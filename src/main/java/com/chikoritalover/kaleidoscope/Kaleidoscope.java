@@ -6,6 +6,7 @@ import com.chikoritalover.kaleidoscope.registry.*;
 import com.chikoritalover.kaleidoscope.screen.KilnScreenHandler;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
+import me.melontini.dark_matter.recipe_book.RecipeBookHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -26,6 +27,7 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.ScreenHandlerType;
@@ -39,7 +41,6 @@ import net.minecraft.structure.processor.StructureProcessorLists;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.poi.PointOfInterestType;
 import net.minecraft.world.poi.PointOfInterestTypes;
 import org.slf4j.Logger;
@@ -56,6 +57,7 @@ public class Kaleidoscope implements ModInitializer {
 	public static final CookingRecipeSerializer<KilnCookingRecipe> KILN_COOKING_RECIPE_SERIALIZER;
 	public static final ScreenHandlerType<KilnScreenHandler> KILN_SCREEN_HANDLER;
 	public static final RecipeType<KilnCookingRecipe> KILNING;
+	public static final RecipeBookCategory KILNING_CATEGORY = RecipeBookHelper.createCategory("KALEIDOSCOPE_KILN");
 
 	static {
 		GLASSBLOWER_POINT_OF_INTEREST = RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, new Identifier(MODID, "glassblower"));

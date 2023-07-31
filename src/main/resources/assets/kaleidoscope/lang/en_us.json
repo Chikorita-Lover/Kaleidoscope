@@ -248,6 +248,8 @@
 
   "entity.minecraft.villager.glassblower": "Glassblower",
 
+  "gui.recipebook.toggleRecipes.kilnable": "Showing Kilnable",
+
   "item.kaleidoscope.cake_slice": "Cake Slice",
   "item.kaleidoscope.chainmail_horse_armor": "Chainmail Horse Armor",
   "item.kaleidoscope.crimson_boat": "Crimson Boat",
