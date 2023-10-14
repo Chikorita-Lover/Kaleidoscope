@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_disc_fragment_pigstep",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_disc_fragment_pigstep"
     ]
   ],
   "rewards": {

@@ -24,16 +24,20 @@
     ],
     "main": [
       "com.chikoritalover.kaleidoscope.Kaleidoscope"
+    ],
+    "mm:early_risers": [
+      "com.chikoritalover.kaleidoscope.KaleidoscopeEarlyRiser"
     ]
   },
   "mixins": [
     "kaleidoscope.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.21",
+    "fabricloader": ">=0.14.23",
     "fabric-api": "*",
     "minecraft": "~1.20.0",
-    "java": ">=17"
+    "java": ">=17",
+    "mm": ">=2.3"
   },
   "suggests": {
     "another-mod": "*"

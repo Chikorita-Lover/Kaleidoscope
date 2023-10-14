@@ -30,6 +30,7 @@
     "ItemMixin",
     "LivingEntityMixin",
     "PaintingEntityMixin",
+    "RecipeBookOptionsMixin",
     "RespawnAnchorBlockMixin",
     "ShulkerBoxBlockMixin",
     "SmithingTemplateItemMixin",
@@ -38,7 +39,9 @@
     "ZombieVillagerEntityMixin"
   ],
   "client": [
-    "ClientWorldMixin"
+    "ClientRecipeBookMixin",
+    "ClientWorldMixin",
+    "RecipeBookGroupMixin"
   ],
   "server": [],
   "injectors": {

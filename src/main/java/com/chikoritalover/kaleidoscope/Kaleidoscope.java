@@ -4,9 +4,9 @@ import com.chikoritalover.kaleidoscope.mixin.StructurePoolMixin;
 import com.chikoritalover.kaleidoscope.recipe.KilnCookingRecipe;
 import com.chikoritalover.kaleidoscope.registry.*;
 import com.chikoritalover.kaleidoscope.screen.KilnScreenHandler;
+import com.chocohead.mm.api.ClassTinkerers;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
-import me.melontini.dark_matter.recipe_book.RecipeBookHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -57,7 +57,7 @@ public class Kaleidoscope implements ModInitializer {
 	public static final CookingRecipeSerializer<KilnCookingRecipe> KILN_COOKING_RECIPE_SERIALIZER;
 	public static final ScreenHandlerType<KilnScreenHandler> KILN_SCREEN_HANDLER;
 	public static final RecipeType<KilnCookingRecipe> KILNING;
-	public static final RecipeBookCategory KILNING_CATEGORY = RecipeBookHelper.createCategory("KALEIDOSCOPE_KILN");
+	public static final RecipeBookCategory KILNING_CATEGORY;
 
 	static {
 		GLASSBLOWER_POINT_OF_INTEREST = RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, new Identifier(MODID, "glassblower"));
@@ -70,6 +70,7 @@ public class Kaleidoscope implements ModInitializer {
 				return "kilning";
 			}
 		});
+		KILNING_CATEGORY = ClassTinkerers.getEnum(RecipeBookCategory.class, "KALEIDOSCOPE_KILN");
 	}
 
 	@Override

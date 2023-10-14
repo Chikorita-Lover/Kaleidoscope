@@ -35,8 +35,8 @@ dependencies {
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
-	modImplementation include("me.melontini.dark-matter:dark-matter-recipe-book:${project.dark_matter_version}")
-	modImplementation include("me.melontini.dark-matter:dark-matter-enums:${project.dark_matter_version}")
+	modImplementation "com.github.Chocohead:Fabric-ASM:${fabric_asm_version}"
+	include "com.github.Chocohead:Fabric-ASM:${fabric_asm_version}"
 }
 
 processResources {

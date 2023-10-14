@@ -1,5 +1,6 @@
 package com.chikoritalover.kaleidoscope.client.gui.screen;
 
+import com.chikoritalover.kaleidoscope.Kaleidoscope;
 import com.chikoritalover.kaleidoscope.screen.KilnScreenHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -10,9 +11,11 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class KilnScreen extends AbstractFurnaceScreen<KilnScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier("textures/gui/container/furnace.png");
+    private static final Identifier LIT_PROGRESS_TEXTURE = new Identifier(Kaleidoscope.MODID, "container/kiln/lit_progress");
+    private static final Identifier BURN_PROGRESS_TEXTURE = new Identifier(Kaleidoscope.MODID, "container/kiln/burn_progress");
+    private static final Identifier TEXTURE = new Identifier(Kaleidoscope.MODID, "textures/gui/container/kiln.png");
 
     public KilnScreen(KilnScreenHandler handler, PlayerInventory inventory, Text title) {
-        super(handler, new KilnRecipeBookScreen(), inventory, title, TEXTURE);
+        super(handler, new KilnRecipeBookScreen(), inventory, title, TEXTURE, LIT_PROGRESS_TEXTURE, BURN_PROGRESS_TEXTURE);
     }
 }
