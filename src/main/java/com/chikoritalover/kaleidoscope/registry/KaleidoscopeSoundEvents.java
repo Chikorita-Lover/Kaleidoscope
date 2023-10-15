@@ -3,7 +3,9 @@ package com.chikoritalover.kaleidoscope.registry;
 import com.chikoritalover.kaleidoscope.Kaleidoscope;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class KaleidoscopeSoundEvents {
@@ -11,6 +13,7 @@ public class KaleidoscopeSoundEvents {
     public static final SoundEvent BLOCK_COPPER_DOOR_OPEN = register("block.copper_door.open");
     public static final SoundEvent BLOCK_COPPER_TRAPDOOR_CLOSE = register("block.copper_trapdoor.close");
     public static final SoundEvent BLOCK_COPPER_TRAPDOOR_OPEN = register("block.copper_trapdoor.open");
+    public static final RegistryEntry.Reference<SoundEvent> BLOCK_NOTE_BLOCK_SAXOPHONE = registerReference("block.note_block.saxophone");
     public static final SoundEvent BLOCK_KILN_CRACKLE = register("block.kiln.crackle");
 
     public static final SoundEvent ENTITY_VILLAGER_WORK_GLASSBLOWER = register("entity.villager.work_glassblower");
@@ -19,6 +22,18 @@ public class KaleidoscopeSoundEvents {
 
     private static SoundEvent register(String id) {
         return Registry.register(Registries.SOUND_EVENT, new Identifier(Kaleidoscope.MODID, id), SoundEvent.of(new Identifier(Kaleidoscope.MODID, id)));
+    }
+
+    private static RegistryEntry.Reference<SoundEvent> registerReference(String id) {
+        return registerReference(new Identifier(Kaleidoscope.MODID, id));
+    }
+
+    private static RegistryEntry.Reference<SoundEvent> registerReference(Identifier id) {
+        return registerReference(id, id);
+    }
+
+    private static RegistryEntry.Reference<SoundEvent> registerReference(Identifier id, Identifier soundId) {
+        return Registry.registerReference(Registries.SOUND_EVENT, id, SoundEvent.of(soundId));
     }
 
     public static void register() {}

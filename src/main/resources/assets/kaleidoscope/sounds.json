@@ -135,6 +135,12 @@
       "kaleidoscope:block/kiln/crackle4"
     ]
   },
+  "block.note_block.saxophone": {
+    "subtitle": "subtitles.block.note_block.note",
+    "sounds": [
+      "kaleidoscope:note/saxophone"
+    ]
+  },
   "block.sponge.absorb": {
     "subtitle": "subtitles.block.sponge.absorb",
     "sounds": [
