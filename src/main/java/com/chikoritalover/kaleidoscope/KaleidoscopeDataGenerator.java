@@ -362,14 +362,6 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.TUFF_STAIRS, Blocks.TUFF);
             offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.TUFF_WALL, Blocks.TUFF);
 
-            offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_TUFF, Blocks.TUFF);
-
-            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_TUFF, Blocks.TUFF);
-            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_TUFF_SLAB, Blocks.TUFF, 2);
-            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_TUFF_SLAB, KaleidoscopeBlocks.POLISHED_TUFF, 2);
-            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_TUFF_STAIRS, Blocks.TUFF);
-            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_TUFF_STAIRS, KaleidoscopeBlocks.POLISHED_TUFF);
-
             offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CHARCOAL_BLOCK, Items.CHARCOAL);
 
             offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.CUT_COPPER_WALL, Blocks.COPPER_BLOCK, 4);

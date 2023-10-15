@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "kaleidoscope:polished_tuff"
-  },
-  "result": "kaleidoscope:polished_tuff_stairs"
-}

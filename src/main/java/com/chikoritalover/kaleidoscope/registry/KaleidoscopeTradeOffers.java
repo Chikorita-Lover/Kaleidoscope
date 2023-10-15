@@ -25,10 +25,12 @@ public class KaleidoscopeTradeOffers {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.LEATHERWORKER, 3, factories -> {
             factories.add(new SellDyedBundleFactory(4, 10));
         });
+/*
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 3, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Blocks.TUFF, 16, 16, 20));
-            factories.add(new TradeOffers.SellItemFactory(KaleidoscopeBlocks.POLISHED_TUFF, 1, 4, 16, 10));
+            factories.add(new TradeOffers.SellItemFactory(Blocks.POLISHED_TUFF, 1, 4, 16, 10));
         });
+*/
         TradeOfferHelper.registerVillagerOffers(Kaleidoscope.GLASSBLOWER, 1, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Blocks.SAND, 16, 16, 2));
             factories.add(new TradeOffers.SellItemFactory(Blocks.GLASS, 1, 4, 16, 1));

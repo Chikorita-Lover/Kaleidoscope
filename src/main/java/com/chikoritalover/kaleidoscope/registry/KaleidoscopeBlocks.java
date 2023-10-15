@@ -30,10 +30,6 @@ public class KaleidoscopeBlocks {
     public static final Block TUFF_STAIRS = registerBlockWithItem("tuff_stairs", new StairsBlock(TUFF.getDefaultState(), AbstractBlock.Settings.copy(TUFF)));
     public static final Block TUFF_WALL = registerBlockWithItem("tuff_wall", new WallBlock(AbstractBlock.Settings.copy(TUFF)));
 
-    public static final Block POLISHED_TUFF = registerBlockWithItem("polished_tuff", new Block(AbstractBlock.Settings.copy(TUFF).strength(1.5F, 6.0F)));
-    public static final Block POLISHED_TUFF_SLAB = registerBlockWithItem("polished_tuff_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_TUFF)));
-    public static final Block POLISHED_TUFF_STAIRS = registerBlockWithItem("polished_tuff_stairs", new StairsBlock(POLISHED_TUFF.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_TUFF)));
-
     public static final Block CHARCOAL_BLOCK = registerBlockWithItem("charcoal_block", new PillarBlock(AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().sounds(BlockSoundGroup.DEEPSLATE).strength(3.0F, 6.0F)));
 
     public static final Block CUT_COPPER_WALL = registerBlockWithItem("cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(CUT_COPPER)));

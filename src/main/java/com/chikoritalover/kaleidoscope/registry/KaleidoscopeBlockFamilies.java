@@ -13,7 +13,6 @@ public class KaleidoscopeBlockFamilies {
     public static final BlockFamily CALCITE;
     public static final BlockFamily POLISHED_CALCITE;
     public static final BlockFamily TUFF;
-    public static final BlockFamily POLISHED_TUFF;
     public static final BlockFamily CUT_COPPER;
     public static final BlockFamily EXPOSED_CUT_COPPER;
     public static final BlockFamily WEATHERED_CUT_COPPER;
@@ -76,7 +75,6 @@ public class KaleidoscopeBlockFamilies {
         CALCITE = register(Blocks.CALCITE).slab(KaleidoscopeBlocks.CALCITE_SLAB).stairs(KaleidoscopeBlocks.CALCITE_STAIRS).wall(KaleidoscopeBlocks.CALCITE_WALL).build();
         POLISHED_CALCITE = register(KaleidoscopeBlocks.POLISHED_CALCITE).slab(KaleidoscopeBlocks.POLISHED_CALCITE_SLAB).stairs(KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS).build();
         TUFF = register(Blocks.TUFF).slab(KaleidoscopeBlocks.TUFF_SLAB).stairs(KaleidoscopeBlocks.TUFF_STAIRS).wall(KaleidoscopeBlocks.TUFF_WALL).build();
-        POLISHED_TUFF = register(KaleidoscopeBlocks.POLISHED_TUFF).slab(KaleidoscopeBlocks.POLISHED_TUFF_SLAB).stairs(KaleidoscopeBlocks.POLISHED_TUFF_STAIRS).build();
 
         CUT_COPPER = register(Blocks.CUT_COPPER).wall(KaleidoscopeBlocks.CUT_COPPER_WALL).noGenerateModels().build();
         EXPOSED_CUT_COPPER = register(Blocks.EXPOSED_CUT_COPPER).wall(KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL).noGenerateModels().build();
