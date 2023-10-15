@@ -1,6 +1,5 @@
 {
   "values": [
-    "#kaleidoscope:copper_doors",
     "kaleidoscope:calcite_slab",
     "kaleidoscope:calcite_stairs",
     "kaleidoscope:calcite_wall",
@@ -124,14 +123,6 @@
     "kaleidoscope:smooth_basalt_wall",
     "kaleidoscope:red_nether_brick_fence",
     "kaleidoscope:kiln",
-    "kaleidoscope:copper_trapdoor",
-    "kaleidoscope:exposed_copper_trapdoor",
-    "kaleidoscope:weathered_copper_trapdoor",
-    "kaleidoscope:oxidized_copper_trapdoor",
-    "kaleidoscope:waxed_copper_trapdoor",
-    "kaleidoscope:waxed_exposed_copper_trapdoor",
-    "kaleidoscope:waxed_weathered_copper_trapdoor",
-    "kaleidoscope:waxed_oxidized_copper_trapdoor",
     "kaleidoscope:black_terracotta_slab",
     "kaleidoscope:blue_terracotta_slab",
     "kaleidoscope:brown_terracotta_slab",

@@ -9,10 +9,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class KaleidoscopeSoundEvents {
-    public static final SoundEvent BLOCK_COPPER_DOOR_CLOSE = register("block.copper_door.close");
-    public static final SoundEvent BLOCK_COPPER_DOOR_OPEN = register("block.copper_door.open");
-    public static final SoundEvent BLOCK_COPPER_TRAPDOOR_CLOSE = register("block.copper_trapdoor.close");
-    public static final SoundEvent BLOCK_COPPER_TRAPDOOR_OPEN = register("block.copper_trapdoor.open");
     public static final RegistryEntry.Reference<SoundEvent> BLOCK_NOTE_BLOCK_SAXOPHONE = registerReference("block.note_block.saxophone");
     public static final SoundEvent BLOCK_KILN_CRACKLE = register("block.kiln.crackle");
 

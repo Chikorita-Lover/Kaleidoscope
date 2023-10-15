@@ -6,7 +6,6 @@ import com.chikoritalover.kaleidoscope.client.particle.FireflyParticle;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlocks;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeParticleTypes;
-import com.chocohead.mm.api.ClassTinkerers;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
@@ -15,7 +14,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
-import net.minecraft.client.recipebook.RecipeBookGroup;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.*;
 import net.minecraft.screen.ScreenTexts;
@@ -73,26 +71,6 @@ public class KaleidoscopeClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, RenderLayer.getTranslucent());
         
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.COPPER_DOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.EXPOSED_COPPER_DOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WEATHERED_COPPER_DOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.OXIDIZED_COPPER_DOOR, RenderLayer.getCutout());
-
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WAXED_COPPER_DOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WAXED_EXPOSED_COPPER_DOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WAXED_WEATHERED_COPPER_DOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WAXED_OXIDIZED_COPPER_DOOR, RenderLayer.getCutout());
-
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.COPPER_TRAPDOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.EXPOSED_COPPER_TRAPDOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WEATHERED_COPPER_TRAPDOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.OXIDIZED_COPPER_TRAPDOOR, RenderLayer.getCutout());
-
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WAXED_COPPER_TRAPDOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, RenderLayer.getCutout());
-
         HandledScreens.register(Kaleidoscope.KILN_SCREEN_HANDLER, KilnScreen::new);
 
         ItemTooltipCallback.EVENT.register((stack, context, tooltip) -> {

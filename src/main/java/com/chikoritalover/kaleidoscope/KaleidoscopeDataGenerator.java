@@ -17,7 +17,6 @@ import net.minecraft.block.LeveledCauldronBlock;
 import net.minecraft.data.client.*;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.*;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
@@ -269,14 +268,6 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             blockStateModelGenerator.registerOrientableTrapdoor(KaleidoscopeBlocks.RED_STAINED_GLASS_TRAPDOOR);
             blockStateModelGenerator.registerOrientableTrapdoor(KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR);
             blockStateModelGenerator.registerOrientableTrapdoor(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR);
-            registerOxidizableDoor(blockStateModelGenerator, KaleidoscopeBlocks.COPPER_DOOR, KaleidoscopeBlocks.WAXED_COPPER_DOOR);
-            registerOxidizableDoor(blockStateModelGenerator, KaleidoscopeBlocks.EXPOSED_COPPER_DOOR, KaleidoscopeBlocks.WAXED_EXPOSED_COPPER_DOOR);
-            registerOxidizableDoor(blockStateModelGenerator, KaleidoscopeBlocks.WEATHERED_COPPER_DOOR, KaleidoscopeBlocks.WAXED_WEATHERED_COPPER_DOOR);
-            registerOxidizableDoor(blockStateModelGenerator, KaleidoscopeBlocks.OXIDIZED_COPPER_DOOR, KaleidoscopeBlocks.WAXED_OXIDIZED_COPPER_DOOR);
-            registerOxidizableTrapdoor(blockStateModelGenerator, KaleidoscopeBlocks.COPPER_TRAPDOOR, KaleidoscopeBlocks.WAXED_COPPER_TRAPDOOR);
-            registerOxidizableTrapdoor(blockStateModelGenerator, KaleidoscopeBlocks.EXPOSED_COPPER_TRAPDOOR, KaleidoscopeBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR);
-            registerOxidizableTrapdoor(blockStateModelGenerator, KaleidoscopeBlocks.WEATHERED_COPPER_TRAPDOOR, KaleidoscopeBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR);
-            registerOxidizableTrapdoor(blockStateModelGenerator, KaleidoscopeBlocks.OXIDIZED_COPPER_TRAPDOOR, KaleidoscopeBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR);
             blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(KaleidoscopeBlocks.POTION_CAULDRON).coordinate(BlockStateVariantMap.create(LeveledCauldronBlock.LEVEL).register(1, BlockStateVariant.create().put(VariantSettings.MODEL, Models.TEMPLATE_CAULDRON_LEVEL1.upload(KaleidoscopeBlocks.POTION_CAULDRON, "_level1", TextureMap.cauldron(TextureMap.getSubId(Blocks.WATER, "_still")), blockStateModelGenerator.modelCollector))).register(2, BlockStateVariant.create().put(VariantSettings.MODEL, Models.TEMPLATE_CAULDRON_LEVEL2.upload(KaleidoscopeBlocks.POTION_CAULDRON, "_level2", TextureMap.cauldron(TextureMap.getSubId(Blocks.WATER, "_still")), blockStateModelGenerator.modelCollector))).register(3, BlockStateVariant.create().put(VariantSettings.MODEL, Models.TEMPLATE_CAULDRON_FULL.upload(KaleidoscopeBlocks.POTION_CAULDRON, "_full", TextureMap.cauldron(TextureMap.getSubId(Blocks.WATER, "_still")), blockStateModelGenerator.modelCollector)))));
         }
 
@@ -290,38 +281,6 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             itemModelGenerator.register(KaleidoscopeItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
             itemModelGenerator.register(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP, Models.GENERATED);
             itemModelGenerator.register(KaleidoscopeItems.CAKE_SLICE, Models.GENERATED);
-        }
-
-        public final void registerItemModel(BlockStateModelGenerator blockStateModelGenerator, Block block, String texturePath) {
-            Item item = block.asItem();
-            Models.GENERATED.upload(ModelIds.getItemModelId(item), TextureMap.layer0(new Identifier(Kaleidoscope.MODID, "item/" + texturePath)), blockStateModelGenerator.modelCollector);
-        }
-
-        public void registerOxidizableDoor(BlockStateModelGenerator blockStateModelGenerator, Block doorBlock, Block waxedDoorBlock) {
-            TextureMap textureMap = TextureMap.topBottom(doorBlock);
-            Identifier identifier = Models.DOOR_BOTTOM_LEFT.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            Identifier identifier2 = Models.DOOR_BOTTOM_LEFT_OPEN.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            Identifier identifier3 = Models.DOOR_BOTTOM_RIGHT.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            Identifier identifier4 = Models.DOOR_BOTTOM_RIGHT_OPEN.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            Identifier identifier5 = Models.DOOR_TOP_LEFT.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            Identifier identifier6 = Models.DOOR_TOP_LEFT_OPEN.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            Identifier identifier7 = Models.DOOR_TOP_RIGHT.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            Identifier identifier8 = Models.DOOR_TOP_RIGHT_OPEN.upload(doorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            blockStateModelGenerator.registerItemModel(doorBlock.asItem());
-            registerItemModel(blockStateModelGenerator, waxedDoorBlock, doorBlock.asItem().toString());
-            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createDoorBlockState(doorBlock, identifier, identifier2, identifier3, identifier4, identifier5, identifier6, identifier7, identifier8));
-            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createDoorBlockState(waxedDoorBlock, identifier, identifier2, identifier3, identifier4, identifier5, identifier6, identifier7, identifier8));
-        }
-
-        public void registerOxidizableTrapdoor(BlockStateModelGenerator blockStateModelGenerator, Block trapdoorBlock, Block waxedTrapdoorBlock) {
-            TextureMap textureMap = TextureMap.texture(trapdoorBlock);
-            Identifier identifier = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_TOP.upload(trapdoorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            Identifier identifier2 = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_BOTTOM.upload(trapdoorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            Identifier identifier3 = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_OPEN.upload(trapdoorBlock, textureMap, blockStateModelGenerator.modelCollector);
-            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createOrientableTrapdoorBlockState(trapdoorBlock, identifier, identifier2, identifier3));
-            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createOrientableTrapdoorBlockState(waxedTrapdoorBlock, identifier, identifier2, identifier3));
-            blockStateModelGenerator.registerParentedItemModel(trapdoorBlock, identifier2);
-            blockStateModelGenerator.registerParentedItemModel(waxedTrapdoorBlock, identifier2);
         }
     }
 
@@ -669,20 +628,6 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.RED_STAINED_GLASS_TRAPDOOR, Items.RED_DYE);
             offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, Items.WHITE_DYE);
             offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, Items.YELLOW_DYE);
-
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.COPPER_DOOR, Items.COPPER_INGOT);
-
-            offerWaxingRecipe(exporter, RecipeCategory.REDSTONE, KaleidoscopeBlocks.WAXED_COPPER_DOOR, KaleidoscopeBlocks.COPPER_DOOR);
-            offerWaxingRecipe(exporter, RecipeCategory.REDSTONE, KaleidoscopeBlocks.WAXED_EXPOSED_COPPER_DOOR, KaleidoscopeBlocks.EXPOSED_COPPER_DOOR);
-            offerWaxingRecipe(exporter, RecipeCategory.REDSTONE, KaleidoscopeBlocks.WAXED_WEATHERED_COPPER_DOOR, KaleidoscopeBlocks.WEATHERED_COPPER_DOOR);
-            offerWaxingRecipe(exporter, RecipeCategory.REDSTONE, KaleidoscopeBlocks.WAXED_OXIDIZED_COPPER_DOOR, KaleidoscopeBlocks.OXIDIZED_COPPER_DOOR);
-
-            ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, KaleidoscopeBlocks.COPPER_TRAPDOOR).input('#', Items.COPPER_INGOT).pattern("##").pattern("##").criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT)).offerTo(exporter);
-
-            offerWaxingRecipe(exporter, RecipeCategory.REDSTONE, KaleidoscopeBlocks.WAXED_COPPER_TRAPDOOR, KaleidoscopeBlocks.COPPER_TRAPDOOR);
-            offerWaxingRecipe(exporter, RecipeCategory.REDSTONE, KaleidoscopeBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR, KaleidoscopeBlocks.EXPOSED_COPPER_TRAPDOOR);
-            offerWaxingRecipe(exporter, RecipeCategory.REDSTONE, KaleidoscopeBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, KaleidoscopeBlocks.WEATHERED_COPPER_TRAPDOOR);
-            offerWaxingRecipe(exporter, RecipeCategory.REDSTONE, KaleidoscopeBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, KaleidoscopeBlocks.OXIDIZED_COPPER_TRAPDOOR);
 
             offerBoatRecipe(exporter, KaleidoscopeItems.CRIMSON_BOAT, Blocks.CRIMSON_PLANKS);
             offerBoatRecipe(exporter, KaleidoscopeItems.WARPED_BOAT, Blocks.WARPED_PLANKS);

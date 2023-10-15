@@ -43,34 +43,6 @@
       "kaleidoscope:block/andesite/step4"
     ]
   },
-  "block.copper_door.close": {
-    "subtitle": "subtitles.block.door.toggle",
-    "sounds": [
-      "kaleidoscope:block/copper_door/close"
-    ]
-  },
-  "block.copper_door.open": {
-    "subtitle": "subtitles.block.door.toggle",
-    "sounds": [
-      "kaleidoscope:block/copper_door/open"
-    ]
-  },
-  "block.copper_trapdoor.close": {
-    "subtitle": "subtitles.block.iron_trapdoor.close",
-    "sounds": [
-      "kaleidoscope:block/copper_trapdoor/close1",
-      "kaleidoscope:block/copper_trapdoor/close2",
-      "kaleidoscope:block/copper_trapdoor/close3"
-    ]
-  },
-  "block.copper_trapdoor.open": {
-    "subtitle": "subtitles.block.iron_trapdoor.open",
-    "sounds": [
-      "kaleidoscope:block/copper_trapdoor/open1",
-      "kaleidoscope:block/copper_trapdoor/open2",
-      "kaleidoscope:block/copper_trapdoor/open3"
-    ]
-  },
   "block.diorite.break": {
     "subtitle": "subtitles.block.generic.break",
     "sounds": [

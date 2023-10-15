@@ -261,26 +261,6 @@ public class KaleidoscopeBlocks {
     public static final Block WHITE_STAINED_GLASS_TRAPDOOR = registerBlockWithItem("white_stained_glass_trapdoor", new StainedGlassTrapdoorBlock(DyeColor.WHITE, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.WHITE)));
     public static final Block YELLOW_STAINED_GLASS_TRAPDOOR = registerBlockWithItem("yellow_stained_glass_trapdoor", new StainedGlassTrapdoorBlock(DyeColor.YELLOW, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.YELLOW)));
 
-    public static final Block COPPER_DOOR = registerBlockWithItem("copper_door", new CopperDoorBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.ORANGE).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block EXPOSED_COPPER_DOOR = registerBlockWithItem("exposed_copper_door", new CopperDoorBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block WEATHERED_COPPER_DOOR = registerBlockWithItem("weathered_copper_door", new CopperDoorBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.DARK_AQUA).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block OXIDIZED_COPPER_DOOR = registerBlockWithItem("oxidized_copper_door", new CopperDoorBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.TEAL).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-
-    public static final Block WAXED_COPPER_DOOR = registerBlockWithItem("waxed_copper_door", new CopperDoorBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(COPPER_DOOR).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block WAXED_EXPOSED_COPPER_DOOR = registerBlockWithItem("waxed_exposed_copper_door", new CopperDoorBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(EXPOSED_COPPER_DOOR).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block WAXED_WEATHERED_COPPER_DOOR = registerBlockWithItem("waxed_weathered_copper_door", new CopperDoorBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(WEATHERED_COPPER_DOOR).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block WAXED_OXIDIZED_COPPER_DOOR = registerBlockWithItem("waxed_oxidized_copper_door", new CopperDoorBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.copy(OXIDIZED_COPPER_DOOR).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-
-    public static final Block COPPER_TRAPDOOR = registerBlockWithItem("copper_trapdoor", new CopperTrapdoorBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.ORANGE).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block EXPOSED_COPPER_TRAPDOOR = registerBlockWithItem("exposed_copper_trapdoor", new CopperTrapdoorBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block WEATHERED_COPPER_TRAPDOOR = registerBlockWithItem("weathered_copper_trapdoor", new CopperTrapdoorBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.DARK_AQUA).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block OXIDIZED_COPPER_TRAPDOOR = registerBlockWithItem("oxidized_copper_trapdoor", new CopperTrapdoorBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.TEAL).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-
-    public static final Block WAXED_COPPER_TRAPDOOR = registerBlockWithItem("waxed_copper_trapdoor", new CopperTrapdoorBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(COPPER_TRAPDOOR).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block WAXED_EXPOSED_COPPER_TRAPDOOR = registerBlockWithItem("waxed_exposed_copper_trapdoor", new CopperTrapdoorBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(EXPOSED_COPPER_TRAPDOOR).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block WAXED_WEATHERED_COPPER_TRAPDOOR = registerBlockWithItem("waxed_weathered_copper_trapdoor", new CopperTrapdoorBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(WEATHERED_COPPER_TRAPDOOR).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-    public static final Block WAXED_OXIDIZED_COPPER_TRAPDOOR = registerBlockWithItem("waxed_oxidized_copper_trapdoor", new CopperTrapdoorBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.copy(OXIDIZED_COPPER_TRAPDOOR).nonOpaque().requiresTool().sounds(BlockSoundGroup.COPPER).strength(3.0F)));
-
     public static final Block POTION_CAULDRON = register("potion_cauldron", new PotionCauldronBlock(AbstractBlock.Settings.copy(CAULDRON)));
 
     public static Block registerBlockWithItem(String id, Block block) {
@@ -344,24 +324,6 @@ public class KaleidoscopeBlocks {
         OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_SMOOTH_COPPER, WAXED_OXIDIZED_SMOOTH_COPPER);
         OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_SMOOTH_COPPER_STAIRS, WAXED_OXIDIZED_SMOOTH_COPPER_STAIRS);
         OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_SMOOTH_COPPER_SLAB, WAXED_OXIDIZED_SMOOTH_COPPER_SLAB);
-        
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(COPPER_DOOR, EXPOSED_COPPER_DOOR);
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(EXPOSED_COPPER_DOOR, WEATHERED_COPPER_DOOR);
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(WEATHERED_COPPER_DOOR, OXIDIZED_COPPER_DOOR);
-
-        OxidizableBlocksRegistry.registerWaxableBlockPair(COPPER_DOOR, WAXED_COPPER_DOOR);
-        OxidizableBlocksRegistry.registerWaxableBlockPair(EXPOSED_COPPER_DOOR, WAXED_EXPOSED_COPPER_DOOR);
-        OxidizableBlocksRegistry.registerWaxableBlockPair(WEATHERED_COPPER_DOOR, WAXED_WEATHERED_COPPER_DOOR);
-        OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_COPPER_DOOR, WAXED_OXIDIZED_COPPER_DOOR);
-
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(COPPER_TRAPDOOR, EXPOSED_COPPER_TRAPDOOR);
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(EXPOSED_COPPER_TRAPDOOR, WEATHERED_COPPER_TRAPDOOR);
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(WEATHERED_COPPER_TRAPDOOR, OXIDIZED_COPPER_TRAPDOOR);
-
-        OxidizableBlocksRegistry.registerWaxableBlockPair(COPPER_TRAPDOOR, WAXED_COPPER_TRAPDOOR);
-        OxidizableBlocksRegistry.registerWaxableBlockPair(EXPOSED_COPPER_TRAPDOOR, WAXED_EXPOSED_COPPER_TRAPDOOR);
-        OxidizableBlocksRegistry.registerWaxableBlockPair(WEATHERED_COPPER_TRAPDOOR, WAXED_WEATHERED_COPPER_TRAPDOOR);
-        OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_COPPER_TRAPDOOR, WAXED_OXIDIZED_COPPER_TRAPDOOR);
     }
 
     private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
