@@ -26,9 +26,6 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.util.Identifier;
 
-import java.util.List;
-import java.util.function.Consumer;
-
 public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         fabricDataGenerator.createPack().addProvider(KaleidoscopeLootTableGenerator::new);
