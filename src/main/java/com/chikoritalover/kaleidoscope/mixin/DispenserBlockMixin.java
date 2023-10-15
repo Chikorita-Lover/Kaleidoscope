@@ -8,13 +8,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.MiningToolItem;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Position;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,18 +28,21 @@ public class DispenserBlockMixin {
             callbackInfo.setReturnValue(new FallibleItemDispenserBehavior() {
                 @Override
                 protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-                    World world = pointer.world();
-                    Position pos = DispenserBlock.getOutputLocation(pointer);
-                    BlockPos blockPos = new BlockPos((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
+                    BlockPos blockPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
+                    ServerWorld world = pointer.world();
                     BlockState blockState = world.getBlockState(blockPos);
-                    ActionResult actionResult = stack.getItem().useOnBlock(new ItemUsageContext(world, null, null, stack, pointer.world().raycastBlock(new Vec3d(pointer.pos().getX(), pointer.pos().getY(), pointer.pos().getZ()), new Vec3d(pos.getX(), pos.getY(), pos.getZ()), blockPos, VoxelShapes.UNBOUNDED, blockState)));
+                    ActionResult actionResult = stack.getItem().useOnBlock(new ItemUsageContext(world, null, null, stack, pointer.world().raycastBlock(new Vec3d(pointer.pos().getX(), pointer.pos().getY(), pointer.pos().getZ()), new Vec3d(blockPos.getX(), blockPos.getY(), blockPos.getZ()), blockPos, VoxelShapes.UNBOUNDED, blockState)));
                     this.setSuccess(actionResult != ActionResult.FAIL && actionResult != ActionResult.PASS);
-                    if (this.isSuccess() && stack.damage(1, world.random, null)) {
-                        stack.setCount(0);
+                    if (this.isSuccess()) {
+                        if (stack.damage(1, world.random, null)) {
+                            stack.setCount(0);
+                        }
+                        return stack;
                     }
-                    return stack;
+                    return super.dispenseSilently(pointer, stack);
                 }
             });
+            callbackInfo.cancel();
         }
     }
 }
