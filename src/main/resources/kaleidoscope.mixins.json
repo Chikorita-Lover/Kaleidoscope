@@ -8,7 +8,6 @@
     "AbstractHorseEntityMixin",
     "BlockMixin",
     "BoatEntityMixin",
-    "BoatEntityTypeMixin",
     "BundleItemMixin",
     "CakeBlockMixin",
     "ChestBlockMixin",

@@ -1,6 +1,5 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
-import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBoatType;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.Block;
@@ -17,11 +16,11 @@ public class ChestBoatEntityMixin {
     public void asItem(CallbackInfoReturnable<Item> info) {
         ChestBoatEntity chestBoat = ChestBoatEntity.class.cast(this);
 
-        if (chestBoat.getVariant() == KaleidoscopeBoatType.CRIMSON) {
+        if (chestBoat.getVariant() == KaleidoscopeItems.CRIMSON_BOAT_TYPE) {
             info.setReturnValue(KaleidoscopeItems.CRIMSON_CHEST_BOAT);
         }
 
-        if (chestBoat.getVariant() == KaleidoscopeBoatType.WARPED) {
+        if (chestBoat.getVariant() == KaleidoscopeItems.WARPED_BOAT_TYPE) {
             info.setReturnValue(KaleidoscopeItems.WARPED_CHEST_BOAT);
         }
     }
