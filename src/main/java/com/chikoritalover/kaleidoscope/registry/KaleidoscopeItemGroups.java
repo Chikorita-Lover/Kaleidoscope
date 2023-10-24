@@ -11,7 +11,6 @@ public class KaleidoscopeItemGroups {
     public static void register() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.addBefore(Blocks.DEEPSLATE, Blocks.CALCITE, KaleidoscopeBlocks.CALCITE_STAIRS, KaleidoscopeBlocks.CALCITE_SLAB, KaleidoscopeBlocks.CALCITE_WALL, KaleidoscopeBlocks.POLISHED_CALCITE, KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS, KaleidoscopeBlocks.POLISHED_CALCITE_SLAB);
-            entries.addAfter(Blocks.REINFORCED_DEEPSLATE, Blocks.TUFF, KaleidoscopeBlocks.TUFF_STAIRS, KaleidoscopeBlocks.TUFF_SLAB, KaleidoscopeBlocks.TUFF_WALL);
             entries.addAfter(Blocks.BRICKS, KaleidoscopeBlocks.BRICK_MOSAIC);
             entries.addAfter(Blocks.BRICK_STAIRS, KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS);
             entries.addAfter(Blocks.BRICK_SLAB, KaleidoscopeBlocks.BRICK_MOSAIC_SLAB);
