@@ -25,6 +25,7 @@ public class KaleidoscopeBlocks {
     public static final Block POLISHED_CALCITE = registerBlockWithItem("polished_calcite", new Block(AbstractBlock.Settings.copy(CALCITE).strength(1.5F, 6.0F)));
     public static final Block POLISHED_CALCITE_SLAB = registerBlockWithItem("polished_calcite_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE)));
     public static final Block POLISHED_CALCITE_STAIRS = registerBlockWithItem("polished_calcite_stairs", new StairsBlock(POLISHED_CALCITE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_CALCITE)));
+    public static final Block POLISHED_CALCITE_WALL = registerBlockWithItem("polished_calcite_wall", new WallBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE)));
 
     public static final Block CHARCOAL_BLOCK = registerBlockWithItem("charcoal_block", new PillarBlock(AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().sounds(BlockSoundGroup.DEEPSLATE).strength(3.0F, 6.0F)));
 
@@ -164,6 +165,7 @@ public class KaleidoscopeBlocks {
     public static final Block POLISHED_END_STONE = registerBlockWithItem("polished_end_stone", new Block(AbstractBlock.Settings.copy(END_STONE)));
     public static final Block POLISHED_END_STONE_SLAB = registerBlockWithItem("polished_end_stone_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_END_STONE)));
     public static final Block POLISHED_END_STONE_STAIRS = registerBlockWithItem("polished_end_stone_stairs", new StairsBlock(POLISHED_END_STONE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_END_STONE)));
+    public static final Block POLISHED_END_STONE_WALL = registerBlockWithItem("polished_end_stone_wall", new WallBlock(AbstractBlock.Settings.copy(POLISHED_END_STONE)));
 
     public static final Block WHITE_TERRACOTTA_SLAB = registerBlockWithItem("white_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(WHITE_TERRACOTTA)));
     public static final Block WHITE_TERRACOTTA_STAIRS = registerBlockWithItem("white_terracotta_stairs", new StairsBlock(WHITE_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(WHITE_TERRACOTTA)));

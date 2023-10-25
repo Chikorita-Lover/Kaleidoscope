@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "kaleidoscope:polished_end_stone"
+  },
+  "result": "kaleidoscope:polished_end_stone_wall"
+}

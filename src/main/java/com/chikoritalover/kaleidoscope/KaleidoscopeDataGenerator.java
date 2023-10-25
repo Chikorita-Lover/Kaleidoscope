@@ -53,9 +53,7 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
         @Override
         public void generate() {
-            addDrop(KaleidoscopeBlocks.END_STONE_SLAB, slabDrops(KaleidoscopeBlocks.END_STONE_SLAB));
-            addDrop(KaleidoscopeBlocks.END_STONE_STAIRS);
-            addDrop(KaleidoscopeBlocks.END_STONE_WALL);
+            addDrop(KaleidoscopeBlocks.POLISHED_CALCITE_WALL);
 
             addDrop(KaleidoscopeBlocks.CHARCOAL_BLOCK);
 
@@ -170,6 +168,12 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             this.addDrop(KaleidoscopeBlocks.BLACK_TERRACOTTA_STAIRS);
             this.addDrop(KaleidoscopeBlocks.TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.TERRACOTTA_SLAB));
             this.addDrop(KaleidoscopeBlocks.TERRACOTTA_STAIRS);
+
+            addDrop(KaleidoscopeBlocks.END_STONE_SLAB, slabDrops(KaleidoscopeBlocks.END_STONE_SLAB));
+            addDrop(KaleidoscopeBlocks.END_STONE_STAIRS);
+            addDrop(KaleidoscopeBlocks.END_STONE_WALL);
+
+            addDrop(KaleidoscopeBlocks.POLISHED_END_STONE_WALL);
 
             this.addDrop(KaleidoscopeBlocks.SOUL_JACK_O_LANTERN);
 
@@ -357,6 +361,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_CALCITE_SLAB, KaleidoscopeBlocks.POLISHED_CALCITE, 2);
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS, Blocks.CALCITE);
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS, KaleidoscopeBlocks.POLISHED_CALCITE);
+            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.POLISHED_CALCITE_WALL, Blocks.CALCITE);
+            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.POLISHED_CALCITE_WALL, KaleidoscopeBlocks.POLISHED_CALCITE);
 
             offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CHARCOAL_BLOCK, Items.CHARCOAL);
 
@@ -487,6 +493,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_END_STONE_SLAB, KaleidoscopeBlocks.POLISHED_END_STONE, 2);
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_END_STONE_STAIRS, Blocks.END_STONE);
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_END_STONE_STAIRS, KaleidoscopeBlocks.POLISHED_END_STONE);
+            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.POLISHED_END_STONE_WALL, Blocks.END_STONE);
+            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.POLISHED_END_STONE_WALL, KaleidoscopeBlocks.POLISHED_END_STONE);
 
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE_BRICKS, KaleidoscopeBlocks.POLISHED_END_STONE);
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE_BRICK_SLAB, KaleidoscopeBlocks.POLISHED_END_STONE, 2);

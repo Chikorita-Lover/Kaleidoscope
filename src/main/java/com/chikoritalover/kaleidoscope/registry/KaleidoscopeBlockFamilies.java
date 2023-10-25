@@ -72,7 +72,7 @@ public class KaleidoscopeBlockFamilies {
 
     static {
         CALCITE = register(Blocks.CALCITE).slab(KaleidoscopeBlocks.CALCITE_SLAB).stairs(KaleidoscopeBlocks.CALCITE_STAIRS).wall(KaleidoscopeBlocks.CALCITE_WALL).build();
-        POLISHED_CALCITE = register(KaleidoscopeBlocks.POLISHED_CALCITE).slab(KaleidoscopeBlocks.POLISHED_CALCITE_SLAB).stairs(KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS).build();
+        POLISHED_CALCITE = register(KaleidoscopeBlocks.POLISHED_CALCITE).slab(KaleidoscopeBlocks.POLISHED_CALCITE_SLAB).stairs(KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS).wall(KaleidoscopeBlocks.POLISHED_CALCITE_WALL).build();
 
         CUT_COPPER = register(Blocks.CUT_COPPER).wall(KaleidoscopeBlocks.CUT_COPPER_WALL).noGenerateModels().build();
         EXPOSED_CUT_COPPER = register(Blocks.EXPOSED_CUT_COPPER).wall(KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL).noGenerateModels().build();
@@ -115,7 +115,7 @@ public class KaleidoscopeBlockFamilies {
         
         RED_NETHER_BRICKS = register(Blocks.RED_NETHER_BRICKS).chiseled(KaleidoscopeBlocks.CHISELED_RED_NETHER_BRICKS).cracked(KaleidoscopeBlocks.CRACKED_RED_NETHER_BRICKS).fence(KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE).noGenerateRecipes().build();
         END_STONE = register(Blocks.END_STONE).slab(KaleidoscopeBlocks.END_STONE_SLAB).stairs(KaleidoscopeBlocks.END_STONE_STAIRS).wall(KaleidoscopeBlocks.END_STONE_WALL).build();
-        POLISHED_END_STONE = register(KaleidoscopeBlocks.POLISHED_END_STONE).slab(KaleidoscopeBlocks.POLISHED_END_STONE_SLAB).stairs(KaleidoscopeBlocks.POLISHED_END_STONE_STAIRS).build();
+        POLISHED_END_STONE = register(KaleidoscopeBlocks.POLISHED_END_STONE).slab(KaleidoscopeBlocks.POLISHED_END_STONE_SLAB).stairs(KaleidoscopeBlocks.POLISHED_END_STONE_STAIRS).wall(KaleidoscopeBlocks.POLISHED_END_STONE_WALL).build();
 
         WHITE_TERRACOTTA = register(Blocks.WHITE_TERRACOTTA).slab(KaleidoscopeBlocks.WHITE_TERRACOTTA_SLAB).stairs(KaleidoscopeBlocks.WHITE_TERRACOTTA_STAIRS).group("terracotta").build();
         ORANGE_TERRACOTTA = register(Blocks.ORANGE_TERRACOTTA).slab(KaleidoscopeBlocks.ORANGE_TERRACOTTA_SLAB).stairs(KaleidoscopeBlocks.ORANGE_TERRACOTTA_STAIRS).group("terracotta").build();

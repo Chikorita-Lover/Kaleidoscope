@@ -10,7 +10,7 @@ import net.minecraft.item.Items;
 public class KaleidoscopeItemGroups {
     public static void register() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
-            entries.addBefore(Blocks.DEEPSLATE, Blocks.CALCITE, KaleidoscopeBlocks.CALCITE_STAIRS, KaleidoscopeBlocks.CALCITE_SLAB, KaleidoscopeBlocks.CALCITE_WALL, KaleidoscopeBlocks.POLISHED_CALCITE, KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS, KaleidoscopeBlocks.POLISHED_CALCITE_SLAB);
+            entries.addBefore(Blocks.DEEPSLATE, Blocks.CALCITE, KaleidoscopeBlocks.CALCITE_STAIRS, KaleidoscopeBlocks.CALCITE_SLAB, KaleidoscopeBlocks.CALCITE_WALL, KaleidoscopeBlocks.POLISHED_CALCITE, KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS, KaleidoscopeBlocks.POLISHED_CALCITE_SLAB, KaleidoscopeBlocks.POLISHED_CALCITE_WALL);
             entries.addAfter(Blocks.BRICKS, KaleidoscopeBlocks.BRICK_MOSAIC);
             entries.addAfter(Blocks.BRICK_STAIRS, KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS);
             entries.addAfter(Blocks.BRICK_SLAB, KaleidoscopeBlocks.BRICK_MOSAIC_SLAB);
@@ -18,7 +18,7 @@ public class KaleidoscopeItemGroups {
             entries.addAfter(Blocks.RED_NETHER_BRICKS, KaleidoscopeBlocks.CRACKED_RED_NETHER_BRICKS);
             entries.addAfter(Blocks.RED_NETHER_BRICK_WALL, KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE, KaleidoscopeBlocks.CHISELED_RED_NETHER_BRICKS);
             entries.addAfter(Blocks.SMOOTH_BASALT, KaleidoscopeBlocks.SMOOTH_BASALT_STAIRS, KaleidoscopeBlocks.SMOOTH_BASALT_SLAB, KaleidoscopeBlocks.SMOOTH_BASALT_WALL);
-            entries.addAfter(Blocks.END_STONE, KaleidoscopeBlocks.END_STONE_STAIRS, KaleidoscopeBlocks.END_STONE_SLAB, KaleidoscopeBlocks.END_STONE_WALL, KaleidoscopeBlocks.POLISHED_END_STONE, KaleidoscopeBlocks.POLISHED_END_STONE_STAIRS, KaleidoscopeBlocks.POLISHED_END_STONE_SLAB);
+            entries.addAfter(Blocks.END_STONE, KaleidoscopeBlocks.END_STONE_STAIRS, KaleidoscopeBlocks.END_STONE_SLAB, KaleidoscopeBlocks.END_STONE_WALL, KaleidoscopeBlocks.POLISHED_END_STONE, KaleidoscopeBlocks.POLISHED_END_STONE_STAIRS, KaleidoscopeBlocks.POLISHED_END_STONE_SLAB, KaleidoscopeBlocks.POLISHED_END_STONE_WALL);
             entries.addAfter(Blocks.PURPUR_PILLAR, KaleidoscopeBlocks.CHISELED_PURPUR);
             entries.addAfter(Blocks.COAL_BLOCK, KaleidoscopeBlocks.CHARCOAL_BLOCK);
             entries.addAfter(Blocks.CUT_COPPER_SLAB, KaleidoscopeBlocks.CUT_COPPER_WALL, KaleidoscopeBlocks.SMOOTH_COPPER, KaleidoscopeBlocks.SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.SMOOTH_COPPER_SLAB);

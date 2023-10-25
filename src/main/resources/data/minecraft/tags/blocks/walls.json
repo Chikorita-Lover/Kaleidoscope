@@ -1,6 +1,7 @@
 {
   "values": [
     "kaleidoscope:calcite_wall",
+    "kaleidoscope:polished_calcite_wall",
     "kaleidoscope:cut_copper_wall",
     "kaleidoscope:exposed_cut_copper_wall",
     "kaleidoscope:weathered_cut_copper_wall",
@@ -26,6 +27,7 @@
     "kaleidoscope:white_painted_brick_wall",
     "kaleidoscope:yellow_painted_brick_wall",
     "kaleidoscope:smooth_basalt_wall",
-    "kaleidoscope:end_stone_wall"
+    "kaleidoscope:end_stone_wall",
+    "kaleidoscope:polished_end_stone_wall"
   ]
 }
