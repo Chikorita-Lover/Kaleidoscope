@@ -2,7 +2,7 @@
   "type": "farmersdelight:cutting",
   "ingredients": [
     {
-      "tag": "kaleidoscope:painted_bricks"
+      "tag": "kaleidoscope:stained_bricks"
     }
   ],
   "tool": {

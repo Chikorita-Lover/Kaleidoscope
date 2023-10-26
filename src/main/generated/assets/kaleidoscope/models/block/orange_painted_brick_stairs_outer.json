@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "kaleidoscope:block/orange_painted_bricks",
-    "side": "kaleidoscope:block/orange_painted_bricks",
-    "top": "kaleidoscope:block/orange_painted_bricks"
-  }
-}

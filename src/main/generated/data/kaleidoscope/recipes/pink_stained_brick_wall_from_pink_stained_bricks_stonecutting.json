@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "kaleidoscope:pink_stained_bricks"
+  },
+  "result": "kaleidoscope:pink_stained_brick_wall"
+}

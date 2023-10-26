@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kaleidoscope:block/cyan_stained_brick_slab"
+    },
+    "type=double": {
+      "model": "kaleidoscope:block/cyan_stained_bricks"
+    },
+    "type=top": {
+      "model": "kaleidoscope:block/cyan_stained_brick_slab_top"
+    }
+  }
+}

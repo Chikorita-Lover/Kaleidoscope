@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "kaleidoscope:block/black_painted_bricks",
-    "side": "kaleidoscope:block/black_painted_bricks",
-    "top": "kaleidoscope:block/black_painted_bricks"
-  }
-}

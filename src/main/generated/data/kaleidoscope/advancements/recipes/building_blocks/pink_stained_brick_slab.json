@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pink_stained_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kaleidoscope:pink_stained_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "kaleidoscope:pink_stained_brick_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pink_stained_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "kaleidoscope:pink_stained_brick_slab"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,20 +1,20 @@
 {
   "values": [
-    "kaleidoscope:black_painted_bricks",
-    "kaleidoscope:blue_painted_bricks",
-    "kaleidoscope:brown_painted_bricks",
-    "kaleidoscope:cyan_painted_bricks",
-    "kaleidoscope:gray_painted_bricks",
-    "kaleidoscope:green_painted_bricks",
-    "kaleidoscope:light_blue_painted_bricks",
-    "kaleidoscope:light_gray_painted_bricks",
-    "kaleidoscope:lime_painted_bricks",
-    "kaleidoscope:magenta_painted_bricks",
-    "kaleidoscope:orange_painted_bricks",
-    "kaleidoscope:pink_painted_bricks",
-    "kaleidoscope:purple_painted_bricks",
-    "kaleidoscope:red_painted_bricks",
-    "kaleidoscope:white_painted_bricks",
-    "kaleidoscope:yellow_painted_bricks"
+    "kaleidoscope:black_stained_bricks",
+    "kaleidoscope:blue_stained_bricks",
+    "kaleidoscope:brown_stained_bricks",
+    "kaleidoscope:cyan_stained_bricks",
+    "kaleidoscope:gray_stained_bricks",
+    "kaleidoscope:green_stained_bricks",
+    "kaleidoscope:light_blue_stained_bricks",
+    "kaleidoscope:light_gray_stained_bricks",
+    "kaleidoscope:lime_stained_bricks",
+    "kaleidoscope:magenta_stained_bricks",
+    "kaleidoscope:orange_stained_bricks",
+    "kaleidoscope:pink_stained_bricks",
+    "kaleidoscope:purple_stained_bricks",
+    "kaleidoscope:red_stained_bricks",
+    "kaleidoscope:white_stained_bricks",
+    "kaleidoscope:yellow_stained_bricks"
   ]
 }

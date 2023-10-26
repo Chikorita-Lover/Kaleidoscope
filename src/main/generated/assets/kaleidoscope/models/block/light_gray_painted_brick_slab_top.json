@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "kaleidoscope:block/light_gray_painted_bricks",
-    "side": "kaleidoscope:block/light_gray_painted_bricks",
-    "top": "kaleidoscope:block/light_gray_painted_bricks"
-  }
-}

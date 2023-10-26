@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_brick_slab",
+  "key": {
+    "#": {
+      "item": "kaleidoscope:black_stained_bricks"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "item": "kaleidoscope:black_stained_brick_slab"
+  },
+  "show_notification": true
+}

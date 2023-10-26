@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/wall_inventory",
-  "textures": {
-    "wall": "kaleidoscope:block/red_painted_bricks"
-  }
-}

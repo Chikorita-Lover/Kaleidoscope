@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "kaleidoscope:yellow_stained_bricks"
+  },
+  "result": "kaleidoscope:yellow_stained_brick_stairs"
+}

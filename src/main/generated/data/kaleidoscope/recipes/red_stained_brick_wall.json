@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "stained_brick_wall",
+  "key": {
+    "#": {
+      "item": "kaleidoscope:red_stained_bricks"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "item": "kaleidoscope:red_stained_brick_wall"
+  },
+  "show_notification": true
+}

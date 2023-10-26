@@ -75,85 +75,85 @@ public class KaleidoscopeBlocks {
     public static final Block BRICK_MOSAIC_STAIRS = registerBlockWithItem("brick_mosaic_stairs", new StairsBlock(BRICK_MOSAIC.getDefaultState(), AbstractBlock.Settings.copy(BRICK_MOSAIC)));
     public static final Block BRICK_MOSAIC_SLAB = registerBlockWithItem("brick_mosaic_slab", new SlabBlock(AbstractBlock.Settings.copy(BRICK_MOSAIC)));
 
-    public static final Block BLACK_PAINTED_BRICKS = registerBlockWithItem("black_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.BLACK)));
-    public static final Block BLACK_PAINTED_BRICK_SLAB = registerBlockWithItem("black_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(BLACK_PAINTED_BRICKS)));
-    public static final Block BLACK_PAINTED_BRICK_STAIRS = registerBlockWithItem("black_painted_brick_stairs", new StairsBlock(BLACK_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(BLACK_PAINTED_BRICKS)));
-    public static final Block BLACK_PAINTED_BRICK_WALL = registerBlockWithItem("black_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(BLACK_PAINTED_BRICKS)));
+    public static final Block BLACK_STAINED_BRICKS = registerBlockWithItem("black_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.BLACK)));
+    public static final Block BLACK_STAINED_BRICK_SLAB = registerBlockWithItem("black_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(BLACK_STAINED_BRICKS)));
+    public static final Block BLACK_STAINED_BRICK_STAIRS = registerBlockWithItem("black_stained_brick_stairs", new StairsBlock(BLACK_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(BLACK_STAINED_BRICKS)));
+    public static final Block BLACK_STAINED_BRICK_WALL = registerBlockWithItem("black_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(BLACK_STAINED_BRICKS)));
 
-    public static final Block BLUE_PAINTED_BRICKS = registerBlockWithItem("blue_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.BLUE)));
-    public static final Block BLUE_PAINTED_BRICK_SLAB = registerBlockWithItem("blue_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(BLUE_PAINTED_BRICKS)));
-    public static final Block BLUE_PAINTED_BRICK_STAIRS = registerBlockWithItem("blue_painted_brick_stairs", new StairsBlock(BLUE_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(BLUE_PAINTED_BRICKS)));
-    public static final Block BLUE_PAINTED_BRICK_WALL = registerBlockWithItem("blue_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(BLUE_PAINTED_BRICKS)));
+    public static final Block BLUE_STAINED_BRICKS = registerBlockWithItem("blue_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.BLUE)));
+    public static final Block BLUE_STAINED_BRICK_SLAB = registerBlockWithItem("blue_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(BLUE_STAINED_BRICKS)));
+    public static final Block BLUE_STAINED_BRICK_STAIRS = registerBlockWithItem("blue_stained_brick_stairs", new StairsBlock(BLUE_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(BLUE_STAINED_BRICKS)));
+    public static final Block BLUE_STAINED_BRICK_WALL = registerBlockWithItem("blue_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(BLUE_STAINED_BRICKS)));
 
-    public static final Block BROWN_PAINTED_BRICKS = registerBlockWithItem("brown_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.BROWN)));
-    public static final Block BROWN_PAINTED_BRICK_SLAB = registerBlockWithItem("brown_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(BROWN_PAINTED_BRICKS)));
-    public static final Block BROWN_PAINTED_BRICK_STAIRS = registerBlockWithItem("brown_painted_brick_stairs", new StairsBlock(BROWN_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(BROWN_PAINTED_BRICKS)));
-    public static final Block BROWN_PAINTED_BRICK_WALL = registerBlockWithItem("brown_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(BROWN_PAINTED_BRICKS)));
+    public static final Block BROWN_STAINED_BRICKS = registerBlockWithItem("brown_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.BROWN)));
+    public static final Block BROWN_STAINED_BRICK_SLAB = registerBlockWithItem("brown_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(BROWN_STAINED_BRICKS)));
+    public static final Block BROWN_STAINED_BRICK_STAIRS = registerBlockWithItem("brown_stained_brick_stairs", new StairsBlock(BROWN_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(BROWN_STAINED_BRICKS)));
+    public static final Block BROWN_STAINED_BRICK_WALL = registerBlockWithItem("brown_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(BROWN_STAINED_BRICKS)));
 
-    public static final Block CYAN_PAINTED_BRICKS = registerBlockWithItem("cyan_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.CYAN)));
-    public static final Block CYAN_PAINTED_BRICK_SLAB = registerBlockWithItem("cyan_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(CYAN_PAINTED_BRICKS)));
-    public static final Block CYAN_PAINTED_BRICK_STAIRS = registerBlockWithItem("cyan_painted_brick_stairs", new StairsBlock(CYAN_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(CYAN_PAINTED_BRICKS)));
-    public static final Block CYAN_PAINTED_BRICK_WALL = registerBlockWithItem("cyan_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(CYAN_PAINTED_BRICKS)));
+    public static final Block CYAN_STAINED_BRICKS = registerBlockWithItem("cyan_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.CYAN)));
+    public static final Block CYAN_STAINED_BRICK_SLAB = registerBlockWithItem("cyan_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(CYAN_STAINED_BRICKS)));
+    public static final Block CYAN_STAINED_BRICK_STAIRS = registerBlockWithItem("cyan_stained_brick_stairs", new StairsBlock(CYAN_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(CYAN_STAINED_BRICKS)));
+    public static final Block CYAN_STAINED_BRICK_WALL = registerBlockWithItem("cyan_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(CYAN_STAINED_BRICKS)));
 
-    public static final Block GRAY_PAINTED_BRICKS = registerBlockWithItem("gray_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.GRAY)));
-    public static final Block GRAY_PAINTED_BRICK_SLAB = registerBlockWithItem("gray_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(GRAY_PAINTED_BRICKS)));
-    public static final Block GRAY_PAINTED_BRICK_STAIRS = registerBlockWithItem("gray_painted_brick_stairs", new StairsBlock(GRAY_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(GRAY_PAINTED_BRICKS)));
-    public static final Block GRAY_PAINTED_BRICK_WALL = registerBlockWithItem("gray_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(GRAY_PAINTED_BRICKS)));
+    public static final Block GRAY_STAINED_BRICKS = registerBlockWithItem("gray_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.GRAY)));
+    public static final Block GRAY_STAINED_BRICK_SLAB = registerBlockWithItem("gray_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(GRAY_STAINED_BRICKS)));
+    public static final Block GRAY_STAINED_BRICK_STAIRS = registerBlockWithItem("gray_stained_brick_stairs", new StairsBlock(GRAY_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(GRAY_STAINED_BRICKS)));
+    public static final Block GRAY_STAINED_BRICK_WALL = registerBlockWithItem("gray_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(GRAY_STAINED_BRICKS)));
 
-    public static final Block GREEN_PAINTED_BRICKS = registerBlockWithItem("green_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.GREEN)));
-    public static final Block GREEN_PAINTED_BRICK_SLAB = registerBlockWithItem("green_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(GREEN_PAINTED_BRICKS)));
-    public static final Block GREEN_PAINTED_BRICK_STAIRS = registerBlockWithItem("green_painted_brick_stairs", new StairsBlock(GREEN_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(GREEN_PAINTED_BRICKS)));
-    public static final Block GREEN_PAINTED_BRICK_WALL = registerBlockWithItem("green_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(GREEN_PAINTED_BRICKS)));
+    public static final Block GREEN_STAINED_BRICKS = registerBlockWithItem("green_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.GREEN)));
+    public static final Block GREEN_STAINED_BRICK_SLAB = registerBlockWithItem("green_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(GREEN_STAINED_BRICKS)));
+    public static final Block GREEN_STAINED_BRICK_STAIRS = registerBlockWithItem("green_stained_brick_stairs", new StairsBlock(GREEN_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(GREEN_STAINED_BRICKS)));
+    public static final Block GREEN_STAINED_BRICK_WALL = registerBlockWithItem("green_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(GREEN_STAINED_BRICKS)));
 
-    public static final Block LIGHT_BLUE_PAINTED_BRICKS = registerBlockWithItem("light_blue_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.LIGHT_BLUE)));
-    public static final Block LIGHT_BLUE_PAINTED_BRICK_SLAB = registerBlockWithItem("light_blue_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(LIGHT_BLUE_PAINTED_BRICKS)));
-    public static final Block LIGHT_BLUE_PAINTED_BRICK_STAIRS = registerBlockWithItem("light_blue_painted_brick_stairs", new StairsBlock(LIGHT_BLUE_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(LIGHT_BLUE_PAINTED_BRICKS)));
-    public static final Block LIGHT_BLUE_PAINTED_BRICK_WALL = registerBlockWithItem("light_blue_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(LIGHT_BLUE_PAINTED_BRICKS)));
+    public static final Block LIGHT_BLUE_STAINED_BRICKS = registerBlockWithItem("light_blue_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.LIGHT_BLUE)));
+    public static final Block LIGHT_BLUE_STAINED_BRICK_SLAB = registerBlockWithItem("light_blue_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(LIGHT_BLUE_STAINED_BRICKS)));
+    public static final Block LIGHT_BLUE_STAINED_BRICK_STAIRS = registerBlockWithItem("light_blue_stained_brick_stairs", new StairsBlock(LIGHT_BLUE_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(LIGHT_BLUE_STAINED_BRICKS)));
+    public static final Block LIGHT_BLUE_STAINED_BRICK_WALL = registerBlockWithItem("light_blue_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(LIGHT_BLUE_STAINED_BRICKS)));
 
-    public static final Block LIGHT_GRAY_PAINTED_BRICKS = registerBlockWithItem("light_gray_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.LIGHT_GRAY)));
-    public static final Block LIGHT_GRAY_PAINTED_BRICK_SLAB = registerBlockWithItem("light_gray_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(LIGHT_GRAY_PAINTED_BRICKS)));
-    public static final Block LIGHT_GRAY_PAINTED_BRICK_STAIRS = registerBlockWithItem("light_gray_painted_brick_stairs", new StairsBlock(LIGHT_GRAY_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(LIGHT_GRAY_PAINTED_BRICKS)));
-    public static final Block LIGHT_GRAY_PAINTED_BRICK_WALL = registerBlockWithItem("light_gray_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(LIGHT_GRAY_PAINTED_BRICKS)));
+    public static final Block LIGHT_GRAY_STAINED_BRICKS = registerBlockWithItem("light_gray_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.LIGHT_GRAY)));
+    public static final Block LIGHT_GRAY_STAINED_BRICK_SLAB = registerBlockWithItem("light_gray_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(LIGHT_GRAY_STAINED_BRICKS)));
+    public static final Block LIGHT_GRAY_STAINED_BRICK_STAIRS = registerBlockWithItem("light_gray_stained_brick_stairs", new StairsBlock(LIGHT_GRAY_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(LIGHT_GRAY_STAINED_BRICKS)));
+    public static final Block LIGHT_GRAY_STAINED_BRICK_WALL = registerBlockWithItem("light_gray_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(LIGHT_GRAY_STAINED_BRICKS)));
 
-    public static final Block LIME_PAINTED_BRICKS = registerBlockWithItem("lime_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.LIME)));
-    public static final Block LIME_PAINTED_BRICK_SLAB = registerBlockWithItem("lime_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(LIME_PAINTED_BRICKS)));
-    public static final Block LIME_PAINTED_BRICK_STAIRS = registerBlockWithItem("lime_painted_brick_stairs", new StairsBlock(LIME_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(LIME_PAINTED_BRICKS)));
-    public static final Block LIME_PAINTED_BRICK_WALL = registerBlockWithItem("lime_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(LIME_PAINTED_BRICKS)));
+    public static final Block LIME_STAINED_BRICKS = registerBlockWithItem("lime_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.LIME)));
+    public static final Block LIME_STAINED_BRICK_SLAB = registerBlockWithItem("lime_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(LIME_STAINED_BRICKS)));
+    public static final Block LIME_STAINED_BRICK_STAIRS = registerBlockWithItem("lime_stained_brick_stairs", new StairsBlock(LIME_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(LIME_STAINED_BRICKS)));
+    public static final Block LIME_STAINED_BRICK_WALL = registerBlockWithItem("lime_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(LIME_STAINED_BRICKS)));
 
-    public static final Block MAGENTA_PAINTED_BRICKS = registerBlockWithItem("magenta_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.MAGENTA)));
-    public static final Block MAGENTA_PAINTED_BRICK_SLAB = registerBlockWithItem("magenta_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(MAGENTA_PAINTED_BRICKS)));
-    public static final Block MAGENTA_PAINTED_BRICK_STAIRS = registerBlockWithItem("magenta_painted_brick_stairs", new StairsBlock(MAGENTA_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(MAGENTA_PAINTED_BRICKS)));
-    public static final Block MAGENTA_PAINTED_BRICK_WALL = registerBlockWithItem("magenta_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(MAGENTA_PAINTED_BRICKS)));
+    public static final Block MAGENTA_STAINED_BRICKS = registerBlockWithItem("magenta_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.MAGENTA)));
+    public static final Block MAGENTA_STAINED_BRICK_SLAB = registerBlockWithItem("magenta_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(MAGENTA_STAINED_BRICKS)));
+    public static final Block MAGENTA_STAINED_BRICK_STAIRS = registerBlockWithItem("magenta_stained_brick_stairs", new StairsBlock(MAGENTA_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(MAGENTA_STAINED_BRICKS)));
+    public static final Block MAGENTA_STAINED_BRICK_WALL = registerBlockWithItem("magenta_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(MAGENTA_STAINED_BRICKS)));
 
-    public static final Block ORANGE_PAINTED_BRICKS = registerBlockWithItem("orange_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.ORANGE)));
-    public static final Block ORANGE_PAINTED_BRICK_SLAB = registerBlockWithItem("orange_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(ORANGE_PAINTED_BRICKS)));
-    public static final Block ORANGE_PAINTED_BRICK_STAIRS = registerBlockWithItem("orange_painted_brick_stairs", new StairsBlock(ORANGE_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(ORANGE_PAINTED_BRICKS)));
-    public static final Block ORANGE_PAINTED_BRICK_WALL = registerBlockWithItem("orange_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(ORANGE_PAINTED_BRICKS)));
+    public static final Block ORANGE_STAINED_BRICKS = registerBlockWithItem("orange_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.ORANGE)));
+    public static final Block ORANGE_STAINED_BRICK_SLAB = registerBlockWithItem("orange_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(ORANGE_STAINED_BRICKS)));
+    public static final Block ORANGE_STAINED_BRICK_STAIRS = registerBlockWithItem("orange_stained_brick_stairs", new StairsBlock(ORANGE_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(ORANGE_STAINED_BRICKS)));
+    public static final Block ORANGE_STAINED_BRICK_WALL = registerBlockWithItem("orange_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(ORANGE_STAINED_BRICKS)));
 
-    public static final Block PINK_PAINTED_BRICKS = registerBlockWithItem("pink_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.PINK)));
-    public static final Block PINK_PAINTED_BRICK_SLAB = registerBlockWithItem("pink_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(PINK_PAINTED_BRICKS)));
-    public static final Block PINK_PAINTED_BRICK_STAIRS = registerBlockWithItem("pink_painted_brick_stairs", new StairsBlock(PINK_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(PINK_PAINTED_BRICKS)));
-    public static final Block PINK_PAINTED_BRICK_WALL = registerBlockWithItem("pink_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(PINK_PAINTED_BRICKS)));
+    public static final Block PINK_STAINED_BRICKS = registerBlockWithItem("pink_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.PINK)));
+    public static final Block PINK_STAINED_BRICK_SLAB = registerBlockWithItem("pink_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(PINK_STAINED_BRICKS)));
+    public static final Block PINK_STAINED_BRICK_STAIRS = registerBlockWithItem("pink_stained_brick_stairs", new StairsBlock(PINK_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(PINK_STAINED_BRICKS)));
+    public static final Block PINK_STAINED_BRICK_WALL = registerBlockWithItem("pink_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(PINK_STAINED_BRICKS)));
 
-    public static final Block PURPLE_PAINTED_BRICKS = registerBlockWithItem("purple_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.PURPLE)));
-    public static final Block PURPLE_PAINTED_BRICK_SLAB = registerBlockWithItem("purple_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(PURPLE_PAINTED_BRICKS)));
-    public static final Block PURPLE_PAINTED_BRICK_STAIRS = registerBlockWithItem("purple_painted_brick_stairs", new StairsBlock(PURPLE_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(PURPLE_PAINTED_BRICKS)));
-    public static final Block PURPLE_PAINTED_BRICK_WALL = registerBlockWithItem("purple_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(PURPLE_PAINTED_BRICKS)));
+    public static final Block PURPLE_STAINED_BRICKS = registerBlockWithItem("purple_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.PURPLE)));
+    public static final Block PURPLE_STAINED_BRICK_SLAB = registerBlockWithItem("purple_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(PURPLE_STAINED_BRICKS)));
+    public static final Block PURPLE_STAINED_BRICK_STAIRS = registerBlockWithItem("purple_stained_brick_stairs", new StairsBlock(PURPLE_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(PURPLE_STAINED_BRICKS)));
+    public static final Block PURPLE_STAINED_BRICK_WALL = registerBlockWithItem("purple_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(PURPLE_STAINED_BRICKS)));
 
-    public static final Block RED_PAINTED_BRICKS = registerBlockWithItem("red_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.RED)));
-    public static final Block RED_PAINTED_BRICK_SLAB = registerBlockWithItem("red_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(RED_PAINTED_BRICKS)));
-    public static final Block RED_PAINTED_BRICK_STAIRS = registerBlockWithItem("red_painted_brick_stairs", new StairsBlock(RED_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(RED_PAINTED_BRICKS)));
-    public static final Block RED_PAINTED_BRICK_WALL = registerBlockWithItem("red_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(RED_PAINTED_BRICKS)));
+    public static final Block RED_STAINED_BRICKS = registerBlockWithItem("red_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.RED)));
+    public static final Block RED_STAINED_BRICK_SLAB = registerBlockWithItem("red_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(RED_STAINED_BRICKS)));
+    public static final Block RED_STAINED_BRICK_STAIRS = registerBlockWithItem("red_stained_brick_stairs", new StairsBlock(RED_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(RED_STAINED_BRICKS)));
+    public static final Block RED_STAINED_BRICK_WALL = registerBlockWithItem("red_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(RED_STAINED_BRICKS)));
 
-    public static final Block WHITE_PAINTED_BRICKS = registerBlockWithItem("white_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.WHITE)));
-    public static final Block WHITE_PAINTED_BRICK_SLAB = registerBlockWithItem("white_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(WHITE_PAINTED_BRICKS)));
-    public static final Block WHITE_PAINTED_BRICK_STAIRS = registerBlockWithItem("white_painted_brick_stairs", new StairsBlock(WHITE_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(WHITE_PAINTED_BRICKS)));
-    public static final Block WHITE_PAINTED_BRICK_WALL = registerBlockWithItem("white_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(WHITE_PAINTED_BRICKS)));
+    public static final Block WHITE_STAINED_BRICKS = registerBlockWithItem("white_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.WHITE)));
+    public static final Block WHITE_STAINED_BRICK_SLAB = registerBlockWithItem("white_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(WHITE_STAINED_BRICKS)));
+    public static final Block WHITE_STAINED_BRICK_STAIRS = registerBlockWithItem("white_stained_brick_stairs", new StairsBlock(WHITE_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(WHITE_STAINED_BRICKS)));
+    public static final Block WHITE_STAINED_BRICK_WALL = registerBlockWithItem("white_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(WHITE_STAINED_BRICKS)));
 
-    public static final Block YELLOW_PAINTED_BRICKS = registerBlockWithItem("yellow_painted_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.YELLOW)));
-    public static final Block YELLOW_PAINTED_BRICK_SLAB = registerBlockWithItem("yellow_painted_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(YELLOW_PAINTED_BRICKS)));
-    public static final Block YELLOW_PAINTED_BRICK_STAIRS = registerBlockWithItem("yellow_painted_brick_stairs", new StairsBlock(YELLOW_PAINTED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(YELLOW_PAINTED_BRICKS)));
-    public static final Block YELLOW_PAINTED_BRICK_WALL = registerBlockWithItem("yellow_painted_brick_wall", new WallBlock(AbstractBlock.Settings.copy(YELLOW_PAINTED_BRICKS)));
+    public static final Block YELLOW_STAINED_BRICKS = registerBlockWithItem("yellow_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.YELLOW)));
+    public static final Block YELLOW_STAINED_BRICK_SLAB = registerBlockWithItem("yellow_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(YELLOW_STAINED_BRICKS)));
+    public static final Block YELLOW_STAINED_BRICK_STAIRS = registerBlockWithItem("yellow_stained_brick_stairs", new StairsBlock(YELLOW_STAINED_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(YELLOW_STAINED_BRICKS)));
+    public static final Block YELLOW_STAINED_BRICK_WALL = registerBlockWithItem("yellow_stained_brick_wall", new WallBlock(AbstractBlock.Settings.copy(YELLOW_STAINED_BRICKS)));
 
     public static final Block CRACKED_RED_NETHER_BRICKS = registerBlockWithItem("cracked_red_nether_bricks", new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS)));
     public static final Block CHISELED_RED_NETHER_BRICKS = registerBlockWithItem("chiseled_red_nether_bricks", new Block(AbstractBlock.Settings.copy(RED_NETHER_BRICKS)));

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_brick_stairs",
+  "key": {
+    "#": {
+      "item": "kaleidoscope:gray_stained_bricks"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "item": "kaleidoscope:gray_stained_brick_stairs"
+  },
+  "show_notification": true
+}

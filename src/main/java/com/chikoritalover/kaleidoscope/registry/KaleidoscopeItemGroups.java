@@ -32,22 +32,22 @@ public class KaleidoscopeItemGroups {
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
             entries.addBefore(Blocks.TERRACOTTA, Blocks.BRICKS, KaleidoscopeBlocks.BRICK_MOSAIC, Blocks.BRICK_STAIRS, KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS, Blocks.BRICK_SLAB, KaleidoscopeBlocks.BRICK_MOSAIC_SLAB, Blocks.BRICK_WALL);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.WHITE_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.LIGHT_GRAY_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.GRAY_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.BLACK_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.BROWN_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.RED_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.ORANGE_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.YELLOW_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.LIME_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.GREEN_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.CYAN_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.LIGHT_BLUE_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.BLUE_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.PURPLE_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.MAGENTA_PAINTED_BRICKS);
-            addPaintedBricks(entries, KaleidoscopeBlockFamilies.PINK_PAINTED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.WHITE_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.LIGHT_GRAY_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.GRAY_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.BLACK_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.BROWN_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.RED_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.ORANGE_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.YELLOW_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.LIME_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.GREEN_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.CYAN_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.LIGHT_BLUE_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.BLUE_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.PURPLE_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.MAGENTA_STAINED_BRICKS);
+            addStainedBricks(entries, KaleidoscopeBlockFamilies.PINK_STAINED_BRICKS);
             entries.addAfter(Blocks.TERRACOTTA, KaleidoscopeBlocks.TERRACOTTA_STAIRS, KaleidoscopeBlocks.TERRACOTTA_SLAB);
             entries.addAfter(Blocks.WHITE_TERRACOTTA, KaleidoscopeBlocks.WHITE_TERRACOTTA_STAIRS, KaleidoscopeBlocks.WHITE_TERRACOTTA_SLAB);
             entries.addAfter(Blocks.LIGHT_GRAY_TERRACOTTA, KaleidoscopeBlocks.LIGHT_GRAY_TERRACOTTA_STAIRS, KaleidoscopeBlocks.LIGHT_GRAY_TERRACOTTA_SLAB);
@@ -81,7 +81,7 @@ public class KaleidoscopeItemGroups {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.addAfter(Items.DISC_FRAGMENT_5, KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP));
     }
 
-    private static void addPaintedBricks(FabricItemGroupEntries entries, BlockFamily blockFamily) {
+    private static void addStainedBricks(FabricItemGroupEntries entries, BlockFamily blockFamily) {
         entries.addBefore(Blocks.TERRACOTTA, blockFamily.getBaseBlock(), blockFamily.getVariant(BlockFamily.Variant.STAIRS), blockFamily.getVariant(BlockFamily.Variant.SLAB), blockFamily.getVariant(BlockFamily.Variant.WALL));
     }
 }
