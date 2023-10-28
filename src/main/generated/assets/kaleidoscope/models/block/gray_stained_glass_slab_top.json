@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "minecraft:block/gray_stained_glass",
+    "side": "kaleidoscope:block/gray_stained_glass_slab_side",
+    "top": "minecraft:block/gray_stained_glass"
+  }
+}

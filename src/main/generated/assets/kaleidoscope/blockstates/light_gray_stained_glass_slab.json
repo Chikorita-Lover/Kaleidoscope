@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kaleidoscope:block/light_gray_stained_glass_slab"
+    },
+    "type=double": {
+      "model": "kaleidoscope:block/light_gray_stained_glass_slab_double"
+    },
+    "type=top": {
+      "model": "kaleidoscope:block/light_gray_stained_glass_slab_top"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "minecraft:block/white_stained_glass",
+    "side": "kaleidoscope:block/white_stained_glass_slab_side"
+  }
+}

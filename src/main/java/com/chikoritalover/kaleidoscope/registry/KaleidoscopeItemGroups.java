@@ -65,6 +65,23 @@ public class KaleidoscopeItemGroups {
             entries.addAfter(Blocks.PURPLE_TERRACOTTA, KaleidoscopeBlocks.PURPLE_TERRACOTTA_STAIRS, KaleidoscopeBlocks.PURPLE_TERRACOTTA_SLAB);
             entries.addAfter(Blocks.MAGENTA_TERRACOTTA, KaleidoscopeBlocks.MAGENTA_TERRACOTTA_STAIRS, KaleidoscopeBlocks.MAGENTA_TERRACOTTA_SLAB);
             entries.addAfter(Blocks.PINK_TERRACOTTA, KaleidoscopeBlocks.PINK_TERRACOTTA_STAIRS, KaleidoscopeBlocks.PINK_TERRACOTTA_SLAB);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.WHITE_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.LIGHT_GRAY_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.GRAY_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.BLACK_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.BROWN_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.RED_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.ORANGE_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.YELLOW_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.LIME_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.GREEN_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.CYAN_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.LIGHT_BLUE_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.BLUE_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.PURPLE_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.MAGENTA_STAINED_GLASS);
+            extendStainedGlass(entries, KaleidoscopeBlockFamilies.PINK_STAINED_GLASS);
             entries.addAfter(Blocks.PINK_STAINED_GLASS_PANE, KaleidoscopeBlocks.GLASS_DOOR, KaleidoscopeBlocks.GLASS_TRAPDOOR, KaleidoscopeBlocks.WHITE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.GRAY_STAINED_GLASS_DOOR, KaleidoscopeBlocks.GRAY_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, KaleidoscopeBlocks.BLACK_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.BROWN_STAINED_GLASS_DOOR, KaleidoscopeBlocks.BROWN_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.RED_STAINED_GLASS_DOOR, KaleidoscopeBlocks.RED_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_DOOR, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.LIME_STAINED_GLASS_DOOR, KaleidoscopeBlocks.LIME_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.GREEN_STAINED_GLASS_DOOR, KaleidoscopeBlocks.GREEN_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.CYAN_STAINED_GLASS_DOOR, KaleidoscopeBlocks.CYAN_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.BLUE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_DOOR, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.PINK_STAINED_GLASS_DOOR, KaleidoscopeBlocks.PINK_STAINED_GLASS_TRAPDOOR);
         });
 
@@ -83,5 +100,9 @@ public class KaleidoscopeItemGroups {
 
     private static void addStainedBricks(FabricItemGroupEntries entries, BlockFamily blockFamily) {
         entries.addBefore(Blocks.TERRACOTTA, blockFamily.getBaseBlock(), blockFamily.getVariant(BlockFamily.Variant.STAIRS), blockFamily.getVariant(BlockFamily.Variant.SLAB), blockFamily.getVariant(BlockFamily.Variant.WALL));
+    }
+
+    private static void extendStainedGlass(FabricItemGroupEntries entries, BlockFamily blockFamily) {
+        entries.addAfter(blockFamily.getBaseBlock(), blockFamily.getVariant(BlockFamily.Variant.SLAB));
     }
 }

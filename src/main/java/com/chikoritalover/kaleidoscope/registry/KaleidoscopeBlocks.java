@@ -219,6 +219,24 @@ public class KaleidoscopeBlocks {
 
     public static final Block KILN = registerBlockWithItem("kiln", new KilnBlock(AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).luminance(createLightLevelFromLitBlockState(13)).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.5F)));
 
+    public static final Block GLASS_SLAB = registerBlockWithItem("glass_slab", new GlassSlabBlock(GLASS, AbstractBlock.Settings.copy(GLASS)));
+    public static final Block BLACK_STAINED_GLASS_SLAB = registerBlockWithItem("black_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) BLACK_STAINED_GLASS));
+    public static final Block BLUE_STAINED_GLASS_SLAB = registerBlockWithItem("blue_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) BLUE_STAINED_GLASS));
+    public static final Block BROWN_STAINED_GLASS_SLAB = registerBlockWithItem("brown_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) BROWN_STAINED_GLASS));
+    public static final Block CYAN_STAINED_GLASS_SLAB = registerBlockWithItem("cyan_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) CYAN_STAINED_GLASS));
+    public static final Block GRAY_STAINED_GLASS_SLAB = registerBlockWithItem("gray_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) GRAY_STAINED_GLASS));
+    public static final Block GREEN_STAINED_GLASS_SLAB = registerBlockWithItem("green_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) GREEN_STAINED_GLASS));
+    public static final Block LIGHT_BLUE_STAINED_GLASS_SLAB = registerBlockWithItem("light_blue_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) LIGHT_BLUE_STAINED_GLASS));
+    public static final Block LIGHT_GRAY_STAINED_GLASS_SLAB = registerBlockWithItem("light_gray_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) LIGHT_GRAY_STAINED_GLASS));
+    public static final Block LIME_STAINED_GLASS_SLAB = registerBlockWithItem("lime_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) LIME_STAINED_GLASS));
+    public static final Block MAGENTA_STAINED_GLASS_SLAB = registerBlockWithItem("magenta_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) MAGENTA_STAINED_GLASS));
+    public static final Block ORANGE_STAINED_GLASS_SLAB = registerBlockWithItem("orange_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) ORANGE_STAINED_GLASS));
+    public static final Block PINK_STAINED_GLASS_SLAB = registerBlockWithItem("pink_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) PINK_STAINED_GLASS));
+    public static final Block PURPLE_STAINED_GLASS_SLAB = registerBlockWithItem("purple_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) PURPLE_STAINED_GLASS));
+    public static final Block RED_STAINED_GLASS_SLAB = registerBlockWithItem("red_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) RED_STAINED_GLASS));
+    public static final Block WHITE_STAINED_GLASS_SLAB = registerBlockWithItem("white_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) WHITE_STAINED_GLASS));
+    public static final Block YELLOW_STAINED_GLASS_SLAB = registerBlockWithItem("yellow_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) YELLOW_STAINED_GLASS));
+
     public static final Block GLASS_DOOR = registerBlockWithItem("glass_door", new GlassDoorBlock(AbstractBlock.Settings.create().instrument(Instrument.HAT).mapColor(MapColor.CLEAR).nonOpaque().sounds(BlockSoundGroup.GLASS).strength(0.3F)));
     public static final Block BLACK_STAINED_GLASS_DOOR = registerBlockWithItem("black_stained_glass_door", new StainedGlassDoorBlock(DyeColor.BLACK, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.BLACK)));
     public static final Block BLUE_STAINED_GLASS_DOOR = registerBlockWithItem("blue_stained_glass_door", new StainedGlassDoorBlock(DyeColor.BLUE, AbstractBlock.Settings.copy(GLASS_DOOR).mapColor(MapColor.BLUE)));
@@ -256,6 +274,10 @@ public class KaleidoscopeBlocks {
     public static final Block YELLOW_STAINED_GLASS_TRAPDOOR = registerBlockWithItem("yellow_stained_glass_trapdoor", new StainedGlassTrapdoorBlock(DyeColor.YELLOW, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.YELLOW)));
 
     public static final Block POTION_CAULDRON = register("potion_cauldron", new PotionCauldronBlock(AbstractBlock.Settings.copy(CAULDRON)));
+
+    private static Block createStainedGlassSlabBlock(StainedGlassBlock block) {
+        return new StainedGlassSlabBlock(block.getColor(), block, AbstractBlock.Settings.copy(block));
+    }
 
     public static Block registerBlockWithItem(String id, Block block) {
         Block block2 = register(id, block);

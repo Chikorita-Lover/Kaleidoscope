@@ -4,6 +4,7 @@ import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlockFamilies;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlocks;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItemTags;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
+import com.google.gson.JsonElement;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -19,11 +20,15 @@ import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootTable;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.util.Identifier;
+
+import java.util.function.BiConsumer;
+import java.util.function.Supplier;
 
 public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
@@ -37,18 +42,29 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             super(dataOutput);
         }
 
+        private void addVariantDrop(BlockFamily blockFamily, BlockFamily.Variant variant) {
+            if (!blockFamily.getVariants().containsKey(variant)) return;
+            Block block = blockFamily.getVariant(variant);
+            switch (variant) {
+                case SLAB -> addDrop(block, slabDrops(block));
+                case DOOR -> addDrop(block, doorDrops(block));
+                default -> addDrop(block);
+            }
+        }
+
+        private void addVariantDrops(BlockFamily blockFamily) {
+            addVariantDrop(blockFamily, BlockFamily.Variant.STAIRS);
+            addVariantDrop(blockFamily, BlockFamily.Variant.SLAB);
+            addVariantDrop(blockFamily, BlockFamily.Variant.WALL);
+        }
+
         private void addDrops(BlockFamily blockFamily) {
             addDrop(blockFamily.getBaseBlock());
-            if (blockFamily.getVariants().containsKey(BlockFamily.Variant.STAIRS)) {
-                addDrop(blockFamily.getVariant(BlockFamily.Variant.STAIRS));
-            }
-            if (blockFamily.getVariants().containsKey(BlockFamily.Variant.SLAB)) {
-                Block slabBlock = blockFamily.getVariant(BlockFamily.Variant.SLAB);
-                addDrop(slabBlock, slabDrops(slabBlock));
-            }
-            if (blockFamily.getVariants().containsKey(BlockFamily.Variant.WALL)) {
-                addDrop(blockFamily.getVariant(BlockFamily.Variant.WALL));
-            }
+            addVariantDrops(blockFamily);
+        }
+
+        private void addGlassSlabDrop(Block block) {
+            addDrop(block, glassSlabDrops(block));
         }
 
         @Override
@@ -179,7 +195,25 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
             this.addDrop(KaleidoscopeBlocks.PACKED_MUD_SLAB, slabDrops(KaleidoscopeBlocks.PACKED_MUD_SLAB));
             this.addDrop(KaleidoscopeBlocks.PACKED_MUD_STAIRS);
-            
+
+            addGlassSlabDrop(KaleidoscopeBlocks.GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.GRAY_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.BLACK_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.BROWN_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.RED_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.ORANGE_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.LIME_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.GREEN_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.CYAN_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.BLUE_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.PURPLE_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_SLAB);
+            addGlassSlabDrop(KaleidoscopeBlocks.PINK_STAINED_GLASS_SLAB);
+
             this.addDrop(KaleidoscopeBlocks.GLASS_DOOR, doorDrops(KaleidoscopeBlocks.GLASS_DOOR));
             this.addDrop(KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR));
             this.addDrop(KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR));
@@ -216,6 +250,10 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR);
             this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR);
         }
+
+        private LootTable.Builder glassSlabDrops(Block drop) {
+            return slabDrops(drop).modifyPools(builder -> builder.conditionally(WITH_SILK_TOUCH));
+        }
     }
 
     private static class KaleidoscopeModelGenerator extends FabricModelProvider {
@@ -238,6 +276,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             blockStateModelGenerator.registerNorthDefaultHorizontalRotatable(KaleidoscopeBlocks.SOUL_JACK_O_LANTERN, TextureMap.sideEnd(Blocks.PUMPKIN));
             blockStateModelGenerator.registerAxisRotated(KaleidoscopeBlocks.STICK_BUNDLE, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
             blockStateModelGenerator.registerCooker(KaleidoscopeBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
+            registerGlassSlab(blockStateModelGenerator, Blocks.GLASS, KaleidoscopeBlocks.GLASS_SLAB);
+            KaleidoscopeBlockFamilies.getFamilies().filter(blockFamily -> blockFamily.getGroup().isPresent() && blockFamily.getGroup().get().equals("stained_glass")).forEach((family) -> registerGlassSlab(blockStateModelGenerator, family.getBaseBlock(), family.getVariant(BlockFamily.Variant.SLAB)));
             blockStateModelGenerator.registerDoor(KaleidoscopeBlocks.GLASS_DOOR);
             blockStateModelGenerator.registerDoor(KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR);
             blockStateModelGenerator.registerDoor(KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR);
@@ -285,6 +325,16 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             itemModelGenerator.register(KaleidoscopeItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
             itemModelGenerator.register(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP, Models.GENERATED);
             itemModelGenerator.register(KaleidoscopeItems.CAKE_SLICE, Models.GENERATED);
+        }
+
+        private void registerGlassSlab(BlockStateModelGenerator blockStateModelGenerator, Block block, Block slabBlock) {
+            BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = blockStateModelGenerator.modelCollector;
+            TextureMap textureMap = TextureMap.all(block);
+            TextureMap textureMap2 = TextureMap.sideEnd(TextureMap.getSubId(slabBlock, "_side"), textureMap.getTexture(TextureKey.TOP));
+            Identifier identifier = Models.SLAB.upload(slabBlock, textureMap2, modelCollector);
+            Identifier identifier2 = Models.SLAB_TOP.upload(slabBlock, textureMap2, modelCollector);
+            Identifier identifier3 = Models.CUBE_COLUMN.uploadWithoutVariant(slabBlock, "_double", textureMap2, modelCollector);
+            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slabBlock, identifier, identifier2, identifier3));
         }
     }
 

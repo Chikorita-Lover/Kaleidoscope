@@ -48,6 +48,25 @@ public class KaleidoscopeBlockFamilies {
     public static final BlockFamily RED_NETHER_BRICKS;
     public static final BlockFamily END_STONE;
     public static final BlockFamily POLISHED_END_STONE;
+
+    public static final BlockFamily GLASS;
+    public static final BlockFamily WHITE_STAINED_GLASS;
+    public static final BlockFamily LIGHT_GRAY_STAINED_GLASS;
+    public static final BlockFamily GRAY_STAINED_GLASS;
+    public static final BlockFamily BLACK_STAINED_GLASS;
+    public static final BlockFamily BROWN_STAINED_GLASS;
+    public static final BlockFamily RED_STAINED_GLASS;
+    public static final BlockFamily ORANGE_STAINED_GLASS;
+    public static final BlockFamily YELLOW_STAINED_GLASS;
+    public static final BlockFamily LIME_STAINED_GLASS;
+    public static final BlockFamily GREEN_STAINED_GLASS;
+    public static final BlockFamily CYAN_STAINED_GLASS;
+    public static final BlockFamily LIGHT_BLUE_STAINED_GLASS;
+    public static final BlockFamily BLUE_STAINED_GLASS;
+    public static final BlockFamily PURPLE_STAINED_GLASS;
+    public static final BlockFamily MAGENTA_STAINED_GLASS;
+    public static final BlockFamily PINK_STAINED_GLASS;
+    
     public static final BlockFamily WHITE_TERRACOTTA;
     public static final BlockFamily ORANGE_TERRACOTTA;
     public static final BlockFamily MAGENTA_TERRACOTTA;
@@ -116,6 +135,24 @@ public class KaleidoscopeBlockFamilies {
         RED_NETHER_BRICKS = register(Blocks.RED_NETHER_BRICKS).chiseled(KaleidoscopeBlocks.CHISELED_RED_NETHER_BRICKS).cracked(KaleidoscopeBlocks.CRACKED_RED_NETHER_BRICKS).fence(KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE).noGenerateRecipes().build();
         END_STONE = register(Blocks.END_STONE).slab(KaleidoscopeBlocks.END_STONE_SLAB).stairs(KaleidoscopeBlocks.END_STONE_STAIRS).wall(KaleidoscopeBlocks.END_STONE_WALL).build();
         POLISHED_END_STONE = register(KaleidoscopeBlocks.POLISHED_END_STONE).slab(KaleidoscopeBlocks.POLISHED_END_STONE_SLAB).stairs(KaleidoscopeBlocks.POLISHED_END_STONE_STAIRS).wall(KaleidoscopeBlocks.POLISHED_END_STONE_WALL).build();
+
+        GLASS = register(Blocks.GLASS).slab(KaleidoscopeBlocks.GLASS_SLAB).noGenerateModels().build();
+        WHITE_STAINED_GLASS = register(Blocks.WHITE_STAINED_GLASS).slab(KaleidoscopeBlocks.WHITE_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        LIGHT_GRAY_STAINED_GLASS = register(Blocks.LIGHT_GRAY_STAINED_GLASS).slab(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        GRAY_STAINED_GLASS = register(Blocks.GRAY_STAINED_GLASS).slab(KaleidoscopeBlocks.GRAY_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        BLACK_STAINED_GLASS = register(Blocks.BLACK_STAINED_GLASS).slab(KaleidoscopeBlocks.BLACK_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        BROWN_STAINED_GLASS = register(Blocks.BROWN_STAINED_GLASS).slab(KaleidoscopeBlocks.BROWN_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        RED_STAINED_GLASS = register(Blocks.RED_STAINED_GLASS).slab(KaleidoscopeBlocks.RED_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        ORANGE_STAINED_GLASS = register(Blocks.ORANGE_STAINED_GLASS).slab(KaleidoscopeBlocks.ORANGE_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        YELLOW_STAINED_GLASS = register(Blocks.YELLOW_STAINED_GLASS).slab(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        LIME_STAINED_GLASS = register(Blocks.LIME_STAINED_GLASS).slab(KaleidoscopeBlocks.LIME_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        GREEN_STAINED_GLASS = register(Blocks.GREEN_STAINED_GLASS).slab(KaleidoscopeBlocks.GREEN_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        CYAN_STAINED_GLASS = register(Blocks.CYAN_STAINED_GLASS).slab(KaleidoscopeBlocks.CYAN_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        LIGHT_BLUE_STAINED_GLASS = register(Blocks.LIGHT_BLUE_STAINED_GLASS).slab(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        BLUE_STAINED_GLASS = register(Blocks.BLUE_STAINED_GLASS).slab(KaleidoscopeBlocks.BLUE_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        PURPLE_STAINED_GLASS = register(Blocks.PURPLE_STAINED_GLASS).slab(KaleidoscopeBlocks.PURPLE_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        MAGENTA_STAINED_GLASS = register(Blocks.MAGENTA_STAINED_GLASS).slab(KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
+        PINK_STAINED_GLASS = register(Blocks.PINK_STAINED_GLASS).slab(KaleidoscopeBlocks.PINK_STAINED_GLASS_SLAB).group("stained_glass").noGenerateModels().build();
 
         WHITE_TERRACOTTA = register(Blocks.WHITE_TERRACOTTA).slab(KaleidoscopeBlocks.WHITE_TERRACOTTA_SLAB).stairs(KaleidoscopeBlocks.WHITE_TERRACOTTA_STAIRS).group("terracotta").build();
         ORANGE_TERRACOTTA = register(Blocks.ORANGE_TERRACOTTA).slab(KaleidoscopeBlocks.ORANGE_TERRACOTTA_SLAB).stairs(KaleidoscopeBlocks.ORANGE_TERRACOTTA_STAIRS).group("terracotta").build();
