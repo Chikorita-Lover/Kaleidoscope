@@ -34,10 +34,10 @@ public class GlassSlabBlock extends SlabBlock {
     @Override
     public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
         if (stateFrom.isOf(this)) {
-            if (direction.getAxis() != Direction.Axis.Y && (stateFrom.get(TYPE) == state.get(TYPE) || stateFrom.get(TYPE) == SlabType.DOUBLE)) {
+            if (direction.getAxis() == Direction.Axis.Y ^ stateFrom.get(TYPE) == state.get(TYPE)) {
                 return true;
             }
-            if (direction.getAxis() == Direction.Axis.Y && stateFrom.get(TYPE) != state.get(TYPE)) {
+            if (stateFrom.get(TYPE) == SlabType.DOUBLE) {
                 return true;
             }
         }

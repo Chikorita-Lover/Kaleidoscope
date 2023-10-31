@@ -5,17 +5,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DoorBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.block.enums.DoorHinge;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
 
 public class GlassDoorBlock extends DoorBlock {
     public GlassDoorBlock(Settings settings) {
@@ -41,11 +37,21 @@ public class GlassDoorBlock extends DoorBlock {
         return true;
     }
 
+/*
     @Override
     public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
         if (stateFrom.isOf(this)) {
-            return true;
+            Direction facingDirection = getFacingDirection(state);
+            if (facingDirection == getFacingDirection(stateFrom) && facingDirection.getAxis() != direction.getAxis()) {
+                return true;
+            }
         }
         return super.isSideInvisible(state, stateFrom, direction);
     }
+
+    private static Direction getFacingDirection(BlockState state) {
+        Direction direction = state.get(FACING);
+        return !state.get(OPEN) ? direction : (state.get(HINGE) == DoorHinge.RIGHT ? direction.rotateYCounterclockwise() : direction.rotateYClockwise());
+    }
+*/
 }
