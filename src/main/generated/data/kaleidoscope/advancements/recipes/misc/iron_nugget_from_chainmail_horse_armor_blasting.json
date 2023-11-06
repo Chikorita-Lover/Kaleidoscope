@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_chainmail_horse_armor"
+      "has_chainmail_horse_armor",
+      "has_the_recipe"
     ]
   ],
   "rewards": {

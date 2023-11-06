@@ -25,23 +25,17 @@ public class KaleidoscopeTradeOffers {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.LEATHERWORKER, 3, factories -> {
             factories.add(new SellDyedBundleFactory(4, 10));
         });
-/*
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 3, factories -> {
-            factories.add(new TradeOffers.BuyItemFactory(Blocks.TUFF, 16, 16, 20));
-            factories.add(new TradeOffers.SellItemFactory(Blocks.POLISHED_TUFF, 1, 4, 16, 10));
-        });
-*/
         TradeOfferHelper.registerVillagerOffers(Kaleidoscope.GLASSBLOWER, 1, factories -> {
-            factories.add(new TradeOffers.BuyItemFactory(Blocks.SAND, 16, 16, 2));
+            factories.add(new TradeOffers.BuyForOneEmeraldFactory(Blocks.SAND, 16, 16, 2));
             factories.add(new TradeOffers.SellItemFactory(Blocks.GLASS, 1, 4, 16, 1));
         });
         TradeOfferHelper.registerVillagerOffers(Kaleidoscope.GLASSBLOWER, 2, factories -> {
-            factories.add(new TradeOffers.BuyItemFactory(Items.COAL, 15, 16, 10));
-            factories.add(new TradeOffers.BuyItemFactory(Items.COPPER_INGOT, 14, 16, 10));
+            factories.add(new TradeOffers.BuyForOneEmeraldFactory(Items.COAL, 15, 16, 10));
+            factories.add(new TradeOffers.BuyForOneEmeraldFactory(Items.COPPER_INGOT, 14, 16, 10));
             factories.add(new TradeOffers.SellItemFactory(Items.SPYGLASS, 2, 1, 12, 5));
         });
         TradeOfferHelper.registerVillagerOffers(Kaleidoscope.GLASSBLOWER, 3, factories -> {
-            factories.add(new TradeOffers.BuyItemFactory(Items.AMETHYST_SHARD, 10, 12, 20));
+            factories.add(new TradeOffers.BuyForOneEmeraldFactory(Items.AMETHYST_SHARD, 10, 12, 20));
             factories.add(new TradeOffers.SellItemFactory(Blocks.REDSTONE_LAMP, 1, 1, 12, 10));
             factories.add(new TradeOffers.SellItemFactory(Blocks.DAYLIGHT_DETECTOR, 1, 1, 12, 10));
         });

@@ -10,8 +10,8 @@ import net.minecraft.recipe.book.CookingRecipeCategory;
 import net.minecraft.util.Identifier;
 
 public class KilnCookingRecipe extends AbstractCookingRecipe {
-    public KilnCookingRecipe(String group, CookingRecipeCategory category, Ingredient input, ItemStack output, float experience, int cookTime) {
-        super(Kaleidoscope.KILNING, group, category, input, output, experience, cookTime);
+    public KilnCookingRecipe(Identifier id, String group, CookingRecipeCategory category, Ingredient input, ItemStack output, float experience, int cookTime) {
+        super(Kaleidoscope.KILNING, id, group, category, input, output, experience, cookTime);
     }
 
     public ItemStack createIcon() {

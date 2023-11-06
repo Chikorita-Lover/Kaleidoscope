@@ -31,7 +31,7 @@ public class KilnBlock extends AbstractFurnaceBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(world, type, KaleidoscopeBlockEntities.KILN);
+        return checkType(world, type, KaleidoscopeBlockEntities.KILN);
     }
 
     protected void openScreen(World world, BlockPos pos, PlayerEntity player) {

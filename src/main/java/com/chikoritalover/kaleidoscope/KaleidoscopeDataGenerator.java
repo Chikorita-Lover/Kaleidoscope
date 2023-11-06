@@ -28,6 +28,7 @@ import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.util.Identifier;
 
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
@@ -343,32 +344,32 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             super(dataOutput);
         }
 
-        public static void offerBrickDyeingRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+        public static void offerBrickDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 8).input('#', Blocks.BRICKS).input('X', input).pattern("###").pattern("#X#").pattern("###").group("stained_bricks").criterion("has_bricks", RecipeProvider.conditionsFromItem(Blocks.BRICKS)).offerTo(exporter);
         }
 
-        public static void offerCrackingRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+        public static void offerCrackingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), RecipeCategory.BUILDING_BLOCKS, output, 0.1F, 200).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
             offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, output, input, 0.1F, 100);
         }
 
-        public static void offerDoorRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+        public static void offerDoorRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 3).input('#', input).pattern("##").pattern("##").pattern("##").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
         }
 
-        public static void offerGlassDoorDyeingRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+        public static void offerGlassDoorDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output).input(KaleidoscopeBlocks.GLASS_DOOR).input(input).group("stained_glass_door").criterion("has_glass_door", RecipeProvider.conditionsFromItem(KaleidoscopeBlocks.GLASS_DOOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, RecipeProvider.convertBetween(output, KaleidoscopeBlocks.GLASS_DOOR)));
         }
 
-        public static void offerGlassTrapdoorDyeingRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+        public static void offerGlassTrapdoorDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output).input(KaleidoscopeBlocks.GLASS_TRAPDOOR).input(input).group("stained_glass_trapdoor").criterion("has_glass_trapdoor", RecipeProvider.conditionsFromItem(KaleidoscopeBlocks.GLASS_TRAPDOOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, RecipeProvider.convertBetween(output, KaleidoscopeBlocks.GLASS_TRAPDOOR)));
         }
 
-        public static void offerKilning(RecipeExporter exporter, RecipeCategory recipeCategory, ItemConvertible output, ItemConvertible input, float experience, int cookingTime) {
+        public static void offerKilning(Consumer<RecipeJsonProvider> exporter, RecipeCategory recipeCategory, ItemConvertible output, ItemConvertible input, float experience, int cookingTime) {
             CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), recipeCategory, output, experience, cookingTime, Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER).group(getItemPath(output)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(output) + "_from_kilning"));
         }
 
-        public static void offerSmoothCopperRecipes(RecipeExporter exporter, BlockFamily blockFamily, ItemConvertible input) {
+        public static void offerSmoothCopperRecipes(Consumer<RecipeJsonProvider> exporter, BlockFamily blockFamily, ItemConvertible input) {
             Block block = blockFamily.getBaseBlock();
             CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), RecipeCategory.BUILDING_BLOCKS, block, 0.1F, 200).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
             offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, block, input, 0.1F, 100);
@@ -376,23 +377,23 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.SLAB), block, 2);
         }
 
-        public static void offerTrapdoorRecipe2(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+        public static void offerTrapdoorRecipe2(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 1).input('#', input).pattern("##").pattern("##").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
         }
 
-        public static void offerWaxedSmoothCopperRecipes(RecipeExporter exporter, BlockFamily blockFamily, ItemConvertible input, BlockFamily blockFamily2) {
+        public static void offerWaxedSmoothCopperRecipes(Consumer<RecipeJsonProvider> exporter, BlockFamily blockFamily, ItemConvertible input, BlockFamily blockFamily2) {
             offerSmoothCopperRecipes(exporter, blockFamily, input);
             offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getBaseBlock(), blockFamily2.getBaseBlock());
             offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.STAIRS), blockFamily2.getVariant(BlockFamily.Variant.STAIRS));
             offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.SLAB), blockFamily2.getVariant(BlockFamily.Variant.SLAB));
         }
 
-        public static void offerWaxingRecipe(RecipeExporter exporter, RecipeCategory recipeCategory, ItemConvertible output, ItemConvertible input) {
+        public static void offerWaxingRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory recipeCategory, ItemConvertible output, ItemConvertible input) {
             ShapelessRecipeJsonBuilder.create(recipeCategory, output).input(input).input(Items.HONEYCOMB).group(output.asItem().toString()).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, output.asItem().toString() + "_from_honeycomb"));
         }
 
         @Override
-        public void generate(RecipeExporter exporter) {
+        public void generate(Consumer<RecipeJsonProvider> exporter) {
             KaleidoscopeBlockFamilies.getFamilies().filter(family -> family.shouldGenerateRecipes(FeatureFlags.DEFAULT_ENABLED_FEATURES)).forEach(family -> RecipeProvider.generateFamily(exporter, family));
 
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.MUD_BRICKS, Blocks.PACKED_MUD);

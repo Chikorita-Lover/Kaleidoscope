@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_weathered_smooth_copper"
+      "has_weathered_smooth_copper",
+      "has_the_recipe"
     ]
   ],
   "rewards": {

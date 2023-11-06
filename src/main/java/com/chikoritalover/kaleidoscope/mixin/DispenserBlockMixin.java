@@ -28,10 +28,10 @@ public class DispenserBlockMixin {
             callbackInfo.setReturnValue(new FallibleItemDispenserBehavior() {
                 @Override
                 protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-                    BlockPos blockPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
-                    ServerWorld world = pointer.world();
+                    BlockPos blockPos = pointer.getPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
+                    ServerWorld world = pointer.getWorld();
                     BlockState blockState = world.getBlockState(blockPos);
-                    ActionResult actionResult = stack.getItem().useOnBlock(new ItemUsageContext(world, null, null, stack, pointer.world().raycastBlock(new Vec3d(pointer.pos().getX(), pointer.pos().getY(), pointer.pos().getZ()), new Vec3d(blockPos.getX(), blockPos.getY(), blockPos.getZ()), blockPos, VoxelShapes.UNBOUNDED, blockState)));
+                    ActionResult actionResult = stack.getItem().useOnBlock(new ItemUsageContext(world, null, null, stack, pointer.getWorld().raycastBlock(new Vec3d(pointer.getX(), pointer.getY(), pointer.getZ()), new Vec3d(blockPos.getX(), blockPos.getY(), blockPos.getZ()), blockPos, VoxelShapes.UNBOUNDED, blockState)));
                     this.setSuccess(actionResult != ActionResult.FAIL && actionResult != ActionResult.PASS);
                     if (this.isSuccess()) {
                         if (stack.damage(1, world.random, null)) {
