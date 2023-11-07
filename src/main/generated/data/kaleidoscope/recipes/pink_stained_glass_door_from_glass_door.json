@@ -7,7 +7,7 @@
       "item": "kaleidoscope:glass_door"
     },
     {
-      "item": "minecraft:pink_dye"
+      "tag": "c:pink_dyes"
     }
   ],
   "result": {

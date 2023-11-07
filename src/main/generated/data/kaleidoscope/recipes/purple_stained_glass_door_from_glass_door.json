@@ -7,7 +7,7 @@
       "item": "kaleidoscope:glass_door"
     },
     {
-      "item": "minecraft:purple_dye"
+      "tag": "c:purple_dyes"
     }
   ],
   "result": {

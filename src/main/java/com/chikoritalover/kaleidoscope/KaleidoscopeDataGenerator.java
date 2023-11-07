@@ -18,12 +18,14 @@ import net.minecraft.block.LeveledCauldronBlock;
 import net.minecraft.data.client.*;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootTable;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.util.Identifier;
 
@@ -265,10 +267,16 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
         @Override
         public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
             KaleidoscopeBlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach((family) -> blockStateModelGenerator.registerCubeAllModelTexturePool(family.getBaseBlock()).family(family));
-            blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.CUT_COPPER).family(KaleidoscopeBlockFamilies.CUT_COPPER).same(Blocks.WAXED_CUT_COPPER).family(KaleidoscopeBlockFamilies.WAXED_CUT_COPPER);
-            blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.EXPOSED_CUT_COPPER).family(KaleidoscopeBlockFamilies.EXPOSED_CUT_COPPER).same(Blocks.WAXED_EXPOSED_CUT_COPPER).family(KaleidoscopeBlockFamilies.WAXED_EXPOSED_CUT_COPPER);
-            blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.WEATHERED_CUT_COPPER).family(KaleidoscopeBlockFamilies.WEATHERED_CUT_COPPER).same(Blocks.WAXED_WEATHERED_CUT_COPPER).family(KaleidoscopeBlockFamilies.WAXED_WEATHERED_CUT_COPPER);
-            blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.OXIDIZED_CUT_COPPER).family(KaleidoscopeBlockFamilies.OXIDIZED_CUT_COPPER).same(Blocks.WAXED_OXIDIZED_CUT_COPPER).family(KaleidoscopeBlockFamilies.WAXED_OXIDIZED_CUT_COPPER);
+
+            registerWall(blockStateModelGenerator, Blocks.CUT_COPPER, KaleidoscopeBlocks.CUT_COPPER_WALL);
+            registerWall(blockStateModelGenerator, Blocks.EXPOSED_CUT_COPPER, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);
+            registerWall(blockStateModelGenerator, Blocks.WEATHERED_CUT_COPPER, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL);
+            registerWall(blockStateModelGenerator, Blocks.OXIDIZED_CUT_COPPER, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL);
+            registerWall(blockStateModelGenerator, Blocks.CUT_COPPER, KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL);
+            registerWall(blockStateModelGenerator, Blocks.EXPOSED_CUT_COPPER, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL);
+            registerWall(blockStateModelGenerator, Blocks.WEATHERED_CUT_COPPER, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL);
+            registerWall(blockStateModelGenerator, Blocks.OXIDIZED_CUT_COPPER, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
+
             blockStateModelGenerator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.SMOOTH_COPPER).same(KaleidoscopeBlocks.WAXED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_SMOOTH_COPPER);
             blockStateModelGenerator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER).same(KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_EXPOSED_SMOOTH_COPPER);
             blockStateModelGenerator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER).same(KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER);
@@ -337,6 +345,26 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             Identifier identifier3 = Models.CUBE_COLUMN.uploadWithoutVariant(slabBlock, "_double", textureMap2, modelCollector);
             blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slabBlock, identifier, identifier2, identifier3));
         }
+
+        private void registerSlab(BlockStateModelGenerator blockStateModelGenerator, Block block, Block slabBlock) {
+            BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = blockStateModelGenerator.modelCollector;
+            TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(block);
+            Identifier identifier = Models.SLAB.upload(slabBlock, texturedModel.getTextures(), modelCollector);
+            Identifier identifier2 = Models.SLAB_TOP.upload(slabBlock, texturedModel.getTextures(), modelCollector);
+            Identifier identifier3 = ModelIds.getBlockModelId(block);
+            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slabBlock, identifier, identifier2, identifier3));
+        }
+
+        private void registerWall(BlockStateModelGenerator blockStateModelGenerator, Block block, Block wallBlock) {
+            TextureMap textures = TexturedModel.CUBE_ALL.get(block).getTextures();
+            BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = blockStateModelGenerator.modelCollector;
+            Identifier identifier = Models.TEMPLATE_WALL_POST.upload(wallBlock, textures, modelCollector);
+            Identifier identifier2 = Models.TEMPLATE_WALL_SIDE.upload(wallBlock, textures, modelCollector);
+            Identifier identifier3 = Models.TEMPLATE_WALL_SIDE_TALL.upload(wallBlock, textures, modelCollector);
+            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wallBlock, identifier, identifier2, identifier3));
+            Identifier identifier4 = Models.WALL_INVENTORY.upload(wallBlock, textures, modelCollector);
+            blockStateModelGenerator.registerParentedItemModel(wallBlock, identifier4);
+        }
     }
 
     private static class KaleidoscopeRecipeGenerator extends FabricRecipeProvider {
@@ -353,16 +381,24 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, output, input, 0.1F, 100);
         }
 
+        public static void offerCutCopperWallRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible cutCopper, ItemConvertible copper) {
+            getWallRecipe(RecipeCategory.MISC, output, Ingredient.ofItems(cutCopper)).group(getItemPath(output)).criterion(hasItem(cutCopper), conditionsFromItem(cutCopper)).offerTo(exporter);
+            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, output, copper, 4);
+            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, output, cutCopper);
+        }
+
         public static void offerDoorRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 3).input('#', input).pattern("##").pattern("##").pattern("##").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
         }
 
-        public static void offerGlassDoorDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
-            ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output).input(KaleidoscopeBlocks.GLASS_DOOR).input(input).group("stained_glass_door").criterion("has_glass_door", RecipeProvider.conditionsFromItem(KaleidoscopeBlocks.GLASS_DOOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, RecipeProvider.convertBetween(output, KaleidoscopeBlocks.GLASS_DOOR)));
+        public static void offerStainedGlassDoorRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible blockItem, TagKey<Item> dyeItem) {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 3).input('#', blockItem).pattern("##").pattern("##").pattern("##").group("stained_glass_door").criterion(hasItem(blockItem), conditionsFromItem(blockItem)).offerTo(exporter);
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output).input(KaleidoscopeBlocks.GLASS_DOOR).input(dyeItem).group("stained_glass_door").criterion("has_glass_door", conditionsFromItem(KaleidoscopeBlocks.GLASS_DOOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, convertBetween(output, KaleidoscopeBlocks.GLASS_DOOR)));
         }
 
-        public static void offerGlassTrapdoorDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
-            ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output).input(KaleidoscopeBlocks.GLASS_TRAPDOOR).input(input).group("stained_glass_trapdoor").criterion("has_glass_trapdoor", RecipeProvider.conditionsFromItem(KaleidoscopeBlocks.GLASS_TRAPDOOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, RecipeProvider.convertBetween(output, KaleidoscopeBlocks.GLASS_TRAPDOOR)));
+        public static void offerStainedGlassTrapdoorRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible blockItem, TagKey<Item> dyeItem) {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output).input('#', blockItem).pattern("##").pattern("##").group("stained_glass_trapdoor").criterion(hasItem(blockItem), conditionsFromItem(blockItem)).offerTo(exporter);
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output).input(KaleidoscopeBlocks.GLASS_TRAPDOOR).input(dyeItem).group("stained_glass_trapdoor").criterion("has_glass_trapdoor", conditionsFromItem(KaleidoscopeBlocks.GLASS_TRAPDOOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, convertBetween(output, KaleidoscopeBlocks.GLASS_TRAPDOOR)));
         }
 
         public static void offerKilning(Consumer<RecipeJsonProvider> exporter, RecipeCategory recipeCategory, ItemConvertible output, ItemConvertible input, float experience, int cookingTime) {
@@ -417,28 +453,20 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
             offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CHARCOAL_BLOCK, Items.CHARCOAL);
 
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.CUT_COPPER_WALL, Blocks.COPPER_BLOCK, 4);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL, Blocks.EXPOSED_COPPER, 4);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL, Blocks.WEATHERED_COPPER, 4);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL, Blocks.OXIDIZED_COPPER, 4);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.CUT_COPPER_WALL, Blocks.CUT_COPPER);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL, Blocks.EXPOSED_CUT_COPPER);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL, Blocks.WEATHERED_CUT_COPPER);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL, Blocks.OXIDIZED_CUT_COPPER);
+            offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.CUT_COPPER_WALL, Blocks.CUT_COPPER, Blocks.COPPER_BLOCK);
+            offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL, Blocks.EXPOSED_CUT_COPPER, Blocks.EXPOSED_COPPER);
+            offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL, Blocks.WEATHERED_CUT_COPPER, Blocks.WEATHERED_COPPER);
+            offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL, Blocks.OXIDIZED_CUT_COPPER, Blocks.OXIDIZED_COPPER);
 
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL, Blocks.WAXED_COPPER_BLOCK, 4);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, Blocks.WAXED_EXPOSED_COPPER, 4);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, Blocks.WAXED_WEATHERED_COPPER, 4);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, Blocks.WAXED_OXIDIZED_COPPER, 4);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL, Blocks.WAXED_CUT_COPPER);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, Blocks.WAXED_EXPOSED_CUT_COPPER);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, Blocks.WAXED_WEATHERED_CUT_COPPER);
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, Blocks.WAXED_OXIDIZED_CUT_COPPER);
+            offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL, Blocks.WAXED_CUT_COPPER, Blocks.WAXED_COPPER_BLOCK);
+            offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, Blocks.WAXED_EXPOSED_CUT_COPPER, Blocks.WAXED_EXPOSED_COPPER);
+            offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, Blocks.WAXED_WEATHERED_CUT_COPPER, Blocks.WAXED_WEATHERED_COPPER);
+            offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, Blocks.WAXED_OXIDIZED_CUT_COPPER, Blocks.WAXED_OXIDIZED_COPPER);
 
-            offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL, KaleidoscopeBlocks.CUT_COPPER_WALL);
-            offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);
-            offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL);
-            offerWaxingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL);
+            offerWaxingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL, KaleidoscopeBlocks.CUT_COPPER_WALL);
+            offerWaxingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);
+            offerWaxingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL);
+            offerWaxingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL);
 
             offerSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.SMOOTH_COPPER, Blocks.CUT_COPPER);
             offerSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER, Blocks.EXPOSED_CUT_COPPER);
@@ -607,74 +635,41 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.KILN).input('#', Items.BRICK).input('X', Blocks.FURNACE).pattern(" # ").pattern("#X#").pattern(" # ").criterion(hasItem(Blocks.FURNACE), conditionsFromItem(Blocks.FURNACE)).offerTo(exporter);
 
             offerDoorRecipe(exporter, KaleidoscopeBlocks.GLASS_DOOR, Blocks.GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, Blocks.BLACK_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR, Blocks.BLUE_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.BROWN_STAINED_GLASS_DOOR, Blocks.BROWN_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.CYAN_STAINED_GLASS_DOOR, Blocks.CYAN_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.GRAY_STAINED_GLASS_DOOR, Blocks.GRAY_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.GREEN_STAINED_GLASS_DOOR, Blocks.GREEN_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, Blocks.LIGHT_BLUE_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, Blocks.LIGHT_GRAY_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.LIME_STAINED_GLASS_DOOR, Blocks.LIME_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_DOOR, Blocks.MAGENTA_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_DOOR, Blocks.ORANGE_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.PINK_STAINED_GLASS_DOOR, Blocks.PINK_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_DOOR, Blocks.PURPLE_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.RED_STAINED_GLASS_DOOR, Blocks.RED_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.WHITE_STAINED_GLASS_DOOR, Blocks.WHITE_STAINED_GLASS);
-            offerDoorRecipe(exporter, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_DOOR, Blocks.YELLOW_STAINED_GLASS);
-
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, Items.BLACK_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR, Items.BLUE_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.BROWN_STAINED_GLASS_DOOR, Items.BROWN_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.CYAN_STAINED_GLASS_DOOR, Items.CYAN_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.GRAY_STAINED_GLASS_DOOR, Items.GRAY_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.GREEN_STAINED_GLASS_DOOR, Items.GREEN_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, Items.LIGHT_BLUE_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, Items.LIGHT_GRAY_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.LIME_STAINED_GLASS_DOOR, Items.LIME_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_DOOR, Items.MAGENTA_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_DOOR, Items.ORANGE_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.PINK_STAINED_GLASS_DOOR, Items.PINK_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_DOOR, Items.PURPLE_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.RED_STAINED_GLASS_DOOR, Items.RED_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.WHITE_STAINED_GLASS_DOOR, Items.WHITE_DYE);
-            offerGlassDoorDyeingRecipe(exporter, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_DOOR, Items.YELLOW_DYE);
-
             offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.GLASS_TRAPDOOR, Blocks.GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.BLACK_STAINED_GLASS_TRAPDOOR, Blocks.BLACK_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.BLUE_STAINED_GLASS_TRAPDOOR, Blocks.BLUE_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.BROWN_STAINED_GLASS_TRAPDOOR, Blocks.BROWN_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.CYAN_STAINED_GLASS_TRAPDOOR, Blocks.CYAN_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.GRAY_STAINED_GLASS_TRAPDOOR, Blocks.GRAY_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.GREEN_STAINED_GLASS_TRAPDOOR, Blocks.GREEN_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR, Blocks.LIGHT_BLUE_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR, Blocks.LIGHT_GRAY_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.LIME_STAINED_GLASS_TRAPDOOR, Blocks.LIME_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR, Blocks.MAGENTA_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_TRAPDOOR, Blocks.ORANGE_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.PINK_STAINED_GLASS_TRAPDOOR, Blocks.PINK_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_TRAPDOOR, Blocks.PURPLE_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.RED_STAINED_GLASS_TRAPDOOR, Blocks.RED_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, Blocks.WHITE_STAINED_GLASS);
-            offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, Blocks.YELLOW_STAINED_GLASS);
 
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.BLACK_STAINED_GLASS_TRAPDOOR, Items.BLACK_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.BLUE_STAINED_GLASS_TRAPDOOR, Items.BLUE_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.BROWN_STAINED_GLASS_TRAPDOOR, Items.BROWN_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.CYAN_STAINED_GLASS_TRAPDOOR, Items.CYAN_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.GRAY_STAINED_GLASS_TRAPDOOR, Items.GRAY_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.GREEN_STAINED_GLASS_TRAPDOOR, Items.GREEN_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR, Items.LIGHT_BLUE_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR, Items.LIGHT_GRAY_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.LIME_STAINED_GLASS_TRAPDOOR, Items.LIME_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR, Items.MAGENTA_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_TRAPDOOR, Items.ORANGE_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.PINK_STAINED_GLASS_TRAPDOOR, Items.PINK_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_TRAPDOOR, Items.PURPLE_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.RED_STAINED_GLASS_TRAPDOOR, Items.RED_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, Items.WHITE_DYE);
-            offerGlassTrapdoorDyeingRecipe(exporter, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, Items.YELLOW_DYE);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, Blocks.BLACK_STAINED_GLASS, ConventionalItemTags.BLACK_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR, Blocks.BLUE_STAINED_GLASS, ConventionalItemTags.BLUE_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.BROWN_STAINED_GLASS_DOOR, Blocks.BROWN_STAINED_GLASS, ConventionalItemTags.BROWN_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.CYAN_STAINED_GLASS_DOOR, Blocks.CYAN_STAINED_GLASS, ConventionalItemTags.CYAN_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.GRAY_STAINED_GLASS_DOOR, Blocks.GRAY_STAINED_GLASS, ConventionalItemTags.GRAY_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.GREEN_STAINED_GLASS_DOOR, Blocks.GREEN_STAINED_GLASS, ConventionalItemTags.GREEN_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, Blocks.LIGHT_BLUE_STAINED_GLASS, ConventionalItemTags.LIGHT_BLUE_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, Blocks.LIGHT_GRAY_STAINED_GLASS, ConventionalItemTags.LIGHT_GRAY_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.LIME_STAINED_GLASS_DOOR, Blocks.LIME_STAINED_GLASS, ConventionalItemTags.LIME_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_DOOR, Blocks.MAGENTA_STAINED_GLASS, ConventionalItemTags.MAGENTA_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_DOOR, Blocks.ORANGE_STAINED_GLASS, ConventionalItemTags.ORANGE_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.PINK_STAINED_GLASS_DOOR, Blocks.PINK_STAINED_GLASS, ConventionalItemTags.PINK_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_DOOR, Blocks.PURPLE_STAINED_GLASS, ConventionalItemTags.PURPLE_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.RED_STAINED_GLASS_DOOR, Blocks.RED_STAINED_GLASS, ConventionalItemTags.RED_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.WHITE_STAINED_GLASS_DOOR, Blocks.WHITE_STAINED_GLASS, ConventionalItemTags.WHITE_DYES);
+            offerStainedGlassDoorRecipes(exporter, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_DOOR, Blocks.YELLOW_STAINED_GLASS, ConventionalItemTags.YELLOW_DYES);
+
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.BLACK_STAINED_GLASS_TRAPDOOR, Blocks.BLACK_STAINED_GLASS, ConventionalItemTags.BLACK_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.BLUE_STAINED_GLASS_TRAPDOOR, Blocks.BLUE_STAINED_GLASS, ConventionalItemTags.BLUE_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.BROWN_STAINED_GLASS_TRAPDOOR, Blocks.BROWN_STAINED_GLASS, ConventionalItemTags.BROWN_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.CYAN_STAINED_GLASS_TRAPDOOR, Blocks.CYAN_STAINED_GLASS, ConventionalItemTags.CYAN_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.GRAY_STAINED_GLASS_TRAPDOOR, Blocks.GRAY_STAINED_GLASS, ConventionalItemTags.GRAY_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.GREEN_STAINED_GLASS_TRAPDOOR, Blocks.GREEN_STAINED_GLASS, ConventionalItemTags.GREEN_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR, Blocks.LIGHT_BLUE_STAINED_GLASS, ConventionalItemTags.LIGHT_BLUE_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR, Blocks.LIGHT_GRAY_STAINED_GLASS, ConventionalItemTags.LIGHT_GRAY_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.LIME_STAINED_GLASS_TRAPDOOR, Blocks.LIME_STAINED_GLASS, ConventionalItemTags.LIME_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR, Blocks.MAGENTA_STAINED_GLASS, ConventionalItemTags.MAGENTA_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_TRAPDOOR, Blocks.ORANGE_STAINED_GLASS, ConventionalItemTags.ORANGE_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.PINK_STAINED_GLASS_TRAPDOOR, Blocks.PINK_STAINED_GLASS, ConventionalItemTags.PINK_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_TRAPDOOR, Blocks.PURPLE_STAINED_GLASS, ConventionalItemTags.PURPLE_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.RED_STAINED_GLASS_TRAPDOOR, Blocks.RED_STAINED_GLASS, ConventionalItemTags.RED_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, Blocks.WHITE_STAINED_GLASS, ConventionalItemTags.WHITE_DYES);
+            offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, Blocks.YELLOW_STAINED_GLASS, ConventionalItemTags.YELLOW_DYES);
 
             offerBoatRecipe(exporter, KaleidoscopeItems.CRIMSON_BOAT, Blocks.CRIMSON_PLANKS);
             offerBoatRecipe(exporter, KaleidoscopeItems.WARPED_BOAT, Blocks.WARPED_PLANKS);

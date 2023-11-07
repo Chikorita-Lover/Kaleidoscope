@@ -7,7 +7,7 @@
       "item": "kaleidoscope:glass_door"
     },
     {
-      "item": "minecraft:gray_dye"
+      "tag": "c:gray_dyes"
     }
   ],
   "result": {

@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "exposed_cut_copper_wall",
   "key": {
     "#": {
       "item": "minecraft:exposed_cut_copper"

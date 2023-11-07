@@ -7,7 +7,7 @@
       "item": "kaleidoscope:glass_trapdoor"
     },
     {
-      "item": "minecraft:red_dye"
+      "tag": "c:red_dyes"
     }
   ],
   "result": {

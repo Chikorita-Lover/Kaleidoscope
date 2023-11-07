@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
+  "group": "stained_glass_door",
   "key": {
     "#": {
       "item": "minecraft:yellow_stained_glass"
