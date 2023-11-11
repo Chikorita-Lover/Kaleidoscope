@@ -14,11 +14,13 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.*;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 
 import java.util.List;
 
@@ -34,6 +36,8 @@ public class KaleidoscopeClient implements ClientModInitializer {
             return ((PotionCauldronBlockEntity) world.getBlockEntity(pos)).getColor();
         }, KaleidoscopeBlocks.POTION_CAULDRON);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem)stack.getItem()).getColor(stack), Items.BUNDLE);
+
+        ModelPredicateProviderRegistry.register(Items.BUNDLE, new Identifier("dyed"), (stack, world, entity, seed) -> ((DyeableItem)stack.getItem()).getColor(stack) == -1 ? 0.0F : 1.0F);
 
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.GLASS_SLAB, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.BLACK_STAINED_GLASS_SLAB, RenderLayer.getTranslucent());
