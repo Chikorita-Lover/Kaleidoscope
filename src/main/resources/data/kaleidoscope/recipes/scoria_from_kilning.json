@@ -1,0 +1,18 @@
+{
+  "type": "kaleidoscope:kilning",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "minecraft:soul_sand"
+  },
+  "result": "create:scoria",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:any_mod_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ]
+}

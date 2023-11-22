@@ -1,0 +1,18 @@
+{
+  "type": "kaleidoscope:kilning",
+  "category": "blocks",
+  "cookingtime": 25,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "create:vertical_framed_glass"
+  },
+  "result": "minecraft:glass",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:any_mod_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ]
+}
