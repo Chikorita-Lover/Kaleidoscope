@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_leveled_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "etcetera:leveled_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "kaleidoscope:crumbling_stone_from_kilning"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_leveled_stone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "kaleidoscope:crumbling_stone_from_kilning"
+    ]
+  },
+  "sends_telemetry_event": false,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:any_mod_loaded",
+      "values": [
+        "etcetera"
+      ]
+    }
+  ]
+}

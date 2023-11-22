@@ -1,0 +1,18 @@
+{
+  "type": "kaleidoscope:kilning",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "twigs:silt_ball"
+  },
+  "result": "twigs:silt_brick",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:any_mod_loaded",
+      "values": [
+        "twigs"
+      ]
+    }
+  ]
+}

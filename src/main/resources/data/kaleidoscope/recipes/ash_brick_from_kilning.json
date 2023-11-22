@@ -1,0 +1,24 @@
+{
+  "type": "kaleidoscope:kilning",
+  "category": "misc",
+  "ingredient": {
+    "item": "supplementaries:ash"
+  },
+  "conditions": [
+    {
+      "type": "supplementaries:flag",
+      "flag": "ash_bricks"
+    }
+  ],
+  "result": "supplementaries:ash_brick",
+  "experience": 0.3,
+  "cookingtime": 100,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:any_mod_loaded",
+      "values": [
+        "supplementaries"
+      ]
+    }
+  ]
+}
