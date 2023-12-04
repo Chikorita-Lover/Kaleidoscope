@@ -41,7 +41,8 @@
   "client": [
     "ClientRecipeBookMixin",
     "ClientWorldMixin",
-    "RecipeBookGroupMixin"
+    "RecipeBookGroupMixin",
+    "SplashTextResourceSupplierMixin"
   ],
   "server": [],
   "injectors": {
