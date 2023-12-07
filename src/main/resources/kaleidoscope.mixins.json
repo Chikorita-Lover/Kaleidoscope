@@ -28,7 +28,6 @@
     "HoeItemMixin",
     "HorseEntityMixin",
     "ItemMixin",
-    "LivingEntityMixin",
     "PaintingEntityMixin",
     "RecipeBookOptionsMixin",
     "RespawnAnchorBlockMixin",
