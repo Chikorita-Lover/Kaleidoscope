@@ -53,7 +53,7 @@ public class KaleidoscopeItems {
     }
 
     public static void registerCompostingChances() {
-        CompostingChanceRegistry.INSTANCE.add(Items.BAMBOO, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(CAKE_SLICE, 0.85F);
     }
 
     public static void registerFuels() {
