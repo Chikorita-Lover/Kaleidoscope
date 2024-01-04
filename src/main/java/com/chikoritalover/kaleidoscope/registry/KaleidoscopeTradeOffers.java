@@ -19,9 +19,6 @@ import java.util.ArrayList;
 
 public class KaleidoscopeTradeOffers {
     public static void register() {
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 3, factories -> {
-            factories.add(new TradeOffers.SellItemFactory(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR, 3, 1, 12, 10));
-        });
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.LEATHERWORKER, 3, factories -> {
             factories.add(new SellDyedBundleFactory(4, 10));
         });

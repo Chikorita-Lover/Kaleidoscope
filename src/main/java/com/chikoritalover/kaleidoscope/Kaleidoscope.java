@@ -8,21 +8,16 @@ import com.chocohead.mm.api.ClassTinkerers;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.fabric.mixin.content.registry.GiveGiftsToHeroTaskAccessor;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.EndermanEntity;
-import net.minecraft.entity.mob.Monster;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LootTableEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.recipe.CookingRecipeSerializer;
@@ -43,8 +38,6 @@ import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.poi.PointOfInterestType;
 import net.minecraft.world.poi.PointOfInterestTypes;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -53,7 +46,6 @@ public class Kaleidoscope implements ModInitializer {
 	public static final VillagerProfession GLASSBLOWER;
 	public static final RegistryKey<PointOfInterestType> GLASSBLOWER_POINT_OF_INTEREST;
 	public static final String MODID = "kaleidoscope";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 	public static final CookingRecipeSerializer<KilnCookingRecipe> KILN_COOKING_RECIPE_SERIALIZER;
 	public static final ScreenHandlerType<KilnScreenHandler> KILN_SCREEN_HANDLER;
 	public static final RecipeType<KilnCookingRecipe> KILNING;
@@ -106,12 +98,6 @@ public class Kaleidoscope implements ModInitializer {
 			addToStructurePool(server, new Identifier("minecraft", "village/taiga/decor"), registryEntryLookup.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BUNDLE), 1);
 			addToStructurePool(server, new Identifier("minecraft", "village/taiga/houses"), new Identifier(MODID, "village/taiga/houses/taiga_glassblower_1"), 4);
 		});
-
-		ServerEntityEvents.ENTITY_LOAD.register(((entity, world) -> {
-			if (entity instanceof EndermanEntity endermanEntity) {
-				endermanEntity.experiencePoints = Monster.STRONG_MONSTER_XP;
-			}
-		}));
 	}
 
 	public static void addToStructurePool(MinecraftServer server, Identifier village, Identifier structure, int weight) {
@@ -146,13 +132,7 @@ public class Kaleidoscope implements ModInitializer {
 	}
 
 	public void registerLootTableEvents() {
-		addLootTablePool(1, 1, 0.294F, LootTables.SIMPLE_DUNGEON_CHEST, KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR);
-		addLootTablePool(1, 1, 0.318F, LootTables.VILLAGE_ARMORER_CHEST, KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR);
-
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
-			if (id.equals(EntityType.GOAT.getLootTableId())) {
-				supplier.pool(LootPool.builder().with(LootTableEntry.builder(new Identifier(Kaleidoscope.MODID, "entities/goat")).build()).build());
-			}
 			if (id.equals(LootTables.PIGLIN_BARTERING_GAMEPLAY)) {
 				supplier.modifyPools(builder -> builder.with((ItemEntry.builder(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).build());
 			}

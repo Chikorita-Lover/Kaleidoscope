@@ -1,15 +1,4 @@
 {
-  "advancements.adventure.find_ancient_city.description": "Enter an Ancient City",
-  "advancements.adventure.find_ancient_city.title": "The City of a Thousand Ears",
-  "advancements.adventure.power_conduit.description": "Receive the effects of a powered Conduit",
-  "advancements.adventure.power_conduit.title": "Moskstraumen",
-  "advancements.husbandry.goat_horns.description": "Obtain and play all Goat Horn variants",
-  "advancements.husbandry.goat_horns.title": "Blow Your Horn!",
-  "advancements.husbandry.netherite_horse_armor.description": "Use a Netherite Ingot to upgrade horse armor",
-  "advancements.husbandry.netherite_horse_armor.title": "Exorbitant Barding",
-  "advancements.husbandry.obtain_turtle_shell.description": "Craft a Turtle Shell with Scutes shed by baby Turtles",
-  "advancements.husbandry.obtain_turtle_shell.title": "Shell-Shocking Sorcery",
-
   "block.kaleidoscope.black_stained_bricks": "Black Stained Bricks",
   "block.kaleidoscope.black_stained_brick_slab": "Black Stained Brick Slab",
   "block.kaleidoscope.black_stained_brick_stairs": "Black Stained Brick Stairs",
@@ -223,7 +212,6 @@
   "block.kaleidoscope.yellow_terracotta_slab": "Yellow Terracotta Slab",
   "block.kaleidoscope.yellow_terracotta_stairs": "Yellow Terracotta Stairs",
 
-  "block.minecraft.chest.obstructed": "This chest is obstructed",
   "block.minecraft.chiseled_bookshelf.desc1": "Interact with Book:",
   "block.minecraft.chiseled_bookshelf.desc2": "Stores Book",
   "block.minecraft.end_portal_frame.desc1": "Interact with Eye of Ender:",
@@ -236,8 +224,6 @@
   "block.minecraft.lodestone.desc2": "Redirects Compass",
   "block.minecraft.respawn_anchor.desc1": "Interact with Glowstone:",
   "block.minecraft.respawn_anchor.desc2": "Increases Charge Level",
-  "block.minecraft.respawn_anchor.not_charged": "This Respawn Anchor is not charged; use Glowstone to charge it",
-  "block.minecraft.shulker_box.obstructed": "This Shulker Box is obstructed",
 
   "container.kiln": "Kiln",
 
@@ -246,25 +232,19 @@
   "gui.recipebook.toggleRecipes.kilnable": "Showing Kilnable",
 
   "item.kaleidoscope.cake_slice": "Cake Slice",
-  "item.kaleidoscope.chainmail_horse_armor": "Chainmail Horse Armor",
   "item.kaleidoscope.crimson_boat": "Crimson Boat",
   "item.kaleidoscope.crimson_chest_boat": "Crimson Boat with Chest",
   "item.kaleidoscope.disc_fragment_pigstep": "Disc Fragment",
   "item.kaleidoscope.disc_fragment_pigstep.desc": "Music Disc - Pigstep",
-  "item.kaleidoscope.netherite_horse_armor": "Netherite Horse Armor",
   "item.kaleidoscope.warped_boat": "Warped Boat",
   "item.kaleidoscope.warped_chest_boat": "Warped Boat with Chest",
   "item.modifiers.consumed": "When Consumed:",
   "item.modifiers.food": "Food",
   "item.modifiers.food_saturation": "Food Saturation",
-  "item.modifiers.horse": "When on Horse:",
 
   "stat.kaleidoscope.interact_with_kiln": "Interactions with Kiln",
 
-  "subtitles.block.flower_pot.plant": "Flower planted",
   "subtitles.block.kiln.crackle": "Kiln crackles",
-  "subtitles.block.sponge.absorb": "Sponge absorbs",
-  "subtitles.entity.snowball.hit": "Snowball hits",
   "subtitles.entity.villager.work_glassblower": "Glassblower works",
   "subtitles.item.hoe.scrape": "Hoe scrapes"
 }

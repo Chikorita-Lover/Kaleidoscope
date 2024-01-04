@@ -4,7 +4,6 @@ import com.chikoritalover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
 import com.chikoritalover.kaleidoscope.client.gui.screen.KilnScreen;
 import com.chikoritalover.kaleidoscope.client.particle.FireflyParticle;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlocks;
-import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItems;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeParticleTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -16,7 +15,10 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.item.*;
+import net.minecraft.item.DyeableItem;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -102,9 +104,6 @@ public class KaleidoscopeClient implements ClientModInitializer {
             if (stack.getItem().isFood()) {
                 buildFoodTooltip(stack, tooltip);
             }
-            if (stack.getItem() instanceof HorseArmorItem) {
-                buildHorseArmorTooltip(stack, tooltip);
-            }
         });
 
         ParticleFactoryRegistry.getInstance().register(KaleidoscopeParticleTypes.FIREFLY, FireflyParticle.Factory::new);
@@ -144,28 +143,6 @@ public class KaleidoscopeClient implements ClientModInitializer {
             list.add(Text.translatable("attribute.modifier.plus.0", saturationTooltip).formatted(Formatting.BLUE));
         } else if (foodSaturation < 0.0) {
             list.add(Text.translatable("attribute.modifier.take.0", saturationTooltip).formatted(Formatting.RED));
-        }
-    }
-
-    public void buildHorseArmorTooltip(ItemStack stack, List<Text> list) {
-        HorseArmorItem horseArmorItem = (HorseArmorItem) stack.getItem();
-        int armor = horseArmorItem.getBonus();
-
-        if (armor == 0.0) return;
-
-        Object[] armorTooltip = new Object[]{Math.abs(armor), Text.translatable("attribute.name.generic.armor")};
-
-        list.add(ScreenTexts.EMPTY);
-        list.add(Text.translatable("item.modifiers.horse").formatted(Formatting.GRAY));
-
-        if (armor > 0.0) {
-            list.add(Text.translatable("attribute.modifier.plus.0", armorTooltip).formatted(Formatting.BLUE));
-        } else if (armor < 0.0) {
-            list.add(Text.translatable("attribute.modifier.take.0", armorTooltip).formatted(Formatting.RED));
-        }
-        if (stack.isOf(KaleidoscopeItems.NETHERITE_HORSE_ARMOR)) {
-            list.add(Text.translatable("attribute.modifier.plus.0", 3, Text.translatable("attribute.name.generic.armor_toughness")).formatted(Formatting.BLUE));
-            list.add(Text.translatable("attribute.modifier.plus.0", 2, Text.translatable("attribute.name.generic.knockback_resistance")).formatted(Formatting.BLUE));
         }
     }
 }
