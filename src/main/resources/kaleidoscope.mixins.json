@@ -6,6 +6,8 @@
   "mixins": [
     "AbstractBlockStateMixin",
     "AbstractGlassBlockMixin",
+    "ArmorMaterialsMixin",
+    "AxeItemMixin",
     "BlockMixin",
     "BoatEntityMixin",
     "BundleItemMixin",
@@ -24,9 +26,13 @@
     "HoeItemMixin",
     "ItemMixin",
     "PaintingEntityMixin",
+    "PiglinBruteEntityMixin",
+    "PiglinEntityMixin",
     "RecipeBookOptionsMixin",
     "StewItemMixin",
     "StructurePoolMixin",
+    "ToolMaterialsMixin",
+    "ZombifiedPiglinEntityMixin"
   ],
   "client": [
     "ClientRecipeBookMixin",
