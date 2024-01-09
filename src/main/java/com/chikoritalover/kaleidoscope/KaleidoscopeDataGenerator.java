@@ -196,6 +196,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
             this.addDrop(KaleidoscopeBlocks.SOUL_JACK_O_LANTERN);
 
+            addDrop(KaleidoscopeBlocks.FIREWORKS_TABLE);
+
             this.addDrop(KaleidoscopeBlocks.PACKED_MUD_SLAB, slabDrops(KaleidoscopeBlocks.PACKED_MUD_SLAB));
             this.addDrop(KaleidoscopeBlocks.PACKED_MUD_STAIRS);
 
@@ -285,6 +287,7 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             blockStateModelGenerator.registerNorthDefaultHorizontalRotatable(KaleidoscopeBlocks.SOUL_JACK_O_LANTERN, TextureMap.sideEnd(Blocks.PUMPKIN));
             blockStateModelGenerator.registerAxisRotated(KaleidoscopeBlocks.STICK_BUNDLE, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
             blockStateModelGenerator.registerCooker(KaleidoscopeBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
+            blockStateModelGenerator.registerCubeWithCustomTextures(KaleidoscopeBlocks.FIREWORKS_TABLE, Blocks.JUNGLE_PLANKS, TextureMap::frontTopSide);
             registerGlassSlab(blockStateModelGenerator, Blocks.GLASS, KaleidoscopeBlocks.GLASS_SLAB);
             KaleidoscopeBlockFamilies.getFamilies().filter(blockFamily -> blockFamily.getGroup().isPresent() && blockFamily.getGroup().get().equals("stained_glass")).forEach((family) -> registerGlassSlab(blockStateModelGenerator, family.getBaseBlock(), family.getVariant(BlockFamily.Variant.SLAB)));
             blockStateModelGenerator.registerDoor(KaleidoscopeBlocks.GLASS_DOOR);
@@ -632,6 +635,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.KILN).input('#', Items.BRICK).input('X', Blocks.FURNACE).pattern(" # ").pattern("#X#").pattern(" # ").criterion(hasItem(Blocks.FURNACE), conditionsFromItem(Blocks.FURNACE)).offerTo(exporter);
 
+            ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.FIREWORKS_TABLE).input('#', ItemTags.PLANKS).input('@', Items.GUNPOWDER).pattern("@@").pattern("##").pattern("##").criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER)).offerTo(exporter);
+
             offerDoorRecipe(exporter, KaleidoscopeBlocks.GLASS_DOOR, Blocks.GLASS);
             offerTrapdoorRecipe2(exporter, KaleidoscopeBlocks.GLASS_TRAPDOOR, Blocks.GLASS);
 
@@ -678,6 +683,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 9).input(KaleidoscopeBlocks.STICK_BUNDLE).group(getItemPath(Items.STICK)).criterion(hasItem(KaleidoscopeBlocks.STICK_BUNDLE), conditionsFromItem(KaleidoscopeBlocks.STICK_BUNDLE)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, "stick_from_bundle"));
 
             ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GREEN_DYE, 2).input(ConventionalItemTags.BLUE_DYES).input(ConventionalItemTags.YELLOW_DYES).criterion(hasItem(Items.BLUE_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.BLUE_DYES)).criterion(hasItem(Items.YELLOW_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.YELLOW_DYES)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, "green_dye_from_blue_yellow_dye"));
+
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FIREWORK_STAR, 2).input(Items.GUNPOWDER).criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, "firework_star"));
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MUSIC_DISC_PIGSTEP).input('S', KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP), RecipeProvider.conditionsFromItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.MUSIC_DISC_PIGSTEP)));
 

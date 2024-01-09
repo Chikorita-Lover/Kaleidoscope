@@ -3,16 +3,17 @@ package com.chikoritalover.kaleidoscope;
 import com.chikoritalover.kaleidoscope.mixin.StructurePoolMixin;
 import com.chikoritalover.kaleidoscope.recipe.KilnCookingRecipe;
 import com.chikoritalover.kaleidoscope.registry.*;
+import com.chikoritalover.kaleidoscope.screen.FireworksTableScreenHandler;
 import com.chikoritalover.kaleidoscope.screen.KilnScreenHandler;
 import com.chocohead.mm.api.ClassTinkerers;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.fabric.mixin.content.registry.GiveGiftsToHeroTaskAccessor;
+import net.minecraft.item.FireworkRocketItem;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
@@ -21,12 +22,14 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.screen.ScreenTexts;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.structure.pool.FeaturePoolElement;
 import net.minecraft.structure.pool.SinglePoolElement;
@@ -34,6 +37,9 @@ import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolElement;
 import net.minecraft.structure.processor.StructureProcessorList;
 import net.minecraft.structure.processor.StructureProcessorLists;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.gen.feature.PlacedFeature;
@@ -47,6 +53,7 @@ public class Kaleidoscope implements ModInitializer {
 	public static final VillagerProfession GLASSBLOWER;
 	public static final RegistryKey<PointOfInterestType> GLASSBLOWER_POINT_OF_INTEREST;
 	public static final String MODID = "kaleidoscope";
+	public static final ScreenHandlerType<FireworksTableScreenHandler> FIREWORKS_TABLE = ScreenHandlerRegistry.registerSimple(new Identifier(MODID, "fireworks_table"), FireworksTableScreenHandler::new);
 	public static final CookingRecipeSerializer<KilnCookingRecipe> KILN_COOKING_RECIPE_SERIALIZER;
 	public static final ScreenHandlerType<KilnScreenHandler> KILN_SCREEN_HANDLER;
 	public static final RecipeType<KilnCookingRecipe> KILNING;
@@ -138,6 +145,43 @@ public class Kaleidoscope implements ModInitializer {
 				supplier.modifyPools(builder -> builder.with((ItemEntry.builder(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).build());
 			}
 		});
+	}
+
+	public static MutableText getFireworkStarText(NbtCompound nbt) {
+		MutableText text = Text.empty();
+		FireworkRocketItem.Type type = FireworkRocketItem.Type.byId(nbt.getByte("Type"));
+		int[] is = nbt.getIntArray("Colors");
+		if (is.length > 0) {
+			appendFireworkColorText(text, is);
+		}
+		if (nbt.contains("Type")) {
+			if (!text.equals(Text.empty())) {
+				text.append(ScreenTexts.space());
+			}
+			text.append(Text.translatable("item.minecraft.firework_star.shape." + type.getName()));
+		}
+		return text;
+	}
+
+	private static void appendFireworkColorText(MutableText text, int[] is) {
+		if (is.length == 1) {
+			DyeColor dyeColor = DyeColor.byFireworkColor(is[0]);
+			if (dyeColor == null) {
+				text.append(Text.translatable("item.minecraft.firework_star.custom_color"));
+			} else {
+				text.append(Text.translatable("item.minecraft.firework_star." + dyeColor.getName()));
+			}
+		} else if (is.length == 2) {
+			DyeColor dyeColor = DyeColor.byFireworkColor(is[0]);
+			DyeColor dyeColor2 = DyeColor.byFireworkColor(is[1]);
+			if (dyeColor == null || dyeColor2 == null) {
+				text.append(Text.translatable("item.minecraft.firework_star.custom_color"));
+			} else {
+				text.append(Text.translatable("item.minecraft.firework_star." + dyeColor.getName()).append("-").append(Text.translatable("item.minecraft.firework_star." + dyeColor2.getName())));
+			}
+		} else {
+			text.append(Text.translatable("item.minecraft.firework_star.multicolor"));
+		}
 	}
 
 	private void addLootTablePool(int minRolls, int maxRolls, float chance, Identifier lootTable, ItemConvertible item) {

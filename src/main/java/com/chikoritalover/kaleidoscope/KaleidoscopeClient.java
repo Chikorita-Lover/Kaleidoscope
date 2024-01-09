@@ -1,6 +1,7 @@
 package com.chikoritalover.kaleidoscope;
 
 import com.chikoritalover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
+import com.chikoritalover.kaleidoscope.client.gui.screen.FireworksTableScreen;
 import com.chikoritalover.kaleidoscope.client.gui.screen.KilnScreen;
 import com.chikoritalover.kaleidoscope.client.particle.FireflyParticle;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlocks;
@@ -95,6 +96,7 @@ public class KaleidoscopeClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, RenderLayer.getTranslucent());
         
+        HandledScreens.register(Kaleidoscope.FIREWORKS_TABLE, FireworksTableScreen::new);
         HandledScreens.register(Kaleidoscope.KILN_SCREEN_HANDLER, KilnScreen::new);
 
         ItemTooltipCallback.EVENT.register((stack, context, tooltip) -> {

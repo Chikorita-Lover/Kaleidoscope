@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 
 public class KaleidoscopeSoundEvents {
     public static final RegistryEntry.Reference<SoundEvent> BLOCK_NOTE_BLOCK_SAXOPHONE = registerReference("block.note_block.saxophone");
+    public static final SoundEvent BLOCK_FIREWORKS_TABLE_TAKE_RESULT = register("block.fireworks_table.take_result");
     public static final SoundEvent BLOCK_KILN_CRACKLE = register("block.kiln.crackle");
 
     public static final SoundEvent ENTITY_VILLAGER_WORK_GLASSBLOWER = register("entity.villager.work_glassblower");

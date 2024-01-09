@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/jungle_planks",
+    "east": "kaleidoscope:block/fireworks_table_side",
+    "north": "kaleidoscope:block/fireworks_table_front",
+    "particle": "kaleidoscope:block/fireworks_table_front",
+    "south": "kaleidoscope:block/fireworks_table_front",
+    "up": "kaleidoscope:block/fireworks_table_top",
+    "west": "kaleidoscope:block/fireworks_table_side"
+  }
+}

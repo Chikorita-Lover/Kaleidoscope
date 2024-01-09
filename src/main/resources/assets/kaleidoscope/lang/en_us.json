@@ -53,6 +53,7 @@
   "block.kaleidoscope.exposed_smooth_copper": "Exposed Smooth Copper",
   "block.kaleidoscope.exposed_smooth_copper_slab": "Exposed Smooth Copper Slab",
   "block.kaleidoscope.exposed_smooth_copper_stairs": "Exposed Smooth Copper Stairs",
+  "block.kaleidoscope.fireworks_table": "Fireworks Table",
   "block.kaleidoscope.glass_door": "Glass Door",
   "block.kaleidoscope.glass_slab": "Glass Slab",
   "block.kaleidoscope.glass_trapdoor": "Glass Trapdoor",
@@ -225,6 +226,17 @@
   "block.minecraft.respawn_anchor.desc1": "Interact with Glowstone:",
   "block.minecraft.respawn_anchor.desc2": "Increases Charge Level",
 
+  "container.fireworks_table": "Construct Fireworks",
+  "container.fireworks_table.add_dye_tooltip": "Add Dye",
+  "container.fireworks_table.add_firework_star_tooltip": "Add Firework Star",
+  "container.fireworks_table.add_gunpowder_tooltip": "Add Gunpowder",
+  "container.fireworks_table.add_modifier_tooltip": "Add shape or effect modifier",
+  "container.fireworks_table.extra_modifier_tooltip": "Firework Star can only use one of each modifier",
+  "container.fireworks_table.invalid_input_tooltip": "Item can't be constructed this way",
+  "container.fireworks_table.missing_base_tooltip": "Add Firework Star to customize explosion\nAdd Paper to construct Firework Rocket",
+  "container.fireworks_table.missing_dye_tooltip": "Firework Star can't be constructed with no color",
+  "container.fireworks_table.missing_gunpowder_tooltip": "Firework Rocket can't be constructed with no Gunpowder",
+  "container.fireworks_table.no_effect_tooltip": "At least one Firework Star has no effect",
   "container.kiln": "Kiln",
 
   "entity.minecraft.villager.glassblower": "Glassblower",
@@ -238,12 +250,21 @@
   "item.kaleidoscope.disc_fragment_pigstep.desc": "Music Disc - Pigstep",
   "item.kaleidoscope.warped_boat": "Warped Boat",
   "item.kaleidoscope.warped_chest_boat": "Warped Boat with Chest",
+
+  "item.minecraft.firework_star.colors": "Colors: ",
+  "item.minecraft.firework_star.effects": "Effects: ",
+  "item.minecraft.firework_star.multicolor": "Multicolor",
+  "item.minecraft.firework_star.shape.creeper": "Creeper-Shaped",
+  "item.minecraft.firework_star.shape.star": "Star-Shaped",
+
   "item.modifiers.consumed": "When Consumed:",
   "item.modifiers.food": "Food",
   "item.modifiers.food_saturation": "Food Saturation",
 
+  "stat.kaleidoscope.interact_with_fireworks_table": "Interactions with Fireworks Table",
   "stat.kaleidoscope.interact_with_kiln": "Interactions with Kiln",
 
+  "subtitles.block.fireworks_table.take_result": "Fireworks Table used",
   "subtitles.block.kiln.crackle": "Kiln crackles",
   "subtitles.entity.villager.work_glassblower": "Glassblower works",
   "subtitles.item.hoe.scrape": "Hoe scrapes"

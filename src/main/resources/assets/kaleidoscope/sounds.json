@@ -1,4 +1,11 @@
 {
+  "block.fireworks_table.take_result": {
+    "subtitle": "subtitles.block.fireworks_table.take_result",
+    "sounds": [
+      "kaleidoscope:block/fireworks_table/take_result1",
+      "kaleidoscope:block/fireworks_table/take_result2"
+    ]
+  },
   "block.kiln.crackle": {
     "subtitle": "subtitles.block.kiln.crackle",
     "sounds": [

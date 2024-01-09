@@ -218,6 +218,7 @@ public class KaleidoscopeBlocks {
     public static final Block RED_NETHER_BRICK_FENCE = registerBlockWithItem("red_nether_brick_fence", new FenceBlock(AbstractBlock.Settings.copy(RED_NETHER_BRICKS)));
 
     public static final Block KILN = registerBlockWithItem("kiln", new KilnBlock(AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).luminance(createLightLevelFromLitBlockState(13)).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.5F)));
+    public static final Block FIREWORKS_TABLE = registerBlockWithItem("fireworks_table", new FireworksTableBlock(AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD).burnable()));
 
     public static final Block GLASS_SLAB = registerBlockWithItem("glass_slab", new GlassSlabBlock(GLASS, AbstractBlock.Settings.copy(GLASS)));
     public static final Block BLACK_STAINED_GLASS_SLAB = registerBlockWithItem("black_stained_glass_slab", createStainedGlassSlabBlock((StainedGlassBlock) BLACK_STAINED_GLASS));

@@ -19,6 +19,8 @@
     "FallingBlockMixin",
     "FarmlandBlockMixin",
     "FireBlockMixin",
+    "FireworkRocketItemMixin",
+    "FireworkStarItemMixin",
     "FoodComponentMixin",
     "GrindstoneScreenHandlerMixin",
     "GrindstoneScreenHandlerMixin$GrindstoneScreenHandler2Mixin",
