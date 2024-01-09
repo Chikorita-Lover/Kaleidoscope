@@ -205,7 +205,6 @@ public class FireworksTableScreenHandler extends ScreenHandler {
                 itemStack2 = itemStack.copyWithCount(1);
                 NbtCompound nbtCompound = itemStack2.getOrCreateSubNbt("Explosion");
                 FireworkRocketItem.Type type = nbtCompound.contains("Type") ? FireworkRocketItem.Type.byId(nbtCompound.getByte("Type")) : FireworkRocketItem.Type.SMALL_BALL;
-                ArrayList<Integer> list = Lists.newArrayList();
                 for (Slot modifierSlot : this.modifierSlots) {
                     ItemStack itemStack3 = modifierSlot.getStack();
                     if (itemStack3.isEmpty()) continue;
@@ -221,13 +220,16 @@ public class FireworksTableScreenHandler extends ScreenHandler {
                         nbtCompound.putBoolean("Trail", true);
                     }
                 }
-                for (Slot colorSlot : this.colorSlots) {
-                    ItemStack itemStack3 = colorSlot.getStack();
-                    if (itemStack3.getItem() instanceof DyeItem dyeItem) {
-                        list.add(dyeItem.getColor().getFireworkColor());
+                if (this.colorSlots.stream().anyMatch(Slot::hasStack)) {
+                    ArrayList<Integer> list = Lists.newArrayList();
+                    for (Slot colorSlot : this.colorSlots) {
+                        ItemStack itemStack3 = colorSlot.getStack();
+                        if (itemStack3.getItem() instanceof DyeItem dyeItem) {
+                            list.add(dyeItem.getColor().getFireworkColor());
+                        }
                     }
+                    nbtCompound.putIntArray(nbtCompound.contains("Colors") ? "FadeColors" : "Colors", list);
                 }
-                nbtCompound.putIntArray(nbtCompound.contains("Colors") ? "FadeColors" : "Colors", list);
                 nbtCompound.putByte("Type", (byte) type.getId());
             } else if (itemStack.isOf(Items.PAPER) && this.modifierSlots.stream().anyMatch(slot -> slot.getStack().isOf(Items.GUNPOWDER))) {
                 itemStack2 = new ItemStack(Items.FIREWORK_ROCKET, 3);
