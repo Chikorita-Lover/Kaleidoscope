@@ -1,5 +1,6 @@
 package com.chikoritalover.kaleidoscope;
 
+import com.chikoritalover.kaleidoscope.item.FireworkShellItem;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlockFamilies;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlocks;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItemTags;
@@ -28,6 +29,7 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
@@ -351,6 +353,11 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             itemModelGenerator.register(KaleidoscopeItems.WARPED_CHEST_BOAT, Models.GENERATED);
             itemModelGenerator.register(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP, Models.GENERATED);
             itemModelGenerator.register(KaleidoscopeItems.CAKE_SLICE, Models.GENERATED);
+            for (Item item : Registries.ITEM) {
+                if (item instanceof FireworkShellItem) {
+                    itemModelGenerator.register(item, Models.GENERATED);
+                }
+            }
         }
 
         private void registerGlassSlab(BlockStateModelGenerator blockStateModelGenerator, Block block, Block slabBlock) {
@@ -406,6 +413,10 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
         public static void offerDoorRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 3).input('#', input).pattern("##").pattern("##").pattern("##").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
+        }
+
+        public static void offerFireworkShellRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, output, 8).input(Items.PAPER).input(Items.GUNPOWDER).input(input).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
         }
 
         public static void offerStainedGlassDoorRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible blockItem, TagKey<Item> dyeItem) {
@@ -701,6 +712,11 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GREEN_DYE, 2).input(ConventionalItemTags.BLUE_DYES).input(ConventionalItemTags.YELLOW_DYES).criterion(hasItem(Items.BLUE_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.BLUE_DYES)).criterion(hasItem(Items.YELLOW_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.YELLOW_DYES)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, "green_dye_from_blue_yellow_dye"));
 
             ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FIREWORK_STAR, 2).input(Items.GUNPOWDER).criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, "firework_star"));
+
+            offerFireworkShellRecipe(exporter, KaleidoscopeItems.LARGE_BALL_FIREWORK_SHELL, Items.FIRE_CHARGE);
+            offerFireworkShellRecipe(exporter, KaleidoscopeItems.STAR_FIREWORK_SHELL, Items.GOLD_NUGGET);
+            offerFireworkShellRecipe(exporter, KaleidoscopeItems.CREEPER_FIREWORK_SHELL, Items.CREEPER_HEAD);
+            offerFireworkShellRecipe(exporter, KaleidoscopeItems.BURST_FIREWORK_SHELL, Items.FEATHER);
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MUSIC_DISC_PIGSTEP).input('S', KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP), RecipeProvider.conditionsFromItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.MUSIC_DISC_PIGSTEP)));
 

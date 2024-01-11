@@ -1,56 +1,46 @@
 package com.chikoritalover.kaleidoscope.screen;
 
 import com.chikoritalover.kaleidoscope.Kaleidoscope;
+import com.chikoritalover.kaleidoscope.item.FireworkShellItem;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeBlocks;
+import com.chikoritalover.kaleidoscope.registry.KaleidoscopeItemTags;
 import com.chikoritalover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
-import net.minecraft.block.SkullBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
-import net.minecraft.item.*;
+import net.minecraft.item.DyeItem;
+import net.minecraft.item.FireworkRocketItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stat;
 import net.minecraft.stat.Stats;
-import net.minecraft.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class FireworksTableScreenHandler extends ScreenHandler {
+    public static final int OUTPUT_ID = 12;
     private static final int INPUT_START = 0;
     private static final int INPUT_END = 12;
-    public static final int OUTPUT_ID = 12;
     private static final int INVENTORY_START = 13;
     private static final int INVENTORY_END = 40;
     private static final int HOTBAR_START = 40;
     private static final int HOTBAR_END = 49;
-    private final ScreenHandlerContext context;
     final Slot baseSlot;
     final List<Slot> modifierSlots;
     final List<Slot> colorSlots;
     final Slot outputSlot;
-    long lastTakeResultTime;
-    private static final Ingredient TYPE_MODIFIER = Ingredient.ofItems(Items.FIRE_CHARGE, Items.FEATHER, Items.GOLD_NUGGET, Items.CREEPER_HEAD);
-    private static final Map<Item, FireworkRocketItem.Type> TYPE_MODIFIER_MAP = Util.make(Maps.newHashMap(), typeModifiers -> {
-        typeModifiers.put(Items.FIRE_CHARGE, FireworkRocketItem.Type.LARGE_BALL);
-        typeModifiers.put(Items.FEATHER, FireworkRocketItem.Type.BURST);
-        typeModifiers.put(Items.GOLD_NUGGET, FireworkRocketItem.Type.STAR);
-        typeModifiers.put(Items.CREEPER_HEAD, FireworkRocketItem.Type.CREEPER);
-    });
-    private final Inventory input = new SimpleInventory(12) {
+    private final ScreenHandlerContext context;
+    private final Inventory output = new SimpleInventory(1);
+    long lastTakeResultTime;    private final Inventory input = new SimpleInventory(12) {
 
         @Override
         public void markDirty() {
@@ -58,8 +48,6 @@ public class FireworksTableScreenHandler extends ScreenHandler {
             FireworksTableScreenHandler.this.onContentChanged(this);
         }
     };
-    private final Inventory output = new SimpleInventory(1);
-
     public FireworksTableScreenHandler(int i, PlayerInventory playerInventory) {
         this(i, playerInventory, ScreenHandlerContext.EMPTY);
     }
@@ -92,7 +80,7 @@ public class FireworksTableScreenHandler extends ScreenHandler {
 
                 @Override
                 public boolean canInsert(ItemStack stack) {
-                    return canInsertAsModifier(this.inventory, stack);
+                    return canInsertAsModifier(this.inventory, this.id, stack);
                 }
             }));
         }
@@ -150,6 +138,22 @@ public class FireworksTableScreenHandler extends ScreenHandler {
         }
     }
 
+    public static boolean canInsertAsModifier(Inventory inventory, int slot, ItemStack stack) {
+        if (slot < 1 || slot > 3) return false;
+        ItemStack itemStack;
+        return (itemStack = inventory.getStack(0)).isOf(Items.PAPER) && stack.isOf(Items.GUNPOWDER) || itemStack.isOf(Items.FIREWORK_STAR) && ((slot == 1 && stack.isIn(KaleidoscopeItemTags.FIREWORK_SHELLS)) || (slot == 2 && stack.isOf(Items.GLOWSTONE_DUST)) || (slot == 3 && stack.isOf(Items.DIAMOND)));
+    }
+
+    public static boolean isModifier(Inventory inventory, ItemStack stack) {
+        ItemStack itemStack;
+        return (itemStack = inventory.getStack(0)).isOf(Items.PAPER) && stack.isOf(Items.GUNPOWDER) || itemStack.isOf(Items.FIREWORK_STAR) && (stack.isIn(KaleidoscopeItemTags.FIREWORK_SHELLS) || stack.isOf(Items.GLOWSTONE_DUST) || stack.isOf(Items.DIAMOND));
+    }
+
+    public static boolean canInsertAsColor(Inventory inventory, ItemStack stack) {
+        ItemStack itemStack = inventory.getStack(0);
+        return !itemStack.isEmpty() && (itemStack.isOf(Items.PAPER) ? stack.isOf(Items.FIREWORK_STAR) : stack.getItem() instanceof DyeItem);
+    }
+
     @Override
     public ItemStack quickMove(PlayerEntity player, int slot) {
         ItemStack itemStack = ItemStack.EMPTY;
@@ -162,7 +166,7 @@ public class FireworksTableScreenHandler extends ScreenHandler {
                     return ItemStack.EMPTY;
                 }
                 slot2.onQuickTransfer(itemStack2, itemStack);
-            } else if (slot < INVENTORY_START ? !this.insertItem(itemStack2, INVENTORY_START, HOTBAR_END, false) : (this.getBaseSlot().canInsert(itemStack2) && (!this.getBaseSlot().hasStack() || itemStack2.isOf(this.getBaseSlot().getStack().getItem())) ? !this.insertItem(itemStack2, this.getBaseSlot().id, this.getBaseSlot().id + 1, false) : (canInsertAsModifier(this.getInputs(), itemStack2) ? !this.insertItem(itemStack2, 1, 4, false) : (canInsertAsColor(this.getInputs(), itemStack2) ? !this.insertItem(itemStack2, 4, INPUT_END, false) : (slot < INVENTORY_END ? !this.insertItem(itemStack2, HOTBAR_START, HOTBAR_END, false) : slot < HOTBAR_END && !this.insertItem(itemStack2, INVENTORY_START, INVENTORY_END, false)))))) {
+            } else if (slot < INVENTORY_START ? !this.insertItem(itemStack2, INVENTORY_START, HOTBAR_END, false) : (this.getBaseSlot().canInsert(itemStack2) && (!this.getBaseSlot().hasStack() || itemStack2.isOf(this.getBaseSlot().getStack().getItem())) ? !this.insertItem(itemStack2, this.getBaseSlot().id, this.getBaseSlot().id + 1, false) : (isModifier(this.getInputs(), itemStack2) ? !this.insertItem(itemStack2, 1, 4, false) : (canInsertAsColor(this.getInputs(), itemStack2) ? !this.insertItem(itemStack2, 4, INPUT_END, false) : (slot < INVENTORY_END ? !this.insertItem(itemStack2, HOTBAR_START, HOTBAR_END, false) : slot < HOTBAR_END && !this.insertItem(itemStack2, INVENTORY_START, INVENTORY_END, false)))))) {
                 return ItemStack.EMPTY;
             }
             if (itemStack2.isEmpty()) {
@@ -208,8 +212,8 @@ public class FireworksTableScreenHandler extends ScreenHandler {
                 for (Slot modifierSlot : this.modifierSlots) {
                     ItemStack itemStack3 = modifierSlot.getStack();
                     if (itemStack3.isEmpty()) continue;
-                    if (TYPE_MODIFIER.test(itemStack3)) {
-                        type = TYPE_MODIFIER_MAP.get(itemStack3.getItem());
+                    if (itemStack3.isIn(KaleidoscopeItemTags.FIREWORK_SHELLS) && itemStack3.getItem() instanceof FireworkShellItem fireworkShellItem) {
+                        type = fireworkShellItem.getType();
                         continue;
                     }
                     if (itemStack3.isOf(Items.GLOWSTONE_DUST)) {
@@ -272,16 +276,6 @@ public class FireworksTableScreenHandler extends ScreenHandler {
         return this.input;
     }
 
-    public static boolean canInsertAsModifier(Inventory inventory, ItemStack stack) {
-        ItemStack itemStack;
-        return (itemStack = inventory.getStack(0)).isOf(Items.PAPER) && stack.isOf(Items.GUNPOWDER) || itemStack.isOf(Items.FIREWORK_STAR) && ((TYPE_MODIFIER.test(stack) || stack.isOf(Items.GLOWSTONE_DUST) || stack.isOf(Items.DIAMOND)));
-    }
-
-    public static boolean canInsertAsColor(Inventory inventory, ItemStack stack) {
-        ItemStack itemStack = inventory.getStack(0);
-        return !itemStack.isEmpty() && (itemStack.isOf(Items.PAPER) ? stack.isOf(Items.FIREWORK_STAR) : stack.getItem() instanceof DyeItem);
-    }
-
     public boolean hasInvalidInputs() {
         return this.getInputError() != ErrorType.NONE;
     }
@@ -299,7 +293,7 @@ public class FireworksTableScreenHandler extends ScreenHandler {
                 return ErrorType.NO_EFFECT;
             }
         } else if (itemStack.isOf(Items.FIREWORK_STAR)) {
-            if (this.modifierSlots.stream().filter(slot -> TYPE_MODIFIER.test(slot.getStack())).count() > 1 || this.modifierSlots.stream().filter(slot -> slot.getStack().isOf(Items.GLOWSTONE_DUST)).count() > 1 || this.modifierSlots.stream().filter(slot -> slot.getStack().isOf(Items.DIAMOND)).count() > 1) {
+            if (this.modifierSlots.stream().filter(slot -> slot.getStack().isIn(KaleidoscopeItemTags.FIREWORK_SHELLS)).count() > 1 || this.modifierSlots.stream().filter(slot -> slot.getStack().isOf(Items.GLOWSTONE_DUST)).count() > 1 || this.modifierSlots.stream().filter(slot -> slot.getStack().isOf(Items.DIAMOND)).count() > 1) {
                 return ErrorType.EXTRA_MODIFIER;
             }
             if (this.colorSlots.stream().noneMatch(slot -> slot.getStack().getItem() instanceof DyeItem) && (!itemStack.hasNbt() || !itemStack.getNbt().contains("Explosion") || !itemStack.getNbt().getCompound("Explosion").contains("Colors"))) {
@@ -317,4 +311,6 @@ public class FireworksTableScreenHandler extends ScreenHandler {
         MISSING_GUNPOWDER,
         NO_EFFECT
     }
+
+
 }

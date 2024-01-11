@@ -227,10 +227,12 @@
   "block.minecraft.respawn_anchor.desc2": "Increases Charge Level",
 
   "container.fireworks_table": "Construct Fireworks",
+  "container.fireworks_table.add_diamond_tooltip": "Add Diamond to add Trail effect",
   "container.fireworks_table.add_dye_tooltip": "Add Dye",
+  "container.fireworks_table.add_firework_shell_tooltip": "Add Firework Shell to change shape",
   "container.fireworks_table.add_firework_star_tooltip": "Add Firework Star",
+  "container.fireworks_table.add_glowstone_dust_tooltip": "Add Glowstone Dust to add Twinkle effect",
   "container.fireworks_table.add_gunpowder_tooltip": "Add Gunpowder",
-  "container.fireworks_table.add_modifier_tooltip": "Add shape or effect modifier",
   "container.fireworks_table.extra_modifier_tooltip": "Firework Star can only use one of each modifier",
   "container.fireworks_table.invalid_input_tooltip": "Item can't be constructed this way",
   "container.fireworks_table.missing_base_tooltip": "Add Firework Star to customize explosion\nAdd Paper to construct Firework Rocket",
@@ -249,6 +251,7 @@
   "item.kaleidoscope.crimson_chest_boat": "Crimson Boat with Chest",
   "item.kaleidoscope.disc_fragment_pigstep": "Disc Fragment",
   "item.kaleidoscope.disc_fragment_pigstep.desc": "Music Disc - Pigstep",
+  "item.kaleidoscope.firework_shell": "Firework Shell",
   "item.kaleidoscope.warped_boat": "Warped Boat",
   "item.kaleidoscope.warped_chest_boat": "Warped Boat with Chest",
 

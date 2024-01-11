@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "item": "minecraft:feather"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "kaleidoscope:burst_firework_shell"
+  }
+}

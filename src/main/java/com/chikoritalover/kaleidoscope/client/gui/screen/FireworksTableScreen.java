@@ -19,19 +19,17 @@ import java.util.function.BiConsumer;
 public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(Kaleidoscope.MODID, "textures/gui/container/fireworks_table.png");
     private static final Identifier EMPTY_SLOT_DIAMOND_TEXTURE = new Identifier("item/empty_slot_diamond");
-    private static final Identifier EMPTY_SLOT_DYE_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_dye");
-    private static final Identifier EMPTY_SLOT_FEATHER_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_feather");
-    private static final Identifier EMPTY_SLOT_FIRE_CHARGE_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_fire_charge");
+    private static final Identifier EMPTY_SLOT_FIREWORK_SHELL_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_firework_shell");
     private static final Identifier EMPTY_SLOT_FIREWORK_STAR_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_firework_star");
     private static final Identifier EMPTY_SLOT_GLOWSTONE_DUST_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_glowstone_dust");
-    private static final Identifier EMPTY_SLOT_GOLD_NUGGET_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_gold_nugget");
     private static final Identifier EMPTY_SLOT_GUNPOWDER_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_gunpowder");
-    private static final Identifier EMPTY_SLOT_HEAD_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_head");
     private static final Identifier EMPTY_SLOT_PAPER_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_paper");
+    private static final Text ADD_DIAMOND_TOOLTIP = Text.translatable("container.fireworks_table.add_diamond_tooltip");
     private static final Text ADD_DYE_TOOLTIP = Text.translatable("container.fireworks_table.add_dye_tooltip");
+    private static final Text ADD_FIREWORK_SHELL_TOOLTIP = Text.translatable("container.fireworks_table.add_firework_shell_tooltip");
     private static final Text ADD_FIREWORK_STAR_TOOLTIP = Text.translatable("container.fireworks_table.add_firework_star_tooltip");
+    private static final Text ADD_GLOWSTONE_DUST_TOOLTIP = Text.translatable("container.fireworks_table.add_glowstone_dust_tooltip");
     private static final Text ADD_GUNPOWDER_TOOLTIP = Text.translatable("container.fireworks_table.add_gunpowder_tooltip");
-    private static final Text ADD_MODIFIER_TOOLTIP = Text.translatable("container.fireworks_table.add_modifier_tooltip");
     private static final Text EXTRA_MODIFIER_TOOLTIP = Text.translatable("container.fireworks_table.extra_modifier_tooltip");
     private static final Text INVALID_INPUT_TOOLTIP = Text.translatable("container.fireworks_table.invalid_input_tooltip");
     private static final Text MISSING_BASE_TOOLTIP = Text.translatable("container.fireworks_table.missing_base_tooltip");
@@ -39,7 +37,7 @@ public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHand
     private static final Text MISSING_GUNPOWDER_TOOLTIP = Text.translatable("container.fireworks_table.missing_gunpowder_tooltip");
     private static final Text NO_EFFECT_TOOLTIP = Text.translatable("container.fireworks_table.no_effect_tooltip");
     private static final List<Identifier> BASE_SLOT_TEXTURES = List.of(EMPTY_SLOT_FIREWORK_STAR_TEXTURE, EMPTY_SLOT_PAPER_TEXTURE);
-    private static final List<Identifier> FIREWORK_STAR_MODIFIER_TEXTURES = List.of(EMPTY_SLOT_FIRE_CHARGE_TEXTURE, EMPTY_SLOT_GOLD_NUGGET_TEXTURE, EMPTY_SLOT_HEAD_TEXTURE, EMPTY_SLOT_FEATHER_TEXTURE, EMPTY_SLOT_GLOWSTONE_DUST_TEXTURE, EMPTY_SLOT_DIAMOND_TEXTURE);
+    private static final List<Identifier> FIREWORK_STAR_MODIFIER_TEXTURES = List.of(EMPTY_SLOT_FIREWORK_SHELL_TEXTURE, EMPTY_SLOT_GLOWSTONE_DUST_TEXTURE, EMPTY_SLOT_DIAMOND_TEXTURE);
     private final CyclingSlotIcon baseSlotIcon = new CyclingSlotIcon(0);
     private final CyclingSlotIcon modifierSlotIcon = new CyclingSlotIcon(1);
     private final CyclingSlotIcon modifierSlotIcon2 = new CyclingSlotIcon(2);
@@ -61,11 +59,11 @@ public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHand
         ItemStack itemStack = this.getScreenHandler().getBaseSlot().getStack();
         this.baseSlotIcon.updateTexture(BASE_SLOT_TEXTURES);
         BiConsumer<CyclingSlotIcon, Integer> consumer = (slot, i) -> {
-            if (this.getScreenHandler().slots.subList(0, i).stream().anyMatch(slot2 -> !slot2.hasStack())) {
+            if (!itemStack.isOf(Items.FIREWORK_STAR) && this.getScreenHandler().slots.subList(0, i).stream().anyMatch(slot2 -> !slot2.hasStack())) {
                 slot.updateTexture(List.of());
                 return;
             }
-            slot.updateTexture(itemStack.isOf(Items.GUNPOWDER) || itemStack.isOf(Items.FIREWORK_STAR) ? FIREWORK_STAR_MODIFIER_TEXTURES : itemStack.isOf(Items.PAPER) ? List.of(EMPTY_SLOT_GUNPOWDER_TEXTURE) : List.of());
+            slot.updateTexture(itemStack.isOf(Items.FIREWORK_STAR) ? List.of(FIREWORK_STAR_MODIFIER_TEXTURES.get(i - 1)) : itemStack.isOf(Items.PAPER) ? List.of(EMPTY_SLOT_GUNPOWDER_TEXTURE) : List.of());
         };
         consumer.accept(this.modifierSlotIcon, 1);
         consumer.accept(this.modifierSlotIcon2, 2);
@@ -127,7 +125,7 @@ public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHand
                 }
             } else {
                 if (itemStack2.isEmpty() && this.focusedSlot.id >= 1 && this.focusedSlot.id < 4) {
-                    optional = itemStack.isOf(Items.PAPER) ? Optional.of(ADD_GUNPOWDER_TOOLTIP) : Optional.of(ADD_MODIFIER_TOOLTIP);
+                    optional = Optional.of(itemStack.isOf(Items.PAPER) ? ADD_GUNPOWDER_TOOLTIP : List.of(ADD_FIREWORK_SHELL_TOOLTIP, ADD_GLOWSTONE_DUST_TOOLTIP, ADD_DIAMOND_TOOLTIP).get(this.focusedSlot.id - 1));
                 }
                 if (itemStack2.isEmpty() && this.focusedSlot.id >= 4 && this.focusedSlot.id < 12) {
                     optional = itemStack.isOf(Items.PAPER) ? Optional.of(ADD_FIREWORK_STAR_TOOLTIP) : Optional.of(ADD_DYE_TOOLTIP);

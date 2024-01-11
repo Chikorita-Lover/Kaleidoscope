@@ -96,7 +96,10 @@ public class KaleidoscopeItemGroups {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> entries.addAfter(Items.BAMBOO_CHEST_RAFT, KaleidoscopeItems.CRIMSON_CHEST_BOAT));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.addAfter(Items.BAMBOO_CHEST_RAFT, KaleidoscopeItems.CRIMSON_BOAT, KaleidoscopeItems.CRIMSON_CHEST_BOAT, KaleidoscopeItems.WARPED_BOAT, KaleidoscopeItems.WARPED_CHEST_BOAT));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> entries.addAfter(Items.CAKE, KaleidoscopeItems.CAKE_SLICE));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.addAfter(Items.DISC_FRAGMENT_5, KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+            entries.addAfter(Items.DISC_FRAGMENT_5, KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP);
+            entries.addBefore(Items.EXPERIENCE_BOTTLE, KaleidoscopeItems.LARGE_BALL_FIREWORK_SHELL, KaleidoscopeItems.STAR_FIREWORK_SHELL, KaleidoscopeItems.CREEPER_FIREWORK_SHELL, KaleidoscopeItems.BURST_FIREWORK_SHELL);
+        });
     }
 
     private static void addStainedBricks(FabricItemGroupEntries entries, BlockFamily blockFamily) {
