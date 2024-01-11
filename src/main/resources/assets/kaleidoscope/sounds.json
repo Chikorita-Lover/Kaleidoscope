@@ -21,6 +21,13 @@
       "kaleidoscope:note/saxophone"
     ]
   },
+  "entity.villager.work_fireworker": {
+    "subtitle": "subtitles.entity.villager.work_fireworker",
+    "sounds": [
+      "kaleidoscope:block/fireworks_table/take_result1",
+      "kaleidoscope:block/fireworks_table/take_result2"
+    ]
+  },
   "entity.villager.work_glassblower": {
     "subtitle": "subtitles.entity.villager.work_glassblower",
     "sounds": [

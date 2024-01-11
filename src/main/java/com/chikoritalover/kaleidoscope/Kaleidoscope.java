@@ -50,7 +50,9 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class Kaleidoscope implements ModInitializer {
+	public static final VillagerProfession FIREWORKER;
 	public static final VillagerProfession GLASSBLOWER;
+	public static final RegistryKey<PointOfInterestType> FIREWORKER_POINT_OF_INTEREST;
 	public static final RegistryKey<PointOfInterestType> GLASSBLOWER_POINT_OF_INTEREST;
 	public static final String MODID = "kaleidoscope";
 	public static final ScreenHandlerType<FireworksTableScreenHandler> FIREWORKS_TABLE = ScreenHandlerRegistry.registerSimple(new Identifier(MODID, "fireworks_table"), FireworksTableScreenHandler::new);
@@ -60,8 +62,10 @@ public class Kaleidoscope implements ModInitializer {
 	public static final RecipeBookCategory KILNING_CATEGORY;
 
 	static {
+		FIREWORKER_POINT_OF_INTEREST = RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, new Identifier(MODID, "fireworker"));
 		GLASSBLOWER_POINT_OF_INTEREST = RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, new Identifier(MODID, "glassblower"));
 		GLASSBLOWER = new VillagerProfession("glassblower", entry -> entry.matchesKey(GLASSBLOWER_POINT_OF_INTEREST), entry -> entry.matchesKey(GLASSBLOWER_POINT_OF_INTEREST), ImmutableSet.of(), ImmutableSet.of(), KaleidoscopeSoundEvents.ENTITY_VILLAGER_WORK_GLASSBLOWER);
+		FIREWORKER = new VillagerProfession("fireworker", entry -> entry.matchesKey(FIREWORKER_POINT_OF_INTEREST), entry -> entry.matchesKey(FIREWORKER_POINT_OF_INTEREST), ImmutableSet.of(), ImmutableSet.of(), KaleidoscopeSoundEvents.ENTITY_VILLAGER_WORK_FIREWORKER);
 		KILN_COOKING_RECIPE_SERIALIZER = Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(MODID, "kilning"), new CookingRecipeSerializer(KilnCookingRecipe::new, 100));
 		KILN_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(MODID, "kilning"), KilnScreenHandler::new);
 		KILNING = Registry.register(Registries.RECIPE_TYPE, new Identifier(MODID, "kilning"), new RecipeType<KilnCookingRecipe>() {
@@ -90,9 +94,12 @@ public class Kaleidoscope implements ModInitializer {
 
 		registerLootTableEvents();
 
+		PointOfInterestTypes.register(Registries.POINT_OF_INTEREST_TYPE, FIREWORKER_POINT_OF_INTEREST, PointOfInterestTypes.getStatesOfBlock(KaleidoscopeBlocks.FIREWORKS_TABLE), 1, 1);
 		PointOfInterestTypes.register(Registries.POINT_OF_INTEREST_TYPE, GLASSBLOWER_POINT_OF_INTEREST, PointOfInterestTypes.getStatesOfBlock(KaleidoscopeBlocks.KILN), 1, 1);
+		Registry.register(Registries.VILLAGER_PROFESSION, new Identifier(MODID, "fireworker"), FIREWORKER);
 		Registry.register(Registries.VILLAGER_PROFESSION, new Identifier(MODID, "glassblower"), GLASSBLOWER);
 
+		GiveGiftsToHeroTaskAccessor.fabric_getGifts().put(FIREWORKER, LootTables.registerLootTable(new Identifier(MODID, "gameplay/hero_of_the_village/fireworker_gift")));
 		GiveGiftsToHeroTaskAccessor.fabric_getGifts().put(GLASSBLOWER, LootTables.registerLootTable(new Identifier(MODID, "gameplay/hero_of_the_village/glassblower_gift")));
 
 		ServerLifecycleEvents.SERVER_STARTING.register(server -> {

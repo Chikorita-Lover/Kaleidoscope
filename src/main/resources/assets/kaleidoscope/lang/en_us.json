@@ -239,6 +239,7 @@
   "container.fireworks_table.no_effect_tooltip": "At least one Firework Star has no effect",
   "container.kiln": "Kiln",
 
+  "entity.minecraft.villager.fireworker": "Fireworker",
   "entity.minecraft.villager.glassblower": "Glassblower",
 
   "gui.recipebook.toggleRecipes.kilnable": "Showing Kilnable",
@@ -266,6 +267,7 @@
 
   "subtitles.block.fireworks_table.take_result": "Fireworks Table used",
   "subtitles.block.kiln.crackle": "Kiln crackles",
+  "subtitles.entity.villager.work_fireworker": "Fireworker works",
   "subtitles.entity.villager.work_glassblower": "Glassblower works",
   "subtitles.item.hoe.scrape": "Hoe scrapes"
 }

@@ -5,7 +5,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class KaleidoscopeSoundEvents {
@@ -13,6 +12,7 @@ public class KaleidoscopeSoundEvents {
     public static final SoundEvent BLOCK_FIREWORKS_TABLE_TAKE_RESULT = register("block.fireworks_table.take_result");
     public static final SoundEvent BLOCK_KILN_CRACKLE = register("block.kiln.crackle");
 
+    public static final SoundEvent ENTITY_VILLAGER_WORK_FIREWORKER = register("entity.villager.work_fireworker");
     public static final SoundEvent ENTITY_VILLAGER_WORK_GLASSBLOWER = register("entity.villager.work_glassblower");
 
     public static final SoundEvent ITEM_HOE_SCRAPE = register("item.hoe.scrape");

@@ -21,7 +21,11 @@ import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
@@ -254,6 +258,18 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             this.addDrop(KaleidoscopeBlocks.RED_STAINED_GLASS_TRAPDOOR);
             this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR);
             this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR);
+
+            this.lootTables.put(new Identifier(Kaleidoscope.MODID, "gameplay/hero_of_the_village/fireworker_gift"), LootTable.builder().pool(LootPool.builder()
+                    .with(ItemEntry.builder(Items.GUNPOWDER))
+            ));
+            this.lootTables.put(new Identifier(Kaleidoscope.MODID, "chests/village/village_fireworker"), LootTable.builder().pool(LootPool.builder()
+                    .rolls(UniformLootNumberProvider.create(1.0F, 5.0F))
+                    .with((ItemEntry.builder(Items.COAL).weight(5)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F))))
+                    .with((ItemEntry.builder(Items.PAPER).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 5.0F))))
+                    .with(ItemEntry.builder(Items.GUNPOWDER).weight(5)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))
+                    .with((ItemEntry.builder(Items.BREAD).weight(15)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 4.0F))))
+                    .with((ItemEntry.builder(Items.STRING).weight(5)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
+            ));
         }
 
         private LootTable.Builder glassSlabDrops(Block drop) {
