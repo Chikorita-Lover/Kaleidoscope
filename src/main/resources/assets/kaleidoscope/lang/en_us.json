@@ -244,6 +244,7 @@
   "entity.minecraft.villager.fireworker": "Fireworker",
   "entity.minecraft.villager.glassblower": "Glassblower",
 
+  "gui.recipebook.toggleRecipes.brewable": "Showing Brewable",
   "gui.recipebook.toggleRecipes.kilnable": "Showing Kilnable",
 
   "item.kaleidoscope.cake_slice": "Cake Slice",
