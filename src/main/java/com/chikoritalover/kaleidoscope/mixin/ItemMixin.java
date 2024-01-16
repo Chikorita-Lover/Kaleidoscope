@@ -1,10 +1,8 @@
 package com.chikoritalover.kaleidoscope.mixin;
 
 import com.chikoritalover.kaleidoscope.registry.MaxItemCountRegistry;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.MusicDiscItem;
-import net.minecraft.item.StewItem;
+import net.minecraft.item.*;
+import net.minecraft.util.Rarity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,6 +25,13 @@ public abstract class ItemMixin {
         }
         if (item instanceof StewItem) {
             info.setReturnValue(16);
+        }
+    }
+
+    @Inject(method = "getRarity", at = @At("RETURN"), cancellable = true)
+    public void getRarity(ItemStack stack, CallbackInfoReturnable<Rarity> cir) {
+        if (this.asItem() == Items.LINGERING_POTION) {
+            cir.setReturnValue(stack.hasEnchantments() ? Rarity.RARE : Rarity.UNCOMMON);
         }
     }
 
