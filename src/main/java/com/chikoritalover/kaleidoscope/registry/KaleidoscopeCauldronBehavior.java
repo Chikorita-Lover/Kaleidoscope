@@ -54,7 +54,7 @@ public class KaleidoscopeCauldronBehavior {
                 return ActionResult.PASS;
             }
             ItemStack potionStack = ((PotionCauldronBlockEntity) world.getBlockEntity(pos)).getPotion().copy();
-            if (PotionCauldronBlockEntity.removeIrrelevantNbtKeys(stack.copy().getNbt()).equals(potionStack.getNbt())) {
+            if (stack.getNbt() == null ? potionStack.getNbt() == null : PotionCauldronBlockEntity.removeIrrelevantNbtKeys(stack.copy().getNbt()).equals(potionStack.getNbt())) {
                 Item item = stack.getItem();
                 player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
                 player.incrementStat(Stats.USE_CAULDRON);

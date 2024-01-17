@@ -67,7 +67,7 @@ public class PotionCauldronBlockEntity extends BlockEntity {
     public void setPotion(ItemStack stack) {
         this.stack = stack.copy();
         this.stack.setCount(1);
-        removeIrrelevantNbtKeys(this.stack.getNbt());
+        if (this.stack.hasNbt()) removeIrrelevantNbtKeys(this.stack.getNbt());
         this.markDirty();
     }
 

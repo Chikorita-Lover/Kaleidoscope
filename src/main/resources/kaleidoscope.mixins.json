@@ -37,6 +37,7 @@
     "ServerPlayerEntityMixin$ServerPlayerEntity2Mixin",
     "StewItemMixin",
     "StructurePoolMixin",
+    "SwampHutGeneratorMixin",
     "ToolMaterialsMixin",
     "ZombifiedPiglinEntityMixin"
   ],
