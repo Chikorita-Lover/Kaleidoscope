@@ -1,6 +1,7 @@
 package com.chikoritalover.kaleidoscope.network;
 
 import com.chikoritalover.kaleidoscope.Kaleidoscope;
+import com.chikoritalover.kaleidoscope.block.entity.KaleidoscopeBrewingStandBlockEntity;
 import com.chikoritalover.kaleidoscope.client.ClientBrewingRecipeBook;
 import com.chikoritalover.kaleidoscope.client.gui.screen.BrewingRecipeBookWidget;
 import com.chikoritalover.kaleidoscope.client.toast.BrewingRecipeToast;
@@ -13,6 +14,7 @@ import com.google.common.collect.Lists;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.block.entity.BrewingStandBlockEntity;
 import net.minecraft.client.gui.screen.ingame.BrewingStandScreen;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -75,6 +77,7 @@ public class KaleidoscopePlayNetworking {
                         player.getInventory().offer(itemStack, false);
                         slot.setStackNoCallbacks(ItemStack.EMPTY);
                     }
+                    ((KaleidoscopeBrewingStandBlockEntity) screenHandler.inventory).kaleidoscope$dropExperienceForRecipesUsed(player);
                     PacketByteBuf packetByteBuf = PacketByteBufs.create();
                     BrewFailedResponseS2CPacket packet2 = new BrewFailedResponseS2CPacket(player.currentScreenHandler.syncId, recipe);
                     packet2.write(packetByteBuf);

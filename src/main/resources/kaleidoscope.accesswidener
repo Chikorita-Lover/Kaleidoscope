@@ -11,3 +11,4 @@ accessible method net/minecraft/block/Block dropExperience (Lnet/minecraft/serve
 accessible method net/minecraft/block/BlockSetType register (Lnet/minecraft/block/BlockSetType;)Lnet/minecraft/block/BlockSetType;
 accessible method net/minecraft/block/CropBlock getAvailableMoisture (Lnet/minecraft/block/Block;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)F
 accessible class net/minecraft/block/enums/Instrument$Type
+accessible field net/minecraft/screen/BrewingStandScreenHandler inventory Lnet/minecraft/inventory/Inventory;
