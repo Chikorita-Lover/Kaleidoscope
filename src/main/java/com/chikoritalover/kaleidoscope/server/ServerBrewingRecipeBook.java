@@ -87,7 +87,7 @@ public class ServerBrewingRecipeBook extends BrewingRecipeBook {
 
     public void sendInitRecipesPacket(ServerPlayerEntity player) {
         PacketByteBuf buf = PacketByteBufs.create();
-        UnlockBrewingRecipesS2CPacket packet = new UnlockBrewingRecipesS2CPacket(UnlockBrewingRecipesS2CPacket.Action.INIT, this.recipeIds, this.toBeDisplayed, this.isGuiOpen(), this.isFilteringBrewable());
+        UnlockBrewingRecipesS2CPacket packet = new UnlockBrewingRecipesS2CPacket(UnlockBrewingRecipesS2CPacket.Action.INIT, this.toBeDisplayed, this.recipeIds, this.isGuiOpen(), this.isFilteringBrewable());
         packet.write(buf);
         ServerPlayNetworking.send(player, KaleidoscopePlayNetworking.UNLOCK_BREWING_RECIPES, buf);
     }

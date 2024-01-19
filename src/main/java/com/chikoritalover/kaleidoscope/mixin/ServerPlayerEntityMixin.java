@@ -2,12 +2,11 @@ package com.chikoritalover.kaleidoscope.mixin;
 
 import com.chikoritalover.kaleidoscope.entity.KaleidoscopePlayerEntity;
 import com.chikoritalover.kaleidoscope.recipe.BrewingRecipe;
+import com.chikoritalover.kaleidoscope.recipe.BrewingUtil;
 import com.chikoritalover.kaleidoscope.server.ServerBrewingRecipeBook;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
-import net.minecraft.potion.PotionUtil;
-import net.minecraft.potion.Potions;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -19,7 +18,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 @Mixin(ServerPlayerEntity.class)
@@ -69,9 +67,7 @@ public class ServerPlayerEntityMixin implements KaleidoscopePlayerEntity {
 
         @Inject(method = "onSlotUpdate", at = @At(value = "INVOKE", target = "Lnet/minecraft/advancement/criterion/InventoryChangedCriterion;trigger(Lnet/minecraft/server/network/ServerPlayerEntity;Lnet/minecraft/entity/player/PlayerInventory;Lnet/minecraft/item/ItemStack;)V", shift = At.Shift.AFTER))
         public void onSlotUpdate(ScreenHandler handler, int slotId, ItemStack stack, CallbackInfo ci) {
-            Collection<BrewingRecipe> collection = new ArrayList<>();
-            BrewingRecipe.BREWING_RECIPES.stream().filter(recipe -> recipe.getInput().test(stack) && PotionUtil.getPotion(stack) == recipe.getInputPotion() || recipe.getInputPotion() == Potions.AWKWARD && recipe.getReagent().test(stack)).forEach(collection::add);
-            ((KaleidoscopePlayerEntity) field_29183).kaleidoscope$unlockRecipes(collection);
+            ((KaleidoscopePlayerEntity) field_29183).kaleidoscope$unlockRecipes(BrewingUtil.getUnlockableRecipes(stack));
         }
     }
 }

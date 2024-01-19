@@ -133,10 +133,10 @@ public class KaleidoscopePlayNetworking {
                         break;
                     }
                     case INIT: {
-                        for (Identifier identifier : packet.getRecipeIdsToChange()) {
+                        for (Identifier identifier : packet.getRecipeIdsToInit()) {
                             clientBrewingRecipeBook.add(identifier);
                         }
-                        for (Identifier identifier : packet.getRecipeIdsToInit()) {
+                        for (Identifier identifier : packet.getRecipeIdsToChange()) {
                             clientBrewingRecipeBook.display(identifier);
                         }
                         break;

@@ -211,7 +211,7 @@ public class BrewingRecipeBookWidget implements Drawable, Element, Selectable {
         this.searchField.tick();
     }
 
-    private void refreshInputs() {
+    public void refreshInputs() {
         this.recipeFinder.clear();
         for (ItemStack itemStack : this.client.player.getInventory().main) {
             this.recipeFinder.addInput(itemStack);

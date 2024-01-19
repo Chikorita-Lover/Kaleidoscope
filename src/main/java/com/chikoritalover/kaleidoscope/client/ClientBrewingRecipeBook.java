@@ -20,6 +20,15 @@ public class ClientBrewingRecipeBook extends BrewingRecipeBook {
     private Map<Group, List<BrewingRecipeResultCollection>> resultsByGroup = ImmutableMap.of();
     private List<BrewingRecipeResultCollection> orderedResults = ImmutableList.of();
 
+    @Override
+    public void copyFrom(BrewingRecipeBook book) {
+        super.copyFrom(book);
+        if (book instanceof ClientBrewingRecipeBook clientBrewingRecipeBook) {
+            this.resultsByGroup = Map.copyOf(clientBrewingRecipeBook.resultsByGroup);
+            this.orderedResults = List.copyOf(clientBrewingRecipeBook.getOrderedResults());
+        }
+    }
+
     private static Map<Group, List<List<BrewingRecipe>>> toGroupedMap(Iterable<BrewingRecipe> recipes) {
         HashMap<Group, List<List<BrewingRecipe>>> map = Maps.newHashMap();
         HashBasedTable<Group, String, ArrayList<BrewingRecipe>> table = HashBasedTable.create();

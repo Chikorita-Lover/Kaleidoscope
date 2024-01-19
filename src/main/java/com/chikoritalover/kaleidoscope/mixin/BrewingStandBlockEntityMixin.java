@@ -11,9 +11,11 @@ import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BrewingStandBlockEntity;
 import net.minecraft.entity.ExperienceOrbEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.potion.PotionUtil;
+import net.minecraft.screen.BrewingStandScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
@@ -50,6 +52,11 @@ public class BrewingStandBlockEntityMixin implements KaleidoscopeBrewingStandBlo
                 if (!recipe2.getInput().test(itemStack) || PotionUtil.getPotion(itemStack) != recipe2.getInputPotion() || !recipe2.getReagent().test(blockEntity.getStack(3)))
                     continue;
                 ((KaleidoscopeBrewingStandBlockEntity) blockEntity).kaleidoscope$addTo(recipe2.getId(), 1);
+                for (PlayerEntity playerEntity : world.getPlayers()) {
+                    if (playerEntity instanceof ServerPlayerEntity serverPlayerEntity && playerEntity.currentScreenHandler instanceof BrewingStandScreenHandler brewingStandScreenHandler && brewingStandScreenHandler.inventory == blockEntity) {
+                        ((KaleidoscopePlayerEntity) serverPlayerEntity).kaleidoscope$unlockRecipes(BrewingUtil.getUnlockableRecipes(recipe2.getOutput()));
+                    }
+                }
                 bl = true;
                 break;
             }
@@ -83,6 +90,7 @@ public class BrewingStandBlockEntityMixin implements KaleidoscopeBrewingStandBlo
         for (Object2IntMap.Entry<Identifier> entry : this.recipesUsed.object2IntEntrySet()) {
             BrewingUtil.getRecipeFromId(entry.getKey()).ifPresent(recipe -> {
                 Criteria.RECIPE_CRAFTED.trigger(player, recipe.getId(), this.inventory);
+                Criteria.BREWED_POTION.trigger(player, PotionUtil.getPotion(recipe.getOutput()));
                 recipe.getOutput().onCraft(player.getWorld(), player, recipe.getOutput().getCount() * entry.getIntValue());
             });
         }
