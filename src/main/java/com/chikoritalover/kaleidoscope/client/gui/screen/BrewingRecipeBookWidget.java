@@ -478,4 +478,8 @@ public class BrewingRecipeBookWidget implements Drawable, Element, Selectable {
             selectedElementNarrationData.selectable.appendNarrations(builder.nextMessage());
         }
     }
+
+    public boolean hasGhostRecipe() {
+        return this.ghostSlots.getRecipe() != null;
+    }
 }

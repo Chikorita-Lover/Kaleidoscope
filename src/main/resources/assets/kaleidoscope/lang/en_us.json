@@ -226,6 +226,8 @@
   "block.minecraft.respawn_anchor.desc1": "Interact with Glowstone:",
   "block.minecraft.respawn_anchor.desc2": "Increases Charge Level",
 
+  "container.brewing.add_blaze_powder_tooltip": "Add Blaze Powder",
+  "container.brewing.missing_potion_tooltip": "Add Potion, Splash Potion, or Lingering Potion",
   "container.fireworks_table": "Construct Fireworks",
   "container.fireworks_table.add_diamond_tooltip": "Add Diamond to add Trail effect",
   "container.fireworks_table.add_dye_tooltip": "Add Dye",
