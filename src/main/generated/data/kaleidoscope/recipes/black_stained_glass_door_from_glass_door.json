@@ -7,10 +7,11 @@
       "item": "kaleidoscope:glass_door"
     },
     {
-      "tag": "c:black_dyes"
+      "tag": "c:dyes/black"
     }
   ],
   "result": {
-    "item": "kaleidoscope:black_stained_glass_door"
+    "count": 1,
+    "id": "kaleidoscope:black_stained_glass_door"
   }
 }

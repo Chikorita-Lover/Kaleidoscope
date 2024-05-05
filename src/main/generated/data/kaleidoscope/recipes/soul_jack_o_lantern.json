@@ -14,7 +14,7 @@
     "S"
   ],
   "result": {
-    "item": "kaleidoscope:soul_jack_o_lantern"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "kaleidoscope:soul_jack_o_lantern"
+  }
 }

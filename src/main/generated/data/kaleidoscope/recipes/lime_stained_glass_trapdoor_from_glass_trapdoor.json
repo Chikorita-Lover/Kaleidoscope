@@ -7,10 +7,11 @@
       "item": "kaleidoscope:glass_trapdoor"
     },
     {
-      "tag": "c:lime_dyes"
+      "tag": "c:dyes/lime"
     }
   ],
   "result": {
-    "item": "kaleidoscope:lime_stained_glass_trapdoor"
+    "count": 1,
+    "id": "kaleidoscope:lime_stained_glass_trapdoor"
   }
 }

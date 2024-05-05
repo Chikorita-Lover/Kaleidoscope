@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
   "ingredient": {
     "item": "minecraft:black_terracotta"
   },
-  "result": "kaleidoscope:black_terracotta_slab"
+  "result": {
+    "count": 2,
+    "id": "kaleidoscope:black_terracotta_slab"
+  }
 }

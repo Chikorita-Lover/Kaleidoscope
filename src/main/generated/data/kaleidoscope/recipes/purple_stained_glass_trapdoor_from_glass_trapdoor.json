@@ -7,10 +7,11 @@
       "item": "kaleidoscope:glass_trapdoor"
     },
     {
-      "tag": "c:purple_dyes"
+      "tag": "c:dyes/purple"
     }
   ],
   "result": {
-    "item": "kaleidoscope:purple_stained_glass_trapdoor"
+    "count": 1,
+    "id": "kaleidoscope:purple_stained_glass_trapdoor"
   }
 }

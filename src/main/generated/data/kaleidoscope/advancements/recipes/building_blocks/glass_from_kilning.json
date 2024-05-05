@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "minecraft:sand"
+            "items": "#minecraft:sand"
           }
         ]
       },
@@ -20,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_sand",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sand"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:glass_from_kilning"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

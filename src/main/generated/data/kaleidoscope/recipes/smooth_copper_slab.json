@@ -11,7 +11,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "kaleidoscope:smooth_copper_slab"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:smooth_copper_slab"
+  }
 }

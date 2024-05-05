@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:lime_stained_glass"
-            ]
+            "items": "minecraft:lime_stained_glass"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_lime_stained_glass",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lime_stained_glass"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:lime_stained_glass_trapdoor"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

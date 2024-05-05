@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:oxidized_smooth_copper_slab"
-            ]
+            "items": "kaleidoscope:oxidized_smooth_copper_slab"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_oxidized_smooth_copper_slab",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_oxidized_smooth_copper_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:waxed_oxidized_smooth_copper_slab_from_honeycomb"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

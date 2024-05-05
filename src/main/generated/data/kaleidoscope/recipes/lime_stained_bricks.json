@@ -17,7 +17,6 @@
   ],
   "result": {
     "count": 8,
-    "item": "kaleidoscope:lime_stained_bricks"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:lime_stained_bricks"
+  }
 }

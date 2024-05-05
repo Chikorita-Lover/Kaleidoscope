@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:basalt"
-            ]
+            "items": "minecraft:basalt"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_basalt",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_basalt"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:smooth_basalt_from_kilning"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

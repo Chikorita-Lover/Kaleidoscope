@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:orange_terracotta"
-            ]
+            "items": "minecraft:orange_terracotta"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_orange_terracotta",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_orange_terracotta"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:orange_terracotta_stairs_from_orange_terracotta_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

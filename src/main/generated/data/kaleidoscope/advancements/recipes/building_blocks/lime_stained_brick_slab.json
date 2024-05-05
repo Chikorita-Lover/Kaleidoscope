@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:lime_stained_bricks"
-            ]
+            "items": "kaleidoscope:lime_stained_bricks"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_lime_stained_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lime_stained_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:lime_stained_brick_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

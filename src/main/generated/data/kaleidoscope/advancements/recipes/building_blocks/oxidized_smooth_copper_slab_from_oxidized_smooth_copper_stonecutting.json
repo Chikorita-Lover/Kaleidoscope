@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:oxidized_smooth_copper"
-            ]
+            "items": "kaleidoscope:oxidized_smooth_copper"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_oxidized_smooth_copper",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_oxidized_smooth_copper"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:oxidized_smooth_copper_slab_from_oxidized_smooth_copper_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

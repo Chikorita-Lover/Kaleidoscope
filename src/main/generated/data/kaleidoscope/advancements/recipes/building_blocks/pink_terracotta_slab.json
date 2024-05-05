@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:pink_terracotta"
-            ]
+            "items": "minecraft:pink_terracotta"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_pink_terracotta",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_pink_terracotta"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:pink_terracotta_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -12,7 +12,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "kaleidoscope:blue_stained_brick_slab"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:blue_stained_brick_slab"
+  }
 }

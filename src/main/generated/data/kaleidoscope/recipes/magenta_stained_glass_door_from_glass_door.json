@@ -7,10 +7,11 @@
       "item": "kaleidoscope:glass_door"
     },
     {
-      "tag": "c:magenta_dyes"
+      "tag": "c:dyes/magenta"
     }
   ],
   "result": {
-    "item": "kaleidoscope:magenta_stained_glass_door"
+    "count": 1,
+    "id": "kaleidoscope:magenta_stained_glass_door"
   }
 }

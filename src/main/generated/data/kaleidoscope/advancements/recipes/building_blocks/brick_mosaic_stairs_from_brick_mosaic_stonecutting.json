@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:brick_mosaic"
-            ]
+            "items": "kaleidoscope:brick_mosaic"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_brick_mosaic",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_brick_mosaic"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:brick_mosaic_stairs_from_brick_mosaic_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

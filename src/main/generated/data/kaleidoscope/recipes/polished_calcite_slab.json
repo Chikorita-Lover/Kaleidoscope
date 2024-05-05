@@ -11,7 +11,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "kaleidoscope:polished_calcite_slab"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:polished_calcite_slab"
+  }
 }

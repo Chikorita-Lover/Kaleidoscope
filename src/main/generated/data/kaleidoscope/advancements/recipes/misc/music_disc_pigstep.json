@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:disc_fragment_pigstep"
-            ]
+            "items": "kaleidoscope:disc_fragment_pigstep"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_disc_fragment_pigstep",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_disc_fragment_pigstep"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:music_disc_pigstep"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

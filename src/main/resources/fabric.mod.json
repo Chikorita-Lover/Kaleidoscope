@@ -17,30 +17,27 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.chikoritalover.kaleidoscope.KaleidoscopeClient"
+			"net.chikorita_lover.kaleidoscope.KaleidoscopeClient"
     ],
     "fabric-datagen": [
-      "com.chikoritalover.kaleidoscope.KaleidoscopeDataGenerator"
+			"net.chikorita_lover.kaleidoscope.KaleidoscopeDataGenerator"
     ],
     "main": [
-      "com.chikoritalover.kaleidoscope.Kaleidoscope"
+			"net.chikorita_lover.kaleidoscope.Kaleidoscope"
     ],
     "mm:early_risers": [
-      "com.chikoritalover.kaleidoscope.KaleidoscopeEarlyRiser"
+			"net.chikorita_lover.kaleidoscope.KaleidoscopeEarlyRiser"
     ]
   },
   "mixins": [
     "kaleidoscope.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.23",
+    "fabricloader": ">=0.15.10",
     "fabric-api": "*",
-    "minecraft": "~1.20.0",
-    "java": ">=17",
+    "minecraft": "~1.20.5",
+    "java": ">=21",
     "mm": ">=2.3"
-  },
-  "suggests": {
-    "another-mod": "*"
   },
   "accessWidener": "kaleidoscope.accesswidener"
 }

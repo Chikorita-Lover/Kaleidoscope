@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:exposed_smooth_copper"
-            ]
+            "items": "kaleidoscope:exposed_smooth_copper"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_exposed_smooth_copper",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_exposed_smooth_copper"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:exposed_smooth_copper_slab_from_exposed_smooth_copper_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

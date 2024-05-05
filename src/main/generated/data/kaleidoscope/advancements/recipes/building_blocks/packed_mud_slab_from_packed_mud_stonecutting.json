@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:packed_mud"
-            ]
+            "items": "minecraft:packed_mud"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_packed_mud",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_packed_mud"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:packed_mud_slab_from_packed_mud_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -11,7 +11,7 @@
     "##"
   ],
   "result": {
-    "item": "kaleidoscope:glass_trapdoor"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "kaleidoscope:glass_trapdoor"
+  }
 }

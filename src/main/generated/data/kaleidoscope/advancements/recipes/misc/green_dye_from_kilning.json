@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:cactus"
-            ]
+            "items": "minecraft:cactus"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_cactus",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cactus"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:green_dye_from_kilning"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

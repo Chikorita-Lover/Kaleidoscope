@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:orange_stained_bricks"
-            ]
+            "items": "kaleidoscope:orange_stained_bricks"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_orange_stained_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_orange_stained_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:orange_stained_brick_slab_from_orange_stained_bricks_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -15,7 +15,7 @@
     "##"
   ],
   "result": {
-    "item": "kaleidoscope:fireworks_table"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "kaleidoscope:fireworks_table"
+  }
 }

@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:weathered_smooth_copper"
-            ]
+            "items": "kaleidoscope:weathered_smooth_copper"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_weathered_smooth_copper",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_weathered_smooth_copper"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:weathered_smooth_copper_slab_from_weathered_smooth_copper_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:polished_calcite"
-            ]
+            "items": "kaleidoscope:polished_calcite"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_polished_calcite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_polished_calcite"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:polished_calcite_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -12,7 +12,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "kaleidoscope:pink_stained_glass_slab"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:pink_stained_glass_slab"
+  }
 }

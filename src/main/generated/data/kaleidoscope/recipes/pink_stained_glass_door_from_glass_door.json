@@ -7,10 +7,11 @@
       "item": "kaleidoscope:glass_door"
     },
     {
-      "tag": "c:pink_dyes"
+      "tag": "c:dyes/pink"
     }
   ],
   "result": {
-    "item": "kaleidoscope:pink_stained_glass_door"
+    "count": 1,
+    "id": "kaleidoscope:pink_stained_glass_door"
   }
 }

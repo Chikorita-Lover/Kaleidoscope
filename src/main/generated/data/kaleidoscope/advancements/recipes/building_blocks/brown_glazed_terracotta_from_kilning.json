@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:brown_terracotta"
-            ]
+            "items": "minecraft:brown_terracotta"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_brown_terracotta",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_brown_terracotta"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:brown_glazed_terracotta_from_kilning"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

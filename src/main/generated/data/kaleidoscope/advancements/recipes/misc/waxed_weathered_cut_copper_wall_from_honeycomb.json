@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:weathered_cut_copper_wall"
-            ]
+            "items": "kaleidoscope:weathered_cut_copper_wall"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_weathered_cut_copper_wall",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_weathered_cut_copper_wall"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:waxed_weathered_cut_copper_wall_from_honeycomb"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

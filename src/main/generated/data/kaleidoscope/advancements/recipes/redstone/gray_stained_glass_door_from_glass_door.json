@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:glass_door"
-            ]
+            "items": "kaleidoscope:glass_door"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_glass_door",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_glass_door"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:gray_stained_glass_door_from_glass_door"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

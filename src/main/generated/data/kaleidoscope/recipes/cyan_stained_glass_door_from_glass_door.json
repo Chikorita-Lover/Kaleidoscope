@@ -7,10 +7,11 @@
       "item": "kaleidoscope:glass_door"
     },
     {
-      "tag": "c:cyan_dyes"
+      "tag": "c:dyes/cyan"
     }
   ],
   "result": {
-    "item": "kaleidoscope:cyan_stained_glass_door"
+    "count": 1,
+    "id": "kaleidoscope:cyan_stained_glass_door"
   }
 }

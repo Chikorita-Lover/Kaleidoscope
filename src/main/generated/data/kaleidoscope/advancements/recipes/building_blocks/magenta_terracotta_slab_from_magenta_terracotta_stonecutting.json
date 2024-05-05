@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:magenta_terracotta"
-            ]
+            "items": "minecraft:magenta_terracotta"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_magenta_terracotta",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_magenta_terracotta"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:magenta_terracotta_slab_from_magenta_terracotta_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

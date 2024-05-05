@@ -13,7 +13,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "kaleidoscope:packed_mud_stairs"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:packed_mud_stairs"
+  }
 }

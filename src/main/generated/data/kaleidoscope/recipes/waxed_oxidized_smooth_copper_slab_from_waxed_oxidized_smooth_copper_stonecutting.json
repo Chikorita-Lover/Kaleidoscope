@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
   "ingredient": {
     "item": "kaleidoscope:waxed_oxidized_smooth_copper"
   },
-  "result": "kaleidoscope:waxed_oxidized_smooth_copper_slab"
+  "result": {
+    "count": 2,
+    "id": "kaleidoscope:waxed_oxidized_smooth_copper_slab"
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:stick_bundle"
-            ]
+            "items": "kaleidoscope:stick_bundle"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_stick_bundle",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stick_bundle"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:stick_from_bundle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

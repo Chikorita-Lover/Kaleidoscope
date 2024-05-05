@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:glass"
-            ]
+            "items": "minecraft:glass"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_glass",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_glass"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:glass_trapdoor"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

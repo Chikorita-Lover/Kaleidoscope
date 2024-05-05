@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "minecraft:blue_terracotta"
   },
-  "result": "kaleidoscope:blue_terracotta_stairs"
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope:blue_terracotta_stairs"
+  }
 }

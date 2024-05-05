@@ -12,7 +12,7 @@
     "SSS"
   ],
   "result": {
-    "item": "minecraft:music_disc_pigstep"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "minecraft:music_disc_pigstep"
+  }
 }

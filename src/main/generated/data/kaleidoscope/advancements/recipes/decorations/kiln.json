@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:furnace"
-            ]
+            "items": "minecraft:furnace"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_furnace",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_furnace"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:kiln"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

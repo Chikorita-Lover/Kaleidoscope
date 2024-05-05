@@ -1,14 +1,7 @@
 accessWidener v1 named
 
-accessible class net/minecraft/recipe/CookingRecipeSerializer$RecipeFactory
-accessible method net/minecraft/block/FlowerPotBlock isEmpty ()Z
-accessible field net/minecraft/block/FlowerPotBlock CONTENT_TO_POTTED Ljava/util/Map;
-accessible field net/minecraft/entity/mob/MobEntity experiencePoints I
 accessible method net/minecraft/world/poi/PointOfInterestTypes register (Lnet/minecraft/registry/Registry;Lnet/minecraft/registry/RegistryKey;Ljava/util/Set;II)Lnet/minecraft/world/poi/PointOfInterestType;
 accessible method net/minecraft/world/poi/PointOfInterestTypes getStatesOfBlock (Lnet/minecraft/block/Block;)Ljava/util/Set;
-accessible method net/minecraft/loot/LootTables registerLootTable (Lnet/minecraft/util/Identifier;)Lnet/minecraft/util/Identifier;
-accessible method net/minecraft/block/Block dropExperience (Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;I)V
 accessible method net/minecraft/block/BlockSetType register (Lnet/minecraft/block/BlockSetType;)Lnet/minecraft/block/BlockSetType;
-accessible method net/minecraft/block/CropBlock getAvailableMoisture (Lnet/minecraft/block/Block;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)F
 accessible class net/minecraft/block/enums/Instrument$Type
-accessible field net/minecraft/screen/BrewingStandScreenHandler inventory Lnet/minecraft/inventory/Inventory;
+accessible method net/minecraft/block/AbstractBlock canPlaceAt (Lnet/minecraft/block/BlockState;Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z

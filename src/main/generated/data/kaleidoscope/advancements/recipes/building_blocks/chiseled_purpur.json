@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:purpur_slab"
-            ]
+            "items": "minecraft:purpur_slab"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_purpur_slab",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_purpur_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:chiseled_purpur"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

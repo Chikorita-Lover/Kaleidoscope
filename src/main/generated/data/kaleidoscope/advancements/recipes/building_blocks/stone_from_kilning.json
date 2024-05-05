@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:cobblestone"
-            ]
+            "items": "minecraft:cobblestone"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_cobblestone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cobblestone"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:stone_from_kilning"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

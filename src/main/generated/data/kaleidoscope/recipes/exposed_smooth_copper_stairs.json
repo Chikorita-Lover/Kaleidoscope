@@ -13,7 +13,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "kaleidoscope:exposed_smooth_copper_stairs"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:exposed_smooth_copper_stairs"
+  }
 }

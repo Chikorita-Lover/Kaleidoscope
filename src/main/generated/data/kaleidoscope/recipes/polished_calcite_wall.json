@@ -12,7 +12,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "kaleidoscope:polished_calcite_wall"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:polished_calcite_wall"
+  }
 }

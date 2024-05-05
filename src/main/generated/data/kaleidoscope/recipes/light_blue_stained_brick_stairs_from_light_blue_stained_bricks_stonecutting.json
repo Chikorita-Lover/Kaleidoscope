@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "kaleidoscope:light_blue_stained_bricks"
   },
-  "result": "kaleidoscope:light_blue_stained_brick_stairs"
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope:light_blue_stained_brick_stairs"
+  }
 }

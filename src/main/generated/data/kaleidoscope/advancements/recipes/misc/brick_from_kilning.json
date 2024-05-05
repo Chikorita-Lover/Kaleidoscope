@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:clay_ball"
-            ]
+            "items": "minecraft:clay_ball"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_clay_ball",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_clay_ball"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:brick_from_kilning"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

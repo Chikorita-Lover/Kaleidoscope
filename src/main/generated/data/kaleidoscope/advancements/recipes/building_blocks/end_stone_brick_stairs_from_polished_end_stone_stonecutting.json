@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:polished_end_stone"
-            ]
+            "items": "kaleidoscope:polished_end_stone"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_polished_end_stone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_polished_end_stone"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:end_stone_brick_stairs_from_polished_end_stone_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

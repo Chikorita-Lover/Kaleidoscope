@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:pink_stained_bricks"
-            ]
+            "items": "kaleidoscope:pink_stained_bricks"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_pink_stained_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_pink_stained_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:pink_stained_brick_wall"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

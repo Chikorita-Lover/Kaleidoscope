@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
   "ingredient": {
     "item": "kaleidoscope:gray_stained_bricks"
   },
-  "result": "kaleidoscope:gray_stained_brick_slab"
+  "result": {
+    "count": 2,
+    "id": "kaleidoscope:gray_stained_brick_slab"
+  }
 }

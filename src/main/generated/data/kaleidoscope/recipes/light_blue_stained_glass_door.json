@@ -14,7 +14,6 @@
   ],
   "result": {
     "count": 3,
-    "item": "kaleidoscope:light_blue_stained_glass_door"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:light_blue_stained_glass_door"
+  }
 }

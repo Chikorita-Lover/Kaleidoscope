@@ -11,7 +11,7 @@
     "#"
   ],
   "result": {
-    "item": "kaleidoscope:chiseled_red_nether_bricks"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "kaleidoscope:chiseled_red_nether_bricks"
+  }
 }

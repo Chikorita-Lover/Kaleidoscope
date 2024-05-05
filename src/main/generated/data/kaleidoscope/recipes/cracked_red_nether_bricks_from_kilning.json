@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "minecraft:red_nether_bricks"
   },
-  "result": "kaleidoscope:cracked_red_nether_bricks"
+  "result": {
+    "id": "kaleidoscope:cracked_red_nether_bricks"
+  }
 }

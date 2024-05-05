@@ -13,7 +13,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "kaleidoscope:waxed_weathered_cut_copper_wall"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:waxed_weathered_cut_copper_wall"
+  }
 }

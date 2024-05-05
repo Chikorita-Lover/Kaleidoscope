@@ -11,7 +11,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "kaleidoscope:waxed_exposed_smooth_copper_slab"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:waxed_exposed_smooth_copper_slab"
+  }
 }

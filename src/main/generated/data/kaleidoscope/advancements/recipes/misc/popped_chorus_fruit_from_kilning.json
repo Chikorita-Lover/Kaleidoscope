@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:chorus_fruit"
-            ]
+            "items": "minecraft:chorus_fruit"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_chorus_fruit",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_chorus_fruit"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:popped_chorus_fruit_from_kilning"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

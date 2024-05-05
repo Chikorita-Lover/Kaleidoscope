@@ -13,7 +13,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "kaleidoscope:oxidized_cut_copper_wall"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:oxidized_cut_copper_wall"
+  }
 }

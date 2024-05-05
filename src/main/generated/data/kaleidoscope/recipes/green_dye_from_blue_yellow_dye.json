@@ -4,14 +4,14 @@
   "group": "green_dye",
   "ingredients": [
     {
-      "tag": "c:blue_dyes"
+      "tag": "c:dyes/blue"
     },
     {
-      "tag": "c:yellow_dyes"
+      "tag": "c:dyes/yellow"
     }
   ],
   "result": {
     "count": 2,
-    "item": "minecraft:green_dye"
+    "id": "minecraft:green_dye"
   }
 }

@@ -7,10 +7,11 @@
       "item": "kaleidoscope:glass_trapdoor"
     },
     {
-      "tag": "c:white_dyes"
+      "tag": "c:dyes/white"
     }
   ],
   "result": {
-    "item": "kaleidoscope:white_stained_glass_trapdoor"
+    "count": 1,
+    "id": "kaleidoscope:white_stained_glass_trapdoor"
   }
 }

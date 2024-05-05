@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:wet_sponge"
-            ]
+            "items": "minecraft:wet_sponge"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_wet_sponge",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_wet_sponge"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:sponge_from_kilning"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

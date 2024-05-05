@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:blue_dyes"
+            "items": "#c:dyes/blue"
           }
         ]
       },
@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:yellow_dyes"
+            "items": "#c:dyes/yellow"
           }
         ]
       },
@@ -30,15 +30,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_blue_dye",
-      "has_yellow_dye",
-      "has_the_recipe"
+      "has_yellow_dye"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:green_dye_from_blue_yellow_dye"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -13,7 +13,6 @@
   ],
   "result": {
     "count": 3,
-    "item": "kaleidoscope:glass_door"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:glass_door"
+  }
 }

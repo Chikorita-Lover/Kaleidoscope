@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:cyan_stained_bricks"
-            ]
+            "items": "kaleidoscope:cyan_stained_bricks"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_cyan_stained_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cyan_stained_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cyan_stained_brick_stairs_from_cyan_stained_bricks_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

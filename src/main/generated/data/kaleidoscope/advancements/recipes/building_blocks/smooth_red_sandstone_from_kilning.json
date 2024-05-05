@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:red_sandstone"
-            ]
+            "items": "minecraft:red_sandstone"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_red_sandstone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_red_sandstone"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:smooth_red_sandstone_from_kilning"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

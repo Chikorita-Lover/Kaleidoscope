@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 4,
   "ingredient": {
     "item": "minecraft:weathered_copper"
   },
-  "result": "kaleidoscope:weathered_cut_copper_wall"
+  "result": {
+    "count": 4,
+    "id": "kaleidoscope:weathered_cut_copper_wall"
+  }
 }

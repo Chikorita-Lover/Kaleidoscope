@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:creeper_head"
-            ]
+            "items": "minecraft:creeper_head"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_creeper_head",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_creeper_head"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:creeper_firework_shell"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -7,10 +7,11 @@
       "item": "kaleidoscope:glass_trapdoor"
     },
     {
-      "tag": "c:red_dyes"
+      "tag": "c:dyes/red"
     }
   ],
   "result": {
-    "item": "kaleidoscope:red_stained_glass_trapdoor"
+    "count": 1,
+    "id": "kaleidoscope:red_stained_glass_trapdoor"
   }
 }

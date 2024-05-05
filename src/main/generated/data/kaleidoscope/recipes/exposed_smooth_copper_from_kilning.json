@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "minecraft:exposed_cut_copper"
   },
-  "result": "kaleidoscope:exposed_smooth_copper"
+  "result": {
+    "id": "kaleidoscope:exposed_smooth_copper"
+  }
 }

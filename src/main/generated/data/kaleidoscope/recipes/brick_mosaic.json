@@ -11,7 +11,7 @@
     "#"
   ],
   "result": {
-    "item": "kaleidoscope:brick_mosaic"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "kaleidoscope:brick_mosaic"
+  }
 }

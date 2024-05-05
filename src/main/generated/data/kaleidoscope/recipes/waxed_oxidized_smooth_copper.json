@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "minecraft:waxed_oxidized_cut_copper"
   },
-  "result": "kaleidoscope:waxed_oxidized_smooth_copper"
+  "result": {
+    "id": "kaleidoscope:waxed_oxidized_smooth_copper"
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:sea_pickle"
-            ]
+            "items": "minecraft:sea_pickle"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_sea_pickle",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sea_pickle"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:lime_dye_from_kilning"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

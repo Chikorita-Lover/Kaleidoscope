@@ -7,10 +7,11 @@
       "item": "kaleidoscope:glass_trapdoor"
     },
     {
-      "tag": "c:orange_dyes"
+      "tag": "c:dyes/orange"
     }
   ],
   "result": {
-    "item": "kaleidoscope:orange_stained_glass_trapdoor"
+    "count": 1,
+    "id": "kaleidoscope:orange_stained_glass_trapdoor"
   }
 }

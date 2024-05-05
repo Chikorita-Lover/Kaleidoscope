@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "minecraft:exposed_cut_copper"
   },
-  "result": "kaleidoscope:exposed_cut_copper_wall"
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope:exposed_cut_copper_wall"
+  }
 }

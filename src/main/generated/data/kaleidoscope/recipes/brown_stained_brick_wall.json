@@ -13,7 +13,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "kaleidoscope:brown_stained_brick_wall"
-  },
-  "show_notification": true
+    "id": "kaleidoscope:brown_stained_brick_wall"
+  }
 }

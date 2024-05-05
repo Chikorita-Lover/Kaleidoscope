@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "kaleidoscope:exposed_cut_copper_wall"
-            ]
+            "items": "kaleidoscope:exposed_cut_copper_wall"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_exposed_cut_copper_wall",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_exposed_cut_copper_wall"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:waxed_exposed_cut_copper_wall_from_honeycomb"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

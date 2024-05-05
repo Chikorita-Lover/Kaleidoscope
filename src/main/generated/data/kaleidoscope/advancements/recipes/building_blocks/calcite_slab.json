@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:calcite"
-            ]
+            "items": "minecraft:calcite"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_calcite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_calcite"
     ]
   ],
   "rewards": {
     "recipes": [
       "kaleidoscope:calcite_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
