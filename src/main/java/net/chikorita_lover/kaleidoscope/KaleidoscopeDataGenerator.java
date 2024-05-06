@@ -346,6 +346,7 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
         @Override
         public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+            itemModelGenerator.register(KaleidoscopeItems.NETHERITE_SHEARS, Models.HANDHELD);
             itemModelGenerator.register(KaleidoscopeItems.CRIMSON_BOAT, Models.GENERATED);
             itemModelGenerator.register(KaleidoscopeItems.CRIMSON_CHEST_BOAT, Models.GENERATED);
             itemModelGenerator.register(KaleidoscopeItems.WARPED_BOAT, Models.GENERATED);
@@ -699,6 +700,8 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.RED_STAINED_GLASS_TRAPDOOR, Blocks.RED_STAINED_GLASS, ConventionalItemTags.RED_DYES);
             offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, Blocks.WHITE_STAINED_GLASS, ConventionalItemTags.WHITE_DYES);
             offerStainedGlassTrapdoorRecipes(exporter, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, Blocks.YELLOW_STAINED_GLASS, ConventionalItemTags.YELLOW_DYES);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, KaleidoscopeItems.NETHERITE_SHEARS).input('#', Items.NETHERITE_INGOT).pattern(" #").pattern("# ").criterion(hasItem(Items.NETHERITE_INGOT), VanillaRecipeProvider.conditionsFromItem(Items.NETHERITE_INGOT)).offerTo(exporter);
 
             offerBoatRecipe(exporter, KaleidoscopeItems.CRIMSON_BOAT, Blocks.CRIMSON_PLANKS);
             offerBoatRecipe(exporter, KaleidoscopeItems.WARPED_BOAT, Blocks.WARPED_PLANKS);

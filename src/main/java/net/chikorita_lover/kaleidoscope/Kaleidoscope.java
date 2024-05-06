@@ -12,6 +12,8 @@ import net.chikorita_lover.kaleidoscope.screen.KilnScreenHandler;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.minecraft.block.DispenserBlock;
+import net.minecraft.block.dispenser.ShearsDispenserBehavior;
 import net.minecraft.component.type.FireworkExplosionComponent;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.entry.ItemEntry;
@@ -54,6 +56,7 @@ public class Kaleidoscope implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("Kaleidoscope");
     public static final String MODID = "kaleidoscope";
     public static final CookingRecipeSerializer<KilningRecipe> KILN_COOKING_RECIPE_SERIALIZER;
+    public static final ScreenHandlerType<FireworksTableScreenHandler> FIREWORKS_TABLE;
     public static final ScreenHandlerType<KilnScreenHandler> KILN_SCREEN_HANDLER;
     public static final RecipeType<KilningRecipe> KILNING;
     public static final RecipeBookCategory KILNING_CATEGORY;
@@ -64,6 +67,7 @@ public class Kaleidoscope implements ModInitializer {
         GLASSBLOWER = new VillagerProfession("glassblower", entry -> entry.matchesKey(GLASSBLOWER_POINT_OF_INTEREST), entry -> entry.matchesKey(GLASSBLOWER_POINT_OF_INTEREST), ImmutableSet.of(), ImmutableSet.of(), KaleidoscopeSoundEvents.ENTITY_VILLAGER_WORK_GLASSBLOWER);
         FIREWORKER = new VillagerProfession("fireworker", entry -> entry.matchesKey(FIREWORKER_POINT_OF_INTEREST), entry -> entry.matchesKey(FIREWORKER_POINT_OF_INTEREST), ImmutableSet.of(), ImmutableSet.of(), KaleidoscopeSoundEvents.ENTITY_VILLAGER_WORK_FIREWORKER);
         KILN_COOKING_RECIPE_SERIALIZER = Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(MODID, "kilning"), new CookingRecipeSerializer<>(KilningRecipe::new, 100));
+        FIREWORKS_TABLE = Registry.register(Registries.SCREEN_HANDLER, new Identifier(MODID, "fireworks_table"), new ScreenHandlerType<>(FireworksTableScreenHandler::new, FeatureFlags.VANILLA_FEATURES));
         KILN_SCREEN_HANDLER = Registry.register(Registries.SCREEN_HANDLER, new Identifier(MODID, "kiln"), new ScreenHandlerType<>(KilnScreenHandler::new, FeatureFlags.VANILLA_FEATURES));
         KILNING = Registry.register(Registries.RECIPE_TYPE, new Identifier(MODID, "kilning"), new RecipeType<KilningRecipe>() {
             @Override
@@ -77,7 +81,7 @@ public class Kaleidoscope implements ModInitializer {
     public static void addToStructurePool(MinecraftServer server, Identifier village, Identifier structure, int weight) {
         RegistryEntry<StructureProcessorList> emptyProcessorList = server.getRegistryManager().get(RegistryKeys.PROCESSOR_LIST).entryOf(RegistryKey.of(RegistryKeys.PROCESSOR_LIST, new Identifier("empty")));
         addToStructurePool(server, village, structure, emptyProcessorList, weight);
-    }    public static final ScreenHandlerType<FireworksTableScreenHandler> FIREWORKS_TABLE = Registry.register(Registries.SCREEN_HANDLER, new Identifier(MODID, "fireworks_table"), new ScreenHandlerType<>(FireworksTableScreenHandler::new, FeatureFlags.VANILLA_FEATURES));
+    }
 
     public static void addToStructurePool(MinecraftServer server, Identifier village, Identifier structure, RegistryEntry<StructureProcessorList> processorList, int weight) {
         Optional<StructurePool> optionalPool = server.getRegistryManager().get(RegistryKeys.TEMPLATE_POOL).getOrEmpty(village);
@@ -160,6 +164,8 @@ public class Kaleidoscope implements ModInitializer {
 
         registerLootTableEvents();
 
+        DispenserBlock.registerBehavior(KaleidoscopeItems.NETHERITE_SHEARS, new ShearsDispenserBehavior());
+
         PointOfInterestTypes.register(Registries.POINT_OF_INTEREST_TYPE, FIREWORKER_POINT_OF_INTEREST, PointOfInterestTypes.getStatesOfBlock(KaleidoscopeBlocks.FIREWORKS_TABLE), 1, 1);
         PointOfInterestTypes.register(Registries.POINT_OF_INTEREST_TYPE, GLASSBLOWER_POINT_OF_INTEREST, PointOfInterestTypes.getStatesOfBlock(KaleidoscopeBlocks.KILN), 1, 1);
         Registry.register(Registries.VILLAGER_PROFESSION, new Identifier(MODID, "fireworker"), FIREWORKER);
@@ -185,6 +191,4 @@ public class Kaleidoscope implements ModInitializer {
             }
         });
     }
-
-
 }

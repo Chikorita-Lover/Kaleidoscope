@@ -7,7 +7,9 @@ import net.chikorita_lover.kaleidoscope.item.FireworkShellItem;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FireworkExplosionComponent;
+import net.minecraft.component.type.ToolComponent;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -15,9 +17,13 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
+import java.util.ArrayList;
+
 public class KaleidoscopeItems {
     public static final BoatEntity.Type CRIMSON_BOAT_TYPE = ClassTinkerers.getEnum(BoatEntity.Type.class, "CRIMSON");
     public static final BoatEntity.Type WARPED_BOAT_TYPE = ClassTinkerers.getEnum(BoatEntity.Type.class, "WARPED");
+
+    public static final Item NETHERITE_SHEARS = register("netherite_shears", new ShearsItem(new Item.Settings().maxDamage(1934).component(DataComponentTypes.TOOL, createNetheriteShearsToolComponent()).fireproof()));
 
     public static final Item CRIMSON_BOAT = register("crimson_boat", new BoatItem(false, CRIMSON_BOAT_TYPE, new Item.Settings().maxCount(1)));
     public static final Item CRIMSON_CHEST_BOAT = register("crimson_chest_boat", new BoatItem(true, CRIMSON_BOAT_TYPE, new Item.Settings().maxCount(1)));
@@ -33,6 +39,15 @@ public class KaleidoscopeItems {
 
     private static FireworkShellItem createFireworkShell(FireworkExplosionComponent.Type type, Rarity rarity) {
         return new FireworkShellItem(type, new Item.Settings().rarity(rarity));
+    }
+
+    private static ToolComponent createNetheriteShearsToolComponent() {
+        ToolComponent component = ShearsItem.createToolComponent();
+        ArrayList<ToolComponent.Rule> rules = new ArrayList<>();
+        for (ToolComponent.Rule rule : component.rules()) {
+            rules.add(new ToolComponent.Rule(rule.blocks(), rule.speed().map(f -> f * 2.0F), rule.correctForDrops()));
+        }
+        return new ToolComponent(rules, component.defaultMiningSpeed(), component.damagePerBlock());
     }
 
     public static Item register(Block block) {
