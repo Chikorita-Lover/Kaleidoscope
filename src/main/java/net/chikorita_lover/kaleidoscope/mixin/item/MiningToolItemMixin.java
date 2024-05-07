@@ -23,16 +23,17 @@ public class MiningToolItemMixin extends ToolItem {
     @Unique
     private static final DispenserBehavior DISPENSER_BEHAVIOR = new FallibleItemDispenserBehavior() {
         protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-            BlockPos targetPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
             ServerWorld world = pointer.world();
-            BlockState blockState = world.getBlockState(targetPos);
-            ActionResult actionResult = stack.getItem().useOnBlock(new ItemUsageContext(world, null, null, stack, world.raycastBlock(pointer.centerPos(), targetPos.toCenterPos(), targetPos, VoxelShapes.UNBOUNDED, blockState)));
-            this.setSuccess(actionResult != ActionResult.FAIL && actionResult != ActionResult.PASS);
-            if (this.isSuccess()) {
-                stack.damage(1, world.getRandom(), null, () -> stack.setCount(0));
-                return stack;
+            if (!world.isClient()) {
+                BlockPos targetPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
+                BlockState state = world.getBlockState(targetPos);
+                ActionResult actionResult = stack.getItem().useOnBlock(new ItemUsageContext(world, null, null, stack, world.raycastBlock(pointer.centerPos(), targetPos.toCenterPos(), targetPos, VoxelShapes.UNBOUNDED, state)));
+                this.setSuccess(actionResult != ActionResult.FAIL && actionResult != ActionResult.PASS);
+                if (this.isSuccess()) {
+                    stack.damage(1, world.getRandom(), null, () -> stack.setCount(0));
+                }
             }
-            return super.dispenseSilently(pointer, stack);
+            return stack;
         }
     };
 
