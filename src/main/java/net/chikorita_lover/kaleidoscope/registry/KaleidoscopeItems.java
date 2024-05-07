@@ -45,7 +45,7 @@ public class KaleidoscopeItems {
         ToolComponent component = ShearsItem.createToolComponent();
         ArrayList<ToolComponent.Rule> rules = new ArrayList<>();
         for (ToolComponent.Rule rule : component.rules()) {
-            rules.add(new ToolComponent.Rule(rule.blocks(), rule.speed().map(f -> f * 2.0F), rule.correctForDrops()));
+            rules.add(new ToolComponent.Rule(rule.blocks(), rule.speed().map(f -> f * 1.5F), rule.correctForDrops()));
         }
         return new ToolComponent(rules, component.defaultMiningSpeed(), component.damagePerBlock());
     }

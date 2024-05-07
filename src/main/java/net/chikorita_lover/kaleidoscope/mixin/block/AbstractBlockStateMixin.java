@@ -2,6 +2,7 @@ package net.chikorita_lover.kaleidoscope.mixin.block;
 
 import com.chocohead.mm.api.ClassTinkerers;
 import com.google.common.collect.ImmutableList;
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.mojang.serialization.MapCodec;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap;
 import net.minecraft.block.*;
@@ -33,6 +34,11 @@ public abstract class AbstractBlockStateMixin extends State<Block, BlockState> {
 
     @Shadow
     public abstract BlockSoundGroup getSoundGroup();
+
+    @ModifyReturnValue(method = "getHardness", at = @At("RETURN"))
+    private float getHardness(float hardness) {
+        return this.getBlock() == Blocks.COBWEB ? 1.6F : hardness;
+    }
 
     @Inject(method = "getInstrument", at = @At("RETURN"), cancellable = true)
     private void getInstrument(CallbackInfoReturnable<Instrument> ci) {

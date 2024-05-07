@@ -43,6 +43,7 @@
 		"item.ItemMixin",
 		"item.ItemStackMixin",
 		"item.MiningToolItemMixin",
+		"item.ShearsItemMixin",
 		"item.ShovelItemMixin",
 		"item.StewItemMixin",
 		"item.ToolMaterialsMixin"
