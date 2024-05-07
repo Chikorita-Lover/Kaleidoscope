@@ -22,7 +22,7 @@ public class FireBlockMixin {
         BlockState state = world.getBlockState(pos);
         if (state.isIn(KaleidoscopeBlockTags.BURNS_INTO_CHARCOAL) && world.getRandom().nextFloat() < 0.17F) {
             BlockState blockState = KaleidoscopeBlocks.CHARCOAL_BLOCK.getDefaultState();
-            if (state.getBlock() instanceof PillarBlock) {
+            if (state.getProperties().contains(Properties.AXIS)) {
                 blockState = blockState.with(Properties.AXIS, state.get(Properties.AXIS));
             }
             world.setBlockState(pos, blockState, Block.NOTIFY_ALL);

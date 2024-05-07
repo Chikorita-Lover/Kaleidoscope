@@ -37,6 +37,13 @@
       "kaleidoscope:block/kiln/crackle4"
     ]
   },
+  "item.shovel.scoop_mud": {
+    "subtitle": "subtitles.item.shovel.scoop_mud",
+    "sounds": [
+      "kaleidoscope:item/shovel/scoop_mud1",
+      "kaleidoscope:item/shovel/scoop_mud2"
+    ]
+  },
   "item.hoe.scrape": {
     "subtitle": "subtitles.item.hoe.scrape",
     "sounds": [

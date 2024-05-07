@@ -20,6 +20,7 @@
 		"block.FallingBlockMixin",
 		"block.FarmlandBlockMixin",
 		"block.FireBlockMixin",
+		"block.MangroveRootsBlockMixin",
 		"block.PumpkinBlockMixin",
 		"block.TripwireBlockMixin",
 		"entity.BoatEntityMixin",
@@ -42,6 +43,7 @@
 		"item.ItemMixin",
 		"item.ItemStackMixin",
 		"item.MiningToolItemMixin",
+		"item.ShovelItemMixin",
 		"item.StewItemMixin",
 		"item.ToolMaterialsMixin"
 	],

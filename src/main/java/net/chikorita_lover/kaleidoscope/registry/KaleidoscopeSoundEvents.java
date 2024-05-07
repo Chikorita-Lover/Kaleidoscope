@@ -15,6 +15,7 @@ public class KaleidoscopeSoundEvents {
     public static final SoundEvent ENTITY_VILLAGER_WORK_FIREWORKER = register("entity.villager.work_fireworker");
     public static final SoundEvent ENTITY_VILLAGER_WORK_GLASSBLOWER = register("entity.villager.work_glassblower");
 
+    public static final SoundEvent ITEM_SHOVEL_SCOOP_MUD = register("item.shovel.scoop_mud");
     public static final SoundEvent ITEM_HOE_SCRAPE = register("item.hoe.scrape");
 
     private static SoundEvent register(String id) {
