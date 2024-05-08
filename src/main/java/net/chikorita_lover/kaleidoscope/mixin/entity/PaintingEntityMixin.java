@@ -2,9 +2,9 @@ package net.chikorita_lover.kaleidoscope.mixin.entity;
 
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.decoration.AbstractDecorationEntity;
 import net.minecraft.entity.decoration.painting.PaintingEntity;
 import net.minecraft.entity.decoration.painting.PaintingVariant;
@@ -13,7 +13,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.stat.Stats;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -35,14 +39,19 @@ public abstract class PaintingEntityMixin extends AbstractDecorationEntity {
         if (!(entity instanceof PlayerEntity player)) {
             return;
         }
-        ItemStack itemStack = player.getMainHandStack();
-        if (itemStack.getItem() instanceof ShearsItem || EnchantmentHelper.hasSilkTouch(itemStack)) {
-            ItemStack stack = new ItemStack(Items.PAINTING);
-            NbtCompound nbtCompound = new NbtCompound();
-            PaintingEntity.writeVariantToNbt(nbtCompound, this.getVariant());
-            stack.set(DataComponentTypes.ENTITY_DATA, NbtComponent.of(nbtCompound));
-            this.dropStack(stack);
-            ci.cancel();
+        ItemStack handStack = player.getMainHandStack();
+        if (!(handStack.getItem() instanceof ShearsItem)) {
+            return;
         }
+        ItemStack paintingStack = new ItemStack(Items.PAINTING);
+        NbtCompound nbt = new NbtCompound();
+        PaintingEntity.writeVariantToNbt(nbt, this.getVariant());
+        paintingStack.set(DataComponentTypes.ENTITY_DATA, NbtComponent.of(nbt).apply(nbtCompound -> nbtCompound.putString(Entity.ID_KEY, Registries.ENTITY_TYPE.getId(EntityType.PAINTING).toString())));
+        this.dropStack(paintingStack);
+        handStack.damage(1, player, LivingEntity.getSlotForHand(Hand.MAIN_HAND));
+        if (player instanceof ServerPlayerEntity serverPlayer) {
+            serverPlayer.incrementStat(Stats.USED.getOrCreateStat(handStack.getItem()));
+        }
+        ci.cancel();
     }
 }
