@@ -34,6 +34,7 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.util.Identifier;
 
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
@@ -346,7 +347,9 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
 
         @Override
         public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-            itemModelGenerator.register(KaleidoscopeItems.NETHERITE_SHEARS, Models.HANDHELD);
+            final Model shearsTemplateModel = new Model(Optional.of(new Identifier(Kaleidoscope.MODID, "item/template_shears")), Optional.empty(), TextureKey.LAYER0);
+            itemModelGenerator.register(Items.SHEARS, shearsTemplateModel);
+            itemModelGenerator.register(KaleidoscopeItems.NETHERITE_SHEARS, shearsTemplateModel);
             itemModelGenerator.register(KaleidoscopeItems.CRIMSON_BOAT, Models.GENERATED);
             itemModelGenerator.register(KaleidoscopeItems.CRIMSON_CHEST_BOAT, Models.GENERATED);
             itemModelGenerator.register(KaleidoscopeItems.WARPED_BOAT, Models.GENERATED);

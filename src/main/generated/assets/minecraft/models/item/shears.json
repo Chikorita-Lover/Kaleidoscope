@@ -1,6 +1,6 @@
 {
   "parent": "kaleidoscope:item/template_shears",
   "textures": {
-    "layer0": "kaleidoscope:item/netherite_shears"
+    "layer0": "minecraft:item/shears"
   }
 }
