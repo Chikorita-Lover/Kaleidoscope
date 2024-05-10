@@ -28,9 +28,6 @@ public class KaleidoscopeCauldronBehavior {
         CauldronBehavior.WATER_CAULDRON_BEHAVIOR.map().put(Items.BUNDLE, CauldronBehavior.CLEAN_DYEABLE_ITEM);
         CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.map().put(Items.POTION, (state, world, pos, player, hand, stack) -> {
             if (!world.isClient()) {
-                player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
-                player.incrementStat(Stats.USE_CAULDRON);
-                player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
                 if (stack.contains(DataComponentTypes.POTION_CONTENTS) && stack.get(DataComponentTypes.POTION_CONTENTS).matches(Potions.WATER)) {
                     world.setBlockState(pos, Blocks.WATER_CAULDRON.getDefaultState());
                 } else {
@@ -44,6 +41,9 @@ public class KaleidoscopeCauldronBehavior {
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS);
                 world.emitGameEvent(null, GameEvent.FLUID_PLACE, pos);
+                player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
+                player.incrementStat(Stats.USE_CAULDRON);
+                player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
             }
             return ItemActionResult.success(world.isClient());
         });
