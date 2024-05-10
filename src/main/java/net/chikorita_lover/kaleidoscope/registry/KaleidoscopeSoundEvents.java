@@ -12,6 +12,8 @@ public class KaleidoscopeSoundEvents {
     public static final SoundEvent BLOCK_FIREWORKS_TABLE_TAKE_RESULT = register("block.fireworks_table.take_result");
     public static final SoundEvent BLOCK_KILN_CRACKLE = register("block.kiln.crackle");
 
+    public static final SoundEvent ENTITY_BOAT_EQUIP_BANNER = register("entity.boat.equip_banner");
+    public static final SoundEvent ENTITY_BOAT_SHEAR = register("entity.boat.shear");
     public static final SoundEvent ENTITY_VILLAGER_WORK_FIREWORKER = register("entity.villager.work_fireworker");
     public static final SoundEvent ENTITY_VILLAGER_WORK_GLASSBLOWER = register("entity.villager.work_glassblower");
 

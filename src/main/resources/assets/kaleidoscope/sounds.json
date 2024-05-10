@@ -21,6 +21,19 @@
       "kaleidoscope:note/saxophone"
     ]
   },
+  "entity.boat.equip_banner": {
+    "subtitle": "subtitles.entity.boat.equip_banner",
+    "sounds": [
+      "kaleidoscope:entity/boat/equip_banner1",
+      "kaleidoscope:entity/boat/equip_banner2"
+    ]
+  },
+  "entity.boat.shear": {
+    "subtitle": "subtitles.entity.boat.shear",
+    "sounds": [
+      "mob/sheep/shear"
+    ]
+  },
   "entity.villager.work_fireworker": {
     "subtitle": "subtitles.entity.villager.work_fireworker",
     "sounds": [

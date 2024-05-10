@@ -50,6 +50,7 @@
 		"item.ToolMaterialsMixin"
 	],
 	"client": [
+		"client.BoatEntityRendererMixin",
 		"client.ClientRecipeBookMixin",
 		"client.ClientWorldMixin",
 		"client.RecipeBookGroupMixin",
