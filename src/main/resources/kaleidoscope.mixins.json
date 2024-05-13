@@ -44,6 +44,7 @@
 		"item.ItemMixin",
 		"item.ItemStackMixin",
 		"item.MiningToolItemMixin",
+		"item.MusicDiscItemMixin",
 		"item.ShearsItemMixin",
 		"item.ShovelItemMixin",
 		"item.StewItemMixin",
