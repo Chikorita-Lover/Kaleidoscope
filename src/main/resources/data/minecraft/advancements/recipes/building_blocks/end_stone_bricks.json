@@ -1,11 +1,11 @@
 {
 	"parent": "minecraft:recipes/root",
 	"criteria": {
-		"has_prismarine": {
+		"has_polished_end_stone": {
 			"conditions": {
 				"items": [
 					{
-						"items": "minecraft:prismarine"
+						"items": "kaleidoscope:polished_end_stone"
 					}
 				]
 			},
@@ -13,7 +13,7 @@
 		},
 		"has_the_recipe": {
 			"conditions": {
-				"recipe": "minecraft:dark_prismarine"
+				"recipe": "minecraft:end_stone_bricks"
 			},
 			"trigger": "minecraft:recipe_unlocked"
 		}
@@ -21,12 +21,12 @@
 	"requirements": [
 		[
 			"has_the_recipe",
-			"has_prismarine"
+			"has_polished_end_stone"
 		]
 	],
 	"rewards": {
 		"recipes": [
-			"minecraft:dark_prismarine"
+			"minecraft:end_stone_bricks"
 		]
 	}
 }

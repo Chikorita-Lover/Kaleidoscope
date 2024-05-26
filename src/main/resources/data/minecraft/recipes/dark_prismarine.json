@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "pattern": [
-    "###",
-    "#X#",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "minecraft:prismarine"
-    },
-    "X": {
-      "tag": "c:black_dyes"
-    }
-  },
-  "result": {
-    "item": "minecraft:dark_prismarine",
-    "count": 8
-  }
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"#": {
+			"item": "minecraft:prismarine"
+		},
+		"X": {
+			"tag": "c:dyes/black"
+		}
+	},
+	"pattern": [
+		"###",
+		"#X#",
+		"###"
+	],
+	"result": {
+		"count": 8,
+		"id": "minecraft:dark_prismarine"
+	}
 }
