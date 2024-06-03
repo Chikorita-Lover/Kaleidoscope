@@ -12,10 +12,7 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
-import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.DyedColorComponent;
@@ -26,22 +23,16 @@ import net.minecraft.item.OminousBottleItem;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
 
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Optional;
 
 public class KaleidoscopeClient implements ClientModInitializer {
-    private static final List<Block> BLOCKS_WITH_TOOLTIPS = List.of(Blocks.CHISELED_BOOKSHELF, Blocks.END_PORTAL_FRAME, Blocks.FLOWER_POT, Blocks.LECTERN, Blocks.LODESTONE, Blocks.RESPAWN_ANCHOR);
+    private static final NumberFormat NUMBER_FORMAT = NumberFormat.getNumberInstance();
 
-    private static void buildBlockInteractTooltip(ItemStack itemStack, List<Text> list, Block block) {
-        if (!itemStack.isOf(block.asItem())) {
-            return;
-        }
-        list.add(ScreenTexts.EMPTY);
-        list.add(Text.translatable(block.getTranslationKey() + ".desc1").formatted(Formatting.GRAY));
-        list.add(ScreenTexts.space().append(Text.translatable(block.getTranslationKey() + ".desc2").formatted(Formatting.BLUE)));
+    static {
+        NUMBER_FORMAT.setMaximumFractionDigits(1);
     }
 
     private static void buildFoodTooltip(ItemStack stack, List<Text> list) {
@@ -51,28 +42,11 @@ public class KaleidoscopeClient implements ClientModInitializer {
         if (nutrition == 0.0 && saturation == 0.0) {
             return;
         }
-
-        list.add(ScreenTexts.EMPTY);
-        list.add(Text.translatable("item.modifiers.consumed").formatted(Formatting.GRAY));
-
         if (nutrition != 0.0F) {
-            list.add(createModifierLine(nutrition, Text.translatable("item.modifiers.food")));
+            list.add(ScreenTexts.space().append(Text.translatable("attribute.modifier.equals.0", NUMBER_FORMAT.format(Math.abs(nutrition)), Text.translatable("item.modifiers.food")).formatted(Formatting.DARK_GREEN)));
         }
         if (saturation != 0.0F) {
-            list.add(createModifierLine(saturation, Text.translatable("item.modifiers.food_saturation")));
-        }
-    }
-
-    private static Text createModifierLine(double value, Text text) {
-        NumberFormat format = NumberFormat.getNumberInstance();
-        format.setMaximumFractionDigits(1);
-        String formattedValue = format.format(Math.abs(value));
-        if (value > 0.0) {
-            return Text.translatable("attribute.modifier.plus.0", formattedValue, text).formatted(Formatting.BLUE);
-        } else if (value < 0.0) {
-            return Text.translatable("attribute.modifier.take.0", formattedValue, text).formatted(Formatting.RED);
-        } else {
-            return Text.translatable("attribute.modifier.equals.0", formattedValue, text).formatted(Formatting.DARK_GREEN);
+            list.add(ScreenTexts.space().append(Text.translatable("attribute.modifier.equals.0", NUMBER_FORMAT.format(Math.abs(saturation)), Text.translatable("item.modifiers.food_saturation")).formatted(Formatting.DARK_GREEN)));
         }
     }
 
@@ -146,9 +120,6 @@ public class KaleidoscopeClient implements ClientModInitializer {
         HandledScreens.register(Kaleidoscope.KILN_SCREEN_HANDLER, KilnScreen::new);
 
         ItemTooltipCallback.EVENT.register((stack, tooltipContext, tooltipType, lines) -> {
-            for (Block block : BLOCKS_WITH_TOOLTIPS) {
-                buildBlockInteractTooltip(stack, lines, block);
-            }
             if (stack.contains(DataComponentTypes.FOOD) && !(stack.getItem() instanceof OminousBottleItem)) {
                 buildFoodTooltip(stack, lines);
             }
