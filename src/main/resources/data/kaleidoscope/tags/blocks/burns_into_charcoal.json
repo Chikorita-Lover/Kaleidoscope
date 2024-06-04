@@ -1,7 +1,7 @@
 {
   "values": [
+    "#c:storage_blocks/stick",
     "#minecraft:bamboo_blocks",
-    "#minecraft:logs_that_burn",
-    "kaleidoscope:stick_bundle"
+    "#minecraft:logs_that_burn"
   ]
 }
