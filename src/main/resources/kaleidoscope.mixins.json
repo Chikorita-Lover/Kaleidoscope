@@ -34,6 +34,7 @@
 		"entity.PiglinEntityMixin",
 		"entity.SheepEntityMixin",
 		"entity.SnowGolemEntityMixin",
+		"entity.StriderEntityMixin",
 		"entity.WolfEntityMixin",
 		"entity.ZombifiedPiglinEntityMixin",
 		"item.AxeItemMixin",
@@ -55,7 +56,8 @@
 		"client.ClientRecipeBookMixin",
 		"client.ClientWorldMixin",
 		"client.RecipeBookGroupMixin",
-		"client.SplashTextResourceSupplierMixin"
+		"client.SplashTextResourceSupplierMixin",
+		"client.StriderEntityRendererMixin"
 	],
 	"server": [],
 	"injectors": {

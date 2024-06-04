@@ -1,9 +1,12 @@
 package net.chikorita_lover.kaleidoscope;
 
 import net.chikorita_lover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
+import net.chikorita_lover.kaleidoscope.client.KaleidoscopeClientNetworkHandler;
 import net.chikorita_lover.kaleidoscope.client.gui.screen.FireworksTableScreen;
 import net.chikorita_lover.kaleidoscope.client.gui.screen.KilnScreen;
+import net.chikorita_lover.kaleidoscope.client.gui.screen.StriderScreen;
 import net.chikorita_lover.kaleidoscope.client.particle.FireflyParticle;
+import net.chikorita_lover.kaleidoscope.client.render.StriderChestFeatureRenderer;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockEntities;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeParticleTypes;
@@ -12,8 +15,10 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.component.type.FoodComponent;
@@ -23,12 +28,14 @@ import net.minecraft.item.OminousBottleItem;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Optional;
 
 public class KaleidoscopeClient implements ClientModInitializer {
+    public static final EntityModelLayer STRIDER_CHEST = new EntityModelLayer(new Identifier("strider"), "chest");
     private static final NumberFormat NUMBER_FORMAT = NumberFormat.getNumberInstance();
 
     static {
@@ -116,6 +123,8 @@ public class KaleidoscopeClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, RenderLayer.getTranslucent());
 
+        EntityModelLayerRegistry.registerModelLayer(STRIDER_CHEST, StriderChestFeatureRenderer::getTexturedModelData);
+
         HandledScreens.register(Kaleidoscope.FIREWORKS_TABLE, FireworksTableScreen::new);
         HandledScreens.register(Kaleidoscope.KILN_SCREEN_HANDLER, KilnScreen::new);
 
@@ -124,6 +133,8 @@ public class KaleidoscopeClient implements ClientModInitializer {
                 buildFoodTooltip(stack, lines);
             }
         });
+
+        KaleidoscopeClientNetworkHandler.register();
 
         ParticleFactoryRegistry.getInstance().register(KaleidoscopeParticleTypes.FIREFLY, FireflyParticle.Factory::new);
     }

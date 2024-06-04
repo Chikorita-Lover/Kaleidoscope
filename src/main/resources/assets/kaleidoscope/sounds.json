@@ -1,69 +1,81 @@
 {
-  "block.fireworks_table.take_result": {
-    "subtitle": "subtitles.block.fireworks_table.take_result",
-    "sounds": [
-      "kaleidoscope:block/fireworks_table/take_result1",
-      "kaleidoscope:block/fireworks_table/take_result2"
-    ]
-  },
-  "block.kiln.crackle": {
-    "subtitle": "subtitles.block.kiln.crackle",
-    "sounds": [
-      "kaleidoscope:block/kiln/crackle1",
-      "kaleidoscope:block/kiln/crackle2",
-      "kaleidoscope:block/kiln/crackle3",
-      "kaleidoscope:block/kiln/crackle4"
-    ]
-  },
-  "block.note_block.saxophone": {
-    "subtitle": "subtitles.block.note_block.note",
-    "sounds": [
-      "kaleidoscope:note/saxophone"
-    ]
-  },
-  "entity.boat.equip_banner": {
-    "subtitle": "subtitles.entity.boat.equip_banner",
-    "sounds": [
-      "kaleidoscope:entity/boat/equip_banner1",
-      "kaleidoscope:entity/boat/equip_banner2"
-    ]
-  },
-  "entity.boat.shear": {
-    "subtitle": "subtitles.entity.boat.shear",
-    "sounds": [
-      "mob/sheep/shear"
-    ]
-  },
-  "entity.villager.work_fireworker": {
-    "subtitle": "subtitles.entity.villager.work_fireworker",
-    "sounds": [
-      "kaleidoscope:block/fireworks_table/take_result1",
-      "kaleidoscope:block/fireworks_table/take_result2"
-    ]
-  },
-  "entity.villager.work_glassblower": {
-    "subtitle": "subtitles.entity.villager.work_glassblower",
-    "sounds": [
-      "kaleidoscope:block/kiln/crackle1",
-      "kaleidoscope:block/kiln/crackle2",
-      "kaleidoscope:block/kiln/crackle3",
-      "kaleidoscope:block/kiln/crackle4"
-    ]
-  },
-  "item.shovel.scoop_mud": {
-    "subtitle": "subtitles.item.shovel.scoop_mud",
-    "sounds": [
-      "kaleidoscope:item/shovel/scoop_mud1",
-      "kaleidoscope:item/shovel/scoop_mud2"
-    ]
-  },
-  "item.hoe.scrape": {
-    "subtitle": "subtitles.item.hoe.scrape",
-    "sounds": [
-      "kaleidoscope:item/hoe/scrape1",
-      "kaleidoscope:item/hoe/scrape2",
-      "kaleidoscope:item/hoe/scrape3",
-      "kaleidoscope:item/hoe/scrape4"
-    ]
-  }
+	"block.fireworks_table.take_result": {
+		"subtitle": "subtitles.block.fireworks_table.take_result",
+		"sounds": [
+			"kaleidoscope:block/fireworks_table/take_result1",
+			"kaleidoscope:block/fireworks_table/take_result2"
+		]
+	},
+	"block.kiln.crackle": {
+		"subtitle": "subtitles.block.kiln.crackle",
+		"sounds": [
+			"kaleidoscope:block/kiln/crackle1",
+			"kaleidoscope:block/kiln/crackle2",
+			"kaleidoscope:block/kiln/crackle3",
+			"kaleidoscope:block/kiln/crackle4"
+		]
+	},
+	"block.note_block.saxophone": {
+		"subtitle": "subtitles.block.note_block.note",
+		"sounds": [
+			"kaleidoscope:note/saxophone"
+		]
+	},
+	"entity.boat.equip_banner": {
+		"subtitle": "subtitles.entity.boat.equip_banner",
+		"sounds": [
+			"kaleidoscope:entity/boat/equip_banner1",
+			"kaleidoscope:entity/boat/equip_banner2"
+		]
+	},
+	"entity.boat.shear": {
+		"subtitle": "subtitles.item.shears.shear",
+		"sounds": [
+			"mob/sheep/shear"
+		]
+	},
+	"entity.strider.chest": {
+		"subtitle": "subtitles.entity.strider.chest",
+		"sounds": [
+			"mob/chicken/plop"
+		]
+	},
+	"entity.strider.shear": {
+		"subtitle": "subtitles.item.shears.shear",
+		"sounds": [
+			"mob/sheep/shear"
+		]
+	},
+	"entity.villager.work_fireworker": {
+		"subtitle": "subtitles.entity.villager.work_fireworker",
+		"sounds": [
+			"kaleidoscope:block/fireworks_table/take_result1",
+			"kaleidoscope:block/fireworks_table/take_result2"
+		]
+	},
+	"entity.villager.work_glassblower": {
+		"subtitle": "subtitles.entity.villager.work_glassblower",
+		"sounds": [
+			"kaleidoscope:block/kiln/crackle1",
+			"kaleidoscope:block/kiln/crackle2",
+			"kaleidoscope:block/kiln/crackle3",
+			"kaleidoscope:block/kiln/crackle4"
+		]
+	},
+	"item.shovel.scoop_mud": {
+		"subtitle": "subtitles.item.shovel.scoop_mud",
+		"sounds": [
+			"kaleidoscope:item/shovel/scoop_mud1",
+			"kaleidoscope:item/shovel/scoop_mud2"
+		]
+	},
+	"item.hoe.scrape": {
+		"subtitle": "subtitles.item.hoe.scrape",
+		"sounds": [
+			"kaleidoscope:item/hoe/scrape1",
+			"kaleidoscope:item/hoe/scrape2",
+			"kaleidoscope:item/hoe/scrape3",
+			"kaleidoscope:item/hoe/scrape4"
+		]
+	}
 }
