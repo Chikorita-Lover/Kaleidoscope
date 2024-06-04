@@ -34,6 +34,12 @@
 			"mob/sheep/shear"
 		]
 	},
+	"entity.pig.shear": {
+		"subtitle": "subtitles.item.shears.shear",
+		"sounds": [
+			"mob/sheep/shear"
+		]
+	},
 	"entity.strider.chest": {
 		"subtitle": "subtitles.entity.strider.chest",
 		"sounds": [

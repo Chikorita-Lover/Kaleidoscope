@@ -30,6 +30,7 @@
 		"entity.GiveGiftsToHeroTaskMixin",
 		"entity.MooshroomEntityMixin",
 		"entity.PaintingEntityMixin",
+		"entity.PigEntityMixin",
 		"entity.PiglinBruteEntityMixin",
 		"entity.PiglinEntityMixin",
 		"entity.SheepEntityMixin",

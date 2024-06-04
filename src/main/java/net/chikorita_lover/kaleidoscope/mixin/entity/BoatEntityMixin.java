@@ -4,6 +4,7 @@ import net.chikorita_lover.kaleidoscope.entity.BoatEntityAccessor;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeItems;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
@@ -18,7 +19,6 @@ import net.minecraft.entity.vehicle.VehicleEntity;
 import net.minecraft.item.BannerItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShearsItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -93,7 +93,7 @@ public abstract class BoatEntityMixin extends VehicleEntity implements BoatEntit
     }
 
     @Inject(method = "interact", at = @At(value = "CONSTANT", args = "floatValue=60.0", shift = At.Shift.BEFORE), cancellable = true)
-    private void equipBannerStack(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+    private void tryInteract(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         ItemStack stack = player.getStackInHand(hand);
         if (stack.getItem() instanceof BannerItem) {
             if (!this.kaleidoscope$getBannerStack().isEmpty()) {
@@ -106,17 +106,15 @@ public abstract class BoatEntityMixin extends VehicleEntity implements BoatEntit
                 serverPlayer.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
             }
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
-        }
-        if (stack.getItem() instanceof ShearsItem) {
+        } else if (stack.isIn(ConventionalItemTags.SHEARS_TOOLS)) {
             if (this.kaleidoscope$getBannerStack().isEmpty()) {
                 return;
             }
             ItemScatterer.spawn(this.getWorld(), this.getX(), this.getY() + this.getHeight(), this.getZ(), this.kaleidoscope$getBannerStack());
             this.dataTracker.set(EQUIPPED_BANNER, ItemStack.EMPTY);
-            stack.damage(1, player, LivingEntity.getSlotForHand(hand));
             this.playSound(KaleidoscopeSoundEvents.ENTITY_BOAT_SHEAR, 1.0F, 1.0F);
-            if (player instanceof ServerPlayerEntity serverPlayer) {
-                serverPlayer.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
+            if (!this.getWorld().isClient()) {
+                stack.damage(1, player, LivingEntity.getSlotForHand(hand));
             }
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
         }

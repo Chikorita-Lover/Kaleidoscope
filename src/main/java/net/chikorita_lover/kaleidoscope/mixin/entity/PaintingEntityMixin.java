@@ -15,7 +15,6 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
@@ -48,9 +47,9 @@ public abstract class PaintingEntityMixin extends AbstractDecorationEntity {
         PaintingEntity.writeVariantToNbt(nbt, this.getVariant());
         paintingStack.set(DataComponentTypes.ENTITY_DATA, NbtComponent.of(nbt).apply(nbtCompound -> nbtCompound.putString(Entity.ID_KEY, Registries.ENTITY_TYPE.getId(EntityType.PAINTING).toString())));
         this.dropStack(paintingStack);
-        handStack.damage(1, player, LivingEntity.getSlotForHand(Hand.MAIN_HAND));
-        if (player instanceof ServerPlayerEntity serverPlayer) {
-            serverPlayer.incrementStat(Stats.USED.getOrCreateStat(handStack.getItem()));
+        if (!this.getWorld().isClient()) {
+            handStack.damage(1, player, LivingEntity.getSlotForHand(Hand.MAIN_HAND));
+            player.incrementStat(Stats.USED.getOrCreateStat(handStack.getItem()));
         }
         ci.cancel();
     }

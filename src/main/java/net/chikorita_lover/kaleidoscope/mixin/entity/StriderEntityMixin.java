@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.RideableInventory;
 import net.minecraft.entity.SaddledComponent;
 import net.minecraft.entity.data.DataTracker;
@@ -27,11 +28,13 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -128,8 +131,12 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
         } else if (this.isSaddled() && stack.isIn(ConventionalItemTags.SHEARS_TOOLS)) {
             this.saddledComponent.setSaddled(false);
-            this.dropStack(new ItemStack(Items.SADDLE), this.getHeight());
             this.playSound(KaleidoscopeSoundEvents.ENTITY_STRIDER_SHEAR);
+            this.dropStack(new ItemStack(Items.SADDLE), this.getHeight());
+            this.emitGameEvent(GameEvent.SHEAR, player);
+            if (!this.getWorld().isClient()) {
+                stack.damage(1, player, LivingEntity.getSlotForHand(hand));
+            }
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
         } else if (this.kaleidoscope$hasChest() && (!this.isSaddled() && !stack.isOf(Items.SADDLE) || player.shouldCancelInteraction())) {
             this.openInventory(player);
