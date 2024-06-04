@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.entity;
 
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.Entity;
@@ -11,7 +12,6 @@ import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.ShearsItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -35,12 +35,12 @@ public abstract class PaintingEntityMixin extends AbstractDecorationEntity {
     public abstract RegistryEntry<PaintingVariant> getVariant();
 
     @Inject(method = "onBreak", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/decoration/painting/PaintingEntity;dropItem(Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/entity/ItemEntity;", shift = At.Shift.BEFORE), cancellable = true)
-    private void onBreak(Entity entity, CallbackInfo ci) {
+    private void tryCollectPainting(Entity entity, CallbackInfo ci) {
         if (!(entity instanceof PlayerEntity player)) {
             return;
         }
         ItemStack handStack = player.getMainHandStack();
-        if (!(handStack.getItem() instanceof ShearsItem)) {
+        if (!handStack.isIn(ConventionalItemTags.SHEARS_TOOLS)) {
             return;
         }
         ItemStack paintingStack = new ItemStack(Items.PAINTING);
