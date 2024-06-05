@@ -52,196 +52,140 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
         }
 
         private void addVariantDrop(BlockFamily blockFamily, BlockFamily.Variant variant) {
-            if (!blockFamily.getVariants().containsKey(variant)) return;
+            if (!blockFamily.getVariants().containsKey(variant)) {
+                return;
+            }
             Block block = blockFamily.getVariant(variant);
             switch (variant) {
-                case SLAB -> addDrop(block, slabDrops(block));
-                case DOOR -> addDrop(block, doorDrops(block));
-                default -> addDrop(block);
+                case SLAB -> this.addDrop(block, this.slabDrops(block));
+                case DOOR -> this.addDrop(block, this.doorDrops(block));
+                default -> this.addDrop(block);
             }
         }
 
         private void addVariantDrops(BlockFamily blockFamily) {
-            addVariantDrop(blockFamily, BlockFamily.Variant.STAIRS);
-            addVariantDrop(blockFamily, BlockFamily.Variant.SLAB);
-            addVariantDrop(blockFamily, BlockFamily.Variant.WALL);
+            this.addVariantDrop(blockFamily, BlockFamily.Variant.STAIRS);
+            this.addVariantDrop(blockFamily, BlockFamily.Variant.SLAB);
+            this.addVariantDrop(blockFamily, BlockFamily.Variant.WALL);
+            this.addVariantDrop(blockFamily, BlockFamily.Variant.CHISELED);
+            this.addVariantDrop(blockFamily, BlockFamily.Variant.CRACKED);
+            this.addVariantDrop(blockFamily, BlockFamily.Variant.FENCE);
+            this.addVariantDrop(blockFamily, BlockFamily.Variant.FENCE_GATE);
         }
 
         private void addDrops(BlockFamily blockFamily) {
-            addDrop(blockFamily.getBaseBlock());
-            addVariantDrops(blockFamily);
+            this.addDrop(blockFamily.getBaseBlock());
+            this.addVariantDrops(blockFamily);
         }
 
         private void addGlassSlabDrop(Block block) {
-            addDrop(block, glassSlabDrops(block));
+            this.addDrop(block, this::glassSlabDrops);
         }
 
         @Override
         public void generate() {
-            addDrop(KaleidoscopeBlocks.POLISHED_CALCITE_WALL);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.CALCITE);
+            this.addDrops(KaleidoscopeBlockFamilies.POLISHED_CALCITE);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.SMOOTH_BASALT);
 
-            addDrop(KaleidoscopeBlocks.CHARCOAL_BLOCK);
+            this.addDrops(KaleidoscopeBlockFamilies.BRICK_MOSAIC);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.RED_NETHER_BRICKS);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.PACKED_MUD);
 
-            addDrops(KaleidoscopeBlockFamilies.SMOOTH_COPPER);
-            addDrops(KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER);
-            addDrops(KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER);
-            addDrops(KaleidoscopeBlockFamilies.OXIDIZED_SMOOTH_COPPER);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.END_STONE);
+            this.addDrops(KaleidoscopeBlockFamilies.POLISHED_END_STONE);
+            this.addDrop(KaleidoscopeBlocks.CHISELED_PURPUR);
 
-            addDrops(KaleidoscopeBlockFamilies.WAXED_SMOOTH_COPPER);
-            addDrops(KaleidoscopeBlockFamilies.WAXED_EXPOSED_SMOOTH_COPPER);
-            addDrops(KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER);
-            addDrops(KaleidoscopeBlockFamilies.WAXED_OXIDIZED_SMOOTH_COPPER);
+            this.addDrop(KaleidoscopeBlocks.CHARCOAL_BLOCK);
 
-            addDrops(KaleidoscopeBlockFamilies.BRICK_MOSAIC);
+            this.addDrop(KaleidoscopeBlocks.CUT_COPPER_WALL);
+            this.addDrop(KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);
+            this.addDrop(KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL);
+            this.addDrop(KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL);
+            this.addDrop(KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL);
+            this.addDrop(KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL);
+            this.addDrop(KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL);
+            this.addDrop(KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
 
-            this.addDrop(KaleidoscopeBlocks.BLACK_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.BLACK_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.BLACK_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.BLACK_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.BLACK_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.BLUE_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.BLUE_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.BLUE_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.BLUE_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.BLUE_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.BROWN_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.BROWN_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.BROWN_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.BROWN_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.BROWN_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.CYAN_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.CYAN_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.CYAN_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.CYAN_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.CYAN_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.GRAY_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.GRAY_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.GRAY_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.GRAY_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.GRAY_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.GREEN_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.GREEN_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.GREEN_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.GREEN_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.GREEN_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.LIME_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.LIME_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.LIME_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.LIME_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.LIME_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.MAGENTA_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.MAGENTA_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.MAGENTA_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.MAGENTA_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.MAGENTA_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.ORANGE_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.ORANGE_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.ORANGE_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.ORANGE_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.ORANGE_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.PINK_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.PINK_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.PINK_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.PINK_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.PINK_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.PURPLE_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.PURPLE_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.PURPLE_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.PURPLE_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.PURPLE_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.RED_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.RED_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.RED_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.RED_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.RED_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.WHITE_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_BRICK_WALL);
-            this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_BRICKS);
-            this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_BRICK_SLAB, slabDrops(KaleidoscopeBlocks.YELLOW_STAINED_BRICK_SLAB));
-            this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_BRICK_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_BRICK_WALL);
+            this.addDrops(KaleidoscopeBlockFamilies.SMOOTH_COPPER);
+            this.addDrops(KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER);
+            this.addDrops(KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER);
+            this.addDrops(KaleidoscopeBlockFamilies.OXIDIZED_SMOOTH_COPPER);
+            this.addDrops(KaleidoscopeBlockFamilies.WAXED_SMOOTH_COPPER);
+            this.addDrops(KaleidoscopeBlockFamilies.WAXED_EXPOSED_SMOOTH_COPPER);
+            this.addDrops(KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER);
+            this.addDrops(KaleidoscopeBlockFamilies.WAXED_OXIDIZED_SMOOTH_COPPER);
 
-            this.addDrop(KaleidoscopeBlocks.WHITE_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.WHITE_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.WHITE_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.ORANGE_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.ORANGE_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.ORANGE_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.MAGENTA_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.MAGENTA_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.MAGENTA_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.LIGHT_BLUE_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.LIGHT_BLUE_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.LIGHT_BLUE_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.YELLOW_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.YELLOW_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.YELLOW_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.LIME_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.LIME_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.LIME_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.PINK_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.PINK_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.PINK_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.GRAY_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.GRAY_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.GRAY_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.LIGHT_GRAY_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.CYAN_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.CYAN_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.CYAN_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.PURPLE_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.PURPLE_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.PURPLE_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.BLUE_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.BLUE_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.BLUE_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.BROWN_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.BROWN_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.BROWN_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.GREEN_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.GREEN_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.GREEN_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.RED_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.RED_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.RED_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.BLACK_TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.BLACK_TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.BLACK_TERRACOTTA_STAIRS);
-            this.addDrop(KaleidoscopeBlocks.TERRACOTTA_SLAB, slabDrops(KaleidoscopeBlocks.TERRACOTTA_SLAB));
-            this.addDrop(KaleidoscopeBlocks.TERRACOTTA_STAIRS);
+            this.addDrops(KaleidoscopeBlockFamilies.WHITE_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.LIGHT_GRAY_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.GRAY_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.BLACK_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.BROWN_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.RED_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.ORANGE_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.YELLOW_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.LIME_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.GREEN_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.CYAN_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.LIGHT_BLUE_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.BLUE_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.PURPLE_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.MAGENTA_STAINED_BRICKS);
+            this.addDrops(KaleidoscopeBlockFamilies.PINK_STAINED_BRICKS);
 
-            addDrop(KaleidoscopeBlocks.END_STONE_SLAB, slabDrops(KaleidoscopeBlocks.END_STONE_SLAB));
-            addDrop(KaleidoscopeBlocks.END_STONE_STAIRS);
-            addDrop(KaleidoscopeBlocks.END_STONE_WALL);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.WHITE_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.LIGHT_GRAY_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.GRAY_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.BLACK_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.BROWN_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.RED_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.ORANGE_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.YELLOW_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.LIME_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.GREEN_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.CYAN_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.LIGHT_BLUE_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.BLUE_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.PURPLE_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.MAGENTA_TERRACOTTA);
+            this.addVariantDrops(KaleidoscopeBlockFamilies.PINK_TERRACOTTA);
 
-            addDrop(KaleidoscopeBlocks.POLISHED_END_STONE_WALL);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.GRAY_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.BLACK_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.BROWN_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.RED_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.ORANGE_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.LIME_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.GREEN_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.CYAN_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.BLUE_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.PURPLE_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_SLAB);
+            this.addGlassSlabDrop(KaleidoscopeBlocks.PINK_STAINED_GLASS_SLAB);
 
-            this.addDrop(KaleidoscopeBlocks.SOUL_JACK_O_LANTERN);
-
-            addDrop(KaleidoscopeBlocks.FIREWORKS_TABLE);
-
-            this.addDrop(KaleidoscopeBlocks.PACKED_MUD_SLAB, slabDrops(KaleidoscopeBlocks.PACKED_MUD_SLAB));
-            this.addDrop(KaleidoscopeBlocks.PACKED_MUD_STAIRS);
-
-            addGlassSlabDrop(KaleidoscopeBlocks.GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.GRAY_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.BLACK_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.BROWN_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.RED_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.ORANGE_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.LIME_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.GREEN_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.CYAN_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.BLUE_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.PURPLE_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_SLAB);
-            addGlassSlabDrop(KaleidoscopeBlocks.PINK_STAINED_GLASS_SLAB);
-
-            this.addDrop(KaleidoscopeBlocks.GLASS_DOOR, doorDrops(KaleidoscopeBlocks.GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.BROWN_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.BROWN_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.CYAN_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.CYAN_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.GRAY_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.GRAY_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.GREEN_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.GREEN_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.LIME_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.LIME_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.ORANGE_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.ORANGE_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.PINK_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.PINK_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.PURPLE_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.PURPLE_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.RED_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.RED_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.WHITE_STAINED_GLASS_DOOR));
-            this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_DOOR, doorDrops(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_DOOR));
+            this.addDrop(KaleidoscopeBlocks.GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.GRAY_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.BROWN_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.RED_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.ORANGE_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.LIME_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.GREEN_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.CYAN_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.PURPLE_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_DOOR, this::doorDrops);
+            this.addDrop(KaleidoscopeBlocks.PINK_STAINED_GLASS_DOOR, this::doorDrops);
 
             this.addDrop(KaleidoscopeBlocks.GLASS_TRAPDOOR);
             this.addDrop(KaleidoscopeBlocks.BLACK_STAINED_GLASS_TRAPDOOR);
@@ -261,17 +205,16 @@ public class KaleidoscopeDataGenerator implements DataGeneratorEntrypoint {
             this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR);
             this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR);
 
-            this.lootTables.put(KaleidoscopeLootTables.HERO_OF_THE_VILLAGE_FIREWORKER_GIFT_GAMEPLAY, LootTable.builder().pool(LootPool.builder()
-                    .with(ItemEntry.builder(Items.GUNPOWDER))
-            ));
-            this.lootTables.put(KaleidoscopeLootTables.VILLAGE_GLASSBLOWER_CHEST, LootTable.builder().pool(LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(1.0F, 5.0F))
-                    .with((ItemEntry.builder(Items.COAL).weight(5)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F))))
-                    .with((ItemEntry.builder(Items.PAPER).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 5.0F))))
-                    .with(ItemEntry.builder(Items.GUNPOWDER).weight(5)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))
-                    .with((ItemEntry.builder(Items.BREAD).weight(15)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 4.0F))))
-                    .with((ItemEntry.builder(Items.STRING).weight(5)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
-            ));
+            this.addDrop(KaleidoscopeBlocks.STICK_BUNDLE);
+            this.addDrop(KaleidoscopeBlocks.SOUL_JACK_O_LANTERN);
+
+            this.addDrop(KaleidoscopeBlocks.FIREWORKS_TABLE);
+            this.addDrop(KaleidoscopeBlocks.KILN, this::nameableContainerDrops);
+            this.addDrop(KaleidoscopeBlocks.POTION_CAULDRON, Items.CAULDRON);
+
+            this.lootTables.put(KaleidoscopeLootTables.HERO_OF_THE_VILLAGE_GLASSBLOWER_GIFT_GAMEPLAY, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(Blocks.GLASS))));
+            this.lootTables.put(KaleidoscopeLootTables.HERO_OF_THE_VILLAGE_FIREWORKER_GIFT_GAMEPLAY, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(Items.GUNPOWDER))));
+            this.lootTables.put(KaleidoscopeLootTables.VILLAGE_FIREWORKER_CHEST, LootTable.builder().pool(LootPool.builder().rolls(UniformLootNumberProvider.create(1.0F, 5.0F)).with((ItemEntry.builder(Items.COAL).weight(5)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).with((ItemEntry.builder(Items.PAPER).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 5.0F)))).with(ItemEntry.builder(Items.GUNPOWDER).weight(5)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F))).with((ItemEntry.builder(Items.BREAD).weight(15)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 4.0F)))).with((ItemEntry.builder(Items.STRING).weight(5)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))));
         }
 
         private LootTable.Builder glassSlabDrops(Block drop) {
