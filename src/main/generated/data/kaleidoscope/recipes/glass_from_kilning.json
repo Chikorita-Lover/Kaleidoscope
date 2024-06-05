@@ -5,7 +5,7 @@
   "experience": 0.1,
   "group": "glass",
   "ingredient": {
-    "tag": "minecraft:sand"
+    "tag": "minecraft:smelts_to_glass"
   },
   "result": {
     "id": "minecraft:glass"
