@@ -8,7 +8,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.HoeItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
@@ -18,21 +20,12 @@ import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 import java.util.Optional;
 
 @Mixin(HoeItem.class)
 public class HoeItemMixin {
-    @ModifyArgs(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/MiningToolItem;<init>(Lnet/minecraft/item/ToolMaterial;Lnet/minecraft/registry/tag/TagKey;Lnet/minecraft/item/Item$Settings;)V"))
-    private static void init(Args args) {
-        if (args.get(0).equals(ToolMaterials.GOLD)) {
-            args.set(2, ((Item.Settings) args.get(2)).attributeModifiers(AxeItem.createAttributeModifiers(ToolMaterials.GOLD, -1.0F, -2.0F)));
-        }
-    }
-
     @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
     private void useOnBlock(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
         World world = context.getWorld();

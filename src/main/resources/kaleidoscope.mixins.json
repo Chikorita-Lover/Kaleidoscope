@@ -31,14 +31,10 @@
 		"entity.MooshroomEntityMixin",
 		"entity.PaintingEntityMixin",
 		"entity.PigEntityMixin",
-		"entity.PiglinBruteEntityMixin",
-		"entity.PiglinEntityMixin",
 		"entity.SheepEntityMixin",
 		"entity.SnowGolemEntityMixin",
 		"entity.StriderEntityMixin",
 		"entity.WolfEntityMixin",
-		"entity.ZombifiedPiglinEntityMixin",
-		"item.AxeItemMixin",
 		"item.DecorationItemMixin",
 		"item.FireworkRocketItemMixin",
 		"item.FireworkStarItemMixin",
@@ -49,8 +45,7 @@
 		"item.MusicDiscItemMixin",
 		"item.ShearsItemMixin",
 		"item.ShovelItemMixin",
-		"item.StewItemMixin",
-		"item.ToolMaterialsMixin"
+		"item.StewItemMixin"
 	],
 	"client": [
 		"client.BoatEntityRendererMixin",
