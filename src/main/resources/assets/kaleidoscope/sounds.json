@@ -83,5 +83,13 @@
 			"kaleidoscope:item/hoe/scrape3",
 			"kaleidoscope:item/hoe/scrape4"
 		]
+	},
+	"random.block_crack": {
+		"subtitle": "subtitles.block.generic.crack",
+		"sounds": [
+			"kaleidoscope:random/block_crack1",
+			"kaleidoscope:random/block_crack2",
+			"kaleidoscope:random/block_crack3"
+		]
 	}
 }

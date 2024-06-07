@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_north_west_mirrored_all",
+  "textures": {
+    "all": "kaleidoscope:block/cracked_mud_bricks"
+  }
+}

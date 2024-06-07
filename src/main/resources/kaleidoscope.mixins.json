@@ -5,14 +5,13 @@
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"CookingRecipeJsonBuilderMixin",
+		"ExplosionMixin",
 		"GrindstoneScreenHandlerMixin",
 		"GrindstoneScreenHandlerMixin$GrindstoneScreenHandler2Mixin",
 		"GrindstoneScreenHandlerMixin$GrindstoneScreenHandler3Mixin",
 		"MatchToolLootConditionMixin",
 		"PlayerInteractedWithEntityCriterionMixin",
 		"RecipeBookOptionsMixin",
-		"StructurePoolAccessor",
-		"SwampHutGeneratorMixin",
 		"block.AbstractBlockStateMixin",
 		"block.BeehiveBlockMixin",
 		"block.BlockMixin",
@@ -45,7 +44,11 @@
 		"item.MusicDiscItemMixin",
 		"item.ShearsItemMixin",
 		"item.ShovelItemMixin",
-		"item.StewItemMixin"
+		"item.StewItemMixin",
+		"structure.EndCityGeneratorPieceMixin",
+		"structure.StructurePieceMixin",
+		"structure.StructurePoolAccessor",
+		"structure.SwampHutGeneratorMixin"
 	],
 	"client": [
 		"client.BoatEntityRendererMixin",

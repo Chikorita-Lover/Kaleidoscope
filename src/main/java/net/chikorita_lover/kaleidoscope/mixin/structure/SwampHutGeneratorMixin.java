@@ -1,4 +1,4 @@
-package net.chikorita_lover.kaleidoscope.mixin;
+package net.chikorita_lover.kaleidoscope.mixin.structure;
 
 import net.chikorita_lover.kaleidoscope.block.PotionCauldronBlock;
 import net.chikorita_lover.kaleidoscope.block.entity.PotionCauldronBlockEntity;

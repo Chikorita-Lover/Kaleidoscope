@@ -23,6 +23,8 @@ public class KaleidoscopeSoundEvents {
     public static final SoundEvent ITEM_SHOVEL_SCOOP_MUD = register("item.shovel.scoop_mud");
     public static final SoundEvent ITEM_HOE_SCRAPE = register("item.hoe.scrape");
 
+    public static final SoundEvent RANDOM_BLOCK_CRACK = register("random.block_crack");
+
     private static SoundEvent register(String id) {
         return Registry.register(Registries.SOUND_EVENT, new Identifier(Kaleidoscope.MODID, id), SoundEvent.of(new Identifier(Kaleidoscope.MODID, id)));
     }

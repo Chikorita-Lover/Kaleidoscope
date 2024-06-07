@@ -1,4 +1,4 @@
-package net.chikorita_lover.kaleidoscope.mixin;
+package net.chikorita_lover.kaleidoscope.mixin.structure;
 
 import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;

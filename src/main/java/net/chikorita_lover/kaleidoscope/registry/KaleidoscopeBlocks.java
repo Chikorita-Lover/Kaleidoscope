@@ -27,6 +27,8 @@ public class KaleidoscopeBlocks {
     public static final Block POLISHED_CALCITE_STAIRS = registerBlockWithItem("polished_calcite_stairs", new StairsBlock(POLISHED_CALCITE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_CALCITE)));
     public static final Block POLISHED_CALCITE_WALL = registerBlockWithItem("polished_calcite_wall", new WallBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE)));
 
+    public static final Block CRACKED_TUFF_BRICKS = registerBlockWithItem("cracked_tuff_bricks", new Block(AbstractBlock.Settings.copy(TUFF_BRICKS)));
+
     public static final Block CHARCOAL_BLOCK = registerBlockWithItem("charcoal_block", new PillarBlock(AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().sounds(BlockSoundGroup.DEEPSLATE).strength(3.0F, 6.0F)));
 
     public static final Block CUT_COPPER_WALL = registerBlockWithItem("cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(CUT_COPPER)));
@@ -74,6 +76,8 @@ public class KaleidoscopeBlocks {
     public static final Block BRICK_MOSAIC = registerBlockWithItem("brick_mosaic", new Block(AbstractBlock.Settings.copy(BRICKS)));
     public static final Block BRICK_MOSAIC_STAIRS = registerBlockWithItem("brick_mosaic_stairs", new StairsBlock(BRICK_MOSAIC.getDefaultState(), AbstractBlock.Settings.copy(BRICK_MOSAIC)));
     public static final Block BRICK_MOSAIC_SLAB = registerBlockWithItem("brick_mosaic_slab", new SlabBlock(AbstractBlock.Settings.copy(BRICK_MOSAIC)));
+
+    public static final Block CRACKED_MUD_BRICKS = registerBlockWithItem("cracked_mud_bricks", new Block(AbstractBlock.Settings.copy(MUD_BRICKS)));
 
     public static final Block BLACK_STAINED_BRICKS = registerBlockWithItem("black_stained_bricks", new Block(AbstractBlock.Settings.copy(BRICKS).mapColor(MapColor.BLACK)));
     public static final Block BLACK_STAINED_BRICK_SLAB = registerBlockWithItem("black_stained_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(BLACK_STAINED_BRICKS)));
@@ -166,6 +170,8 @@ public class KaleidoscopeBlocks {
     public static final Block POLISHED_END_STONE_SLAB = registerBlockWithItem("polished_end_stone_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_END_STONE)));
     public static final Block POLISHED_END_STONE_STAIRS = registerBlockWithItem("polished_end_stone_stairs", new StairsBlock(POLISHED_END_STONE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_END_STONE)));
     public static final Block POLISHED_END_STONE_WALL = registerBlockWithItem("polished_end_stone_wall", new WallBlock(AbstractBlock.Settings.copy(POLISHED_END_STONE)));
+
+    public static final Block CRACKED_END_STONE_BRICKS = registerBlockWithItem("cracked_end_stone_bricks", new Block(AbstractBlock.Settings.copy(END_STONE_BRICKS)));
 
     public static final Block WHITE_TERRACOTTA_SLAB = registerBlockWithItem("white_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(WHITE_TERRACOTTA)));
     public static final Block WHITE_TERRACOTTA_STAIRS = registerBlockWithItem("white_terracotta_stairs", new StairsBlock(WHITE_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(WHITE_TERRACOTTA)));

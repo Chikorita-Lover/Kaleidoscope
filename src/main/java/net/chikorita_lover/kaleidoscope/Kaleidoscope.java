@@ -4,16 +4,18 @@ import com.chocohead.mm.api.ClassTinkerers;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.ints.IntList;
-import net.chikorita_lover.kaleidoscope.mixin.StructurePoolAccessor;
+import net.chikorita_lover.kaleidoscope.mixin.structure.StructurePoolAccessor;
 import net.chikorita_lover.kaleidoscope.network.OpenStriderScreenS2CPacket;
 import net.chikorita_lover.kaleidoscope.recipe.KilningRecipe;
 import net.chikorita_lover.kaleidoscope.registry.*;
 import net.chikorita_lover.kaleidoscope.screen.FireworksTableScreenHandler;
 import net.chikorita_lover.kaleidoscope.screen.KilnScreenHandler;
+import net.chikorita_lover.kaleidoscope.structure.EndCityStructureProcessor;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.ShearsDispenserBehavior;
 import net.minecraft.component.type.FireworkExplosionComponent;
@@ -34,8 +36,9 @@ import net.minecraft.structure.pool.FeaturePoolElement;
 import net.minecraft.structure.pool.SinglePoolElement;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolElement;
-import net.minecraft.structure.processor.StructureProcessorList;
-import net.minecraft.structure.processor.StructureProcessorLists;
+import net.minecraft.structure.processor.*;
+import net.minecraft.structure.rule.AlwaysTrueRuleTest;
+import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.DyeColor;
@@ -48,6 +51,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class Kaleidoscope implements ModInitializer {
@@ -62,6 +66,7 @@ public class Kaleidoscope implements ModInitializer {
     public static final ScreenHandlerType<KilnScreenHandler> KILN_SCREEN_HANDLER;
     public static final RecipeType<KilningRecipe> KILNING;
     public static final RecipeBookCategory KILNING_CATEGORY;
+    public static final StructureProcessorType<EndCityStructureProcessor> END_CITY_STRUCTURE_PROCESSOR = Registry.register(Registries.STRUCTURE_PROCESSOR, new Identifier(Kaleidoscope.MODID, "end_city"), () -> EndCityStructureProcessor.CODEC);
 
     static {
         FIREWORKER_POINT_OF_INTEREST = RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, new Identifier(MODID, "fireworker"));
@@ -148,8 +153,18 @@ public class Kaleidoscope implements ModInitializer {
         }
     }
 
+    private static void addRuleToProcessorList(StructureProcessorList processorList, RuleStructureProcessor processor) {
+        if (processorList == null) {
+            return;
+        }
+        ArrayList<StructureProcessor> list = new ArrayList<>(processorList.getList());
+        list.add(processor);
+        processorList.list = list;
+    }
+
     @Override
     public void onInitialize() {
+        CrackedBlockRegistry.register();
         KaleidoscopeBlocks.registerFlammableBlocks();
         KaleidoscopeBlocks.registerMossyPairs();
         KaleidoscopeBlocks.registerOxidizablePairs();
@@ -185,6 +200,14 @@ public class Kaleidoscope implements ModInitializer {
             addToStructurePool(server, new Identifier("village/snowy/houses"), new Identifier(MODID, "village/snowy/houses/snowy_glassblower_1"), 4);
             addToStructurePool(server, new Identifier("village/taiga/decor"), featureRegistry.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BUNDLE), 1);
             addToStructurePool(server, new Identifier("village/taiga/houses"), new Identifier(MODID, "village/taiga/houses/taiga_glassblower_1"), 4);
+
+            Registry<StructureProcessorList> processorLists = server.getRegistryManager().get(RegistryKeys.PROCESSOR_LIST);
+            if (processorLists != null) {
+                addRuleToProcessorList(processorLists.get(StructureProcessorLists.TRAIL_RUINS_HOUSES_ARCHAEOLOGY), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
+                addRuleToProcessorList(processorLists.get(StructureProcessorLists.TRAIL_RUINS_ROADS_ARCHAEOLOGY), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
+                addRuleToProcessorList(processorLists.get(StructureProcessorLists.TRAIL_RUINS_TOWER_TOP_ARCHAEOLOGY), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
+                addRuleToProcessorList(processorLists.get(OneTwentyOneStructureProcessorLists.TRIAL_CHAMBERS_COPPER_BULB_DEGRADATION), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.TUFF_BRICKS, 0.3F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_TUFF_BRICKS.getDefaultState()))));
+            }
         });
     }
 

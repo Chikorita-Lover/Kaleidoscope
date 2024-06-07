@@ -1,0 +1,13 @@
+{
+  "type": "kaleidoscope:kilning",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "cracked_mud_bricks",
+  "ingredient": {
+    "item": "minecraft:mud_bricks"
+  },
+  "result": {
+    "id": "kaleidoscope:cracked_mud_bricks"
+  }
+}

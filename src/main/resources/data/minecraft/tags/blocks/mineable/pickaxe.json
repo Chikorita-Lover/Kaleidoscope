@@ -157,6 +157,9 @@
     "kaleidoscope:end_stone_stairs",
     "kaleidoscope:end_stone_wall",
     "kaleidoscope:packed_mud_slab",
-    "kaleidoscope:packed_mud_stairs"
+    "kaleidoscope:packed_mud_stairs",
+    "kaleidoscope:cracked_end_stone_bricks",
+    "kaleidoscope:cracked_tuff_bricks",
+    "kaleidoscope:cracked_mud_bricks"
   ]
 }

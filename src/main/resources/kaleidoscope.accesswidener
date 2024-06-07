@@ -8,3 +8,6 @@ accessible method net/minecraft/block/AbstractBlock canPlaceAt (Lnet/minecraft/b
 accessible method net/minecraft/server/network/ServerPlayerEntity incrementScreenHandlerSyncId ()V
 accessible field net/minecraft/server/network/ServerPlayerEntity screenHandlerSyncId I
 accessible method net/minecraft/server/network/ServerPlayerEntity onScreenHandlerOpened (Lnet/minecraft/screen/ScreenHandler;)V
+accessible field net/minecraft/structure/processor/StructureProcessorList list Ljava/util/List;
+mutable field net/minecraft/structure/processor/StructureProcessorList list Ljava/util/List;
+accessible field net/minecraft/world/ChunkRegion currentlyGeneratingStructureName Ljava/util/function/Supplier;

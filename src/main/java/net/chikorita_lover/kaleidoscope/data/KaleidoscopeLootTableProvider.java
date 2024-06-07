@@ -27,14 +27,19 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
     public void generate() {
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.CALCITE);
         this.addFamilyDrops(KaleidoscopeBlockFamilies.POLISHED_CALCITE);
+        this.addDrop(KaleidoscopeBlocks.CRACKED_TUFF_BRICKS);
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.SMOOTH_BASALT);
 
         this.addFamilyDrops(KaleidoscopeBlockFamilies.BRICK_MOSAIC);
-        this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.RED_NETHER_BRICKS);
+
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.PACKED_MUD);
+        this.addDrop(KaleidoscopeBlocks.CRACKED_MUD_BRICKS);
+
+        this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.RED_NETHER_BRICKS);
 
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.END_STONE);
         this.addFamilyDrops(KaleidoscopeBlockFamilies.POLISHED_END_STONE);
+        this.addDrop(KaleidoscopeBlocks.CRACKED_END_STONE_BRICKS);
         this.addDrop(KaleidoscopeBlocks.CHISELED_PURPUR);
 
         this.addDrop(KaleidoscopeBlocks.CHARCOAL_BLOCK);

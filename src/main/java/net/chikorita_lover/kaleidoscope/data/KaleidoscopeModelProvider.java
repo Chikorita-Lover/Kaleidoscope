@@ -37,6 +37,13 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
         generator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER).parented(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER);
         generator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.OXIDIZED_SMOOTH_COPPER).parented(KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_OXIDIZED_SMOOTH_COPPER);
 
+        generator.registerSimpleCubeAll(KaleidoscopeBlocks.CRACKED_TUFF_BRICKS);
+
+        Models.CUBE_ALL.upload(KaleidoscopeBlocks.CRACKED_MUD_BRICKS, TexturedModel.CUBE_ALL.get(KaleidoscopeBlocks.CRACKED_MUD_BRICKS).getTextures(), generator.modelCollector);
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createMudBrickState(KaleidoscopeBlocks.CRACKED_MUD_BRICKS, TextureMap.getId(KaleidoscopeBlocks.CRACKED_MUD_BRICKS), TexturedModel.CUBE_ALL.get(KaleidoscopeBlocks.CRACKED_MUD_BRICKS).getTextures(), generator.modelCollector));
+
+        generator.registerSimpleCubeAll(KaleidoscopeBlocks.CRACKED_END_STONE_BRICKS);
+
         generator.registerAxisRotated(KaleidoscopeBlocks.CHARCOAL_BLOCK, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
         this.registerWall(generator, Blocks.CUT_COPPER, KaleidoscopeBlocks.CUT_COPPER_WALL);
         this.registerWall(generator, Blocks.EXPOSED_CUT_COPPER, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);
