@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:green_stained_brick_stairs_from_green_stained_bricks_stonecutting"
+        "recipe": "kaleidoscope:green_stained_brick_stairs_from_green_stained_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:green_stained_brick_stairs_from_green_stained_bricks_stonecutting"
+      "kaleidoscope:green_stained_brick_stairs_from_green_stained_bricks_stonecutting"
     ]
   }
 }

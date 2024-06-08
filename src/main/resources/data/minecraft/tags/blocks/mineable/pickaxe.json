@@ -160,6 +160,9 @@
     "kaleidoscope:packed_mud_stairs",
     "kaleidoscope:cracked_end_stone_bricks",
     "kaleidoscope:cracked_tuff_bricks",
-    "kaleidoscope:cracked_mud_bricks"
+    "kaleidoscope:cracked_mud_bricks",
+    "kaleidoscope:quartz_brick_slab",
+    "kaleidoscope:quartz_brick_stairs",
+    "kaleidoscope:quartz_brick_wall"
   ]
 }

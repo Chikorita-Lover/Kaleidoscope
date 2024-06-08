@@ -48,6 +48,7 @@
     "kaleidoscope:terracotta_slab",
     "kaleidoscope:smooth_basalt_slab",
     "kaleidoscope:end_stone_slab",
-    "kaleidoscope:packed_mud_slab"
+    "kaleidoscope:packed_mud_slab",
+    "kaleidoscope:quartz_brick_slab"
   ]
 }

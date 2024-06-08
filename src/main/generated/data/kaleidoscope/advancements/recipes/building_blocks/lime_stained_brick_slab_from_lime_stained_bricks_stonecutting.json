@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:lime_stained_brick_slab_from_lime_stained_bricks_stonecutting"
+        "recipe": "kaleidoscope:lime_stained_brick_slab_from_lime_stained_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:lime_stained_brick_slab_from_lime_stained_bricks_stonecutting"
+      "kaleidoscope:lime_stained_brick_slab_from_lime_stained_bricks_stonecutting"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:orange_stained_brick_wall_from_orange_stained_bricks_stonecutting"
+        "recipe": "kaleidoscope:orange_stained_brick_wall_from_orange_stained_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:orange_stained_brick_wall_from_orange_stained_bricks_stonecutting"
+      "kaleidoscope:orange_stained_brick_wall_from_orange_stained_bricks_stonecutting"
     ]
   }
 }

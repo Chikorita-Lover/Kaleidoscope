@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:brown_terracotta_slab_from_brown_terracotta_stonecutting"
+        "recipe": "kaleidoscope:brown_terracotta_slab_from_brown_terracotta_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brown_terracotta_slab_from_brown_terracotta_stonecutting"
+      "kaleidoscope:brown_terracotta_slab_from_brown_terracotta_stonecutting"
     ]
   }
 }

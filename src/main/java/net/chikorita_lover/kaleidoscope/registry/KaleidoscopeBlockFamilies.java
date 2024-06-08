@@ -14,6 +14,8 @@ public class KaleidoscopeBlockFamilies {
     public static final BlockFamily CALCITE = register(Blocks.CALCITE).slab(KaleidoscopeBlocks.CALCITE_SLAB).stairs(KaleidoscopeBlocks.CALCITE_STAIRS).wall(KaleidoscopeBlocks.CALCITE_WALL).build();
     public static final BlockFamily POLISHED_CALCITE = register(KaleidoscopeBlocks.POLISHED_CALCITE).slab(KaleidoscopeBlocks.POLISHED_CALCITE_SLAB).stairs(KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS).wall(KaleidoscopeBlocks.POLISHED_CALCITE_WALL).build();
 
+    public static final BlockFamily QUARTZ_BRICKS = register(Blocks.QUARTZ_BRICKS).stairs(KaleidoscopeBlocks.QUARTZ_BRICK_STAIRS).slab(KaleidoscopeBlocks.QUARTZ_BRICK_SLAB).wall(KaleidoscopeBlocks.QUARTZ_BRICK_WALL).build();
+
     public static final BlockFamily SMOOTH_COPPER = register(KaleidoscopeBlocks.SMOOTH_COPPER).stairs(KaleidoscopeBlocks.SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.SMOOTH_COPPER_SLAB).noGenerateModels().build();
     public static final BlockFamily EXPOSED_SMOOTH_COPPER = register(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER).stairs(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER_SLAB).noGenerateModels().build();
     public static final BlockFamily WEATHERED_SMOOTH_COPPER = register(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER).stairs(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER_STAIRS).slab(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER_SLAB).noGenerateModels().build();

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cut_copper_wall_from_copper_block_stonecutting"
+        "recipe": "kaleidoscope:cut_copper_wall_from_copper_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cut_copper_wall_from_copper_block_stonecutting"
+      "kaleidoscope:cut_copper_wall_from_copper_block_stonecutting"
     ]
   }
 }

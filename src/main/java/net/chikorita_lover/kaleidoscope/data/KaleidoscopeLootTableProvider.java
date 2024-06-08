@@ -43,6 +43,7 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
         this.addDrop(KaleidoscopeBlocks.CHISELED_PURPUR);
 
         this.addDrop(KaleidoscopeBlocks.CHARCOAL_BLOCK);
+        this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.QUARTZ_BRICKS);
 
         this.addDrop(KaleidoscopeBlocks.CUT_COPPER_WALL);
         this.addDrop(KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);

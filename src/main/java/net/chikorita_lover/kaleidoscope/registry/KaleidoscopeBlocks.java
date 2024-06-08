@@ -31,6 +31,10 @@ public class KaleidoscopeBlocks {
 
     public static final Block CHARCOAL_BLOCK = registerBlockWithItem("charcoal_block", new PillarBlock(AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().sounds(BlockSoundGroup.DEEPSLATE).strength(3.0F, 6.0F)));
 
+    public static final Block QUARTZ_BRICK_STAIRS = registerBlockWithItem("quartz_brick_stairs", new StairsBlock(QUARTZ_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(QUARTZ_BRICKS)));
+    public static final Block QUARTZ_BRICK_SLAB = registerBlockWithItem("quartz_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(QUARTZ_BRICKS)));
+    public static final Block QUARTZ_BRICK_WALL = registerBlockWithItem("quartz_brick_wall", new WallBlock(AbstractBlock.Settings.copy(QUARTZ_BRICKS)));
+
     public static final Block CUT_COPPER_WALL = registerBlockWithItem("cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(CUT_COPPER)));
     public static final Block EXPOSED_CUT_COPPER_WALL = registerBlockWithItem("exposed_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(EXPOSED_CUT_COPPER)));
     public static final Block WEATHERED_CUT_COPPER_WALL = registerBlockWithItem("weathered_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(WEATHERED_CUT_COPPER)));

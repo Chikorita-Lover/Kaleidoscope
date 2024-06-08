@@ -24,6 +24,7 @@ public class KaleidoscopeItemGroups {
             entries.addAfter(Blocks.END_STONE_BRICKS, KaleidoscopeBlocks.CRACKED_END_STONE_BRICKS);
             entries.addAfter(Blocks.PURPUR_PILLAR, KaleidoscopeBlocks.CHISELED_PURPUR);
             entries.addAfter(Blocks.COAL_BLOCK, KaleidoscopeBlocks.CHARCOAL_BLOCK);
+            entries.addAfter(Blocks.QUARTZ_BRICKS, KaleidoscopeBlocks.QUARTZ_BRICK_STAIRS, KaleidoscopeBlocks.QUARTZ_BRICK_SLAB, KaleidoscopeBlocks.QUARTZ_BRICK_WALL);
             entries.addAfter(Blocks.CUT_COPPER_SLAB, KaleidoscopeBlocks.CUT_COPPER_WALL, KaleidoscopeBlocks.SMOOTH_COPPER, KaleidoscopeBlocks.SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.SMOOTH_COPPER_SLAB);
             entries.addAfter(Blocks.EXPOSED_CUT_COPPER_SLAB, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL, KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER, KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER_SLAB);
             entries.addAfter(Blocks.WEATHERED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL, KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER, KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER_SLAB);
