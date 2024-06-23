@@ -1,7 +1,7 @@
 package net.chikorita_lover.kaleidoscope.data;
 
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockFamilies;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlocks;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlockFamilies;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeLootTables;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
@@ -181,6 +181,6 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
     }
 
     private LootTable.Builder glassSlabDrops(Block drop) {
-        return this.slabDrops(drop).modifyPools(builder -> builder.conditionally(WITH_SILK_TOUCH));
+        return this.slabDrops(drop).modifyPools(builder -> builder.conditionally(createSilkTouchCondition()));
     }
 }

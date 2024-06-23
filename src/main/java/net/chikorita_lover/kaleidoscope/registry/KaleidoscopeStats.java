@@ -16,7 +16,7 @@ public class KaleidoscopeStats {
     }
 
     private static Identifier register(String id, StatFormatter formatter) {
-        Identifier identifier = new Identifier(Kaleidoscope.MODID, id);
+        Identifier identifier = Kaleidoscope.of(id);
         Registry.register(Registries.CUSTOM_STAT, identifier, identifier);
         CUSTOM.getOrCreateStat(identifier, formatter);
         return identifier;

@@ -1,7 +1,7 @@
 package net.chikorita_lover.kaleidoscope.mixin.item;
 
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
-import net.chikorita_lover.kaleidoscope.registry.MossyBlocksRegistry;
+import net.chikorita_lover.kaleidoscope.block.MossyBlocksRegistry;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

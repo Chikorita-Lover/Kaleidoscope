@@ -1,6 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.entity;
 
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeItems;
+import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.entity.vehicle.ChestBoatEntity;

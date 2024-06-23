@@ -1,6 +1,5 @@
 package net.chikorita_lover.kaleidoscope.block;
 
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockSetType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;

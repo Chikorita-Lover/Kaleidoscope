@@ -12,8 +12,7 @@ import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.Registries;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
@@ -39,18 +38,18 @@ public abstract class PaintingEntityMixin extends AbstractDecorationEntity {
             return;
         }
         ItemStack handStack = player.getMainHandStack();
-        if (!handStack.isIn(ConventionalItemTags.SHEARS_TOOLS)) {
-            return;
+        if (handStack.isIn(ConventionalItemTags.SHEAR_TOOLS)) {
+            ItemStack paintingStack = new ItemStack(Items.PAINTING);
+            NbtComponent nbtComponent = NbtComponent.DEFAULT.with(this.getRegistryManager().getOps(NbtOps.INSTANCE), PaintingEntity.VARIANT_MAP_CODEC, this.getVariant()).getOrThrow().apply((nbt) -> {
+                nbt.putString("id", "minecraft:painting");
+            });
+            paintingStack.set(DataComponentTypes.ENTITY_DATA, nbtComponent);
+            this.dropStack(paintingStack);
+            if (!this.getWorld().isClient()) {
+                handStack.damage(1, player, LivingEntity.getSlotForHand(Hand.MAIN_HAND));
+                player.incrementStat(Stats.USED.getOrCreateStat(handStack.getItem()));
+            }
+            ci.cancel();
         }
-        ItemStack paintingStack = new ItemStack(Items.PAINTING);
-        NbtCompound nbt = new NbtCompound();
-        PaintingEntity.writeVariantToNbt(nbt, this.getVariant());
-        paintingStack.set(DataComponentTypes.ENTITY_DATA, NbtComponent.of(nbt).apply(nbtCompound -> nbtCompound.putString(Entity.ID_KEY, Registries.ENTITY_TYPE.getId(EntityType.PAINTING).toString())));
-        this.dropStack(paintingStack);
-        if (!this.getWorld().isClient()) {
-            handStack.damage(1, player, LivingEntity.getSlotForHand(Hand.MAIN_HAND));
-            player.incrementStat(Stats.USED.getOrCreateStat(handStack.getItem()));
-        }
-        ci.cancel();
     }
 }

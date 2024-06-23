@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:smelting",
+	"category": "misc",
+	"group": "charcoal",
+	"ingredient": {
+		"tag": "kaleidoscope:burns_into_charcoal"
+	},
+	"result": {
+		"id": "minecraft:charcoal"
+	},
+	"experience": 0.15,
+	"cookingtime": 200
+}

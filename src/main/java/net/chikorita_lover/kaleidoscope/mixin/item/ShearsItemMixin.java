@@ -1,6 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.item;
 
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockTags;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeBlockTags;
 import net.minecraft.component.type.ToolComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ShearsItem;

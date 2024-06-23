@@ -2,7 +2,7 @@ package net.chikorita_lover.kaleidoscope.mixin.structure;
 
 import net.chikorita_lover.kaleidoscope.block.PotionCauldronBlock;
 import net.chikorita_lover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlocks;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.PotionContentsComponent;

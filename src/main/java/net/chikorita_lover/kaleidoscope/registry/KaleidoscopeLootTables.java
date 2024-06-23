@@ -12,10 +12,9 @@ public class KaleidoscopeLootTables {
     public static final RegistryKey<LootTable> VILLAGE_FIREWORKER_CHEST = register("chests/village/village_fireworker");
 
     public static void register() {
-
     }
 
     private static RegistryKey<LootTable> register(String id) {
-        return RegistryKey.of(RegistryKeys.LOOT_TABLE, new Identifier(Kaleidoscope.MODID, id));
+        return RegistryKey.of(RegistryKeys.LOOT_TABLE, Kaleidoscope.of(id));
     }
 }

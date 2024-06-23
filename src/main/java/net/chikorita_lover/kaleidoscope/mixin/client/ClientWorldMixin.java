@@ -1,7 +1,7 @@
 package net.chikorita_lover.kaleidoscope.mixin.client;
 
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBiomeTags;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockTags;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeBiomeTags;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeBlockTags;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeParticleTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

@@ -2,7 +2,6 @@ package net.chikorita_lover.kaleidoscope.registry;
 
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
-import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -29,48 +28,48 @@ public class KaleidoscopeTradeOffers {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.LEATHERWORKER, 3, factories -> {
             factories.add(new TradeOffers.SellDyedArmorFactory(Items.BUNDLE, 3));
         });
-        TradeOfferHelper.registerVillagerOffers(Kaleidoscope.FIREWORKER, 1, factories -> {
+        TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.FIREWORKER, 1, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.CHARCOAL, 15, 16, 2));
             factories.add(new TradeOffers.SellItemFactory(Items.GUNPOWDER, 1, 1, 12, 1));
         });
-        TradeOfferHelper.registerVillagerOffers(Kaleidoscope.FIREWORKER, 2, factories -> {
+        TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.FIREWORKER, 2, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.BONE_MEAL, 12, 16, 10));
             factories.add(new TradeOffers.SellItemFactory(Items.FIRE_CHARGE, 2, 3, 12, 5));
             factories.add(new SellFireworkRocketFactory(1, 5));
         });
-        TradeOfferHelper.registerVillagerOffers(Kaleidoscope.FIREWORKER, 3, factories -> {
+        TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.FIREWORKER, 3, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.PAPER, 16, 16, 20));
             factories.add(new SellFireworkStarFactory(1, false, 10));
         });
-        TradeOfferHelper.registerVillagerOffers(Kaleidoscope.FIREWORKER, 4, factories -> {
+        TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.FIREWORKER, 4, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.GLOWSTONE_DUST, 10, 12, 30));
             factories.add(new TradeOffers.SellItemFactory(Blocks.TNT, 5, 1, 12, 15));
         });
-        TradeOfferHelper.registerVillagerOffers(Kaleidoscope.FIREWORKER, 5, factories -> {
+        TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.FIREWORKER, 5, factories -> {
             factories.add(new SellFireworkRocketFactory(3, 30));
             factories.add(new SellFireworkStarFactory(2, true, 30));
         });
-        TradeOfferHelper.registerVillagerOffers(Kaleidoscope.GLASSBLOWER, 1, factories -> {
+        TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.GLASSBLOWER, 1, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Blocks.SAND, 16, 16, 2));
             factories.add(new TradeOffers.SellItemFactory(Blocks.GLASS, 1, 4, 16, 1));
         });
-        TradeOfferHelper.registerVillagerOffers(Kaleidoscope.GLASSBLOWER, 2, factories -> {
+        TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.GLASSBLOWER, 2, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.COAL, 15, 16, 10));
             factories.add(new TradeOffers.BuyItemFactory(Items.COPPER_INGOT, 14, 16, 10));
             factories.add(new TradeOffers.SellItemFactory(Items.SPYGLASS, 2, 1, 12, 5));
         });
-        TradeOfferHelper.registerVillagerOffers(Kaleidoscope.GLASSBLOWER, 3, factories -> {
+        TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.GLASSBLOWER, 3, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.AMETHYST_SHARD, 10, 12, 20));
             factories.add(new TradeOffers.SellItemFactory(Blocks.REDSTONE_LAMP, 1, 1, 12, 10));
             factories.add(new TradeOffers.SellItemFactory(Blocks.DAYLIGHT_DETECTOR, 1, 1, 12, 10));
         });
-        TradeOfferHelper.registerVillagerOffers(Kaleidoscope.GLASSBLOWER, 4, factories -> {
+        TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.GLASSBLOWER, 4, factories -> {
             Block[] stainedGlassBlocks = new Block[]{Blocks.WHITE_STAINED_GLASS, Blocks.LIGHT_GRAY_STAINED_GLASS, Blocks.GRAY_STAINED_GLASS, Blocks.BLACK_STAINED_GLASS, Blocks.BROWN_STAINED_GLASS, Blocks.RED_STAINED_GLASS, Blocks.ORANGE_STAINED_GLASS, Blocks.YELLOW_STAINED_GLASS, Blocks.LIME_STAINED_GLASS, Blocks.GREEN_STAINED_GLASS, Blocks.CYAN_STAINED_GLASS, Blocks.LIGHT_BLUE_STAINED_GLASS, Blocks.BLUE_STAINED_GLASS, Blocks.PURPLE_STAINED_GLASS, Blocks.MAGENTA_STAINED_GLASS, Blocks.PINK_STAINED_GLASS};
             for (Block stainedGlassBlock : stainedGlassBlocks) {
                 factories.add(new TradeOffers.SellItemFactory(stainedGlassBlock, 1, 1, 12, 15));
             }
         });
-        TradeOfferHelper.registerVillagerOffers(Kaleidoscope.GLASSBLOWER, 5, factories -> {
+        TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.GLASSBLOWER, 5, factories -> {
             factories.add(new TradeOffers.SellItemFactory(Blocks.TINTED_GLASS, 1, 1, 12, 15));
         });
         TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
@@ -84,7 +83,7 @@ public class KaleidoscopeTradeOffers {
         });
     }
 
-    public static class SellFireworkStarFactory implements TradeOffers.Factory {
+    private static class SellFireworkStarFactory implements TradeOffers.Factory {
         final boolean hasShape;
         final int colors;
         final int experience;
@@ -114,7 +113,7 @@ public class KaleidoscopeTradeOffers {
         }
     }
 
-    public static class SellFireworkRocketFactory implements TradeOffers.Factory {
+    private static class SellFireworkRocketFactory implements TradeOffers.Factory {
         final int duration;
         final int experience;
         private final float multiplier;

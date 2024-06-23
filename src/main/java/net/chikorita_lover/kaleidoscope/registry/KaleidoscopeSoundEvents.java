@@ -26,11 +26,11 @@ public class KaleidoscopeSoundEvents {
     public static final SoundEvent RANDOM_BLOCK_CRACK = register("random.block_crack");
 
     private static SoundEvent register(String id) {
-        return Registry.register(Registries.SOUND_EVENT, new Identifier(Kaleidoscope.MODID, id), SoundEvent.of(new Identifier(Kaleidoscope.MODID, id)));
+        return Registry.register(Registries.SOUND_EVENT, Kaleidoscope.of(id), SoundEvent.of(Kaleidoscope.of(id)));
     }
 
     private static RegistryEntry.Reference<SoundEvent> registerReference(String id) {
-        return registerReference(new Identifier(Kaleidoscope.MODID, id));
+        return registerReference(Kaleidoscope.of(id));
     }
 
     private static RegistryEntry.Reference<SoundEvent> registerReference(Identifier id) {

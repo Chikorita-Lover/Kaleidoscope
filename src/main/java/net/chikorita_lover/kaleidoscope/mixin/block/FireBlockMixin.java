@@ -1,8 +1,8 @@
 package net.chikorita_lover.kaleidoscope.mixin.block;
 
-import net.chikorita_lover.kaleidoscope.registry.CrackedBlockRegistry;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockTags;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlocks;
+import net.chikorita_lover.kaleidoscope.block.CrackedBlockRegistry;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeBlockTags;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

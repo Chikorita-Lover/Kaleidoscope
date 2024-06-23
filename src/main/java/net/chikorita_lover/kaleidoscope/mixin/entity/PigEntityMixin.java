@@ -38,7 +38,7 @@ public abstract class PigEntityMixin extends AnimalEntity implements Saddleable 
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
     private void tryRemoveSaddle(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         ItemStack stack = player.getStackInHand(hand);
-        if (!stack.isIn(ConventionalItemTags.SHEARS_TOOLS) || !this.isSaddled() || this.hasPassengers()) {
+        if (!stack.isIn(ConventionalItemTags.SHEAR_TOOLS) || !this.isSaddled() || this.hasPassengers()) {
             return;
         }
         this.saddledComponent.setSaddled(false);

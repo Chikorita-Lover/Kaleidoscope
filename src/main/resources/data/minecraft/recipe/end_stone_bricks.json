@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"pattern": [
+		"##",
+		"##"
+	],
+	"key": {
+		"#": {
+			"item": "kaleidoscope:polished_end_stone"
+		}
+	},
+	"result": {
+		"id": "minecraft:end_stone_bricks",
+		"count": 4
+	}
+}

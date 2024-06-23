@@ -6,6 +6,7 @@ import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.chikorita_lover.kaleidoscope.screen.StriderScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -27,8 +28,6 @@ import net.minecraft.nbt.NbtList;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -61,9 +60,6 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
 
     @Shadow
     public abstract boolean isSaddled();
-
-    @Shadow
-    public abstract void saddle(@Nullable SoundCategory sound);
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
     private void addChestDataTracker(DataTracker.Builder builder, CallbackInfo ci) {
@@ -114,9 +110,11 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
             return;
         }
         for (int i = 0; i < this.items.size(); ++i) {
-            ItemStack itemStack = this.items.getStack(i);
-            if (itemStack.isEmpty() || EnchantmentHelper.hasVanishingCurse(itemStack)) continue;
-            this.dropStack(itemStack);
+            ItemStack stack = this.items.getStack(i);
+            if (stack.isEmpty() || EnchantmentHelper.hasAnyEnchantmentsWith(stack, EnchantmentEffectComponentTypes.PREVENT_EQUIPMENT_DROP)) {
+                continue;
+            }
+            this.dropStack(stack);
         }
     }
 
@@ -129,7 +127,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
         if (!this.kaleidoscope$hasChest() && stack.isOf(Items.CHEST)) {
             this.kaleidoscope$addChest(player, stack);
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
-        } else if (this.isSaddled() && stack.isIn(ConventionalItemTags.SHEARS_TOOLS)) {
+        } else if (this.isSaddled() && stack.isIn(ConventionalItemTags.SHEAR_TOOLS)) {
             this.saddledComponent.setSaddled(false);
             this.playSound(KaleidoscopeSoundEvents.ENTITY_STRIDER_SHEAR);
             this.dropStack(new ItemStack(Items.SADDLE), this.getHeight());

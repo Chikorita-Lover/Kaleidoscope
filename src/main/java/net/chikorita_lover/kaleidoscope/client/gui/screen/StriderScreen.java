@@ -11,8 +11,8 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.Identifier;
 
 public class StriderScreen extends HandledScreen<StriderScreenHandler> {
-    private static final Identifier CHEST_SLOTS_TEXTURE = new Identifier(Kaleidoscope.MODID, "container/strider/chest_slots");
-    private static final Identifier TEXTURE = new Identifier(Kaleidoscope.MODID, "textures/gui/container/strider.png");
+    private static final Identifier CHEST_SLOTS_TEXTURE = Kaleidoscope.of("container/strider/chest_slots");
+    private static final Identifier TEXTURE = Kaleidoscope.of("textures/gui/container/strider.png");
     private float mouseX;
     private float mouseY;
 

@@ -1,7 +1,7 @@
 package net.chikorita_lover.kaleidoscope.mixin.block;
 
 import net.chikorita_lover.kaleidoscope.item.CakeSliceItem;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeItems;
+import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CakeBlock;

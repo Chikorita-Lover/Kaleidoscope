@@ -1,11 +1,12 @@
 package net.chikorita_lover.kaleidoscope.data;
 
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlockFamilies;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
+import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
+import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
 import net.chikorita_lover.kaleidoscope.recipe.KilningRecipe;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockFamilies;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlocks;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeItemTags;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeItems;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
@@ -32,8 +33,8 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         super(dataOutput, registryLookup);
     }
 
-    private static void offerBrickDyeingRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 8).input('#', Blocks.BRICKS).input('X', input).pattern("###").pattern("#X#").pattern("###").group("stained_bricks").criterion("has_bricks", RecipeProvider.conditionsFromItem(Blocks.BRICKS)).offerTo(exporter);
+    private static void offerBrickDyeingRecipe(RecipeExporter exporter, ItemConvertible output, TagKey<Item> dyeTag) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 8).input('#', Blocks.BRICKS).input('X', dyeTag).pattern("###").pattern("#X#").pattern("###").group("stained_bricks").criterion("has_bricks", RecipeProvider.conditionsFromItem(Blocks.BRICKS)).offerTo(exporter);
     }
 
     public static void offerCrackingRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
@@ -64,10 +65,10 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
             ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, slabBlock, 6).input('#', block).pattern("###").group("stained_glass_slab").criterion(hasItem(block), conditionsFromItem(block)).offerTo(exporter);
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, doorBlock, 3).input('#', block).pattern("##").pattern("##").pattern("##").group("stained_glass_door").criterion(hasItem(block), conditionsFromItem(block)).offerTo(exporter);
-            ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, doorBlock).input(KaleidoscopeBlocks.GLASS_DOOR).input(dyeItem).group("stained_glass_door").criterion("has_glass_door", conditionsFromItem(KaleidoscopeBlocks.GLASS_DOOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, convertBetween(doorBlock, KaleidoscopeBlocks.GLASS_DOOR)));
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, doorBlock).input(KaleidoscopeBlocks.GLASS_DOOR).input(dyeItem).group("stained_glass_door").criterion("has_glass_door", conditionsFromItem(KaleidoscopeBlocks.GLASS_DOOR)).offerTo(exporter, Kaleidoscope.of(convertBetween(doorBlock, KaleidoscopeBlocks.GLASS_DOOR)));
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, trapdoorBlock).input('#', block).pattern("##").pattern("##").group("stained_glass_trapdoor").criterion(hasItem(block), conditionsFromItem(block)).offerTo(exporter);
-            ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, trapdoorBlock).input(KaleidoscopeBlocks.GLASS_TRAPDOOR).input(dyeItem).group("stained_glass_trapdoor").criterion("has_glass_trapdoor", conditionsFromItem(KaleidoscopeBlocks.GLASS_TRAPDOOR)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, convertBetween(trapdoorBlock, KaleidoscopeBlocks.GLASS_TRAPDOOR)));
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, trapdoorBlock).input(KaleidoscopeBlocks.GLASS_TRAPDOOR).input(dyeItem).group("stained_glass_trapdoor").criterion("has_glass_trapdoor", conditionsFromItem(KaleidoscopeBlocks.GLASS_TRAPDOOR)).offerTo(exporter, Kaleidoscope.of(convertBetween(trapdoorBlock, KaleidoscopeBlocks.GLASS_TRAPDOOR)));
         } else {
             offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, slabBlock, block);
             offerDoorRecipe(exporter, doorBlock, block);
@@ -76,7 +77,7 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
     }
 
     private static void offerKilning(RecipeExporter exporter, RecipeCategory recipeCategory, ItemConvertible output, ItemConvertible input, float experience, int cookingTime) {
-        CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), recipeCategory, output, experience, cookingTime, Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER, KilningRecipe::new).group(getItemPath(output)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(output) + "_from_kilning"));
+        CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), recipeCategory, output, experience, cookingTime, KaleidoscopeRecipeSerializers.KILNING, KilningRecipe::new).group(getItemPath(output)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, Kaleidoscope.of(getItemPath(output) + "_from_kilning"));
     }
 
     private static void offerSmoothCopperRecipes(RecipeExporter exporter, BlockFamily blockFamily, ItemConvertible input) {
@@ -92,7 +93,7 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
     }
 
     public static void offerStonecuttingRecipe(RecipeExporter exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input, int count) {
-        SingleItemRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(input), category, output, count).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, convertBetween(output, input) + "_stonecutting"));
+        StonecuttingRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(input), category, output, count).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter, Kaleidoscope.of(convertBetween(output, input) + "_stonecutting"));
     }
 
     private static void offerTrapdoorRecipe2(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
@@ -107,12 +108,12 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
     }
 
     private static void offerWaxingRecipe(RecipeExporter exporter, RecipeCategory recipeCategory, ItemConvertible output, ItemConvertible input) {
-        ShapelessRecipeJsonBuilder.create(recipeCategory, output).input(input).input(Items.HONEYCOMB).group(output.asItem().toString()).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, output.asItem().toString() + "_from_honeycomb"));
+        ShapelessRecipeJsonBuilder.create(recipeCategory, output).input(input).input(Items.HONEYCOMB).group(getItemPath(output)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, Kaleidoscope.of(getItemPath(output) + "_from_honeycomb"));
     }
 
     private static void offerVanillaKilning(RecipeExporter exporter) {
-        CookingRecipeJsonBuilder.create(Ingredient.fromTag(KaleidoscopeItemTags.BURNS_INTO_CHARCOAL), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 100, Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER, KilningRecipe::new).group(getItemPath(Items.CHARCOAL)).criterion("has_wood", conditionsFromTag(KaleidoscopeItemTags.BURNS_INTO_CHARCOAL)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.CHARCOAL) + "_from_kilning"));
-        CookingRecipeJsonBuilder.create(Ingredient.fromTag(ItemTags.SMELTS_TO_GLASS), RecipeCategory.BUILDING_BLOCKS, Blocks.GLASS, 0.1F, 100, Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER, KilningRecipe::new).group(getItemPath(Blocks.GLASS)).criterion(hasItem(Blocks.SAND), conditionsFromTag(ItemTags.SMELTS_TO_GLASS)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Blocks.GLASS) + "_from_kilning"));
+        CookingRecipeJsonBuilder.create(Ingredient.fromTag(KaleidoscopeItemTags.BURNS_INTO_CHARCOAL), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 100, KaleidoscopeRecipeSerializers.KILNING, KilningRecipe::new).group(getItemPath(Items.CHARCOAL)).criterion("has_wood", conditionsFromTag(KaleidoscopeItemTags.BURNS_INTO_CHARCOAL)).offerTo(exporter, Kaleidoscope.of(getItemPath(Items.CHARCOAL) + "_from_kilning"));
+        CookingRecipeJsonBuilder.create(Ingredient.fromTag(ItemTags.SMELTS_TO_GLASS), RecipeCategory.BUILDING_BLOCKS, Blocks.GLASS, 0.1F, 100, KaleidoscopeRecipeSerializers.KILNING, KilningRecipe::new).group(getItemPath(Blocks.GLASS)).criterion(hasItem(Blocks.SAND), conditionsFromTag(ItemTags.SMELTS_TO_GLASS)).offerTo(exporter, Kaleidoscope.of(getItemPath(Blocks.GLASS) + "_from_kilning"));
         offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.STONE, Blocks.COBBLESTONE, 0.1F, 100);
         offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_SANDSTONE, Blocks.SANDSTONE, 0.1F, 100);
         offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_RED_SANDSTONE, Blocks.RED_SANDSTONE, 0.1F, 100);
@@ -218,22 +219,22 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
         offerCrackingRecipe(exporter, KaleidoscopeBlocks.CRACKED_MUD_BRICKS, Blocks.MUD_BRICKS);
 
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BLACK_STAINED_BRICKS, Items.BLACK_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BLUE_STAINED_BRICKS, Items.BLUE_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BROWN_STAINED_BRICKS, Items.BROWN_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.CYAN_STAINED_BRICKS, Items.CYAN_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.GRAY_STAINED_BRICKS, Items.GRAY_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.GREEN_STAINED_BRICKS, Items.GREEN_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICKS, Items.LIGHT_BLUE_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICKS, Items.LIGHT_GRAY_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.LIME_STAINED_BRICKS, Items.LIME_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.MAGENTA_STAINED_BRICKS, Items.MAGENTA_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.ORANGE_STAINED_BRICKS, Items.ORANGE_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.PINK_STAINED_BRICKS, Items.PINK_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.PURPLE_STAINED_BRICKS, Items.PURPLE_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.RED_STAINED_BRICKS, Items.RED_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.WHITE_STAINED_BRICKS, Items.WHITE_DYE);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.YELLOW_STAINED_BRICKS, Items.YELLOW_DYE);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BLACK_STAINED_BRICKS, ConventionalItemTags.BLACK_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BLUE_STAINED_BRICKS, ConventionalItemTags.BLUE_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BROWN_STAINED_BRICKS, ConventionalItemTags.BROWN_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.CYAN_STAINED_BRICKS, ConventionalItemTags.CYAN_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.GRAY_STAINED_BRICKS, ConventionalItemTags.GRAY_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.GREEN_STAINED_BRICKS, ConventionalItemTags.GREEN_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICKS, ConventionalItemTags.LIGHT_BLUE_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICKS, ConventionalItemTags.LIGHT_GRAY_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.LIME_STAINED_BRICKS, ConventionalItemTags.LIME_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.MAGENTA_STAINED_BRICKS, ConventionalItemTags.MAGENTA_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.ORANGE_STAINED_BRICKS, ConventionalItemTags.ORANGE_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.PINK_STAINED_BRICKS, ConventionalItemTags.PINK_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.PURPLE_STAINED_BRICKS, ConventionalItemTags.PURPLE_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.RED_STAINED_BRICKS, ConventionalItemTags.RED_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.WHITE_STAINED_BRICKS, ConventionalItemTags.WHITE_DYES);
+        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.YELLOW_STAINED_BRICKS, ConventionalItemTags.YELLOW_DYES);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BLACK_STAINED_BRICK_SLAB, KaleidoscopeBlocks.BLACK_STAINED_BRICKS, 2);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BLUE_STAINED_BRICK_SLAB, KaleidoscopeBlocks.BLUE_STAINED_BRICKS, 2);
@@ -365,7 +366,7 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.STICK_BUNDLE).input('#', Items.STICK).pattern("###").pattern("###").pattern("###").criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK)).offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE, 6).input('W', Blocks.RED_NETHER_BRICKS).input('#', Items.NETHER_BRICK).pattern("W#W").pattern("W#W").criterion(hasItem(Blocks.RED_NETHER_BRICKS), conditionsFromItem(Blocks.RED_NETHER_BRICKS)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE, 6).input('W', Blocks.RED_NETHER_BRICKS).input('#', ConventionalItemTags.NETHER_BRICKS).pattern("W#W").pattern("W#W").criterion(hasItem(Blocks.RED_NETHER_BRICKS), conditionsFromItem(Blocks.RED_NETHER_BRICKS)).offerTo(exporter);
 
         offerGlassFamilyRecipes(exporter, KaleidoscopeBlockFamilies.GLASS, null);
         offerGlassFamilyRecipes(exporter, KaleidoscopeBlockFamilies.WHITE_STAINED_GLASS, ConventionalItemTags.WHITE_DYES);
@@ -387,22 +388,22 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.FIREWORKS_TABLE).input('#', ItemTags.PLANKS).input('@', Items.GUNPOWDER).pattern("@@").pattern("##").pattern("##").criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER)).offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.KILN).input('#', Blocks.BRICKS).input('X', Blocks.FURNACE).pattern(" # ").pattern("#X#").pattern(" # ").criterion(hasItem(Blocks.FURNACE), conditionsFromItem(Blocks.FURNACE)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.KILN).input('#', Blocks.BRICKS).input('X', ConventionalItemTags.PLAYER_WORKSTATIONS_FURNACES).pattern(" # ").pattern("#X#").pattern(" # ").criterion(hasItem(Blocks.FURNACE), conditionsFromTag(ConventionalItemTags.PLAYER_WORKSTATIONS_FURNACES)).offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, KaleidoscopeItems.NETHERITE_SHEARS).input('#', Items.NETHERITE_INGOT).pattern(" #").pattern("# ").criterion(hasItem(Items.NETHERITE_INGOT), VanillaRecipeProvider.conditionsFromItem(Items.NETHERITE_INGOT)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, KaleidoscopeItems.NETHERITE_SHEARS).input('#', ConventionalItemTags.NETHERITE_INGOTS).pattern(" #").pattern("# ").criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromTag(ConventionalItemTags.NETHERITE_INGOTS)).offerTo(exporter);
 
         offerBoatRecipe(exporter, KaleidoscopeItems.CRIMSON_BOAT, Blocks.CRIMSON_PLANKS);
         offerChestBoatRecipe(exporter, KaleidoscopeItems.CRIMSON_CHEST_BOAT, KaleidoscopeItems.CRIMSON_BOAT);
         offerBoatRecipe(exporter, KaleidoscopeItems.WARPED_BOAT, Blocks.WARPED_PLANKS);
         offerChestBoatRecipe(exporter, KaleidoscopeItems.WARPED_CHEST_BOAT, KaleidoscopeItems.WARPED_BOAT);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MUSIC_DISC_PIGSTEP).input('S', KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP), conditionsFromItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.MUSIC_DISC_PIGSTEP)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MUSIC_DISC_PIGSTEP).input('S', KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP), conditionsFromItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP)).offerTo(exporter, Kaleidoscope.of(getItemPath(Items.MUSIC_DISC_PIGSTEP)));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 9).input(KaleidoscopeBlocks.STICK_BUNDLE).group("sticks").criterion(hasItem(KaleidoscopeBlocks.STICK_BUNDLE), conditionsFromItem(KaleidoscopeBlocks.STICK_BUNDLE)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, "stick_from_bundle"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 9).input(KaleidoscopeBlocks.STICK_BUNDLE).group("sticks").criterion(hasItem(KaleidoscopeBlocks.STICK_BUNDLE), conditionsFromItem(KaleidoscopeBlocks.STICK_BUNDLE)).offerTo(exporter, Kaleidoscope.of("stick_from_bundle"));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GREEN_DYE, 2).input(ConventionalItemTags.BLUE_DYES).input(ConventionalItemTags.YELLOW_DYES).group(getItemPath(Items.GREEN_DYE)).criterion(hasItem(Items.BLUE_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.BLUE_DYES)).criterion(hasItem(Items.YELLOW_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.YELLOW_DYES)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, "green_dye_from_blue_yellow_dye"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GREEN_DYE, 2).input(ConventionalItemTags.BLUE_DYES).input(ConventionalItemTags.YELLOW_DYES).group(getItemPath(Items.GREEN_DYE)).criterion(hasItem(Items.BLUE_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.BLUE_DYES)).criterion(hasItem(Items.YELLOW_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.YELLOW_DYES)).offerTo(exporter, Kaleidoscope.of("green_dye_from_blue_yellow_dye"));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FIREWORK_STAR, 2).input(Items.GUNPOWDER).criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER)).offerTo(exporter, new Identifier(Kaleidoscope.MODID, getItemPath(Items.FIREWORK_STAR)));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FIREWORK_STAR, 2).input(Items.GUNPOWDER).criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER)).offerTo(exporter, Kaleidoscope.of(getItemPath(Items.FIREWORK_STAR)));
 
         offerFireworkShellRecipe(exporter, KaleidoscopeItems.LARGE_BALL_FIREWORK_SHELL, Items.FIRE_CHARGE);
         offerFireworkShellRecipe(exporter, KaleidoscopeItems.STAR_FIREWORK_SHELL, Items.GOLD_NUGGET);

@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 public class BoggedEntityMixin {
     @ModifyExpressionValue(method = "interactMob", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z", ordinal = 0))
     private boolean isOfShears(boolean bl, @Local ItemStack stack) {
-        return bl || stack.isIn(ConventionalItemTags.SHEARS_TOOLS);
+        return bl || stack.isIn(ConventionalItemTags.SHEAR_TOOLS);
     }
 }

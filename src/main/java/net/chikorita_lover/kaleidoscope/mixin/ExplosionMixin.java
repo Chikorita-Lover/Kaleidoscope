@@ -1,7 +1,7 @@
 package net.chikorita_lover.kaleidoscope.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import net.chikorita_lover.kaleidoscope.registry.CrackedBlockRegistry;
+import net.chikorita_lover.kaleidoscope.block.CrackedBlockRegistry;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.sound.SoundCategory;

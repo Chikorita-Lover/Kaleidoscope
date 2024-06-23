@@ -1,8 +1,7 @@
 package net.chikorita_lover.kaleidoscope.block;
 
 import net.chikorita_lover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockEntities;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeCauldronBehavior;
+import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -45,7 +44,7 @@ public class PotionCauldronBlock extends LeveledCauldronBlock implements BlockEn
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         super.randomDisplayTick(state, world, pos, random);
-        Optional<PotionCauldronBlockEntity> optional = world.getBlockEntity(pos, KaleidoscopeBlockEntities.POTION_CAULDRON);
+        Optional<PotionCauldronBlockEntity> optional = world.getBlockEntity(pos, KaleidoscopeBlockEntityTypes.POTION_CAULDRON);
         if (optional.isPresent()) {
             int color = optional.get().getColor();
             double d = pos.getX() + random.nextDouble() * 0.5 + 0.25;
@@ -61,7 +60,7 @@ public class PotionCauldronBlock extends LeveledCauldronBlock implements BlockEn
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         super.onEntityCollision(state, world, pos, entity);
-        Optional<PotionCauldronBlockEntity> optional = world.getBlockEntity(pos, KaleidoscopeBlockEntities.POTION_CAULDRON);
+        Optional<PotionCauldronBlockEntity> optional = world.getBlockEntity(pos, KaleidoscopeBlockEntityTypes.POTION_CAULDRON);
         if (entity instanceof LivingEntity livingEntity && this.isEntityTouchingFluid(state, pos, entity) && optional.isPresent()) {
             Iterable<StatusEffectInstance> effectInstances = optional.get().getEffects();
             boolean applyEffects = false;

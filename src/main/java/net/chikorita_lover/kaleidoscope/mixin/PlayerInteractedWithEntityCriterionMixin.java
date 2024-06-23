@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class PlayerInteractedWithEntityCriterionMixin extends AbstractCriterion<PlayerInteractedWithEntityCriterion.Conditions> {
     @Inject(method = "trigger", at = @At("TAIL"))
     private void tryTriggerWithShears(ServerPlayerEntity player, ItemStack stack, Entity entity, CallbackInfo ci, @Local LootContext lootContext) {
-        if (stack.isIn(ConventionalItemTags.SHEARS_TOOLS)) {
+        if (stack.isIn(ConventionalItemTags.SHEAR_TOOLS)) {
             this.trigger(player, conditions -> conditions.test(stack.copyComponentsToNewStack(Items.SHEARS, stack.getCount()), lootContext));
         }
     }

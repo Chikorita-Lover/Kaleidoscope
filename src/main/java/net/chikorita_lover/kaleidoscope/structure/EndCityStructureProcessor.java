@@ -3,7 +3,7 @@ package net.chikorita_lover.kaleidoscope.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlocks;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.StructurePlacementData;

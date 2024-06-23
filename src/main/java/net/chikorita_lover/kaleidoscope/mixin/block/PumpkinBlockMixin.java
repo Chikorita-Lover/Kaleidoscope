@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 public class PumpkinBlockMixin {
     @ModifyExpressionValue(method = "onUseWithItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z", ordinal = 0))
     private boolean isOfShears(boolean bl, @Local(argsOnly = true) ItemStack stack) {
-        return bl || stack.isIn(ConventionalItemTags.SHEARS_TOOLS);
+        return bl || stack.isIn(ConventionalItemTags.SHEAR_TOOLS);
     }
 
     @ModifyArg(method = "onUseWithItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/stat/StatType;getOrCreateStat(Ljava/lang/Object;)Lnet/minecraft/stat/Stat;"))

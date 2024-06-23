@@ -22,7 +22,7 @@ import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
 public class StriderChestFeatureRenderer<T extends StriderEntity, M extends StriderEntityModel<T>> extends FeatureRenderer<T, M> {
-    private static final Identifier TEXTURE = new Identifier(Kaleidoscope.MODID, "textures/entity/strider/strider_chest.png");
+    private static final Identifier TEXTURE = Kaleidoscope.of("textures/entity/strider/strider_chest.png");
     private final ModelPart chest;
 
     public StriderChestFeatureRenderer(FeatureRendererContext<T, M> context, EntityModelLoader loader) {

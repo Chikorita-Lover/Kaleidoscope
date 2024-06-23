@@ -1,10 +1,10 @@
 package net.chikorita_lover.kaleidoscope.item;
 
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
-import net.minecraft.client.item.TooltipType;
 import net.minecraft.component.type.FireworkExplosionComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
@@ -23,7 +23,7 @@ public class FireworkShellItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(this.getShape().getName().formatted(Formatting.GRAY));
     }
 

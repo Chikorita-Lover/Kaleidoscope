@@ -2,7 +2,7 @@ package net.chikorita_lover.kaleidoscope.mixin.client;
 
 import com.chocohead.mm.api.ClassTinkerers;
 import com.google.common.collect.ImmutableList;
-import net.chikorita_lover.kaleidoscope.Kaleidoscope;
+import net.chikorita_lover.kaleidoscope.recipe.KilningRecipe;
 import net.minecraft.client.recipebook.RecipeBookGroup;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import org.spongepowered.asm.mixin.*;
@@ -40,7 +40,7 @@ public class RecipeBookGroupMixin {
 
     @Inject(method = "getGroups", at = @At("HEAD"), cancellable = true)
     private static void getKilnGroups(RecipeBookCategory category, CallbackInfoReturnable<List<RecipeBookGroup>> cir) {
-        if (category == Kaleidoscope.KILNING_CATEGORY) {
+        if (category == KilningRecipe.RECIPE_BOOK_CATEGORY) {
             List<RecipeBookGroup> groups = ImmutableList.of(KILN_SEARCH, KILN_BLOCKS, KILN_MISC);
             cir.setReturnValue(groups);
             cir.cancel();

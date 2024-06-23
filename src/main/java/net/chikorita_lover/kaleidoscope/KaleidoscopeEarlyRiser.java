@@ -5,7 +5,7 @@ import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.MappingResolver;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.enums.Instrument;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
@@ -14,10 +14,10 @@ public class KaleidoscopeEarlyRiser implements Runnable {
     public void run() {
         MappingResolver mappingResolver = FabricLoader.getInstance().getMappingResolver();
 
-        String instrument = mappingResolver.mapClassName("intermediary", "net.minecraft.class_2766");
+        String noteBlockInstrument = mappingResolver.mapClassName("intermediary", "net.minecraft.class_2766");
         String registryEntry = 'L' + mappingResolver.mapClassName("intermediary", "net.minecraft.class_6880") + ';';
         String instrumentType = 'L' + mappingResolver.mapClassName("intermediary", "net.minecraft.class_2766$class_7994") + ';';
-        ClassTinkerers.enumBuilder(instrument, String.class, registryEntry, instrumentType).addEnum("KALEIDOSCOPE_SAXOPHONE", () -> new Object[]{"kaleidoscope_saxophone", KaleidoscopeSoundEvents.BLOCK_NOTE_BLOCK_SAXOPHONE, Instrument.Type.BASE_BLOCK}).build();
+        ClassTinkerers.enumBuilder(noteBlockInstrument, String.class, registryEntry, instrumentType).addEnum("KALEIDOSCOPE_SAXOPHONE", () -> new Object[]{"kaleidoscope_saxophone", KaleidoscopeSoundEvents.BLOCK_NOTE_BLOCK_SAXOPHONE, NoteBlockInstrument.Type.BASE_BLOCK}).build();
 
         String boatEntityType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_1690$class_1692");
         String block = 'L' + mappingResolver.mapClassName("intermediary", "net.minecraft.class_2248") + ';';

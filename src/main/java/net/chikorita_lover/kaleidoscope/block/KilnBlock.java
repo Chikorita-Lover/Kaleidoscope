@@ -2,7 +2,7 @@ package net.chikorita_lover.kaleidoscope.block;
 
 import com.mojang.serialization.MapCodec;
 import net.chikorita_lover.kaleidoscope.block.entity.KilnBlockEntity;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockEntities;
+import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeStats;
 import net.minecraft.block.AbstractBlock;
@@ -37,7 +37,7 @@ public class KilnBlock extends AbstractFurnaceBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(world, type, KaleidoscopeBlockEntities.KILN);
+        return validateTicker(world, type, KaleidoscopeBlockEntityTypes.KILN);
     }
 
     protected void openScreen(World world, BlockPos pos, PlayerEntity player) {

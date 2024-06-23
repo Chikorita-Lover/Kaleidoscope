@@ -3,9 +3,9 @@ package net.chikorita_lover.kaleidoscope.data;
 import com.google.gson.JsonElement;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.item.FireworkShellItem;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockFamilies;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlocks;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeItems;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlockFamilies;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
+import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
@@ -23,7 +23,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class KaleidoscopeModelProvider extends FabricModelProvider {
-    private static final Model SHEARS_TEMPLATE_MODEL = new Model(Optional.of(new Identifier(Kaleidoscope.MODID, "item/template_shears")), Optional.empty(), TextureKey.LAYER0);
+    private static final Model SHEARS_TEMPLATE_MODEL = new Model(Optional.of(Kaleidoscope.of("item/template_shears")), Optional.empty(), TextureKey.LAYER0);
 
     public KaleidoscopeModelProvider(FabricDataOutput dataOutput) {
         super(dataOutput);

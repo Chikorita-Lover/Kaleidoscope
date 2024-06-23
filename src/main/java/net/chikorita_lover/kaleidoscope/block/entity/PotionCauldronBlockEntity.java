@@ -1,13 +1,11 @@
 package net.chikorita_lover.kaleidoscope.block.entity;
 
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -23,7 +21,7 @@ public class PotionCauldronBlockEntity extends BlockEntity {
     private ItemStack potionStack = ItemStack.EMPTY;
 
     public PotionCauldronBlockEntity(BlockPos pos, BlockState state) {
-        super(KaleidoscopeBlockEntities.POTION_CAULDRON, pos, state);
+        super(KaleidoscopeBlockEntityTypes.POTION_CAULDRON, pos, state);
     }
 
     @Override

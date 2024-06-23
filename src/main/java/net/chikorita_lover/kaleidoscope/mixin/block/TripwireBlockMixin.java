@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 public class TripwireBlockMixin {
     @ModifyExpressionValue(method = "onBreak", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z", ordinal = 0))
     private boolean isOfShears(boolean bl, @Local(argsOnly = true) PlayerEntity player) {
-        return bl || player.getMainHandStack().isIn(ConventionalItemTags.SHEARS_TOOLS);
+        return bl || player.getMainHandStack().isIn(ConventionalItemTags.SHEAR_TOOLS);
     }
 }

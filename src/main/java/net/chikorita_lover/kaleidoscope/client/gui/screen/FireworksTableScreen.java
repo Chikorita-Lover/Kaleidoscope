@@ -17,13 +17,13 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 
 public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(Kaleidoscope.MODID, "textures/gui/container/fireworks_table.png");
-    private static final Identifier EMPTY_SLOT_DIAMOND_TEXTURE = new Identifier("item/empty_slot_diamond");
-    private static final Identifier EMPTY_SLOT_FIREWORK_SHELL_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_firework_shell");
-    private static final Identifier EMPTY_SLOT_FIREWORK_STAR_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_firework_star");
-    private static final Identifier EMPTY_SLOT_GLOWSTONE_DUST_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_glowstone_dust");
-    private static final Identifier EMPTY_SLOT_GUNPOWDER_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_gunpowder");
-    private static final Identifier EMPTY_SLOT_PAPER_TEXTURE = new Identifier(Kaleidoscope.MODID, "item/empty_slot_paper");
+    private static final Identifier TEXTURE = Kaleidoscope.of("textures/gui/container/fireworks_table.png");
+    private static final Identifier EMPTY_SLOT_DIAMOND_TEXTURE = Identifier.of("item/empty_slot_diamond");
+    private static final Identifier EMPTY_SLOT_FIREWORK_SHELL_TEXTURE = Kaleidoscope.of("item/empty_slot_firework_shell");
+    private static final Identifier EMPTY_SLOT_FIREWORK_STAR_TEXTURE = Kaleidoscope.of("item/empty_slot_firework_star");
+    private static final Identifier EMPTY_SLOT_GLOWSTONE_DUST_TEXTURE = Kaleidoscope.of("item/empty_slot_glowstone_dust");
+    private static final Identifier EMPTY_SLOT_GUNPOWDER_TEXTURE = Kaleidoscope.of("item/empty_slot_gunpowder");
+    private static final Identifier EMPTY_SLOT_PAPER_TEXTURE = Kaleidoscope.of("item/empty_slot_paper");
     private static final Text ADD_DIAMOND_TOOLTIP = Text.translatable("container.fireworks_table.add_diamond_tooltip");
     private static final Text ADD_DYE_TOOLTIP = Text.translatable("container.fireworks_table.add_dye_tooltip");
     private static final Text ADD_FIREWORK_SHELL_TOOLTIP = Text.translatable("container.fireworks_table.add_firework_shell_tooltip");

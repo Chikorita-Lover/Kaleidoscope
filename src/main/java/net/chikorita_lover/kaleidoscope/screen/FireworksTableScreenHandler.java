@@ -2,10 +2,9 @@ package net.chikorita_lover.kaleidoscope.screen;
 
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
-import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.item.FireworkShellItem;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlocks;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeItemTags;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeItemTags;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FireworkExplosionComponent;
@@ -49,7 +48,7 @@ public class FireworksTableScreenHandler extends ScreenHandler {
     }
 
     public FireworksTableScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
-        super(Kaleidoscope.FIREWORKS_TABLE, syncId);
+        super(KaleidoscopeScreenHandlerTypes.FIREWORKS_TABLE, syncId);
         this.context = context;
         this.input = new SimpleInventory(12) {
             @Override

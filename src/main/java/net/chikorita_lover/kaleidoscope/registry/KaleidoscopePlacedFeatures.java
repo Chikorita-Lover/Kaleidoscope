@@ -10,6 +10,6 @@ public class KaleidoscopePlacedFeatures {
     public static final RegistryKey<PlacedFeature> PILE_STICK_BUNDLE = of("pile_stick_bundle");
 
     public static RegistryKey<PlacedFeature> of(String identifier) {
-        return RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(Kaleidoscope.MODID, identifier));
+        return RegistryKey.of(RegistryKeys.PLACED_FEATURE, Kaleidoscope.of(identifier));
     }
 }

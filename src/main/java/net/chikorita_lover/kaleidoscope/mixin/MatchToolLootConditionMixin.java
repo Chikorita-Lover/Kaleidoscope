@@ -20,6 +20,6 @@ public abstract class MatchToolLootConditionMixin {
 
     @ModifyExpressionValue(method = "test(Lnet/minecraft/loot/context/LootContext;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/predicate/item/ItemPredicate;test(Lnet/minecraft/item/ItemStack;)Z"))
     private boolean testShears(boolean bl, @Local ItemStack stack) {
-        return bl || (stack.isIn(ConventionalItemTags.SHEARS_TOOLS) && this.predicate().get().test(stack.copyComponentsToNewStack(Items.SHEARS, stack.getCount())));
+        return bl || (stack.isIn(ConventionalItemTags.SHEAR_TOOLS) && this.predicate().get().test(stack.copyComponentsToNewStack(Items.SHEARS, stack.getCount())));
     }
 }

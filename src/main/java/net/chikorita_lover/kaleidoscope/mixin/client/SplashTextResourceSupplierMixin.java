@@ -16,7 +16,7 @@ import java.util.List;
 @Mixin(SplashTextResourceSupplier.class)
 public class SplashTextResourceSupplierMixin {
     @Unique
-    private static final Identifier RESOURCE_ID = new Identifier(Kaleidoscope.MODID, "texts/splashes.txt");
+    private static final Identifier RESOURCE_ID = Kaleidoscope.of("texts/splashes.txt");
 
     @ModifyReturnValue(method = "prepare(Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)Ljava/util/List;", at = @At("RETURN"))
     private List<String> prepare(List<String> splashTexts) {

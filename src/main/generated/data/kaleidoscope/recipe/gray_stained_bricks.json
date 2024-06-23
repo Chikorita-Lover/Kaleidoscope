@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_bricks",
+  "key": {
+    "#": {
+      "item": "minecraft:bricks"
+    },
+    "X": {
+      "tag": "c:dyes/gray"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "kaleidoscope:gray_stained_bricks"
+  }
+}

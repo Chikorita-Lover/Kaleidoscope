@@ -7,7 +7,7 @@ import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.util.Identifier;
 
 public record OpenStriderScreenS2CPacket(int syncId, int striderId) implements CustomPayload {
-    public static final Id<OpenStriderScreenS2CPacket> PACKET_ID = new Id<>(new Identifier(Kaleidoscope.MODID, "open_strider_screen"));
+    public static final Id<OpenStriderScreenS2CPacket> PACKET_ID = new Id<>(Kaleidoscope.of("open_strider_screen"));
     public static final PacketCodec<RegistryByteBuf, OpenStriderScreenS2CPacket> PACKET_CODEC = PacketCodec.of(OpenStriderScreenS2CPacket::write, OpenStriderScreenS2CPacket::new);
 
     public OpenStriderScreenS2CPacket(RegistryByteBuf buf) {

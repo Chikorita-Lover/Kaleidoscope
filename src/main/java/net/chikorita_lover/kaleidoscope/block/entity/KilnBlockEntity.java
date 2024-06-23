@@ -1,7 +1,6 @@
 package net.chikorita_lover.kaleidoscope.block.entity;
 
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockEntities;
 import net.chikorita_lover.kaleidoscope.screen.KilnScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
@@ -13,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 
 public class KilnBlockEntity extends AbstractFurnaceBlockEntity {
     public KilnBlockEntity(BlockPos pos, BlockState state) {
-        super(KaleidoscopeBlockEntities.KILN, pos, state, Kaleidoscope.KILNING);
+        super(KaleidoscopeBlockEntityTypes.KILN, pos, state, Kaleidoscope.KILNING);
     }
 
     protected Text getContainerName() {

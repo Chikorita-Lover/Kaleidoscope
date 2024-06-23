@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_furnace": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:player_workstations/furnaces"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "kaleidoscope:kiln"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_furnace"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "kaleidoscope:kiln"
+    ]
+  }
+}

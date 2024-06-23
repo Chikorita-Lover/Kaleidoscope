@@ -1,7 +1,7 @@
 package net.chikorita_lover.kaleidoscope.mixin.entity;
 
 import net.chikorita_lover.kaleidoscope.entity.BoatEntityAccessor;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeItems;
+import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;

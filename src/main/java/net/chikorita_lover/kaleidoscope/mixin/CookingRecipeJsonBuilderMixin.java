@@ -1,6 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin;
 
-import net.chikorita_lover.kaleidoscope.Kaleidoscope;
+import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemConvertible;
@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class CookingRecipeJsonBuilderMixin {
     @Inject(method = "getCookingRecipeCategory", at = @At("HEAD"), cancellable = true)
     private static void getCooking(RecipeSerializer<? extends AbstractCookingRecipe> serializer, ItemConvertible output, CallbackInfoReturnable<CookingRecipeCategory> ci) {
-        if (serializer.equals(Kaleidoscope.KILN_COOKING_RECIPE_SERIALIZER)) {
+        if (serializer.equals(KaleidoscopeRecipeSerializers.KILNING)) {
             ci.setReturnValue(getKilningRecipeCategory(output));
         }
     }

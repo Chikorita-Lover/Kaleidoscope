@@ -15,6 +15,6 @@ public class KaleidoscopeParticleTypes {
     }
 
     private static SimpleParticleType registerSimple(String id) {
-        return Registry.register(Registries.PARTICLE_TYPE, new Identifier(Kaleidoscope.MODID, id), FabricParticleTypes.simple());
+        return Registry.register(Registries.PARTICLE_TYPE, Kaleidoscope.of(id), FabricParticleTypes.simple());
     }
 }

@@ -1,7 +1,7 @@
 package net.chikorita_lover.kaleidoscope.mixin;
 
 import com.mojang.datafixers.util.Pair;
-import net.chikorita_lover.kaleidoscope.Kaleidoscope;
+import net.chikorita_lover.kaleidoscope.recipe.KilningRecipe;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.recipe.book.RecipeBookOptions;
 import org.spongepowered.asm.mixin.Final;
@@ -25,7 +25,7 @@ public class RecipeBookOptionsMixin {
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void setCategoryOptionNames(CallbackInfo ci) {
         Map<RecipeBookCategory, Pair<String, String>> names = new HashMap<>(CATEGORY_OPTION_NAMES);
-        names.put(Kaleidoscope.KILNING_CATEGORY, Pair.of("isKaleidoscopeKilnGuiOpen", "isKaleidoscopeKilnFilteringCraftable"));
+        names.put(KilningRecipe.RECIPE_BOOK_CATEGORY, Pair.of("isKaleidoscopeKilnGuiOpen", "isKaleidoscopeKilnFilteringCraftable"));
         CATEGORY_OPTION_NAMES = names;
     }
 }

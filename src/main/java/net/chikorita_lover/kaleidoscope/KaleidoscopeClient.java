@@ -4,12 +4,12 @@ import net.chikorita_lover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
 import net.chikorita_lover.kaleidoscope.client.KaleidoscopeClientNetworkHandler;
 import net.chikorita_lover.kaleidoscope.client.gui.screen.FireworksTableScreen;
 import net.chikorita_lover.kaleidoscope.client.gui.screen.KilnScreen;
-import net.chikorita_lover.kaleidoscope.client.gui.screen.StriderScreen;
 import net.chikorita_lover.kaleidoscope.client.particle.FireflyParticle;
 import net.chikorita_lover.kaleidoscope.client.render.StriderChestFeatureRenderer;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlockEntities;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBlocks;
+import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeParticleTypes;
+import net.chikorita_lover.kaleidoscope.screen.KaleidoscopeScreenHandlerTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class KaleidoscopeClient implements ClientModInitializer {
-    public static final EntityModelLayer STRIDER_CHEST = new EntityModelLayer(new Identifier("strider"), "chest");
+    public static final EntityModelLayer STRIDER_CHEST = new EntityModelLayer(Identifier.of("strider"), "chest");
     private static final NumberFormat NUMBER_FORMAT = NumberFormat.getNumberInstance();
 
     static {
@@ -64,7 +64,7 @@ public class KaleidoscopeClient implements ClientModInitializer {
             if (world == null || pos == null) {
                 return defaultColor;
             }
-            Optional<PotionCauldronBlockEntity> optional = world.getBlockEntity(pos, KaleidoscopeBlockEntities.POTION_CAULDRON);
+            Optional<PotionCauldronBlockEntity> optional = world.getBlockEntity(pos, KaleidoscopeBlockEntityTypes.POTION_CAULDRON);
             return optional.map(PotionCauldronBlockEntity::getColor).orElse(defaultColor);
         }, KaleidoscopeBlocks.POTION_CAULDRON);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex != 1 ? -1 : DyedColorComponent.getColor(stack, 0), Items.BUNDLE);
@@ -125,8 +125,8 @@ public class KaleidoscopeClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(STRIDER_CHEST, StriderChestFeatureRenderer::getTexturedModelData);
 
-        HandledScreens.register(Kaleidoscope.FIREWORKS_TABLE, FireworksTableScreen::new);
-        HandledScreens.register(Kaleidoscope.KILN_SCREEN_HANDLER, KilnScreen::new);
+        HandledScreens.register(KaleidoscopeScreenHandlerTypes.FIREWORKS_TABLE, FireworksTableScreen::new);
+        HandledScreens.register(KaleidoscopeScreenHandlerTypes.KILN, KilnScreen::new);
 
         ItemTooltipCallback.EVENT.register((stack, tooltipContext, tooltipType, lines) -> {
             if (stack.contains(DataComponentTypes.FOOD) && !(stack.getItem() instanceof OminousBottleItem)) {
