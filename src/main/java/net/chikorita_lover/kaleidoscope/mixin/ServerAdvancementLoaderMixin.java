@@ -59,7 +59,7 @@ public abstract class ServerAdvancementLoaderMixin extends JsonDataLoader {
     protected abstract void validate(Identifier id, Advancement advancement);
 
     @ModifyExpressionValue(method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap;builder()Lcom/google/common/collect/ImmutableMap$Builder;"))
-    private ImmutableMap.Builder<Identifier, AdvancementEntry> foo(ImmutableMap.Builder<Identifier, AdvancementEntry> builder) {
+    private ImmutableMap.Builder<Identifier, AdvancementEntry> createKilningAdvancements(ImmutableMap.Builder<Identifier, AdvancementEntry> builder) {
         KilningRecipe.KILNING_RECIPE_ENTRIES.forEach(entry -> {
             try {
                 Map<String, AdvancementCriterion<?>> criteria = Map.of("has_ingredient", conditionsFromIngredient(entry.value().getIngredients().get(0)), "has_the_recipe", RecipeUnlockedCriterion.create(entry.id()));

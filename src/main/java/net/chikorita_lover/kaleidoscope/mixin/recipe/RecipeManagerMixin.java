@@ -39,7 +39,7 @@ public abstract class RecipeManagerMixin extends JsonDataLoader {
     }
 
     @ModifyExpressionValue(method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMultimap$Builder;build()Lcom/google/common/collect/ImmutableMultimap;"))
-    private ImmutableMultimap<RecipeType<?>, RecipeEntry<Recipe<?>>> foo(ImmutableMultimap<RecipeType<?>, RecipeEntry<Recipe<?>>> recipesByType, @Local ImmutableMultimap.Builder<RecipeType<?>, RecipeEntry<Recipe<?>>> builder) {
+    private ImmutableMultimap<RecipeType<?>, RecipeEntry<Recipe<?>>> createKilningRecipes(ImmutableMultimap<RecipeType<?>, RecipeEntry<Recipe<?>>> recipesByType, @Local ImmutableMultimap.Builder<RecipeType<?>, RecipeEntry<Recipe<?>>> builder) {
         KilningRecipe.KILNING_RECIPE_ENTRIES.clear();
         recipesByType.get(RecipeType.SMELTING).forEach(smeltingEntry -> {
             SmeltingRecipe smeltingRecipe = (SmeltingRecipe) smeltingEntry.value();
@@ -57,7 +57,7 @@ public abstract class RecipeManagerMixin extends JsonDataLoader {
     }
 
     @ModifyExpressionValue(method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap$Builder;build()Lcom/google/common/collect/ImmutableMap;"))
-    private ImmutableMap<Identifier, RecipeEntry<Recipe<?>>> foo(ImmutableMap<Identifier, RecipeEntry<Recipe<?>>> recipesById, @Local ImmutableMap.Builder<Identifier, RecipeEntry<Recipe<?>>> builder2) {
+    private ImmutableMap<Identifier, RecipeEntry<Recipe<?>>> putKilningRecipes(ImmutableMap<Identifier, RecipeEntry<Recipe<?>>> recipesById, @Local ImmutableMap.Builder<Identifier, RecipeEntry<Recipe<?>>> builder2) {
         KilningRecipe.KILNING_RECIPE_ENTRIES.forEach(entry -> {
             builder2.put(entry.id(), entry);
         });
