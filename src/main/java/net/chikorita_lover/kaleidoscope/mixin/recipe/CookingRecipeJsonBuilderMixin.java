@@ -1,4 +1,4 @@
-package net.chikorita_lover.kaleidoscope.mixin;
+package net.chikorita_lover.kaleidoscope.mixin.recipe;
 
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;

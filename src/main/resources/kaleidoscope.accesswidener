@@ -11,3 +11,8 @@ accessible field net/minecraft/structure/processor/StructureProcessorList list L
 mutable field net/minecraft/structure/processor/StructureProcessorList list Ljava/util/List;
 accessible field net/minecraft/world/ChunkRegion currentlyGeneratingStructureName Ljava/util/function/Supplier;
 accessible class net/minecraft/block/enums/NoteBlockInstrument$Type
+accessible field net/minecraft/recipe/Ingredient entries [Lnet/minecraft/recipe/Ingredient$Entry;
+accessible class net/minecraft/recipe/Ingredient$TagEntry
+accessible class net/minecraft/recipe/Ingredient$StackEntry
+accessible method net/minecraft/recipe/Ingredient$TagEntry tag ()Lnet/minecraft/registry/tag/TagKey;
+accessible method net/minecraft/recipe/Ingredient$StackEntry stack ()Lnet/minecraft/item/ItemStack;

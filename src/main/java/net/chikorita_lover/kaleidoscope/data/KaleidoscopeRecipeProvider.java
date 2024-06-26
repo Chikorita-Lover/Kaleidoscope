@@ -4,9 +4,6 @@ import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlockFamilies;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
-import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
-import net.chikorita_lover.kaleidoscope.recipe.KilningRecipe;
-import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
@@ -23,7 +20,6 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
-import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -39,7 +35,6 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
     public static void offerCrackingRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), RecipeCategory.BUILDING_BLOCKS, output, 0.1F, 200).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, output, input, 0.1F, 100);
     }
 
     private static void offerCutCopperWallRecipes(RecipeExporter exporter, ItemConvertible output, ItemConvertible cutCopper, ItemConvertible copper) {
@@ -76,14 +71,9 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         }
     }
 
-    private static void offerKilning(RecipeExporter exporter, RecipeCategory recipeCategory, ItemConvertible output, ItemConvertible input, float experience, int cookingTime) {
-        CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), recipeCategory, output, experience, cookingTime, KaleidoscopeRecipeSerializers.KILNING, KilningRecipe::new).group(getItemPath(output)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, Kaleidoscope.of(getItemPath(output) + "_from_kilning"));
-    }
-
     private static void offerSmoothCopperRecipes(RecipeExporter exporter, BlockFamily blockFamily, ItemConvertible input) {
         Block block = blockFamily.getBaseBlock();
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), RecipeCategory.BUILDING_BLOCKS, block, 0.1F, 200).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, block, input, 0.1F, 100);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.STAIRS), block);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, blockFamily.getVariant(BlockFamily.Variant.SLAB), block, 2);
     }
@@ -109,46 +99,6 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
     private static void offerWaxingRecipe(RecipeExporter exporter, RecipeCategory recipeCategory, ItemConvertible output, ItemConvertible input) {
         ShapelessRecipeJsonBuilder.create(recipeCategory, output).input(input).input(Items.HONEYCOMB).group(getItemPath(output)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, Kaleidoscope.of(getItemPath(output) + "_from_honeycomb"));
-    }
-
-    private static void offerVanillaKilning(RecipeExporter exporter) {
-        CookingRecipeJsonBuilder.create(Ingredient.fromTag(KaleidoscopeItemTags.BURNS_INTO_CHARCOAL), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 100, KaleidoscopeRecipeSerializers.KILNING, KilningRecipe::new).group(getItemPath(Items.CHARCOAL)).criterion("has_wood", conditionsFromTag(KaleidoscopeItemTags.BURNS_INTO_CHARCOAL)).offerTo(exporter, Kaleidoscope.of(getItemPath(Items.CHARCOAL) + "_from_kilning"));
-        CookingRecipeJsonBuilder.create(Ingredient.fromTag(ItemTags.SMELTS_TO_GLASS), RecipeCategory.BUILDING_BLOCKS, Blocks.GLASS, 0.1F, 100, KaleidoscopeRecipeSerializers.KILNING, KilningRecipe::new).group(getItemPath(Blocks.GLASS)).criterion(hasItem(Blocks.SAND), conditionsFromTag(ItemTags.SMELTS_TO_GLASS)).offerTo(exporter, Kaleidoscope.of(getItemPath(Blocks.GLASS) + "_from_kilning"));
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.STONE, Blocks.COBBLESTONE, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_SANDSTONE, Blocks.SANDSTONE, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_RED_SANDSTONE, Blocks.RED_SANDSTONE, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_STONE, Blocks.STONE, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_QUARTZ, Blocks.QUARTZ_BLOCK, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.MISC, Items.BRICK, Items.CLAY_BALL, 0.3F, 100);
-        offerKilning(exporter, RecipeCategory.MISC, Items.NETHER_BRICK, Blocks.NETHERRACK, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.CRACKED_NETHER_BRICKS, Blocks.NETHER_BRICKS, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.SMOOTH_BASALT, Blocks.BASALT, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.TERRACOTTA, Blocks.CLAY, 0.35F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.CRACKED_STONE_BRICKS, Blocks.STONE_BRICKS, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS, Blocks.POLISHED_BLACKSTONE_BRICKS, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.DEEPSLATE, Blocks.COBBLED_DEEPSLATE, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.CRACKED_DEEPSLATE_BRICKS, Blocks.DEEPSLATE_BRICKS, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.CRACKED_DEEPSLATE_TILES, Blocks.DEEPSLATE_TILES, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.WHITE_GLAZED_TERRACOTTA, Blocks.WHITE_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.ORANGE_GLAZED_TERRACOTTA, Blocks.ORANGE_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.MAGENTA_GLAZED_TERRACOTTA, Blocks.MAGENTA_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA, Blocks.LIGHT_BLUE_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.YELLOW_GLAZED_TERRACOTTA, Blocks.YELLOW_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.LIME_GLAZED_TERRACOTTA, Blocks.LIME_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.PINK_GLAZED_TERRACOTTA, Blocks.PINK_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.GRAY_GLAZED_TERRACOTTA, Blocks.GRAY_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA, Blocks.LIGHT_GRAY_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.CYAN_GLAZED_TERRACOTTA, Blocks.CYAN_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.PURPLE_GLAZED_TERRACOTTA, Blocks.PURPLE_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.BLUE_GLAZED_TERRACOTTA, Blocks.BLUE_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.BROWN_GLAZED_TERRACOTTA, Blocks.BROWN_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.GREEN_GLAZED_TERRACOTTA, Blocks.GREEN_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.RED_GLAZED_TERRACOTTA, Blocks.RED_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.BLACK_GLAZED_TERRACOTTA, Blocks.BLACK_TERRACOTTA, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.MISC, Items.GREEN_DYE, Blocks.CACTUS, 1.0F, 100);
-        offerKilning(exporter, RecipeCategory.MISC, Items.POPPED_CHORUS_FRUIT, Items.CHORUS_FRUIT, 0.1F, 100);
-        offerKilning(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.SPONGE, Blocks.WET_SPONGE, 0.15F, 100);
-        offerKilning(exporter, RecipeCategory.MISC, Items.LIME_DYE, Blocks.SEA_PICKLE, 0.1F, 100);
     }
 
     @Override
@@ -409,7 +359,5 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         offerFireworkShellRecipe(exporter, KaleidoscopeItems.STAR_FIREWORK_SHELL, Items.GOLD_NUGGET);
         offerFireworkShellRecipe(exporter, KaleidoscopeItems.CREEPER_FIREWORK_SHELL, Items.CREEPER_HEAD);
         offerFireworkShellRecipe(exporter, KaleidoscopeItems.BURST_FIREWORK_SHELL, Items.FEATHER);
-
-        offerVanillaKilning(exporter);
     }
 }
