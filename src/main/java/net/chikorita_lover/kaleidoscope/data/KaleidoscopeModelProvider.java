@@ -32,6 +32,11 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator generator) {
         KaleidoscopeBlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach((family) -> generator.registerCubeAllModelTexturePool(family.getBaseBlock()).family(family));
+
+        registerWall(generator, Blocks.POLISHED_GRANITE, KaleidoscopeBlocks.POLISHED_GRANITE_WALL);
+        registerWall(generator, Blocks.POLISHED_DIORITE, KaleidoscopeBlocks.POLISHED_DIORITE_WALL);
+        registerWall(generator, Blocks.POLISHED_ANDESITE, KaleidoscopeBlocks.POLISHED_ANDESITE_WALL);
+
         generator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.SMOOTH_COPPER).parented(KaleidoscopeBlocks.SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_SMOOTH_COPPER);
         generator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER).parented(KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_EXPOSED_SMOOTH_COPPER);
         generator.registerCubeAllModelTexturePool(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WEATHERED_SMOOTH_COPPER).parented(KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER).family(KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER);

@@ -12,12 +12,15 @@ import net.minecraft.item.Items;
 public class KaleidoscopeItemGroups {
     public static void register() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.addAfter(Blocks.POLISHED_GRANITE_SLAB, KaleidoscopeBlocks.POLISHED_GRANITE_WALL);
+            entries.addAfter(Blocks.POLISHED_DIORITE_SLAB, KaleidoscopeBlocks.POLISHED_DIORITE_WALL);
+            entries.addAfter(Blocks.POLISHED_ANDESITE_SLAB, KaleidoscopeBlocks.POLISHED_ANDESITE_WALL);
             entries.addBefore(Blocks.DEEPSLATE, Blocks.CALCITE, KaleidoscopeBlocks.CALCITE_STAIRS, KaleidoscopeBlocks.CALCITE_SLAB, KaleidoscopeBlocks.CALCITE_WALL, KaleidoscopeBlocks.POLISHED_CALCITE, KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS, KaleidoscopeBlocks.POLISHED_CALCITE_SLAB, KaleidoscopeBlocks.POLISHED_CALCITE_WALL);
             entries.addAfter(Blocks.TUFF_BRICKS, KaleidoscopeBlocks.CRACKED_TUFF_BRICKS);
             entries.addAfter(Blocks.BRICKS, KaleidoscopeBlocks.BRICK_MOSAIC);
             entries.addAfter(Blocks.BRICK_STAIRS, KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS);
             entries.addAfter(Blocks.BRICK_SLAB, KaleidoscopeBlocks.BRICK_MOSAIC_SLAB);
-            entries.addAfter(Blocks.PACKED_MUD, KaleidoscopeBlocks.PACKED_MUD_STAIRS, KaleidoscopeBlocks.PACKED_MUD_SLAB);
+            entries.addAfter(Blocks.PACKED_MUD, KaleidoscopeBlocks.PACKED_MUD_STAIRS, KaleidoscopeBlocks.PACKED_MUD_SLAB, KaleidoscopeBlocks.PACKED_MUD_WALL);
             entries.addAfter(Blocks.MUD_BRICKS, KaleidoscopeBlocks.CRACKED_MUD_BRICKS);
             entries.addAfter(Blocks.RED_NETHER_BRICKS, KaleidoscopeBlocks.CRACKED_RED_NETHER_BRICKS);
             entries.addAfter(Blocks.RED_NETHER_BRICK_WALL, KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE, KaleidoscopeBlocks.CHISELED_RED_NETHER_BRICKS);

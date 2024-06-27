@@ -1,11 +1,14 @@
 {
   "values": [
-    "kaleidoscope:calcite_slab",
+    "kaleidoscope:polished_granite_wall",
+    "kaleidoscope:polished_diorite_wall",
+    "kaleidoscope:polished_andesite_wall",
     "kaleidoscope:calcite_stairs",
+    "kaleidoscope:calcite_slab",
     "kaleidoscope:calcite_wall",
     "kaleidoscope:polished_calcite",
-    "kaleidoscope:polished_calcite_slab",
     "kaleidoscope:polished_calcite_stairs",
+    "kaleidoscope:polished_calcite_slab",
     "kaleidoscope:polished_calcite_wall",
     "kaleidoscope:charcoal_block",
     "kaleidoscope:cut_copper_wall",
@@ -156,13 +159,14 @@
     "kaleidoscope:end_stone_slab",
     "kaleidoscope:end_stone_stairs",
     "kaleidoscope:end_stone_wall",
-    "kaleidoscope:packed_mud_slab",
-    "kaleidoscope:packed_mud_stairs",
     "kaleidoscope:cracked_end_stone_bricks",
-    "kaleidoscope:cracked_tuff_bricks",
+    "kaleidoscope:packed_mud_stairs",
+    "kaleidoscope:packed_mud_slab",
+    "kaleidoscope:packed_mud_wall",
     "kaleidoscope:cracked_mud_bricks",
-    "kaleidoscope:quartz_brick_slab",
+    "kaleidoscope:cracked_tuff_bricks",
     "kaleidoscope:quartz_brick_stairs",
+    "kaleidoscope:quartz_brick_slab",
     "kaleidoscope:quartz_brick_wall"
   ]
 }

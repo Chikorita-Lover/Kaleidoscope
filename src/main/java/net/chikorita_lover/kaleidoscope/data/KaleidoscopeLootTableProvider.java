@@ -25,6 +25,10 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
 
     @Override
     public void generate() {
+        this.addDrop(KaleidoscopeBlocks.POLISHED_GRANITE_WALL);
+        this.addDrop(KaleidoscopeBlocks.POLISHED_DIORITE_WALL);
+        this.addDrop(KaleidoscopeBlocks.POLISHED_ANDESITE_WALL);
+
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.CALCITE);
         this.addFamilyDrops(KaleidoscopeBlockFamilies.POLISHED_CALCITE);
         this.addDrop(KaleidoscopeBlocks.CRACKED_TUFF_BRICKS);
