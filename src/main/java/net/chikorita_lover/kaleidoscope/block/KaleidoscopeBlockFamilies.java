@@ -14,6 +14,7 @@ public class KaleidoscopeBlockFamilies {
 
     public static final BlockFamily CALCITE = register(Blocks.CALCITE).stairs(KaleidoscopeBlocks.CALCITE_STAIRS).slab(KaleidoscopeBlocks.CALCITE_SLAB).wall(KaleidoscopeBlocks.CALCITE_WALL).build();
     public static final BlockFamily POLISHED_CALCITE = register(KaleidoscopeBlocks.POLISHED_CALCITE).stairs(KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS).slab(KaleidoscopeBlocks.POLISHED_CALCITE_SLAB).wall(KaleidoscopeBlocks.POLISHED_CALCITE_WALL).build();
+    public static final BlockFamily SMOOTH_CALCITE = register(KaleidoscopeBlocks.SMOOTH_CALCITE).stairs(KaleidoscopeBlocks.SMOOTH_CALCITE_STAIRS).slab(KaleidoscopeBlocks.SMOOTH_CALCITE_SLAB).build();
 
     public static final BlockFamily BRICK_MOSAIC = register(KaleidoscopeBlocks.BRICK_MOSAIC).stairs(KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS).slab(KaleidoscopeBlocks.BRICK_MOSAIC_SLAB).build();
 

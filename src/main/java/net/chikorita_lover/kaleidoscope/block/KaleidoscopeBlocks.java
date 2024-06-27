@@ -25,10 +25,14 @@ public class KaleidoscopeBlocks {
     public static final Block CALCITE_STAIRS = registerBlockWithItem("calcite_stairs", new StairsBlock(CALCITE.getDefaultState(), AbstractBlock.Settings.copy(CALCITE)));
     public static final Block CALCITE_WALL = registerBlockWithItem("calcite_wall", new WallBlock(AbstractBlock.Settings.copy(CALCITE)));
 
-    public static final Block POLISHED_CALCITE = registerBlockWithItem("polished_calcite", new Block(AbstractBlock.Settings.copy(CALCITE).strength(1.5F, 6.0F)));
+    public static final Block POLISHED_CALCITE = registerBlockWithItem("polished_calcite", new Block(AbstractBlock.Settings.copy(CALCITE)));
     public static final Block POLISHED_CALCITE_SLAB = registerBlockWithItem("polished_calcite_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE)));
     public static final Block POLISHED_CALCITE_STAIRS = registerBlockWithItem("polished_calcite_stairs", new StairsBlock(POLISHED_CALCITE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_CALCITE)));
     public static final Block POLISHED_CALCITE_WALL = registerBlockWithItem("polished_calcite_wall", new WallBlock(AbstractBlock.Settings.copy(POLISHED_CALCITE)));
+    
+    public static final Block SMOOTH_CALCITE = registerBlockWithItem("smooth_calcite", new Block(AbstractBlock.Settings.copy(CALCITE).strength(1.9F, 6.0F)));
+    public static final Block SMOOTH_CALCITE_SLAB = registerBlockWithItem("smooth_calcite_slab", new SlabBlock(AbstractBlock.Settings.copy(SMOOTH_CALCITE)));
+    public static final Block SMOOTH_CALCITE_STAIRS = registerBlockWithItem("smooth_calcite_stairs", new StairsBlock(SMOOTH_CALCITE.getDefaultState(), AbstractBlock.Settings.copy(SMOOTH_CALCITE)));
 
     public static final Block CRACKED_TUFF_BRICKS = registerBlockWithItem("cracked_tuff_bricks", new Block(AbstractBlock.Settings.copy(TUFF_BRICKS)));
 

@@ -31,6 +31,7 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
 
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.CALCITE);
         this.addFamilyDrops(KaleidoscopeBlockFamilies.POLISHED_CALCITE);
+        this.addFamilyDrops(KaleidoscopeBlockFamilies.SMOOTH_CALCITE);
         this.addDrop(KaleidoscopeBlocks.CRACKED_TUFF_BRICKS);
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.SMOOTH_BASALT);
 

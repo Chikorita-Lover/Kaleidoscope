@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kaleidoscope:smooth_calcite"
+  },
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope:smooth_calcite_stairs"
+  }
+}
