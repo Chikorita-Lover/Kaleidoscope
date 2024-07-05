@@ -28,7 +28,9 @@ public class KaleidoscopeItems {
     public static final Item CRIMSON_CHEST_BOAT = register("crimson_chest_boat", new BoatItem(true, CRIMSON_BOAT_TYPE, new Item.Settings().maxCount(1)));
     public static final Item WARPED_BOAT = register("warped_boat", new BoatItem(false, WARPED_BOAT_TYPE, new Item.Settings().maxCount(1)));
     public static final Item WARPED_CHEST_BOAT = register("warped_chest_boat", new BoatItem(true, WARPED_BOAT_TYPE, new Item.Settings().maxCount(1)));
+
     public static final Item CAKE_SLICE = register("cake_slice", new CakeSliceItem(new Item.Settings().food(KaleidoscopeFoodComponents.CAKE_SLICE)));
+
     public static final Item DISC_FRAGMENT_PIGSTEP = register("disc_fragment_pigstep", new DiscFragmentItem(new Item.Settings()));
 
     public static final Item LARGE_BALL_FIREWORK_SHELL = register("large_ball_firework_shell", createFireworkShell(FireworkExplosionComponent.Type.LARGE_BALL, Rarity.COMMON));
@@ -49,16 +51,8 @@ public class KaleidoscopeItems {
         return new ToolComponent(rules, component.defaultMiningSpeed(), component.damagePerBlock());
     }
 
-    public static Item register(Block block) {
-        return register(new BlockItem(block, new Item.Settings()));
-    }
-
-    private static Item register(BlockItem item) {
-        return register(item.getBlock(), item);
-    }
-
-    private static Item register(Block block, Item item) {
-        return register(Registries.BLOCK.getId(block), item);
+    public static Item register(String id, Block block) {
+        return register(id, new BlockItem(block, new Item.Settings()));
     }
 
     private static Item register(String id, Item item) {
@@ -79,7 +73,7 @@ public class KaleidoscopeItems {
 
     public static void registerFuels() {
         FuelRegistry.INSTANCE.add(KaleidoscopeBlocks.CHARCOAL_BLOCK, 7000);
-        FuelRegistry.INSTANCE.add(KaleidoscopeBlocks.STICK_BUNDLE, 300);
+        FuelRegistry.INSTANCE.add(KaleidoscopeBlocks.STICK_BLOCK, 300);
     }
 
     public static void registerMaxItemCounts() {

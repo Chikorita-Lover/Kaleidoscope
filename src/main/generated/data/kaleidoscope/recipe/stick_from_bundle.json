@@ -4,7 +4,7 @@
   "group": "sticks",
   "ingredients": [
     {
-      "item": "kaleidoscope:stick_bundle"
+      "item": "kaleidoscope:stick_block"
     }
   ],
   "result": {

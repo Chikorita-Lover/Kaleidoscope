@@ -1,13 +1,5 @@
 {
   "values": [
-    "kaleidoscope:cut_copper_wall",
-    "kaleidoscope:exposed_cut_copper_wall",
-    "kaleidoscope:weathered_cut_copper_wall",
-    "kaleidoscope:oxidized_cut_copper_wall",
-    "kaleidoscope:waxed_cut_copper_wall",
-    "kaleidoscope:waxed_exposed_cut_copper_wall",
-    "kaleidoscope:waxed_weathered_cut_copper_wall",
-    "kaleidoscope:waxed_oxidized_cut_copper_wall",
     "kaleidoscope:smooth_copper",
     "kaleidoscope:smooth_copper_slab",
     "kaleidoscope:smooth_copper_stairs",

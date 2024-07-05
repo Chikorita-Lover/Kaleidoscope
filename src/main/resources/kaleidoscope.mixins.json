@@ -15,6 +15,7 @@
 		"block.BeehiveBlockMixin",
 		"block.BlockMixin",
 		"block.CakeBlockMixin",
+		"block.CampfireBlockMixin",
 		"block.ConduitBlockEntityMixin",
 		"block.FallingBlockMixin",
 		"block.FarmlandBlockMixin",

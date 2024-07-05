@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stick_block": {
+    "has_stick": {
       "conditions": {
         "items": [
           {
-            "items": "kaleidoscope:stick_block"
+            "items": "minecraft:stick"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:stick_from_bundle"
+        "recipe": "kaleidoscope:stick_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_stick_block"
+      "has_stick"
     ]
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:stick_from_bundle"
+      "kaleidoscope:stick_block"
     ]
   }
 }

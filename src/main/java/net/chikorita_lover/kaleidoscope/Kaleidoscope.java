@@ -154,9 +154,9 @@ public class Kaleidoscope implements ModInitializer {
             addToStructurePool(server, Identifier.of("village/desert/houses"), Identifier.of(MODID, "village/desert/houses/desert_glassblower_1"), 4);
             addToStructurePool(server, Identifier.of("village/plains/houses"), Identifier.of(MODID, "village/plains/houses/plains_glassblower_1"), processorRegistry.getOrThrow(StructureProcessorLists.MOSSIFY_10_PERCENT), 4);
             addToStructurePool(server, Identifier.of("village/savanna/houses"), Identifier.of(MODID, "village/savanna/houses/savanna_glassblower_1"), 4);
-            addToStructurePool(server, Identifier.of("village/snowy/decor"), featureRegistry.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BUNDLE), 1);
+            addToStructurePool(server, Identifier.of("village/snowy/decor"), featureRegistry.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BLOCK), 1);
             addToStructurePool(server, Identifier.of("village/snowy/houses"), Identifier.of(MODID, "village/snowy/houses/snowy_glassblower_1"), 4);
-            addToStructurePool(server, Identifier.of("village/taiga/decor"), featureRegistry.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BUNDLE), 1);
+            addToStructurePool(server, Identifier.of("village/taiga/decor"), featureRegistry.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BLOCK), 1);
             addToStructurePool(server, Identifier.of("village/taiga/houses"), Identifier.of(MODID, "village/taiga/houses/taiga_glassblower_1"), 4);
 
             Registry<StructureProcessorList> processorLists = server.getRegistryManager().get(RegistryKeys.PROCESSOR_LIST);

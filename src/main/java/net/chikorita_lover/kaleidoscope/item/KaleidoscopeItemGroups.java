@@ -23,24 +23,23 @@ public class KaleidoscopeItemGroups {
             entries.addAfter(Blocks.PACKED_MUD, KaleidoscopeBlocks.PACKED_MUD_STAIRS, KaleidoscopeBlocks.PACKED_MUD_SLAB, KaleidoscopeBlocks.PACKED_MUD_WALL);
             entries.addAfter(Blocks.MUD_BRICKS, KaleidoscopeBlocks.CRACKED_MUD_BRICKS);
             entries.addAfter(Blocks.RED_NETHER_BRICKS, KaleidoscopeBlocks.CRACKED_RED_NETHER_BRICKS);
-            entries.addAfter(Blocks.RED_NETHER_BRICK_WALL, KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE, KaleidoscopeBlocks.CHISELED_RED_NETHER_BRICKS);
+            entries.addAfter(Blocks.RED_NETHER_BRICK_WALL, KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE);
             entries.addAfter(Blocks.SMOOTH_BASALT, KaleidoscopeBlocks.SMOOTH_BASALT_STAIRS, KaleidoscopeBlocks.SMOOTH_BASALT_SLAB, KaleidoscopeBlocks.SMOOTH_BASALT_WALL);
             entries.addAfter(Blocks.END_STONE, KaleidoscopeBlocks.END_STONE_STAIRS, KaleidoscopeBlocks.END_STONE_SLAB, KaleidoscopeBlocks.END_STONE_WALL, KaleidoscopeBlocks.POLISHED_END_STONE, KaleidoscopeBlocks.POLISHED_END_STONE_STAIRS, KaleidoscopeBlocks.POLISHED_END_STONE_SLAB, KaleidoscopeBlocks.POLISHED_END_STONE_WALL);
             entries.addAfter(Blocks.END_STONE_BRICKS, KaleidoscopeBlocks.CRACKED_END_STONE_BRICKS);
-            entries.addAfter(Blocks.PURPUR_PILLAR, KaleidoscopeBlocks.CHISELED_PURPUR);
             entries.addAfter(Blocks.COAL_BLOCK, KaleidoscopeBlocks.CHARCOAL_BLOCK);
             entries.addAfter(Blocks.QUARTZ_BRICKS, KaleidoscopeBlocks.QUARTZ_BRICK_STAIRS, KaleidoscopeBlocks.QUARTZ_BRICK_SLAB, KaleidoscopeBlocks.QUARTZ_BRICK_WALL);
-            entries.addAfter(Blocks.CUT_COPPER_SLAB, KaleidoscopeBlocks.CUT_COPPER_WALL, KaleidoscopeBlocks.SMOOTH_COPPER, KaleidoscopeBlocks.SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.SMOOTH_COPPER_SLAB);
-            entries.addAfter(Blocks.EXPOSED_CUT_COPPER_SLAB, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL, KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER, KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER_SLAB);
-            entries.addAfter(Blocks.WEATHERED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL, KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER, KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER_SLAB);
-            entries.addAfter(Blocks.OXIDIZED_CUT_COPPER_SLAB, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL, KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER, KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER_SLAB);
-            entries.addAfter(Blocks.WAXED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL, KaleidoscopeBlocks.WAXED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WAXED_SMOOTH_COPPER_SLAB);
-            entries.addAfter(Blocks.WAXED_EXPOSED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER_SLAB);
-            entries.addAfter(Blocks.WAXED_WEATHERED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER_SLAB);
-            entries.addAfter(Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER_SLAB);
+            entries.addAfter(Blocks.CUT_COPPER_SLAB, KaleidoscopeBlocks.SMOOTH_COPPER, KaleidoscopeBlocks.SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.SMOOTH_COPPER_SLAB);
+            entries.addAfter(Blocks.EXPOSED_CUT_COPPER_SLAB, KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER, KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.EXPOSED_SMOOTH_COPPER_SLAB);
+            entries.addAfter(Blocks.WEATHERED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER, KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WEATHERED_SMOOTH_COPPER_SLAB);
+            entries.addAfter(Blocks.OXIDIZED_CUT_COPPER_SLAB, KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER, KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.OXIDIZED_SMOOTH_COPPER_SLAB);
+            entries.addAfter(Blocks.WAXED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WAXED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WAXED_SMOOTH_COPPER_SLAB);
+            entries.addAfter(Blocks.WAXED_EXPOSED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WAXED_EXPOSED_SMOOTH_COPPER_SLAB);
+            entries.addAfter(Blocks.WAXED_WEATHERED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WAXED_WEATHERED_SMOOTH_COPPER_SLAB);
+            entries.addAfter(Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER_SLAB);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
-            entries.addBefore(Blocks.TERRACOTTA, Blocks.BRICKS, KaleidoscopeBlocks.BRICK_MOSAIC, Blocks.BRICK_STAIRS, KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS, Blocks.BRICK_SLAB, KaleidoscopeBlocks.BRICK_MOSAIC_SLAB, Blocks.BRICK_WALL);
+            entries.addBefore(Blocks.TERRACOTTA, Blocks.BRICKS, Blocks.BRICK_STAIRS, Blocks.BRICK_SLAB, Blocks.BRICK_WALL);
             addStainedBricks(entries, KaleidoscopeBlockFamilies.WHITE_STAINED_BRICKS);
             addStainedBricks(entries, KaleidoscopeBlockFamilies.LIGHT_GRAY_STAINED_BRICKS);
             addStainedBricks(entries, KaleidoscopeBlockFamilies.GRAY_STAINED_BRICKS);
@@ -74,29 +73,12 @@ public class KaleidoscopeItemGroups {
             entries.addAfter(Blocks.PURPLE_TERRACOTTA, KaleidoscopeBlocks.PURPLE_TERRACOTTA_STAIRS, KaleidoscopeBlocks.PURPLE_TERRACOTTA_SLAB);
             entries.addAfter(Blocks.MAGENTA_TERRACOTTA, KaleidoscopeBlocks.MAGENTA_TERRACOTTA_STAIRS, KaleidoscopeBlocks.MAGENTA_TERRACOTTA_SLAB);
             entries.addAfter(Blocks.PINK_TERRACOTTA, KaleidoscopeBlocks.PINK_TERRACOTTA_STAIRS, KaleidoscopeBlocks.PINK_TERRACOTTA_SLAB);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.WHITE_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.LIGHT_GRAY_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.GRAY_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.BLACK_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.BROWN_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.RED_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.ORANGE_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.YELLOW_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.LIME_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.GREEN_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.CYAN_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.LIGHT_BLUE_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.BLUE_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.PURPLE_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.MAGENTA_STAINED_GLASS);
-            extendStainedGlass(entries, KaleidoscopeBlockFamilies.PINK_STAINED_GLASS);
             entries.addAfter(Blocks.PINK_STAINED_GLASS_PANE, KaleidoscopeBlocks.GLASS_DOOR, KaleidoscopeBlocks.GLASS_TRAPDOOR, KaleidoscopeBlocks.WHITE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.GRAY_STAINED_GLASS_DOOR, KaleidoscopeBlocks.GRAY_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, KaleidoscopeBlocks.BLACK_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.BROWN_STAINED_GLASS_DOOR, KaleidoscopeBlocks.BROWN_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.RED_STAINED_GLASS_DOOR, KaleidoscopeBlocks.RED_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_DOOR, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.LIME_STAINED_GLASS_DOOR, KaleidoscopeBlocks.LIME_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.GREEN_STAINED_GLASS_DOOR, KaleidoscopeBlocks.GREEN_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.CYAN_STAINED_GLASS_DOOR, KaleidoscopeBlocks.CYAN_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.BLUE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_DOOR, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.PINK_STAINED_GLASS_DOOR, KaleidoscopeBlocks.PINK_STAINED_GLASS_TRAPDOOR);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.addAfter(Blocks.JACK_O_LANTERN, KaleidoscopeBlocks.SOUL_JACK_O_LANTERN);
-            entries.addBefore(Blocks.HAY_BLOCK, KaleidoscopeBlocks.STICK_BUNDLE);
+            entries.addBefore(Blocks.HAY_BLOCK, KaleidoscopeBlocks.STICK_BLOCK);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
             entries.addBefore(Blocks.FURNACE, KaleidoscopeBlocks.FIREWORKS_TABLE);
@@ -116,9 +98,5 @@ public class KaleidoscopeItemGroups {
 
     private static void addStainedBricks(FabricItemGroupEntries entries, BlockFamily blockFamily) {
         entries.addBefore(Blocks.TERRACOTTA, blockFamily.getBaseBlock(), blockFamily.getVariant(BlockFamily.Variant.STAIRS), blockFamily.getVariant(BlockFamily.Variant.SLAB), blockFamily.getVariant(BlockFamily.Variant.WALL));
-    }
-
-    private static void extendStainedGlass(FabricItemGroupEntries entries, BlockFamily blockFamily) {
-        entries.addAfter(blockFamily.getBaseBlock(), blockFamily.getVariant(BlockFamily.Variant.SLAB));
     }
 }

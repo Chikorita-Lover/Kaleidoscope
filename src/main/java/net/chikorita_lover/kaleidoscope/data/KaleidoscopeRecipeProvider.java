@@ -37,12 +37,6 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), RecipeCategory.BUILDING_BLOCKS, output, 0.1F, 200).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
     }
 
-    private static void offerCutCopperWallRecipes(RecipeExporter exporter, ItemConvertible output, ItemConvertible cutCopper, ItemConvertible copper) {
-        getWallRecipe(RecipeCategory.MISC, output, Ingredient.ofItems(cutCopper)).group(getItemPath(output)).criterion(hasItem(cutCopper), conditionsFromItem(cutCopper)).offerTo(exporter);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, output, copper, 4);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, output, cutCopper);
-    }
-
     private static void offerDoorRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 3).input('#', input).pattern("##").pattern("##").pattern("##").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
     }
@@ -53,19 +47,15 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
     private static void offerGlassFamilyRecipes(RecipeExporter exporter, BlockFamily family, @Nullable TagKey<Item> dyeItem) {
         Block block = family.getBaseBlock();
-        Block slabBlock = family.getVariant(BlockFamily.Variant.SLAB);
         Block doorBlock = family.getVariant(BlockFamily.Variant.DOOR);
         Block trapdoorBlock = family.getVariant(BlockFamily.Variant.TRAPDOOR);
         if (dyeItem != null) {
-            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, slabBlock, 6).input('#', block).pattern("###").group("stained_glass_slab").criterion(hasItem(block), conditionsFromItem(block)).offerTo(exporter);
-
             ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, doorBlock, 3).input('#', block).pattern("##").pattern("##").pattern("##").group("stained_glass_door").criterion(hasItem(block), conditionsFromItem(block)).offerTo(exporter);
             ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, doorBlock).input(KaleidoscopeBlocks.GLASS_DOOR).input(dyeItem).group("stained_glass_door").criterion("has_glass_door", conditionsFromItem(KaleidoscopeBlocks.GLASS_DOOR)).offerTo(exporter, Kaleidoscope.of(convertBetween(doorBlock, KaleidoscopeBlocks.GLASS_DOOR)));
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, trapdoorBlock).input('#', block).pattern("##").pattern("##").group("stained_glass_trapdoor").criterion(hasItem(block), conditionsFromItem(block)).offerTo(exporter);
             ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, trapdoorBlock).input(KaleidoscopeBlocks.GLASS_TRAPDOOR).input(dyeItem).group("stained_glass_trapdoor").criterion("has_glass_trapdoor", conditionsFromItem(KaleidoscopeBlocks.GLASS_TRAPDOOR)).offerTo(exporter, Kaleidoscope.of(convertBetween(trapdoorBlock, KaleidoscopeBlocks.GLASS_TRAPDOOR)));
         } else {
-            offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, slabBlock, block);
             offerDoorRecipe(exporter, doorBlock, block);
             offerTrapdoorRecipe2(exporter, trapdoorBlock, block);
         }
@@ -124,8 +114,6 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CALCITE_STAIRS, Blocks.CALCITE);
         offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.CALCITE_WALL, Blocks.CALCITE);
 
-        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_CALCITE, Blocks.CALCITE);
-
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_CALCITE, Blocks.CALCITE);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS, Blocks.CALCITE);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS, KaleidoscopeBlocks.POLISHED_CALCITE);
@@ -149,21 +137,6 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.QUARTZ_BRICK_SLAB, Blocks.QUARTZ_BRICKS, 2);
         offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.QUARTZ_BRICK_WALL, Blocks.QUARTZ_BLOCK);
         offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.QUARTZ_BRICK_WALL, Blocks.QUARTZ_BRICKS);
-
-        offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.CUT_COPPER_WALL, Blocks.CUT_COPPER, Blocks.COPPER_BLOCK);
-        offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL, Blocks.EXPOSED_CUT_COPPER, Blocks.EXPOSED_COPPER);
-        offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL, Blocks.WEATHERED_CUT_COPPER, Blocks.WEATHERED_COPPER);
-        offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL, Blocks.OXIDIZED_CUT_COPPER, Blocks.OXIDIZED_COPPER);
-
-        offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL, Blocks.WAXED_CUT_COPPER, Blocks.WAXED_COPPER_BLOCK);
-        offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, Blocks.WAXED_EXPOSED_CUT_COPPER, Blocks.WAXED_EXPOSED_COPPER);
-        offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, Blocks.WAXED_WEATHERED_CUT_COPPER, Blocks.WAXED_WEATHERED_COPPER);
-        offerCutCopperWallRecipes(exporter, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, Blocks.WAXED_OXIDIZED_CUT_COPPER, Blocks.WAXED_OXIDIZED_COPPER);
-
-        offerWaxingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL, KaleidoscopeBlocks.CUT_COPPER_WALL);
-        offerWaxingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);
-        offerWaxingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL);
-        offerWaxingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL);
 
         offerSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.SMOOTH_COPPER, Blocks.CUT_COPPER);
         offerSmoothCopperRecipes(exporter, KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER, Blocks.EXPOSED_CUT_COPPER);
@@ -257,14 +230,10 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.PRISMARINE_BRICK_STAIRS, Blocks.PRISMARINE);
 
         offerCrackingRecipe(exporter, KaleidoscopeBlocks.CRACKED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);
-        offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICK_SLAB);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.END_STONE_SLAB, Blocks.END_STONE, 2);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.END_STONE_STAIRS, Blocks.END_STONE);
         offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.END_STONE_WALL, Blocks.END_STONE);
-
-        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_END_STONE, Blocks.END_STONE);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_END_STONE, Blocks.END_STONE);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.POLISHED_END_STONE_SLAB, Blocks.END_STONE, 2);
@@ -317,9 +286,6 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.YELLOW_TERRACOTTA_SLAB, Blocks.YELLOW_TERRACOTTA, 2);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.TERRACOTTA_SLAB, Blocks.TERRACOTTA, 2);
 
-        offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CHISELED_PURPUR, Blocks.PURPUR_SLAB);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CHISELED_PURPUR, Blocks.PURPUR_BLOCK);
-
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.SOUL_JACK_O_LANTERN).input('#', Blocks.CARVED_PUMPKIN).input('S', Blocks.SOUL_TORCH).pattern("#").pattern("S").criterion(hasItem(Blocks.CARVED_PUMPKIN), conditionsFromItem(Blocks.CARVED_PUMPKIN)).offerTo(exporter);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.SMOOTH_BASALT_SLAB, Blocks.SMOOTH_BASALT, 2);
@@ -330,7 +296,7 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.PACKED_MUD_SLAB, Blocks.PACKED_MUD, 2);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.PACKED_MUD_WALL, Blocks.PACKED_MUD);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.STICK_BUNDLE).input('#', Items.STICK).pattern("###").pattern("###").pattern("###").criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.STICK_BLOCK).input('#', Items.STICK).pattern("###").pattern("###").pattern("###").criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK)).offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE, 6).input('W', Blocks.RED_NETHER_BRICKS).input('#', ConventionalItemTags.NETHER_BRICKS).pattern("W#W").pattern("W#W").criterion(hasItem(Blocks.RED_NETHER_BRICKS), conditionsFromItem(Blocks.RED_NETHER_BRICKS)).offerTo(exporter);
 
@@ -365,7 +331,7 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MUSIC_DISC_PIGSTEP).input('S', KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP), conditionsFromItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP)).offerTo(exporter, Kaleidoscope.of(getItemPath(Items.MUSIC_DISC_PIGSTEP)));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 9).input(KaleidoscopeBlocks.STICK_BUNDLE).group("sticks").criterion(hasItem(KaleidoscopeBlocks.STICK_BUNDLE), conditionsFromItem(KaleidoscopeBlocks.STICK_BUNDLE)).offerTo(exporter, Kaleidoscope.of("stick_from_bundle"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 9).input(KaleidoscopeBlocks.STICK_BLOCK).group("sticks").criterion(hasItem(KaleidoscopeBlocks.STICK_BLOCK), conditionsFromItem(KaleidoscopeBlocks.STICK_BLOCK)).offerTo(exporter, Kaleidoscope.of("stick_from_bundle"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GREEN_DYE, 2).input(ConventionalItemTags.BLUE_DYES).input(ConventionalItemTags.YELLOW_DYES).group(getItemPath(Items.GREEN_DYE)).criterion(hasItem(Items.BLUE_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.BLUE_DYES)).criterion(hasItem(Items.YELLOW_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.YELLOW_DYES)).offerTo(exporter, Kaleidoscope.of("green_dye_from_blue_yellow_dye"));
 

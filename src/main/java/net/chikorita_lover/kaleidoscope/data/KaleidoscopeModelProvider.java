@@ -50,22 +50,13 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
         generator.registerSimpleCubeAll(KaleidoscopeBlocks.CRACKED_END_STONE_BRICKS);
 
         generator.registerAxisRotated(KaleidoscopeBlocks.CHARCOAL_BLOCK, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
-        this.registerWall(generator, Blocks.CUT_COPPER, KaleidoscopeBlocks.CUT_COPPER_WALL);
-        this.registerWall(generator, Blocks.EXPOSED_CUT_COPPER, KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);
-        this.registerWall(generator, Blocks.WEATHERED_CUT_COPPER, KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL);
-        this.registerWall(generator, Blocks.OXIDIZED_CUT_COPPER, KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL);
-        this.registerWall(generator, Blocks.CUT_COPPER, KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL);
-        this.registerWall(generator, Blocks.EXPOSED_CUT_COPPER, KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL);
-        this.registerWall(generator, Blocks.WEATHERED_CUT_COPPER, KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL);
-        this.registerWall(generator, Blocks.OXIDIZED_CUT_COPPER, KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
 
         KaleidoscopeBlockFamilies.getFamilies().filter(family -> family.equals(KaleidoscopeBlockFamilies.GLASS) || family.getGroup().isPresent() && family.getGroup().get().equals("stained_glass")).forEach(family -> {
-            this.registerGlassSlab(generator, family.getBaseBlock(), family.getVariant(BlockFamily.Variant.SLAB));
             generator.registerDoor(family.getVariant(BlockFamily.Variant.DOOR));
             generator.registerOrientableTrapdoor(family.getVariant(BlockFamily.Variant.TRAPDOOR));
         });
 
-        generator.registerAxisRotated(KaleidoscopeBlocks.STICK_BUNDLE, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
+        generator.registerAxisRotated(KaleidoscopeBlocks.STICK_BLOCK, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
         generator.registerNorthDefaultHorizontalRotatable(KaleidoscopeBlocks.SOUL_JACK_O_LANTERN, TextureMap.sideEnd(Blocks.PUMPKIN));
 
         generator.registerCubeWithCustomTextures(KaleidoscopeBlocks.FIREWORKS_TABLE, Blocks.JUNGLE_PLANKS, TextureMap::frontTopSide);

@@ -13,6 +13,7 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.RegistryWrapper;
 
@@ -45,19 +46,10 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.END_STONE);
         this.addFamilyDrops(KaleidoscopeBlockFamilies.POLISHED_END_STONE);
         this.addDrop(KaleidoscopeBlocks.CRACKED_END_STONE_BRICKS);
-        this.addDrop(KaleidoscopeBlocks.CHISELED_PURPUR);
 
-        this.addDrop(KaleidoscopeBlocks.CHARCOAL_BLOCK);
+        this.addDrop(KaleidoscopeBlocks.CHARCOAL_BLOCK, block -> this.drops(block, Items.CHARCOAL, ConstantLootNumberProvider.create(4.0F)));
+
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.QUARTZ_BRICKS);
-
-        this.addDrop(KaleidoscopeBlocks.CUT_COPPER_WALL);
-        this.addDrop(KaleidoscopeBlocks.EXPOSED_CUT_COPPER_WALL);
-        this.addDrop(KaleidoscopeBlocks.WEATHERED_CUT_COPPER_WALL);
-        this.addDrop(KaleidoscopeBlocks.OXIDIZED_CUT_COPPER_WALL);
-        this.addDrop(KaleidoscopeBlocks.WAXED_CUT_COPPER_WALL);
-        this.addDrop(KaleidoscopeBlocks.WAXED_EXPOSED_CUT_COPPER_WALL);
-        this.addDrop(KaleidoscopeBlocks.WAXED_WEATHERED_CUT_COPPER_WALL);
-        this.addDrop(KaleidoscopeBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
 
         this.addFamilyDrops(KaleidoscopeBlockFamilies.SMOOTH_COPPER);
         this.addFamilyDrops(KaleidoscopeBlockFamilies.EXPOSED_SMOOTH_COPPER);
@@ -103,24 +95,6 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.MAGENTA_TERRACOTTA);
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.PINK_TERRACOTTA);
 
-        this.addDrop(KaleidoscopeBlocks.GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.GRAY_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.BLACK_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.BROWN_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.RED_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.ORANGE_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.LIME_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.GREEN_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.CYAN_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.BLUE_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.PURPLE_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_SLAB, this::glassSlabDrops);
-        this.addDrop(KaleidoscopeBlocks.PINK_STAINED_GLASS_SLAB, this::glassSlabDrops);
-
         this.addDrop(KaleidoscopeBlocks.GLASS_DOOR, this::doorDrops);
         this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_DOOR, this::doorDrops);
         this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, this::doorDrops);
@@ -157,7 +131,7 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
         this.addDrop(KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR);
         this.addDrop(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR);
 
-        this.addDrop(KaleidoscopeBlocks.STICK_BUNDLE);
+        this.addDrop(KaleidoscopeBlocks.STICK_BLOCK);
         this.addDrop(KaleidoscopeBlocks.SOUL_JACK_O_LANTERN);
 
         this.addDrop(KaleidoscopeBlocks.FIREWORKS_TABLE);
