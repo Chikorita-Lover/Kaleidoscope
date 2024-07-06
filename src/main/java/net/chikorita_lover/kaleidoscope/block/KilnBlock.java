@@ -1,8 +1,8 @@
 package net.chikorita_lover.kaleidoscope.block;
 
 import com.mojang.serialization.MapCodec;
-import net.chikorita_lover.kaleidoscope.block.entity.KilnBlockEntity;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
+import net.chikorita_lover.kaleidoscope.block.entity.KilnBlockEntity;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeStats;
 import net.minecraft.block.AbstractBlock;
@@ -13,13 +13,15 @@ import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class KilnBlock extends AbstractFurnaceBlock {
     public KilnBlock(AbstractBlock.Settings settings) {
@@ -41,31 +43,31 @@ public class KilnBlock extends AbstractFurnaceBlock {
     }
 
     protected void openScreen(World world, BlockPos pos, PlayerEntity player) {
-        BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof KilnBlockEntity) {
-            player.openHandledScreen((NamedScreenHandlerFactory) blockEntity);
+        Optional<KilnBlockEntity> blockEntity = world.getBlockEntity(pos, KaleidoscopeBlockEntityTypes.KILN);
+        if (blockEntity.isPresent()) {
+            player.openHandledScreen(blockEntity.get());
             player.incrementStat(KaleidoscopeStats.INTERACT_WITH_KILN);
         }
 
     }
 
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (state.get(LIT)) {
-            double d = pos.getX() + 0.5;
-            double e = pos.getY();
-            double f = pos.getZ() + 0.5;
-            if (random.nextDouble() < 0.1) {
-                world.playSound(d, e, f, KaleidoscopeSoundEvents.BLOCK_KILN_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
-            }
-
-            Direction direction = state.get(FACING);
-            Direction.Axis axis = direction.getAxis();
-            double g = random.nextDouble() * 0.6 - 0.3;
-            double h = axis == Direction.Axis.X ? direction.getOffsetX() * 0.52 : g;
-            double i = (random.nextDouble() * 4.0 + 3.0) / 16.0;
-            double j = axis == Direction.Axis.Z ? direction.getOffsetZ() * 0.52 : g;
-            world.addParticle(ParticleTypes.SMOKE, d, e + 1.1, f, 0.0, 0.0, 0.0);
-            world.addParticle(ParticleTypes.FLAME, d + h, e + i, f + j, 0.0, 0.0, 0.0);
+        if (!state.get(LIT)) {
+            return;
         }
+        double x = pos.getX() + 0.5;
+        double y = pos.getY();
+        double z = pos.getZ() + 0.5;
+        if (random.nextDouble() < 0.1) {
+            world.playSound(x, y, z, KaleidoscopeSoundEvents.BLOCK_KILN_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+        }
+        Direction direction = state.get(FACING);
+        Direction.Axis axis = direction.getAxis();
+        float offset = MathHelper.nextBetween(random, -0.2F, 0.2F);
+        x += axis == Direction.Axis.X ? direction.getOffsetX() * 0.52 : offset;
+        y += MathHelper.nextBetween(random, 0.4F, 0.5F);
+        z += axis == Direction.Axis.Z ? direction.getOffsetZ() * 0.52 : offset;
+        world.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 0.0, 0.0);
+        world.addParticle(ParticleTypes.FLAME, x, y, z, 0.0, 0.0, 0.0);
     }
 }

@@ -4,6 +4,6 @@
     "bottom": "kaleidoscope:block/kiln_bottom",
     "front": "kaleidoscope:block/kiln_front_on",
     "side": "kaleidoscope:block/kiln_side",
-    "top": "kaleidoscope:block/kiln_top"
+    "top": "kaleidoscope:block/kiln_top_on"
   }
 }

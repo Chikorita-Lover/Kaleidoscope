@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "kaleidoscope:stick_from_bundle"
+        "recipe": "kaleidoscope:stick_from_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "kaleidoscope:stick_from_bundle"
+      "kaleidoscope:stick_from_block"
     ]
   }
 }

@@ -3,16 +3,19 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:bricks"
+      "item": "minecraft:smooth_stone_slab"
+    },
+    "C": {
+      "tag": "c:ingots/copper"
     },
     "X": {
       "tag": "c:player_workstations/furnaces"
     }
   },
   "pattern": [
-    " # ",
-    "#X#",
-    " # "
+    "C#C",
+    "CXC",
+    "C#C"
   ],
   "result": {
     "count": 1,
