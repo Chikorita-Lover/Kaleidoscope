@@ -14,6 +14,7 @@ public class KaleidoscopeSoundEvents {
 
     public static final SoundEvent ENTITY_BOAT_EQUIP_BANNER = register("entity.boat.equip_banner");
     public static final SoundEvent ENTITY_BOAT_SHEAR = register("entity.boat.shear");
+    public static final SoundEvent ENTITY_CAMEL_MILK = register("entity.camel.milk");
     public static final SoundEvent ENTITY_PIG_SHEAR = register("entity.pig.shear");
     public static final SoundEvent ENTITY_STRIDER_CHEST = register("entity.strider.chest");
     public static final SoundEvent ENTITY_STRIDER_SHEAR = register("entity.strider.shear");

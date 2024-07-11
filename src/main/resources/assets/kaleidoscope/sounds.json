@@ -34,6 +34,15 @@
 			"mob/sheep/shear"
 		]
 	},
+	"entity.camel.milk": {
+		"subtitle": "subtitles.entity.camel.milk",
+		"sounds": [
+			{
+				"type": "event",
+				"name": "entity.cow.milk"
+			}
+		]
+	},
 	"entity.pig.shear": {
 		"subtitle": "subtitles.item.shears.shear",
 		"sounds": [

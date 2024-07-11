@@ -26,6 +26,7 @@
 		"block.TripwireBlockMixin",
 		"entity.BoatEntityMixin",
 		"entity.BoggedEntityMixin",
+		"entity.CamelEntityMixin",
 		"entity.ChestBoatEntityMixin",
 		"entity.GiveGiftsToHeroTaskMixin",
 		"entity.MooshroomEntityMixin",
