@@ -16,3 +16,5 @@ accessible class net/minecraft/recipe/Ingredient$TagEntry
 accessible class net/minecraft/recipe/Ingredient$StackEntry
 accessible method net/minecraft/recipe/Ingredient$TagEntry tag ()Lnet/minecraft/registry/tag/TagKey;
 accessible method net/minecraft/recipe/Ingredient$StackEntry stack ()Lnet/minecraft/item/ItemStack;
+accessible field net/minecraft/client/gui/screen/recipebook/RecipeResultCollection recipes Ljava/util/List;
+mutable field net/minecraft/client/gui/screen/recipebook/RecipeResultCollection recipes Ljava/util/List;
