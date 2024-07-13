@@ -7,6 +7,7 @@ import net.chikorita_lover.kaleidoscope.block.KaleidoscopeCauldronBehavior;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItemGroups;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
+import net.chikorita_lover.kaleidoscope.item.MaxItemCountRegistry;
 import net.chikorita_lover.kaleidoscope.mixin.structure.StructurePoolAccessor;
 import net.chikorita_lover.kaleidoscope.network.OpenStriderScreenS2CPacket;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
@@ -156,7 +157,6 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeItemGroups.register();
         KaleidoscopeItems.registerCompostingChances();
         KaleidoscopeItems.registerFuels();
-        KaleidoscopeItems.registerMaxItemCounts();
         KaleidoscopeLootTables.register();
         KaleidoscopeRecipeSerializers.register();
         KaleidoscopeScreenHandlerTypes.register();
@@ -164,6 +164,7 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeStats.register();
         KaleidoscopeTradeOffers.register();
         KaleidoscopeVillagerProfessions.register();
+        MaxItemCountRegistry.register();
 
         registerLootTableEvents();
 

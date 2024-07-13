@@ -75,11 +75,4 @@ public class KaleidoscopeItems {
         FuelRegistry.INSTANCE.add(KaleidoscopeBlocks.CHARCOAL_BLOCK, 7000);
         FuelRegistry.INSTANCE.add(KaleidoscopeBlocks.STICK_BLOCK, 300);
     }
-
-    public static void registerMaxItemCounts() {
-        MaxItemCountRegistry.registerMaxItemCount(Items.CAKE, 16);
-        MaxItemCountRegistry.registerMaxItemCount(Items.EGG, 64);
-        MaxItemCountRegistry.registerMaxItemCount(Items.POTION, 16);
-        MaxItemCountRegistry.registerMaxItemCount(Items.SNOWBALL, 64);
-    }
 }
