@@ -330,6 +330,8 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         offerBoatRecipe(exporter, KaleidoscopeItems.WARPED_BOAT, Blocks.WARPED_PLANKS);
         offerChestBoatRecipe(exporter, KaleidoscopeItems.WARPED_CHEST_BOAT, KaleidoscopeItems.WARPED_BOAT);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, KaleidoscopeItems.JUKEBOX_MINECART).input(Blocks.JUKEBOX).input(Items.MINECART).criterion(hasItem(Items.MINECART), conditionsFromItem(Items.MINECART)).offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MUSIC_DISC_PIGSTEP).input('S', KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP), conditionsFromItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP)).offerTo(exporter, Kaleidoscope.of(getItemPath(Items.MUSIC_DISC_PIGSTEP)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 9).input(KaleidoscopeBlocks.STICK_BLOCK).group("sticks").criterion(hasItem(KaleidoscopeBlocks.STICK_BLOCK), conditionsFromItem(KaleidoscopeBlocks.STICK_BLOCK)).offerTo(exporter, Kaleidoscope.of("stick_from_block"));

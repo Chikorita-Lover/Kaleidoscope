@@ -5,11 +5,14 @@ import net.chikorita_lover.kaleidoscope.block.CrackedBlockRegistry;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeCauldronBehavior;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
+import net.chikorita_lover.kaleidoscope.entity.KaleidoscopeEntityTypes;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItemGroups;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.chikorita_lover.kaleidoscope.item.MaxItemCountRegistry;
 import net.chikorita_lover.kaleidoscope.mixin.structure.StructurePoolAccessor;
 import net.chikorita_lover.kaleidoscope.network.OpenStriderScreenS2CPacket;
+import net.chikorita_lover.kaleidoscope.network.StopJukeboxMinecartPlayingS2CPacket;
+import net.chikorita_lover.kaleidoscope.network.UpdateJukeboxMinecartS2CPacket;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
 import net.chikorita_lover.kaleidoscope.recipe.KilningRecipe;
 import net.chikorita_lover.kaleidoscope.registry.*;
@@ -154,6 +157,7 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeBlocks.registerOxidizablePairs();
         KaleidoscopeBlockEntityTypes.register();
         KaleidoscopeCauldronBehavior.register();
+        KaleidoscopeEntityTypes.register();
         KaleidoscopeItemGroups.register();
         KaleidoscopeItems.registerCompostingChances();
         KaleidoscopeItems.registerFuels();
@@ -171,6 +175,8 @@ public class Kaleidoscope implements ModInitializer {
         DispenserBlock.registerBehavior(KaleidoscopeItems.NETHERITE_SHEARS, new ShearsDispenserBehavior());
 
         PayloadTypeRegistry.playS2C().register(OpenStriderScreenS2CPacket.PACKET_ID, OpenStriderScreenS2CPacket.PACKET_CODEC);
+        PayloadTypeRegistry.playS2C().register(StopJukeboxMinecartPlayingS2CPacket.PACKET_ID, StopJukeboxMinecartPlayingS2CPacket.PACKET_CODEC);
+        PayloadTypeRegistry.playS2C().register(UpdateJukeboxMinecartS2CPacket.PACKET_ID, UpdateJukeboxMinecartS2CPacket.PACKET_CODEC);
 
         PointOfInterestTypes.register(Registries.POINT_OF_INTEREST_TYPE, FIREWORKER_POINT_OF_INTEREST, PointOfInterestTypes.getStatesOfBlock(KaleidoscopeBlocks.FIREWORKS_TABLE), 1, 1);
         PointOfInterestTypes.register(Registries.POINT_OF_INTEREST_TYPE, GLASSBLOWER_POINT_OF_INTEREST, PointOfInterestTypes.getStatesOfBlock(KaleidoscopeBlocks.KILN), 1, 1);

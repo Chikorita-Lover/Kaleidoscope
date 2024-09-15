@@ -8,6 +8,7 @@ import net.chikorita_lover.kaleidoscope.client.particle.FireflyParticle;
 import net.chikorita_lover.kaleidoscope.client.render.StriderChestFeatureRenderer;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
+import net.chikorita_lover.kaleidoscope.entity.KaleidoscopeEntityTypes;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeParticleTypes;
 import net.chikorita_lover.kaleidoscope.screen.KaleidoscopeScreenHandlerTypes;
 import net.fabricmc.api.ClientModInitializer;
@@ -16,9 +17,12 @@ import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.MinecartEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.client.render.entity.model.MinecartEntityModel;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.component.type.FoodComponent;
@@ -36,6 +40,7 @@ import java.util.Optional;
 
 public class KaleidoscopeClient implements ClientModInitializer {
     public static final EntityModelLayer STRIDER_CHEST = new EntityModelLayer(Identifier.of("strider"), "chest");
+    public static final EntityModelLayer MODEL_JUKEBOX_MINECART_LAYER = new EntityModelLayer(Kaleidoscope.of("jukebox_minecart"), "main");
     private static final NumberFormat NUMBER_FORMAT = NumberFormat.getNumberInstance();
 
     static {
@@ -106,6 +111,9 @@ public class KaleidoscopeClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, RenderLayer.getTranslucent());
 
         EntityModelLayerRegistry.registerModelLayer(STRIDER_CHEST, StriderChestFeatureRenderer::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_JUKEBOX_MINECART_LAYER, MinecartEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(KaleidoscopeEntityTypes.JUKEBOX_MINECART, context -> new MinecartEntityRenderer<>(context, MODEL_JUKEBOX_MINECART_LAYER));
 
         HandledScreens.register(KaleidoscopeScreenHandlerTypes.FIREWORKS_TABLE, FireworksTableScreen::new);
         HandledScreens.register(KaleidoscopeScreenHandlerTypes.KILN, KilnScreen::new);

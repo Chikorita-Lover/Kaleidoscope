@@ -75,7 +75,6 @@ public class KaleidoscopeItemGroups {
             entries.addAfter(Blocks.PINK_TERRACOTTA, KaleidoscopeBlocks.PINK_TERRACOTTA_STAIRS, KaleidoscopeBlocks.PINK_TERRACOTTA_SLAB);
             entries.addAfter(Blocks.PINK_STAINED_GLASS_PANE, KaleidoscopeBlocks.GLASS_DOOR, KaleidoscopeBlocks.GLASS_TRAPDOOR, KaleidoscopeBlocks.WHITE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.WHITE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_DOOR, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.GRAY_STAINED_GLASS_DOOR, KaleidoscopeBlocks.GRAY_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, KaleidoscopeBlocks.BLACK_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.BROWN_STAINED_GLASS_DOOR, KaleidoscopeBlocks.BROWN_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.RED_STAINED_GLASS_DOOR, KaleidoscopeBlocks.RED_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.ORANGE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_DOOR, KaleidoscopeBlocks.YELLOW_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.LIME_STAINED_GLASS_DOOR, KaleidoscopeBlocks.LIME_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.GREEN_STAINED_GLASS_DOOR, KaleidoscopeBlocks.GREEN_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.CYAN_STAINED_GLASS_DOOR, KaleidoscopeBlocks.CYAN_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.BLUE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_DOOR, KaleidoscopeBlocks.PURPLE_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_DOOR, KaleidoscopeBlocks.MAGENTA_STAINED_GLASS_TRAPDOOR, KaleidoscopeBlocks.PINK_STAINED_GLASS_DOOR, KaleidoscopeBlocks.PINK_STAINED_GLASS_TRAPDOOR);
         });
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.addAfter(Blocks.JACK_O_LANTERN, KaleidoscopeBlocks.SOUL_JACK_O_LANTERN);
             entries.addBefore(Blocks.HAY_BLOCK, KaleidoscopeBlocks.STICK_BLOCK);
@@ -84,10 +83,14 @@ public class KaleidoscopeItemGroups {
             entries.addBefore(Blocks.FURNACE, KaleidoscopeBlocks.FIREWORKS_TABLE);
             entries.addAfter(Blocks.BLAST_FURNACE, KaleidoscopeBlocks.KILN);
         });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> entries.addAfter(Items.BAMBOO_CHEST_RAFT, KaleidoscopeItems.CRIMSON_CHEST_BOAT));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> {
+            entries.addAfter(Items.TNT_MINECART, KaleidoscopeItems.JUKEBOX_MINECART);
+            entries.addAfter(Items.BAMBOO_CHEST_RAFT, KaleidoscopeItems.CRIMSON_CHEST_BOAT);
+        });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
             entries.addAfter(Items.SHEARS, KaleidoscopeItems.NETHERITE_SHEARS);
             entries.addAfter(Items.BAMBOO_CHEST_RAFT, KaleidoscopeItems.CRIMSON_BOAT, KaleidoscopeItems.CRIMSON_CHEST_BOAT, KaleidoscopeItems.WARPED_BOAT, KaleidoscopeItems.WARPED_CHEST_BOAT);
+            entries.addAfter(Items.TNT_MINECART, KaleidoscopeItems.JUKEBOX_MINECART);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> entries.addAfter(Items.CAKE, KaleidoscopeItems.CAKE_SLICE));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {

@@ -92,6 +92,7 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
         generator.register(KaleidoscopeItems.CRIMSON_CHEST_BOAT, Models.GENERATED);
         generator.register(KaleidoscopeItems.WARPED_BOAT, Models.GENERATED);
         generator.register(KaleidoscopeItems.WARPED_CHEST_BOAT, Models.GENERATED);
+        generator.register(KaleidoscopeItems.JUKEBOX_MINECART, Models.GENERATED);
 
         generator.register(KaleidoscopeItems.CAKE_SLICE, Models.GENERATED);
 

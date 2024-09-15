@@ -32,5 +32,8 @@ public class KaleidoscopeEarlyRiser implements Runnable {
         ClassTinkerers.enumBuilder(recipeBookGroup, itemStack).addEnum("KALEIDOSCOPE_KILN_SEARCH", () -> new Object[]{new ItemStack[]{new ItemStack(Items.COMPASS)}}).build();
         ClassTinkerers.enumBuilder(recipeBookGroup, itemStack).addEnum("KALEIDOSCOPE_KILN_BLOCKS", () -> new Object[]{new ItemStack[]{new ItemStack(Blocks.STONE)}}).build();
         ClassTinkerers.enumBuilder(recipeBookGroup, itemStack).addEnum("KALEIDOSCOPE_KILN_MISC", () -> new Object[]{new ItemStack[]{new ItemStack(Items.LAVA_BUCKET), new ItemStack(Items.CHARCOAL)}}).build();
+
+        String minecartType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_1688$class_1689");
+        ClassTinkerers.enumBuilder(minecartType).addEnum("JUKEBOX").build();
     }
 }

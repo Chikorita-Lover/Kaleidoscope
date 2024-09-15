@@ -18,3 +18,6 @@ accessible method net/minecraft/recipe/Ingredient$TagEntry tag ()Lnet/minecraft/
 accessible method net/minecraft/recipe/Ingredient$StackEntry stack ()Lnet/minecraft/item/ItemStack;
 accessible field net/minecraft/client/gui/screen/recipebook/RecipeResultCollection recipes Ljava/util/List;
 mutable field net/minecraft/client/gui/screen/recipebook/RecipeResultCollection recipes Ljava/util/List;
+accessible method net/minecraft/entity/vehicle/VehicleEntity asItem ()Lnet/minecraft/item/Item;
+accessible field net/minecraft/client/sound/SoundManager soundSystem Lnet/minecraft/client/sound/SoundSystem;
+accessible field net/minecraft/client/sound/SoundSystem sources Ljava/util/Map;
