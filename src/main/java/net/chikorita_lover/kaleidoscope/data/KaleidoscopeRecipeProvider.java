@@ -4,7 +4,6 @@ import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlockFamilies;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
-import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
@@ -338,11 +337,9 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GREEN_DYE, 2).input(ConventionalItemTags.BLUE_DYES).input(ConventionalItemTags.YELLOW_DYES).group(getItemPath(Items.GREEN_DYE)).criterion(hasItem(Items.BLUE_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.BLUE_DYES)).criterion(hasItem(Items.YELLOW_DYE), RecipeProvider.conditionsFromTag(ConventionalItemTags.YELLOW_DYES)).offerTo(exporter, Kaleidoscope.of("green_dye_from_blue_yellow_dye"));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FIREWORK_STAR, 2).input(Items.GUNPOWDER).criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER)).offerTo(exporter, Kaleidoscope.of(getItemPath(Items.FIREWORK_STAR)));
-
         offerFireworkShellRecipe(exporter, KaleidoscopeItems.LARGE_BALL_FIREWORK_SHELL, Items.FIRE_CHARGE);
         offerFireworkShellRecipe(exporter, KaleidoscopeItems.STAR_FIREWORK_SHELL, Items.GOLD_NUGGET);
-        offerFireworkShellRecipe(exporter, KaleidoscopeItems.CREEPER_FIREWORK_SHELL, Items.CREEPER_HEAD);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, KaleidoscopeItems.CREEPER_FIREWORK_SHELL, 8).input(Items.PAPER).input(Items.GUNPOWDER).input(ItemTags.SKULLS).criterion("has_skull", conditionsFromTag(ItemTags.SKULLS)).offerTo(exporter);
         offerFireworkShellRecipe(exporter, KaleidoscopeItems.BURST_FIREWORK_SHELL, Items.FEATHER);
     }
 }

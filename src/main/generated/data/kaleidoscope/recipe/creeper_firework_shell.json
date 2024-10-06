@@ -9,7 +9,7 @@
       "item": "minecraft:gunpowder"
     },
     {
-      "item": "minecraft:creeper_head"
+      "tag": "minecraft:skulls"
     }
   ],
   "result": {

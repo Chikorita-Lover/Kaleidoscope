@@ -1,6 +1,7 @@
 package net.chikorita_lover.kaleidoscope.client.gui.screen;
 
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeItemTags;
 import net.chikorita_lover.kaleidoscope.screen.FireworksTableScreenHandler;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.CyclingSlotIcon;
@@ -30,13 +31,8 @@ public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHand
     private static final Text ADD_FIREWORK_STAR_TOOLTIP = Text.translatable("container.fireworks_table.add_firework_star_tooltip");
     private static final Text ADD_GLOWSTONE_DUST_TOOLTIP = Text.translatable("container.fireworks_table.add_glowstone_dust_tooltip");
     private static final Text ADD_GUNPOWDER_TOOLTIP = Text.translatable("container.fireworks_table.add_gunpowder_tooltip");
-    private static final Text EXTRA_MODIFIER_TOOLTIP = Text.translatable("container.fireworks_table.extra_modifier_tooltip");
-    private static final Text INVALID_INPUT_TOOLTIP = Text.translatable("container.fireworks_table.invalid_input_tooltip");
     private static final Text MISSING_BASE_TOOLTIP = Text.translatable("container.fireworks_table.missing_base_tooltip");
-    private static final Text MISSING_DYE_TOOLTIP = Text.translatable("container.fireworks_table.missing_dye_tooltip");
-    private static final Text MISSING_GUNPOWDER_TOOLTIP = Text.translatable("container.fireworks_table.missing_gunpowder_tooltip");
-    private static final Text NO_EFFECT_TOOLTIP = Text.translatable("container.fireworks_table.no_effect_tooltip");
-    private static final List<Identifier> BASE_SLOT_TEXTURES = List.of(EMPTY_SLOT_FIREWORK_STAR_TEXTURE, EMPTY_SLOT_PAPER_TEXTURE);
+    private static final List<Identifier> BASE_SLOT_TEXTURES = List.of(EMPTY_SLOT_GUNPOWDER_TEXTURE, EMPTY_SLOT_FIREWORK_STAR_TEXTURE, EMPTY_SLOT_PAPER_TEXTURE);
     private static final List<Identifier> FIREWORK_STAR_MODIFIER_TEXTURES = List.of(EMPTY_SLOT_FIREWORK_SHELL_TEXTURE, EMPTY_SLOT_GLOWSTONE_DUST_TEXTURE, EMPTY_SLOT_DIAMOND_TEXTURE);
     private final CyclingSlotIcon baseSlotIcon = new CyclingSlotIcon(0);
     private final CyclingSlotIcon modifierSlotIcon = new CyclingSlotIcon(1);
@@ -45,25 +41,20 @@ public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHand
 
     public FireworksTableScreen(FireworksTableScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
-        this.backgroundWidth = 186;
-        this.backgroundHeight = 176;
-        this.playerInventoryTitleX = 13;
-        this.playerInventoryTitleY = 82;
-        this.titleX = 36;
-        this.titleY = 7;
+        this.titleY = 5;
     }
 
     @Override
     public void handledScreenTick() {
         super.handledScreenTick();
-        ItemStack itemStack = this.getScreenHandler().getBaseSlot().getStack();
+        ItemStack baseStack = this.getScreenHandler().getBaseSlot().getStack();
         this.baseSlotIcon.updateTexture(BASE_SLOT_TEXTURES);
         BiConsumer<CyclingSlotIcon, Integer> consumer = (slot, i) -> {
-            if (!itemStack.isOf(Items.FIREWORK_STAR) && this.getScreenHandler().slots.subList(0, i).stream().anyMatch(slot2 -> !slot2.hasStack())) {
+            if (!baseStack.isIn(KaleidoscopeItemTags.FIREWORK_STAR_BASES) && this.getScreenHandler().slots.subList(0, i).stream().anyMatch(slot2 -> !slot2.hasStack())) {
                 slot.updateTexture(List.of());
                 return;
             }
-            slot.updateTexture(itemStack.isOf(Items.FIREWORK_STAR) ? List.of(FIREWORK_STAR_MODIFIER_TEXTURES.get(i - 1)) : itemStack.isOf(Items.PAPER) ? List.of(EMPTY_SLOT_GUNPOWDER_TEXTURE) : List.of());
+            slot.updateTexture(baseStack.isIn(KaleidoscopeItemTags.FIREWORK_STAR_BASES) ? List.of(FIREWORK_STAR_MODIFIER_TEXTURES.get(i - 1)) : baseStack.isOf(Items.PAPER) ? List.of(EMPTY_SLOT_GUNPOWDER_TEXTURE) : List.of());
         };
         consumer.accept(this.modifierSlotIcon, 1);
         consumer.accept(this.modifierSlotIcon2, 2);
@@ -85,35 +76,28 @@ public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHand
         this.modifierSlotIcon2.render(this.handler, context, delta, this.x, this.y);
         this.modifierSlotIcon3.render(this.handler, context, delta, this.x, this.y);
         if (this.getScreenHandler().getBaseSlot().hasStack()) {
-            context.drawTexture(TEXTURE, this.x + 42, this.y + 18, 0, this.backgroundHeight, 72, 36);
+            context.drawTexture(TEXTURE, this.x + 74, this.y + 16, 0, this.backgroundHeight, 54, 54);
             int i = 0;
             for (Slot slot : this.getScreenHandler().slots.subList(4, 12)) {
                 if (!slot.hasStack()) break;
                 ++i;
             }
             if (i < 8) {
-                context.drawTexture(TEXTURE, this.x + 42 + (i % 4) * 18, this.y + 18 + (Math.floorDiv(i, 4) * 18), this.getScreenHandler().getBaseSlot().getStack().isOf(Items.PAPER) ? 18 : 0, this.backgroundHeight + 36, 18, 18);
+                context.drawTexture(TEXTURE, this.x + 74 + (i % 3) * 18, this.y + 18 + (Math.floorDiv(i, 3) * 18), this.getScreenHandler().getBaseSlot().getStack().isOf(Items.PAPER) ? 18 : 0, this.backgroundHeight + 54, 18, 18);
             }
         }
     }
 
     private void drawInvalidInputArrow(DrawContext context, int x, int y) {
         if (this.getScreenHandler().hasInvalidInputs()) {
-            context.drawTexture(TEXTURE, x + 117, y + 41, this.backgroundWidth, 0, 28, 21);
+            context.drawTexture(TEXTURE, x + 133, y + 16, this.backgroundWidth, 0, 28, 23);
         }
     }
 
     private void renderSlotTooltip(DrawContext context, int mouseX, int mouseY) {
         Optional<Text> optional = Optional.empty();
-        if (this.getScreenHandler().hasInvalidInputs() && this.isPointWithinBounds(117, 41, 28, 21, mouseX, mouseY)) {
-            optional = Optional.ofNullable(switch (this.getScreenHandler().getInputError()) {
-                case NONE -> null;
-                case EXTRA_MODIFIER -> EXTRA_MODIFIER_TOOLTIP;
-                case INVALID_INPUT -> INVALID_INPUT_TOOLTIP;
-                case MISSING_DYE -> MISSING_DYE_TOOLTIP;
-                case MISSING_GUNPOWDER -> MISSING_GUNPOWDER_TOOLTIP;
-                case NO_EFFECT -> NO_EFFECT_TOOLTIP;
-            });
+        if (this.getScreenHandler().hasInvalidInputs() && this.isPointWithinBounds(133, 16, 28, 23, mouseX, mouseY)) {
+            optional = Optional.ofNullable(this.getScreenHandler().getInputError().getTooltip());
         }
         if (this.focusedSlot != null) {
             ItemStack itemStack = this.getScreenHandler().getBaseSlot().getStack();
@@ -131,6 +115,6 @@ public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHand
                 }
             }
         }
-        optional.ifPresentOrElse(text -> context.drawOrderedTooltip(this.textRenderer, this.textRenderer.wrapLines(text, 115), mouseX, mouseY), () -> this.drawMouseoverTooltip(context, mouseX, mouseY));
+        optional.ifPresentOrElse(text -> context.drawOrderedTooltip(this.textRenderer, this.textRenderer.wrapLines(text, 175), mouseX, mouseY), () -> this.drawMouseoverTooltip(context, mouseX, mouseY));
     }
 }

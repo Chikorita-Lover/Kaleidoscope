@@ -8,6 +8,7 @@ import net.minecraft.registry.tag.TagKey;
 public class KaleidoscopeItemTags {
     public static final TagKey<Item> BURNS_INTO_CHARCOAL = of("burns_into_charcoal");
     public static final TagKey<Item> FIREWORK_SHELLS = of("firework_shells");
+    public static final TagKey<Item> FIREWORK_STAR_BASES = of("firework_star_bases");
 
     private static TagKey<Item> of(String id) {
         return TagKey.of(RegistryKeys.ITEM, Kaleidoscope.of(id));

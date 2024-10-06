@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_creeper_head": {
+    "has_skull": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:creeper_head"
+            "items": "#minecraft:skulls"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_creeper_head"
+      "has_skull"
     ]
   ],
   "rewards": {
