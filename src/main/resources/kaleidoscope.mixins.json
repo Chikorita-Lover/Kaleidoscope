@@ -43,7 +43,6 @@
 		"item.DecorationItemMixin",
 		"item.HoeItemMixin",
 		"item.ItemMixin",
-		"item.ItemStackMixin",
 		"item.MiningToolItemMixin",
 		"item.ShearsItemMixin",
 		"item.ShovelItemMixin",

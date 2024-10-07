@@ -140,7 +140,6 @@ public class FireworksTableScreenHandler extends ScreenHandler {
             ItemStack stack = slot2.getStack();
             itemStack = stack.copy();
             if (slot == this.outputSlot.id) {
-                // this.context.run((world, pos) -> stack.onCraftByPlayer(world, player, stack.getCount()));
                 if (!this.insertItem(stack, INVENTORY_START, HOTBAR_END, true)) {
                     return ItemStack.EMPTY;
                 }
