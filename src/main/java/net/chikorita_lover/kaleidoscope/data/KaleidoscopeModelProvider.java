@@ -94,8 +94,6 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
         generator.register(KaleidoscopeItems.WARPED_CHEST_BOAT, Models.GENERATED);
         generator.register(KaleidoscopeItems.JUKEBOX_MINECART, Models.GENERATED);
 
-        generator.register(KaleidoscopeItems.CAKE_SLICE, Models.GENERATED);
-
         generator.register(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP, Models.GENERATED);
         for (Item item : Registries.ITEM) {
             if (item instanceof FireworkShellItem) {

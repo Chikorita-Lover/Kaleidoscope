@@ -13,7 +13,6 @@
 		"ServerAdvancementLoaderMixin",
 		"block.AbstractBlockStateMixin",
 		"block.BeehiveBlockMixin",
-		"block.BlockMixin",
 		"block.CakeBlockMixin",
 		"block.CampfireBlockMixin",
 		"block.ConduitBlockEntityMixin",

@@ -31,8 +31,6 @@ public class KaleidoscopeItems {
     public static final Item WARPED_CHEST_BOAT = register("warped_chest_boat", new BoatItem(true, WARPED_BOAT_TYPE, new Item.Settings().maxCount(1)));
     public static final Item JUKEBOX_MINECART = register("jukebox_minecart", new MinecartItem(JukeboxMinecartEntity.JUKEBOX_TYPE, new Item.Settings().maxCount(1)));
 
-    public static final Item CAKE_SLICE = register("cake_slice", new CakeSliceItem(new Item.Settings().food(KaleidoscopeFoodComponents.CAKE_SLICE)));
-
     public static final Item DISC_FRAGMENT_PIGSTEP = register("disc_fragment_pigstep", new DiscFragmentItem(new Item.Settings()));
 
     public static final Item LARGE_BALL_FIREWORK_SHELL = register("large_ball_firework_shell", createFireworkShell(FireworkExplosionComponent.Type.LARGE_BALL, Rarity.COMMON));
@@ -67,10 +65,6 @@ public class KaleidoscopeItems {
         }
 
         return Registry.register(Registries.ITEM, id, item);
-    }
-
-    public static void registerCompostingChances() {
-        CompostingChanceRegistry.INSTANCE.add(CAKE_SLICE, 0.85F);
     }
 
     public static void registerFuels() {
