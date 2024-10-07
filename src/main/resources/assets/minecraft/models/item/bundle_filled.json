@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "minecraft:item/bundle_filled",
-    "layer1": "kaleidoscope:item/bundle_filled_dyed"
-  }
-}

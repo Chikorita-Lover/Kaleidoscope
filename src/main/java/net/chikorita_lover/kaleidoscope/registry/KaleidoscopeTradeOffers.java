@@ -16,7 +16,6 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.TradedItem;
-import net.minecraft.village.VillagerProfession;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -25,9 +24,6 @@ import java.util.List;
 
 public class KaleidoscopeTradeOffers {
     public static void register() {
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.LEATHERWORKER, 3, factories -> {
-            factories.add(new TradeOffers.SellDyedArmorFactory(Items.BUNDLE, 3));
-        });
         TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.FIREWORKER, 1, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.CHARCOAL, 15, 16, 2));
             factories.add(new TradeOffers.SellItemFactory(Items.GUNPOWDER, 1, 1, 12, 1));

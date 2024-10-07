@@ -1,13 +1,13 @@
 package net.chikorita_lover.kaleidoscope;
 
+import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
+import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
 import net.chikorita_lover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
 import net.chikorita_lover.kaleidoscope.client.KaleidoscopeClientNetworkHandler;
 import net.chikorita_lover.kaleidoscope.client.gui.screen.FireworksTableScreen;
 import net.chikorita_lover.kaleidoscope.client.gui.screen.KilnScreen;
 import net.chikorita_lover.kaleidoscope.client.particle.FireflyParticle;
 import net.chikorita_lover.kaleidoscope.client.render.StriderChestFeatureRenderer;
-import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
-import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.entity.KaleidoscopeEntityTypes;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeParticleTypes;
 import net.chikorita_lover.kaleidoscope.screen.KaleidoscopeScreenHandlerTypes;
@@ -24,10 +24,8 @@ import net.minecraft.client.render.entity.MinecartEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.MinecartEntityModel;
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.OminousBottleItem;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
@@ -72,7 +70,6 @@ public class KaleidoscopeClient implements ClientModInitializer {
             Optional<PotionCauldronBlockEntity> optional = world.getBlockEntity(pos, KaleidoscopeBlockEntityTypes.POTION_CAULDRON);
             return optional.map(PotionCauldronBlockEntity::getColor).orElse(defaultColor);
         }, KaleidoscopeBlocks.POTION_CAULDRON);
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex != 1 ? -1 : DyedColorComponent.getColor(stack, 0), Items.BUNDLE);
 
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.GLASS_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, RenderLayer.getTranslucent());
