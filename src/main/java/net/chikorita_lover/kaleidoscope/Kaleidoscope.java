@@ -24,6 +24,7 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DispenserBlock;
+import net.minecraft.block.dispenser.BoatDispenserBehavior;
 import net.minecraft.block.dispenser.ShearsDispenserBehavior;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.enchantment.Enchantment;
@@ -186,6 +187,10 @@ public class Kaleidoscope implements ModInitializer {
         registerLootTableEvents();
 
         DispenserBlock.registerBehavior(KaleidoscopeItems.NETHERITE_SHEARS, new ShearsDispenserBehavior());
+        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.CRIMSON_BOAT_TYPE));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.WARPED_BOAT_TYPE));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.CRIMSON_BOAT_TYPE));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.WARPED_BOAT_TYPE));
 
         PayloadTypeRegistry.playS2C().register(OpenStriderScreenS2CPacket.PACKET_ID, OpenStriderScreenS2CPacket.PACKET_CODEC);
         PayloadTypeRegistry.playS2C().register(StopJukeboxMinecartPlayingS2CPacket.PACKET_ID, StopJukeboxMinecartPlayingS2CPacket.PACKET_CODEC);
