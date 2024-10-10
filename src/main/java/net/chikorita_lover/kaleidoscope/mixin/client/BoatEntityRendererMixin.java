@@ -1,6 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.client;
 
-import net.chikorita_lover.kaleidoscope.entity.BoatEntityAccessor;
+import net.chikorita_lover.kaleidoscope.entity.BannerEquippable;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BoatEntityRendererMixin {
     @Inject(method = "render(Lnet/minecraft/entity/vehicle/BoatEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/vehicle/BoatEntity;isSubmergedInWater()Z", shift = At.Shift.BEFORE))
     private void render(BoatEntity boatEntity, float f, float g, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
-        ItemStack stack = ((BoatEntityAccessor) boatEntity).kaleidoscope$getBannerStack();
+        ItemStack stack = ((BannerEquippable) boatEntity).kaleidoscope$getBannerStack();
         if (stack.isEmpty() || !(stack.getItem() instanceof BannerItem)) {
             return;
         }

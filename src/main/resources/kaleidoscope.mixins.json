@@ -37,6 +37,7 @@
 		"entity.SheepEntityMixin",
 		"entity.SnowGolemEntityMixin",
 		"entity.StriderEntityMixin",
+		"entity.VehicleEntityMixin",
 		"entity.WolfEntityMixin",
 		"item.AxeItemMixin",
 		"item.DecorationItemMixin",
