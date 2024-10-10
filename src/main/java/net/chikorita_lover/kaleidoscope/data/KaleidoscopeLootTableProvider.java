@@ -136,7 +136,6 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
 
         this.addDrop(KaleidoscopeBlocks.FIREWORKS_TABLE);
         this.addDrop(KaleidoscopeBlocks.KILN, this::nameableContainerDrops);
-        this.addDrop(KaleidoscopeBlocks.POTION_CAULDRON, Items.CAULDRON);
 
         this.lootTables.put(KaleidoscopeLootTables.HERO_OF_THE_VILLAGE_GLASSBLOWER_GIFT_GAMEPLAY, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(Blocks.GLASS))));
         this.lootTables.put(KaleidoscopeLootTables.HERO_OF_THE_VILLAGE_FIREWORKER_GIFT_GAMEPLAY, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(Items.GUNPOWDER))));

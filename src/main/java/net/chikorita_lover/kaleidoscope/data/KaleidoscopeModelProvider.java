@@ -81,7 +81,6 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
 
         generator.registerCubeWithCustomTextures(KaleidoscopeBlocks.FIREWORKS_TABLE, Blocks.JUNGLE_PLANKS, TextureMap::frontTopSide);
         registerKiln(generator, KaleidoscopeBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(KaleidoscopeBlocks.POTION_CAULDRON).coordinate(BlockStateVariantMap.create(LeveledCauldronBlock.LEVEL).register(1, BlockStateVariant.create().put(VariantSettings.MODEL, Models.TEMPLATE_CAULDRON_LEVEL1.upload(KaleidoscopeBlocks.POTION_CAULDRON, "_level1", TextureMap.cauldron(TextureMap.getSubId(Blocks.WATER, "_still")), generator.modelCollector))).register(2, BlockStateVariant.create().put(VariantSettings.MODEL, Models.TEMPLATE_CAULDRON_LEVEL2.upload(KaleidoscopeBlocks.POTION_CAULDRON, "_level2", TextureMap.cauldron(TextureMap.getSubId(Blocks.WATER, "_still")), generator.modelCollector))).register(3, BlockStateVariant.create().put(VariantSettings.MODEL, Models.TEMPLATE_CAULDRON_FULL.upload(KaleidoscopeBlocks.POTION_CAULDRON, "_full", TextureMap.cauldron(TextureMap.getSubId(Blocks.WATER, "_still")), generator.modelCollector)))));
     }
 
     @Override

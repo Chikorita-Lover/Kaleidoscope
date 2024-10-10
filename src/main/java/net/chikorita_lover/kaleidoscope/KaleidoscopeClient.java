@@ -1,8 +1,6 @@
 package net.chikorita_lover.kaleidoscope;
 
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
-import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
-import net.chikorita_lover.kaleidoscope.block.entity.PotionCauldronBlockEntity;
 import net.chikorita_lover.kaleidoscope.client.KaleidoscopeClientNetworkHandler;
 import net.chikorita_lover.kaleidoscope.client.gui.screen.FireworksTableScreen;
 import net.chikorita_lover.kaleidoscope.client.gui.screen.KilnScreen;
@@ -15,7 +13,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
@@ -34,7 +31,6 @@ import net.minecraft.util.Identifier;
 
 import java.text.NumberFormat;
 import java.util.List;
-import java.util.Optional;
 
 public class KaleidoscopeClient implements ClientModInitializer {
     public static final EntityModelLayer STRIDER_CHEST = new EntityModelLayer(Identifier.of("strider"), "chest");
@@ -62,15 +58,6 @@ public class KaleidoscopeClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
-            final int defaultColor = 0x385DC6;
-            if (world == null || pos == null) {
-                return defaultColor;
-            }
-            Optional<PotionCauldronBlockEntity> optional = world.getBlockEntity(pos, KaleidoscopeBlockEntityTypes.POTION_CAULDRON);
-            return optional.map(PotionCauldronBlockEntity::getColor).orElse(defaultColor);
-        }, KaleidoscopeBlocks.POTION_CAULDRON);
-
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.GLASS_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.BLACK_STAINED_GLASS_DOOR, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(KaleidoscopeBlocks.BLUE_STAINED_GLASS_DOOR, RenderLayer.getTranslucent());

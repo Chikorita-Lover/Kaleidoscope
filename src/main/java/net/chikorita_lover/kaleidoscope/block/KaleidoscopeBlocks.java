@@ -273,8 +273,6 @@ public class KaleidoscopeBlocks {
     public static final Block WHITE_STAINED_GLASS_TRAPDOOR = registerBlockWithItem("white_stained_glass_trapdoor", new StainedGlassTrapdoorBlock(DyeColor.WHITE, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.WHITE)));
     public static final Block YELLOW_STAINED_GLASS_TRAPDOOR = registerBlockWithItem("yellow_stained_glass_trapdoor", new StainedGlassTrapdoorBlock(DyeColor.YELLOW, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.YELLOW)));
 
-    public static final Block POTION_CAULDRON = register("potion_cauldron", new PotionCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON)));
-
     private static Block createGlassDoorBlock(@Nullable DyeColor dyeColor) {
         AbstractBlock.Settings settings = AbstractBlock.Settings.create().instrument(NoteBlockInstrument.HAT).nonOpaque().sounds(BlockSoundGroup.GLASS).strength(0.3F);
         if (dyeColor != null) {

@@ -51,8 +51,7 @@
 		"recipe.RecipeManagerMixin",
 		"structure.EndCityGeneratorPieceMixin",
 		"structure.StructurePieceMixin",
-		"structure.StructurePoolAccessor",
-		"structure.SwampHutGeneratorMixin"
+		"structure.StructurePoolAccessor"
 	],
 	"client": [
 		"client.BoatEntityRendererMixin",

@@ -3,7 +3,6 @@ package net.chikorita_lover.kaleidoscope;
 import com.mojang.datafixers.util.Pair;
 import net.chikorita_lover.kaleidoscope.block.CrackedBlockRegistry;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
-import net.chikorita_lover.kaleidoscope.block.KaleidoscopeCauldronBehavior;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
 import net.chikorita_lover.kaleidoscope.entity.KaleidoscopeEntityTypes;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItemGroups;
@@ -162,7 +161,6 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeBlocks.registerMossyPairs();
         KaleidoscopeBlocks.registerOxidizablePairs();
         KaleidoscopeBlockEntityTypes.register();
-        KaleidoscopeCauldronBehavior.register();
         KaleidoscopeEntityTypes.register();
         KaleidoscopeItemGroups.register();
         KaleidoscopeItems.registerFuels();

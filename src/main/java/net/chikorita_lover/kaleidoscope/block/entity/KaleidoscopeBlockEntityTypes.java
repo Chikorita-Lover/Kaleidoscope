@@ -9,8 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 public class KaleidoscopeBlockEntityTypes {
-    public static final BlockEntityType<KilnBlockEntity> KILN = register("kiln", (pos, state) -> new KilnBlockEntity(pos, state), KaleidoscopeBlocks.KILN);
-    public static final BlockEntityType<PotionCauldronBlockEntity> POTION_CAULDRON = register("potion_cauldron", (pos, state) -> new PotionCauldronBlockEntity(pos, state), KaleidoscopeBlocks.POTION_CAULDRON);
+    public static final BlockEntityType<KilnBlockEntity> KILN = register("kiln", KilnBlockEntity::new, KaleidoscopeBlocks.KILN);
 
     public static void register() {
     }
