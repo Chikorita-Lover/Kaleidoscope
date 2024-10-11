@@ -86,6 +86,8 @@ public class KaleidoscopeItemGroups {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> {
             entries.addAfter(Items.TNT_MINECART, KaleidoscopeItems.JUKEBOX_MINECART);
             entries.addAfter(Items.BAMBOO_CHEST_RAFT, KaleidoscopeItems.CRIMSON_CHEST_BOAT);
+            entries.addAfter(Items.IRON_DOOR, KaleidoscopeBlocks.GLASS_DOOR);
+            entries.addAfter(Items.IRON_TRAPDOOR, KaleidoscopeBlocks.GLASS_TRAPDOOR);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
             entries.addAfter(Items.SHEARS, KaleidoscopeItems.NETHERITE_SHEARS);

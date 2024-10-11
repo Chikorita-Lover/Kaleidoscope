@@ -4,15 +4,24 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.TrapdoorBlock;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class GlassTrapdoorBlock extends TrapdoorBlock {
     public GlassTrapdoorBlock(Settings settings) {
         super(KaleidoscopeBlockSetType.GLASS, settings);
+    }
+
+    @Nullable
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        BlockState state = super.getPlacementState(ctx);
+        return state != null ? state.with(POWERED, false).with(OPEN, false) : null;
     }
 
     @Override
