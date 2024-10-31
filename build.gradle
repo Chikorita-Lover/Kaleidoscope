@@ -37,6 +37,8 @@ dependencies {
 
 	modImplementation "com.github.Chocohead:Fabric-ASM:${fabric_asm_version}"
 	include "com.github.Chocohead:Fabric-ASM:${fabric_asm_version}"
+
+	modCompileOnly "com.github.Team-Abode:sketch:1.21.1-1.2.1"
 }
 
 processResources {
