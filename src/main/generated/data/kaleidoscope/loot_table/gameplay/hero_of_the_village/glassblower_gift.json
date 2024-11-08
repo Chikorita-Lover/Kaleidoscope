@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:glass"
+          "name": "minecraft:glass_bottle"
         }
       ],
       "rolls": 1.0

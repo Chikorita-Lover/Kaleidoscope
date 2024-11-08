@@ -1,4 +1,4 @@
-// 1.21.1	2024-11-03T16:37:16.1127251	Kaleidoscope/Block Loot Tables
+// 1.21.1	2024-11-07T19:25:19.0507643	Kaleidoscope/Block Loot Tables
 e0580b5c5772f1104a1d5c7b75851a543c69511d data\kaleidoscope\loot_table\blocks\smooth_calcite_stairs.json
 165a258b7272cf2414a3a41cedd15dcf1607dff7 data\kaleidoscope\loot_table\blocks\polished_end_stone.json
 9fbebd3e4976bbfb1afd58f9cc768e73a7c7b880 data\kaleidoscope\loot_table\blocks\packed_mud_wall.json
@@ -152,7 +152,7 @@ a822a3487190f29e284b787f9029870af58422af data\kaleidoscope\loot_table\blocks\lig
 3afabda7f9765f9b3a9f07a431bbb5c609e86230 data\kaleidoscope\loot_table\blocks\magenta_terracotta_stairs.json
 78212939d29fd1bc8da05744d0328423206ee436 data\kaleidoscope\loot_table\blocks\black_terracotta_slab.json
 7d244dab2197193b63d2a2cb2f224892620d8428 data\kaleidoscope\loot_table\blocks\purple_stained_brick_slab.json
-22d735341a1318bb581662104ab76fb982cd7f8c data\kaleidoscope\loot_table\gameplay\hero_of_the_village\glassblower_gift.json
+ae11217d623c4ec2b3f8248cbdc3af1a3f3528e9 data\kaleidoscope\loot_table\gameplay\hero_of_the_village\glassblower_gift.json
 baeae33ac5f50936602973a4646bec2f862a296a data\kaleidoscope\loot_table\blocks\cracked_mud_bricks.json
 1d0bce48724a618c8b946925961bd363797f5450 data\kaleidoscope\loot_table\blocks\purple_terracotta_stairs.json
 469e5ece25896e2fb3c0dc41d60924d46b9e2076 data\kaleidoscope\loot_table\blocks\lime_terracotta_slab.json
@@ -179,6 +179,7 @@ f37f9e8c0008e60ee98a6e753c63a2901fe99ccc data\kaleidoscope\loot_table\blocks\yel
 9ac338478d1f11331e33cf24a58796a05c23f0a8 data\kaleidoscope\loot_table\blocks\blue_stained_brick_stairs.json
 d813a9168f72043453319b224717028b3c5b3c35 data\kaleidoscope\loot_table\blocks\red_stained_brick_stairs.json
 771932cdc87ae0281b47a2ae8a793de355836300 data\kaleidoscope\loot_table\blocks\smooth_basalt_wall.json
+d119b5da7948fe0206fac6f4bea35777fdda3301 data\kaleidoscope\loot_table\chests\village\village_glassblower.json
 a82697b28a67e9bbb0d82d0da4a6f5f3bf14747a data\kaleidoscope\loot_table\blocks\blue_terracotta_stairs.json
 f682eef5fc61d3163aef0cbb741a72b71e7f85df data\kaleidoscope\loot_table\blocks\calcite_stairs.json
 e8c954a5861ffc64e8f96cfb1a0256a8f63c0cf3 data\kaleidoscope\loot_table\blocks\pink_stained_brick_slab.json

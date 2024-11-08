@@ -1,9 +1,13 @@
 {
-  "type": "minecraft:chest",
+  "type": "minecraft:block",
   "pools": [
     {
       "bonus_rolls": 0.0,
       "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald"
+        },
         {
           "type": "minecraft:item",
           "functions": [
@@ -17,7 +21,11 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:sand"
+          "name": "minecraft:copper_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:glass"
         },
         {
           "type": "minecraft:item",
@@ -37,7 +45,8 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:glass_pane"
+          "name": "minecraft:coal",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -54,29 +63,17 @@
           ],
           "name": "minecraft:bread",
           "weight": 4
-        },
+        }
+      ],
+      "functions": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:glass"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:copper_ingot"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:emerald"
+          "add": false,
+          "count": {
+            "type": "minecraft:uniform",
+            "max": 3.0,
+            "min": 1.0
+          },
+          "function": "minecraft:set_count"
         }
       ],
       "rolls": {

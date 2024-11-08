@@ -52,13 +52,14 @@ public class KaleidoscopeTradeOffers {
         });
         TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.GLASSBLOWER, 2, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.COAL, 15, 16, 10));
-            factories.add(new TradeOffers.BuyItemFactory(Items.COPPER_INGOT, 14, 16, 10));
+            factories.add(new TradeOffers.BuyItemFactory(Items.COPPER_INGOT, 18, 16, 10));
             factories.add(new TradeOffers.SellItemFactory(Items.SPYGLASS, 2, 1, 12, 5));
         });
         TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.GLASSBLOWER, 3, factories -> {
-            factories.add(new TradeOffers.BuyItemFactory(Items.AMETHYST_SHARD, 10, 12, 20));
+            factories.add(new TradeOffers.BuyItemFactory(Items.AMETHYST_SHARD, 14, 12, 20));
             factories.add(new TradeOffers.SellItemFactory(Blocks.REDSTONE_LAMP, 1, 1, 12, 10));
             factories.add(new TradeOffers.SellItemFactory(Blocks.DAYLIGHT_DETECTOR, 1, 1, 12, 10));
+            factories.add(new TradeOffers.SellItemFactory(Blocks.COPPER_BULB, 2, 1, 12, 10));
         });
         TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.GLASSBLOWER, 4, factories -> {
             Block[] stainedGlassBlocks = new Block[]{Blocks.WHITE_STAINED_GLASS, Blocks.LIGHT_GRAY_STAINED_GLASS, Blocks.GRAY_STAINED_GLASS, Blocks.BLACK_STAINED_GLASS, Blocks.BROWN_STAINED_GLASS, Blocks.RED_STAINED_GLASS, Blocks.ORANGE_STAINED_GLASS, Blocks.YELLOW_STAINED_GLASS, Blocks.LIME_STAINED_GLASS, Blocks.GREEN_STAINED_GLASS, Blocks.CYAN_STAINED_GLASS, Blocks.LIGHT_BLUE_STAINED_GLASS, Blocks.BLUE_STAINED_GLASS, Blocks.PURPLE_STAINED_GLASS, Blocks.MAGENTA_STAINED_GLASS, Blocks.PINK_STAINED_GLASS};
@@ -67,7 +68,8 @@ public class KaleidoscopeTradeOffers {
             }
         });
         TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.GLASSBLOWER, 5, factories -> {
-            factories.add(new TradeOffers.SellItemFactory(Blocks.TINTED_GLASS, 1, 1, 12, 15));
+            factories.add(new TradeOffers.BuyItemFactory(Items.QUARTZ, 10, 12, 30));
+            factories.add(new TradeOffers.SellItemFactory(Blocks.TINTED_GLASS, 1, 1, 12, 30));
         });
         TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
             factories.add(new TradeOffers.SellItemFactory(Items.SWEET_BERRIES, 1, 1, 12, 1));
