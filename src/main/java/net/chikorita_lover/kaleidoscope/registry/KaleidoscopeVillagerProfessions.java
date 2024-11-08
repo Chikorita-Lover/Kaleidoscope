@@ -13,8 +13,8 @@ import net.minecraft.world.poi.PointOfInterestType;
 import org.jetbrains.annotations.Nullable;
 
 public class KaleidoscopeVillagerProfessions {
-    public static final VillagerProfession FIREWORKER = register("fireworker", Kaleidoscope.FIREWORKER_POINT_OF_INTEREST, KaleidoscopeSoundEvents.ENTITY_VILLAGER_WORK_FIREWORKER);
-    public static final VillagerProfession GLASSBLOWER = register("glassblower", Kaleidoscope.GLASSBLOWER_POINT_OF_INTEREST, KaleidoscopeSoundEvents.ENTITY_VILLAGER_WORK_GLASSBLOWER);
+    public static final VillagerProfession FIREWORKER = register("fireworker", KaleidoscopePointOfInterestTypes.FIREWORKER, KaleidoscopeSoundEvents.ENTITY_VILLAGER_WORK_FIREWORKER);
+    public static final VillagerProfession GLASSBLOWER = register("glassblower", KaleidoscopePointOfInterestTypes.GLASSBLOWER, KaleidoscopeSoundEvents.ENTITY_VILLAGER_WORK_GLASSBLOWER);
 
     public static void register() {
     }
@@ -24,6 +24,7 @@ public class KaleidoscopeVillagerProfessions {
     }
 
     private static VillagerProfession register(String id, RegistryKey<PointOfInterestType> heldWorkstation, ImmutableSet<Item> gatherableItems, ImmutableSet<Block> secondaryJobSites, @Nullable SoundEvent workSound) {
-        return Registry.register(Registries.VILLAGER_PROFESSION, Kaleidoscope.of(id), new VillagerProfession(id, entry -> entry.matchesKey(heldWorkstation), entry -> entry.matchesKey(heldWorkstation), gatherableItems, secondaryJobSites, workSound));
+        VillagerProfession villagerProfession = new VillagerProfession(id, entry -> entry.matchesKey(heldWorkstation), entry -> entry.matchesKey(heldWorkstation), gatherableItems, secondaryJobSites, workSound);
+        return Registry.register(Registries.VILLAGER_PROFESSION, Kaleidoscope.of(id), villagerProfession);
     }
 }

@@ -42,6 +42,7 @@ public class KaleidoscopeTradeOffers {
             factories.add(new TradeOffers.SellItemFactory(Blocks.TNT, 5, 1, 12, 15));
         });
         TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.FIREWORKER, 5, factories -> {
+            factories.add(new TradeOffers.BuyItemFactory(Items.BLAZE_ROD, 3, 12, 30));
             factories.add(new SellFireworkRocketFactory(3, 30));
             factories.add(new SellFireworkStarFactory(2, true, 30));
         });
