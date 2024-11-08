@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_wall_post",
-  "textures": {
-    "wall": "kaleidoscope:block/pink_stained_bricks"
-  }
-}

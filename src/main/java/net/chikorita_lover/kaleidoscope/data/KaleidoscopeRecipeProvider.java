@@ -29,10 +29,6 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         super(dataOutput, registryLookup);
     }
 
-    private static void offerBrickDyeingRecipe(RecipeExporter exporter, ItemConvertible output, TagKey<Item> dyeTag) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 8).input('#', Blocks.BRICKS).input('X', dyeTag).pattern("###").pattern("#X#").pattern("###").group("stained_bricks").criterion("has_bricks", RecipeProvider.conditionsFromItem(Blocks.BRICKS)).offerTo(exporter);
-    }
-
     public static void offerCrackingRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), RecipeCategory.BUILDING_BLOCKS, output, 0.1F, 200).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
     }
@@ -156,74 +152,6 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BRICK_MOSAIC_SLAB, KaleidoscopeBlocks.BRICK_MOSAIC, 2);
 
         offerCrackingRecipe(exporter, KaleidoscopeBlocks.CRACKED_MUD_BRICKS, Blocks.MUD_BRICKS);
-
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BLACK_STAINED_BRICKS, ConventionalItemTags.BLACK_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BLUE_STAINED_BRICKS, ConventionalItemTags.BLUE_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.BROWN_STAINED_BRICKS, ConventionalItemTags.BROWN_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.CYAN_STAINED_BRICKS, ConventionalItemTags.CYAN_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.GRAY_STAINED_BRICKS, ConventionalItemTags.GRAY_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.GREEN_STAINED_BRICKS, ConventionalItemTags.GREEN_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICKS, ConventionalItemTags.LIGHT_BLUE_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICKS, ConventionalItemTags.LIGHT_GRAY_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.LIME_STAINED_BRICKS, ConventionalItemTags.LIME_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.MAGENTA_STAINED_BRICKS, ConventionalItemTags.MAGENTA_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.ORANGE_STAINED_BRICKS, ConventionalItemTags.ORANGE_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.PINK_STAINED_BRICKS, ConventionalItemTags.PINK_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.PURPLE_STAINED_BRICKS, ConventionalItemTags.PURPLE_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.RED_STAINED_BRICKS, ConventionalItemTags.RED_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.WHITE_STAINED_BRICKS, ConventionalItemTags.WHITE_DYES);
-        offerBrickDyeingRecipe(exporter, KaleidoscopeBlocks.YELLOW_STAINED_BRICKS, ConventionalItemTags.YELLOW_DYES);
-
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BLACK_STAINED_BRICK_SLAB, KaleidoscopeBlocks.BLACK_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BLUE_STAINED_BRICK_SLAB, KaleidoscopeBlocks.BLUE_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BROWN_STAINED_BRICK_SLAB, KaleidoscopeBlocks.BROWN_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CYAN_STAINED_BRICK_SLAB, KaleidoscopeBlocks.CYAN_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.GRAY_STAINED_BRICK_SLAB, KaleidoscopeBlocks.GRAY_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.GREEN_STAINED_BRICK_SLAB, KaleidoscopeBlocks.GREEN_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICK_SLAB, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICK_SLAB, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.LIME_STAINED_BRICK_SLAB, KaleidoscopeBlocks.LIME_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.MAGENTA_STAINED_BRICK_SLAB, KaleidoscopeBlocks.MAGENTA_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.ORANGE_STAINED_BRICK_SLAB, KaleidoscopeBlocks.ORANGE_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.PINK_STAINED_BRICK_SLAB, KaleidoscopeBlocks.PINK_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.PURPLE_STAINED_BRICK_SLAB, KaleidoscopeBlocks.PURPLE_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.RED_STAINED_BRICK_SLAB, KaleidoscopeBlocks.RED_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WHITE_STAINED_BRICK_SLAB, KaleidoscopeBlocks.WHITE_STAINED_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.YELLOW_STAINED_BRICK_SLAB, KaleidoscopeBlocks.YELLOW_STAINED_BRICKS, 2);
-
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BLACK_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.BLACK_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BLUE_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.BLUE_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.BROWN_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.BROWN_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.CYAN_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.CYAN_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.GRAY_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.GRAY_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.GREEN_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.GREEN_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.LIME_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.LIME_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.MAGENTA_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.MAGENTA_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.ORANGE_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.ORANGE_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.PINK_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.PINK_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.PURPLE_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.PURPLE_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.RED_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.RED_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.WHITE_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.WHITE_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.YELLOW_STAINED_BRICK_STAIRS, KaleidoscopeBlocks.YELLOW_STAINED_BRICKS);
-
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.BLACK_STAINED_BRICK_WALL, KaleidoscopeBlocks.BLACK_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.BLUE_STAINED_BRICK_WALL, KaleidoscopeBlocks.BLUE_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.BROWN_STAINED_BRICK_WALL, KaleidoscopeBlocks.BROWN_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.CYAN_STAINED_BRICK_WALL, KaleidoscopeBlocks.CYAN_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.GRAY_STAINED_BRICK_WALL, KaleidoscopeBlocks.GRAY_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.GREEN_STAINED_BRICK_WALL, KaleidoscopeBlocks.GREEN_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICK_WALL, KaleidoscopeBlocks.LIGHT_BLUE_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICK_WALL, KaleidoscopeBlocks.LIGHT_GRAY_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.LIME_STAINED_BRICK_WALL, KaleidoscopeBlocks.LIME_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.MAGENTA_STAINED_BRICK_WALL, KaleidoscopeBlocks.MAGENTA_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.ORANGE_STAINED_BRICK_WALL, KaleidoscopeBlocks.ORANGE_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.PINK_STAINED_BRICK_WALL, KaleidoscopeBlocks.PINK_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.PURPLE_STAINED_BRICK_WALL, KaleidoscopeBlocks.PURPLE_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.RED_STAINED_BRICK_WALL, KaleidoscopeBlocks.RED_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.WHITE_STAINED_BRICK_WALL, KaleidoscopeBlocks.WHITE_STAINED_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.YELLOW_STAINED_BRICK_WALL, KaleidoscopeBlocks.YELLOW_STAINED_BRICKS);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.PRISMARINE_BRICKS, Blocks.PRISMARINE);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.PRISMARINE_BRICK_SLAB, Blocks.PRISMARINE, 2);

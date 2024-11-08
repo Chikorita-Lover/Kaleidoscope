@@ -9,22 +9,6 @@
     "kaleidoscope:smooth_basalt_wall",
     "kaleidoscope:end_stone_wall",
     "kaleidoscope:polished_end_stone_wall",
-    "kaleidoscope:quartz_brick_wall",
-    "kaleidoscope:white_stained_brick_wall",
-    "kaleidoscope:light_gray_stained_brick_wall",
-    "kaleidoscope:gray_stained_brick_wall",
-    "kaleidoscope:black_stained_brick_wall",
-    "kaleidoscope:brown_stained_brick_wall",
-    "kaleidoscope:red_stained_brick_wall",
-    "kaleidoscope:orange_stained_brick_wall",
-    "kaleidoscope:yellow_stained_brick_wall",
-    "kaleidoscope:lime_stained_brick_wall",
-    "kaleidoscope:green_stained_brick_wall",
-    "kaleidoscope:cyan_stained_brick_wall",
-    "kaleidoscope:light_blue_stained_brick_wall",
-    "kaleidoscope:blue_stained_brick_wall",
-    "kaleidoscope:purple_stained_brick_wall",
-    "kaleidoscope:magenta_stained_brick_wall",
-    "kaleidoscope:pink_stained_brick_wall"
+    "kaleidoscope:quartz_brick_wall"
   ]
 }

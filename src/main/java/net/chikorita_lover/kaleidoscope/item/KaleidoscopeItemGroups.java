@@ -1,11 +1,8 @@
 package net.chikorita_lover.kaleidoscope.item;
 
-import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlockFamilies;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 
@@ -39,23 +36,6 @@ public class KaleidoscopeItemGroups {
             entries.addAfter(Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB, KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER, KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER_STAIRS, KaleidoscopeBlocks.WAXED_OXIDIZED_SMOOTH_COPPER_SLAB);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
-            entries.addBefore(Blocks.TERRACOTTA, Blocks.BRICKS, Blocks.BRICK_STAIRS, Blocks.BRICK_SLAB, Blocks.BRICK_WALL);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.WHITE_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.LIGHT_GRAY_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.GRAY_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.BLACK_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.BROWN_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.RED_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.ORANGE_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.YELLOW_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.LIME_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.GREEN_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.CYAN_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.LIGHT_BLUE_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.BLUE_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.PURPLE_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.MAGENTA_STAINED_BRICKS);
-            addStainedBricks(entries, KaleidoscopeBlockFamilies.PINK_STAINED_BRICKS);
             entries.addAfter(Blocks.TERRACOTTA, KaleidoscopeBlocks.TERRACOTTA_STAIRS, KaleidoscopeBlocks.TERRACOTTA_SLAB);
             entries.addAfter(Blocks.WHITE_TERRACOTTA, KaleidoscopeBlocks.WHITE_TERRACOTTA_STAIRS, KaleidoscopeBlocks.WHITE_TERRACOTTA_SLAB);
             entries.addAfter(Blocks.LIGHT_GRAY_TERRACOTTA, KaleidoscopeBlocks.LIGHT_GRAY_TERRACOTTA_STAIRS, KaleidoscopeBlocks.LIGHT_GRAY_TERRACOTTA_SLAB);
@@ -98,9 +78,5 @@ public class KaleidoscopeItemGroups {
             entries.addAfter(Items.DISC_FRAGMENT_5, KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP);
             entries.addBefore(Items.ANGLER_POTTERY_SHERD, KaleidoscopeItems.LARGE_BALL_FIREWORK_SHELL, KaleidoscopeItems.STAR_FIREWORK_SHELL, KaleidoscopeItems.CREEPER_FIREWORK_SHELL, KaleidoscopeItems.BURST_FIREWORK_SHELL);
         });
-    }
-
-    private static void addStainedBricks(FabricItemGroupEntries entries, BlockFamily blockFamily) {
-        entries.addBefore(Blocks.TERRACOTTA, blockFamily.getBaseBlock(), blockFamily.getVariant(BlockFamily.Variant.STAIRS), blockFamily.getVariant(BlockFamily.Variant.SLAB), blockFamily.getVariant(BlockFamily.Variant.WALL));
     }
 }

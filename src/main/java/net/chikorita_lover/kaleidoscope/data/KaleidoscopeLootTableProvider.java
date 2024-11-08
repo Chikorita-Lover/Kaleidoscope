@@ -60,23 +60,6 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
         this.addFamilyDrops(KaleidoscopeBlockFamilies.WAXED_WEATHERED_SMOOTH_COPPER);
         this.addFamilyDrops(KaleidoscopeBlockFamilies.WAXED_OXIDIZED_SMOOTH_COPPER);
 
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.WHITE_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.LIGHT_GRAY_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.GRAY_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.BLACK_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.BROWN_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.RED_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.ORANGE_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.YELLOW_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.LIME_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.GREEN_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.CYAN_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.LIGHT_BLUE_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.BLUE_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.PURPLE_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.MAGENTA_STAINED_BRICKS);
-        this.addFamilyDrops(KaleidoscopeBlockFamilies.PINK_STAINED_BRICKS);
-
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.TERRACOTTA);
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.WHITE_TERRACOTTA);
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.LIGHT_GRAY_TERRACOTTA);
