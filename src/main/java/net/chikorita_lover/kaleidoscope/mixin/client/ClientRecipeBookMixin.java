@@ -4,7 +4,7 @@ import com.chocohead.mm.api.ClassTinkerers;
 import com.google.common.collect.ImmutableMap;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import net.chikorita_lover.kaleidoscope.Kaleidoscope;
+import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeTypes;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.recipebook.RecipeResultCollection;
 import net.minecraft.client.recipebook.ClientRecipeBook;
@@ -49,7 +49,7 @@ public abstract class ClientRecipeBookMixin {
         RecipeType<?> recipeType = recipe2.getType();
         if (recipe2 instanceof AbstractCookingRecipe abstractCookingRecipe) {
             CookingRecipeCategory cookingRecipeCategory = abstractCookingRecipe.getCategory();
-            if (recipeType == Kaleidoscope.KILNING) {
+            if (recipeType == KaleidoscopeRecipeTypes.KILNING) {
                 cir.setReturnValue(cookingRecipeCategory == CookingRecipeCategory.BLOCKS ? KILN_BLOCKS : KILN_MISC);
             }
         }

@@ -1,6 +1,5 @@
 package net.chikorita_lover.kaleidoscope;
 
-import net.chikorita_lover.kaleidoscope.block.CrackedBlockRegistry;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
 import net.chikorita_lover.kaleidoscope.entity.KaleidoscopeEntityTypes;
@@ -10,6 +9,7 @@ import net.chikorita_lover.kaleidoscope.network.OpenStriderScreenS2CPacket;
 import net.chikorita_lover.kaleidoscope.network.StopJukeboxMinecartPlayingS2CPacket;
 import net.chikorita_lover.kaleidoscope.network.UpdateJukeboxMinecartS2CPacket;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
+import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeTypes;
 import net.chikorita_lover.kaleidoscope.recipe.KilningRecipe;
 import net.chikorita_lover.kaleidoscope.registry.*;
 import net.chikorita_lover.kaleidoscope.screen.KaleidoscopeScreenHandlerTypes;
@@ -67,7 +67,6 @@ import java.util.List;
 public class Kaleidoscope implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("Kaleidoscope");
     public static final String MODID = "kaleidoscope";
-    public static final RecipeType<KilningRecipe> KILNING = registerRecipeType("kilning");
     public static final StructureProcessorType<EndCityStructureProcessor> END_CITY_STRUCTURE_PROCESSOR = Registry.register(Registries.STRUCTURE_PROCESSOR, of("end_city"), () -> EndCityStructureProcessor.CODEC);
 
     public static Identifier of(String path) {
@@ -99,18 +98,8 @@ public class Kaleidoscope implements ModInitializer {
         return AnyOfLootCondition.builder(EntityPropertiesLootCondition.builder(LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().flags(net.minecraft.predicate.entity.EntityFlagsPredicate.Builder.create().onFire(true))), EntityPropertiesLootCondition.builder(LootContext.EntityTarget.DIRECT_ATTACKER, EntityPredicate.Builder.create().equipment(net.minecraft.predicate.entity.EntityEquipmentPredicate.Builder.create().mainhand(net.minecraft.predicate.item.ItemPredicate.Builder.create().subPredicate(ItemSubPredicateTypes.ENCHANTMENTS, EnchantmentsPredicate.enchantments(List.of(new EnchantmentPredicate(impl.getOrThrow(EnchantmentTags.SMELTS_LOOT), NumberRange.IntRange.ANY))))))));
     }
 
-    private static <T extends Recipe<?>> RecipeType<T> registerRecipeType(String path) {
-        return Registry.register(Registries.RECIPE_TYPE, of(path), new RecipeType<T>() {
-            @Override
-            public String toString() {
-                return path;
-            }
-        });
-    }
-
     @Override
     public void onInitialize() {
-        CrackedBlockRegistry.register();
         KaleidoscopeBlocks.registerFlammableBlocks();
         KaleidoscopeBlocks.registerMossyPairs();
         KaleidoscopeBlocks.registerOxidizablePairs();
@@ -121,6 +110,7 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeLootTables.register();
         KaleidoscopePointOfInterestTypes.register();
         KaleidoscopeRecipeSerializers.register();
+        KaleidoscopeRecipeTypes.register();
         KaleidoscopeScreenHandlerTypes.register();
         KaleidoscopeSoundEvents.register();
         KaleidoscopeStats.register();

@@ -1,0 +1,5 @@
+{
+  "type": "kaleidoscope:cracking",
+  "block": "minecraft:infested_stone_bricks",
+  "result": "minecraft:infested_cracked_stone_bricks"
+}
