@@ -212,7 +212,7 @@
 	"container.kiln": "Kiln",
 	"entity.kaleidoscope.jukebox_minecart": "Vagón con tocadiscos",
 	"entity.minecraft.villager.fireworker": "Pirotécnico",
-	"entity.minecraft.villager.glassblower": "Soplador",
+	"entity.minecraft.villager.glassblower": "Soplador de vidrio",
 	"gui.recipebook.toggleRecipes.kilnable": "Mostrando kilnables",
 	"item.kaleidoscope.burst_firework_shell": "Carcasa de fuegos artificiales de explosión",
 	"item.kaleidoscope.creeper_firework_shell": "Carcasa de fuegos artificiales de forma de creeper",
@@ -237,7 +237,7 @@
 	"subtitles.entity.camel.milk": "Camello ordeñado",
 	"subtitles.entity.strider.chest": "Cofre equipado a un strider",
 	"subtitles.entity.villager.work_fireworker": "Pirotécnico trabajando",
-	"subtitles.entity.villager.work_glassblower": "Soplador trabajando",
+	"subtitles.entity.villager.work_glassblower": "Soplador de vidrio trabajando",
 	"subtitles.item.hoe.scrape": "Azada raspando",
 	"subtitles.item.shovel.scoop_mud": "Pala escavando"
 }
