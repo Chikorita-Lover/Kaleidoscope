@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 public class KaleidoscopeRecipeTypes {
     public static final RecipeType<CrackingRecipe> CRACKING = register("cracking");
     public static final RecipeType<KilningRecipe> KILNING = register("kilning");
+    public static final RecipeType<MossScrapingRecipe> MOSS_SCRAPING = register("moss_scraping");
 
     public static void register() {
     }

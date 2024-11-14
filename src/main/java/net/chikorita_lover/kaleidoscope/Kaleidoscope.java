@@ -101,7 +101,6 @@ public class Kaleidoscope implements ModInitializer {
     @Override
     public void onInitialize() {
         KaleidoscopeBlocks.registerFlammableBlocks();
-        KaleidoscopeBlocks.registerMossyPairs();
         KaleidoscopeBlocks.registerOxidizablePairs();
         KaleidoscopeBlockEntityTypes.register();
         KaleidoscopeEntityTypes.register();

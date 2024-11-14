@@ -254,7 +254,7 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.KILN).input('#', Blocks.SMOOTH_STONE_SLAB).input('C', ConventionalItemTags.COPPER_INGOTS).input('X', ConventionalItemTags.PLAYER_WORKSTATIONS_FURNACES).pattern("C#C").pattern("CXC").pattern("C#C").criterion(hasItem(Blocks.FURNACE), conditionsFromTag(ConventionalItemTags.PLAYER_WORKSTATIONS_FURNACES)).offerTo(exporter);
 
-        CrackingRecipeJsonBuilder.create(Blocks.INFESTED_STONE_BRICKS, Blocks.INFESTED_CRACKED_STONE_BRICKS).offerTo(exporter, Kaleidoscope.of(getCrackingItemPath(Blocks.INFESTED_STONE_BRICKS)));
+        BlockTransmutingRecipeJsonBuilder.createCracking(Blocks.INFESTED_STONE_BRICKS, Blocks.INFESTED_CRACKED_STONE_BRICKS).offerTo(exporter, Kaleidoscope.of(getCrackingItemPath(Blocks.INFESTED_STONE_BRICKS)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, KaleidoscopeItems.NETHERITE_SHEARS).input('#', ConventionalItemTags.NETHERITE_INGOTS).pattern(" #").pattern("# ").criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromTag(ConventionalItemTags.NETHERITE_INGOTS)).offerTo(exporter);
 

@@ -216,20 +216,6 @@ public class KaleidoscopeBlocks {
         FlammableBlockRegistry.getDefaultInstance().remove(Blocks.COAL_BLOCK);
     }
 
-    public static void registerMossyPairs() {
-        MossyBlocksRegistry.registerMossyBlockPair(Blocks.MOSSY_COBBLESTONE, Blocks.COBBLESTONE);
-        MossyBlocksRegistry.registerMossyBlockPair(Blocks.MOSSY_COBBLESTONE_SLAB, Blocks.COBBLESTONE_SLAB);
-        MossyBlocksRegistry.registerMossyBlockPair(Blocks.MOSSY_COBBLESTONE_STAIRS, Blocks.COBBLESTONE_STAIRS);
-        MossyBlocksRegistry.registerMossyBlockPair(Blocks.MOSSY_COBBLESTONE_WALL, Blocks.COBBLESTONE_WALL);
-
-        MossyBlocksRegistry.registerMossyBlockPair(Blocks.MOSSY_STONE_BRICKS, Blocks.STONE_BRICKS);
-        MossyBlocksRegistry.registerMossyBlockPair(Blocks.MOSSY_STONE_BRICK_SLAB, Blocks.STONE_BRICK_SLAB);
-        MossyBlocksRegistry.registerMossyBlockPair(Blocks.MOSSY_STONE_BRICK_STAIRS, Blocks.STONE_BRICK_STAIRS);
-        MossyBlocksRegistry.registerMossyBlockPair(Blocks.MOSSY_STONE_BRICK_WALL, Blocks.STONE_BRICK_WALL);
-
-        MossyBlocksRegistry.registerMossyBlockPair(Blocks.INFESTED_MOSSY_STONE_BRICKS, Blocks.INFESTED_STONE_BRICKS);
-    }
-
     public static void registerOxidizablePairs() {
         OxidizableBlocksRegistry.registerOxidizableBlockPair(SMOOTH_COPPER, EXPOSED_SMOOTH_COPPER);
         OxidizableBlocksRegistry.registerOxidizableBlockPair(SMOOTH_COPPER_STAIRS, EXPOSED_SMOOTH_COPPER_STAIRS);
