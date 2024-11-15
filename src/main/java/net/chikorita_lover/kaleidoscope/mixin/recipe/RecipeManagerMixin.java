@@ -53,9 +53,9 @@ public abstract class RecipeManagerMixin extends JsonDataLoader {
     }
 
     @Unique
-    private static Identifier createCrackingId(Block block) {
-        Identifier id = Registries.BLOCK.getId(block);
-        String path = id.getPath().concat("_cracking");
+    private static Identifier createCrackingId(Block result) {
+        Identifier id = Registries.BLOCK.getId(result);
+        String path = id.getPath().concat("_from_cracking");
         String namespace = id.getNamespace();
         if (!namespace.equals("minecraft") && !namespace.equals(Kaleidoscope.MODID)) {
             path = namespace + '/' + path;
@@ -106,7 +106,7 @@ public abstract class RecipeManagerMixin extends JsonDataLoader {
                 final Block resultBlock = Block.getBlockFromItem(result.getItem());
                 Arrays.stream(ingredient.getMatchingStacks()).map(stack -> Block.getBlockFromItem(stack.getItem())).filter(block -> block != Blocks.AIR).forEach(block -> {
                     CrackingRecipe crackingRecipe = new CrackingRecipe(block, resultBlock);
-                    RecipeEntry<Recipe<?>> crackingEntry = new RecipeEntry<>(createCrackingId(block), crackingRecipe);
+                    RecipeEntry<Recipe<?>> crackingEntry = new RecipeEntry<>(createCrackingId(resultBlock), crackingRecipe);
                     BLOCK_TRANSMUTING_RECIPE_ENTRIES.add(crackingEntry);
                     builder.put(KaleidoscopeRecipeTypes.CRACKING, crackingEntry);
                 });
