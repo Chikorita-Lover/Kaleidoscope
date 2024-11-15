@@ -10,7 +10,6 @@ import net.chikorita_lover.kaleidoscope.network.StopJukeboxMinecartPlayingS2CPac
 import net.chikorita_lover.kaleidoscope.network.UpdateJukeboxMinecartS2CPacket;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeTypes;
-import net.chikorita_lover.kaleidoscope.recipe.KilningRecipe;
 import net.chikorita_lover.kaleidoscope.registry.*;
 import net.chikorita_lover.kaleidoscope.screen.KaleidoscopeScreenHandlerTypes;
 import net.chikorita_lover.kaleidoscope.structure.EndCityStructureProcessor;
@@ -46,8 +45,6 @@ import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.item.EnchantmentPredicate;
 import net.minecraft.predicate.item.EnchantmentsPredicate;
 import net.minecraft.predicate.item.ItemSubPredicateTypes;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
@@ -129,10 +126,10 @@ public class Kaleidoscope implements ModInitializer {
         registerLootTableEvents();
 
         DispenserBlock.registerBehavior(KaleidoscopeItems.NETHERITE_SHEARS, new ShearsDispenserBehavior());
-        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.CRIMSON_BOAT_TYPE));
-        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.WARPED_BOAT_TYPE));
-        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.CRIMSON_BOAT_TYPE));
-        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.WARPED_BOAT_TYPE));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_BOAT, new BoatDispenserBehavior(KaleidoscopeBoatTypes.CRIMSON));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_BOAT, new BoatDispenserBehavior(KaleidoscopeBoatTypes.WARPED));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeBoatTypes.CRIMSON));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeBoatTypes.WARPED));
 
         PayloadTypeRegistry.playS2C().register(OpenStriderScreenS2CPacket.PACKET_ID, OpenStriderScreenS2CPacket.PACKET_CODEC);
         PayloadTypeRegistry.playS2C().register(StopJukeboxMinecartPlayingS2CPacket.PACKET_ID, StopJukeboxMinecartPlayingS2CPacket.PACKET_CODEC);

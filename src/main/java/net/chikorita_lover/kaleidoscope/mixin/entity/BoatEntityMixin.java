@@ -2,6 +2,7 @@ package net.chikorita_lover.kaleidoscope.mixin.entity;
 
 import net.chikorita_lover.kaleidoscope.entity.BannerEquippable;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
+import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBoatTypes;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
@@ -64,10 +65,10 @@ public abstract class BoatEntityMixin extends VehicleEntity implements BannerEqu
 
     @Inject(method = "asItem", at = @At("HEAD"), cancellable = true)
     protected void asItem(CallbackInfoReturnable<Item> cir) {
-        if (this.getVariant() == KaleidoscopeItems.CRIMSON_BOAT_TYPE) {
+        if (this.getVariant() == KaleidoscopeBoatTypes.CRIMSON) {
             cir.setReturnValue(KaleidoscopeItems.CRIMSON_BOAT);
         }
-        if (this.getVariant() == KaleidoscopeItems.WARPED_BOAT_TYPE) {
+        if (this.getVariant() == KaleidoscopeBoatTypes.WARPED) {
             cir.setReturnValue(KaleidoscopeItems.WARPED_BOAT);
         }
     }

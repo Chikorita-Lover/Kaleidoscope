@@ -1,6 +1,7 @@
 package net.chikorita_lover.kaleidoscope.mixin.entity;
 
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
+import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBoatTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.entity.vehicle.ChestBoatEntity;
@@ -19,10 +20,10 @@ public abstract class ChestBoatEntityMixin extends BoatEntity {
 
     @Inject(method = "asItem", at = @At("HEAD"), cancellable = true)
     protected void asItem(CallbackInfoReturnable<Item> cir) {
-        if (this.getVariant() == KaleidoscopeItems.CRIMSON_BOAT_TYPE) {
+        if (this.getVariant() == KaleidoscopeBoatTypes.CRIMSON) {
             cir.setReturnValue(KaleidoscopeItems.CRIMSON_CHEST_BOAT);
         }
-        if (this.getVariant() == KaleidoscopeItems.WARPED_BOAT_TYPE) {
+        if (this.getVariant() == KaleidoscopeBoatTypes.WARPED) {
             cir.setReturnValue(KaleidoscopeItems.WARPED_CHEST_BOAT);
         }
     }

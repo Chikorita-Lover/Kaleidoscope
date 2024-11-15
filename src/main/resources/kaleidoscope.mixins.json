@@ -27,6 +27,7 @@
 		"entity.AbstractMinecartEntityMixin",
 		"entity.AllayEntityMixin",
 		"entity.BoatEntityMixin",
+		"entity.BoatEntityTypeMixin",
 		"entity.BoggedEntityMixin",
 		"entity.CamelEntityMixin",
 		"entity.ChestBoatEntityMixin",

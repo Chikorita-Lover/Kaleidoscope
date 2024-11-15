@@ -19,11 +19,6 @@ public class KaleidoscopeEarlyRiser implements Runnable {
         String instrumentType = 'L' + mappingResolver.mapClassName("intermediary", "net.minecraft.class_2766$class_7994") + ';';
         ClassTinkerers.enumBuilder(noteBlockInstrument, String.class, registryEntry, instrumentType).addEnum("KALEIDOSCOPE_SAXOPHONE", () -> new Object[]{"kaleidoscope_saxophone", KaleidoscopeSoundEvents.BLOCK_NOTE_BLOCK_SAXOPHONE, NoteBlockInstrument.Type.BASE_BLOCK}).build();
 
-        String boatEntityType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_1690$class_1692");
-        String block = 'L' + mappingResolver.mapClassName("intermediary", "net.minecraft.class_2248") + ';';
-        ClassTinkerers.enumBuilder(boatEntityType, block, String.class).addEnum("CRIMSON", () -> new Object[]{Blocks.CRIMSON_PLANKS, "crimson"}).build();
-        ClassTinkerers.enumBuilder(boatEntityType, block, String.class).addEnum("WARPED", () -> new Object[]{Blocks.WARPED_PLANKS, "warped"}).build();
-
         String recipeBookCategory = mappingResolver.mapClassName("intermediary", "net.minecraft.class_5421");
         ClassTinkerers.enumBuilder(recipeBookCategory).addEnum("KALEIDOSCOPE_KILN").build();
 
