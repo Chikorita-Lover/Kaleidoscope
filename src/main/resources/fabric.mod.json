@@ -1,43 +1,48 @@
 {
-  "schemaVersion": 1,
-  "id": "kaleidoscope",
-  "version": "${version}",
-  "name": "Kaleidoscope",
-  "description": "Adds new items and enhancements to compliment and expand upon the base game.",
-  "authors": [
-    "Chikorita-Lover"
-  ],
-  "contact": {
-    "homepage": "https://github.com/Chikorita-Lover/Kaleidoscope",
-    "sources": "https://github.com/Chikorita-Lover/Kaleidoscope",
-    "issues": "https://github.com/Chikorita-Lover/Kaleidoscope/issues"
-  },
-  "license": "CC0-1.0",
-  "icon": "assets/kaleidoscope/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "client": [
+	"schemaVersion": 1,
+	"id": "kaleidoscope",
+	"version": "${version}",
+	"name": "Kaleidoscope",
+	"description": "Adds an assortment of new quality-of-life items and enhancements to the base game.",
+	"authors": [
+		{
+			"name": "Chikorita-Lover",
+			"contact": {
+				"homepage": "https://github.com/Chikorita-Lover"
+			}
+		}
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/kaleidoscope-mod",
+		"sources": "https://github.com/Chikorita-Lover/Kaleidoscope",
+		"issues": "https://github.com/Chikorita-Lover/Kaleidoscope/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/kaleidoscope/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
 			"net.chikorita_lover.kaleidoscope.KaleidoscopeClient"
-    ],
-    "fabric-datagen": [
+		],
+		"fabric-datagen": [
 			"net.chikorita_lover.kaleidoscope.KaleidoscopeDataGenerator"
-    ],
-    "main": [
+		],
+		"main": [
 			"net.chikorita_lover.kaleidoscope.Kaleidoscope"
-    ],
-    "mm:early_risers": [
+		],
+		"mm:early_risers": [
 			"net.chikorita_lover.kaleidoscope.KaleidoscopeEarlyRiser"
-    ]
-  },
-  "mixins": [
-    "kaleidoscope.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=0.15.10",
-    "fabric-api": "*",
-    "minecraft": "~1.21.0",
-    "java": ">=21",
-    "mm": ">=2.3"
-  },
-  "accessWidener": "kaleidoscope.accesswidener"
+		]
+	},
+	"mixins": [
+		"kaleidoscope.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.10",
+		"fabric-api": "*",
+		"minecraft": "~1.21.0",
+		"java": ">=21",
+		"mm": ">=2.3"
+	},
+	"accessWidener": "kaleidoscope.accesswidener"
 }
