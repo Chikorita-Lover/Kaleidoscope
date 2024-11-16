@@ -17,7 +17,7 @@
 		"sources": "https://github.com/Chikorita-Lover/Kaleidoscope",
 		"issues": "https://github.com/Chikorita-Lover/Kaleidoscope/issues"
 	},
-	"license": "MIT",
+	"license": "ARR",
 	"icon": "assets/kaleidoscope/icon.png",
 	"environment": "*",
 	"entrypoints": {
