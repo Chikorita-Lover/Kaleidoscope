@@ -4,7 +4,11 @@ import com.chocohead.mm.api.ClassTinkerers;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.mojang.serialization.MapCodec;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap;
-import net.minecraft.block.*;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeBlockTags;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.state.State;
@@ -39,13 +43,13 @@ public abstract class AbstractBlockStateMixin extends State<Block, BlockState> {
         return this.isOf(Blocks.COBWEB) ? 1.6F : hardness;
     }
 
-    @Inject(method = "getInstrument", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "getInstrument", at = @At("HEAD"), cancellable = true)
     private void getInstrument(CallbackInfoReturnable<NoteBlockInstrument> ci) {
         if (this.isOf(Blocks.SOUL_SOIL)) {
             ci.setReturnValue(NoteBlockInstrument.COW_BELL);
         } else if (this.isOf(Blocks.CARVED_PUMPKIN) || this.isOf(Blocks.JACK_O_LANTERN)) {
             ci.setReturnValue(NoteBlockInstrument.DIDGERIDOO);
-        } else if (this.getBlock() instanceof Oxidizable || this.isOf(Blocks.LIGHTNING_ROD)) {
+        } else if (this.isIn(KaleidoscopeBlockTags.COPPER)) {
             ci.setReturnValue(SAXOPHONE);
         }
     }
