@@ -232,6 +232,9 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE, 6).input('W', Blocks.RED_NETHER_BRICKS).input('#', ConventionalItemTags.NETHER_BRICKS).pattern("W#W").pattern("W#W").criterion(hasItem(Blocks.RED_NETHER_BRICKS), conditionsFromItem(Blocks.RED_NETHER_BRICKS)).offerTo(exporter);
 
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, Blocks.NETHER_BRICK_FENCE, Blocks.NETHER_BRICKS, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, KaleidoscopeBlocks.RED_NETHER_BRICK_FENCE, Blocks.RED_NETHER_BRICKS, 2);
+
         offerGlassFamilyRecipes(exporter, KaleidoscopeBlockFamilies.GLASS, null);
         offerGlassFamilyRecipes(exporter, KaleidoscopeBlockFamilies.WHITE_STAINED_GLASS, ConventionalItemTags.WHITE_DYES);
         offerGlassFamilyRecipes(exporter, KaleidoscopeBlockFamilies.LIGHT_GRAY_STAINED_GLASS, ConventionalItemTags.LIGHT_GRAY_DYES);
