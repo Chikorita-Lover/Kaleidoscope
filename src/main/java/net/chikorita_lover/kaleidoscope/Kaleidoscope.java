@@ -11,6 +11,7 @@ import net.chikorita_lover.kaleidoscope.network.UpdateJukeboxMinecartS2CPacket;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeTypes;
 import net.chikorita_lover.kaleidoscope.registry.*;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeBlockTags;
 import net.chikorita_lover.kaleidoscope.screen.KaleidoscopeScreenHandlerTypes;
 import net.chikorita_lover.kaleidoscope.structure.EndCityStructureProcessor;
 import net.chikorita_lover.kaleidoscope.structure.StructurePoolModifiers;
@@ -19,8 +20,10 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DispenserBlock;
+import net.minecraft.block.SideShapeType;
 import net.minecraft.block.dispenser.BoatDispenserBehavior;
 import net.minecraft.block.dispenser.ShearsDispenserBehavior;
 import net.minecraft.component.DataComponentTypes;
@@ -55,6 +58,9 @@ import net.minecraft.structure.rule.AlwaysTrueRuleTest;
 import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Unit;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.BlockView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,6 +74,11 @@ public class Kaleidoscope implements ModInitializer {
 
     public static Identifier of(String path) {
         return Identifier.of(MODID, path);
+    }
+
+    public static boolean isHoisted(BlockView world, BlockPos pos, BlockState state) {
+        BlockState aboveState = world.getBlockState(pos.up());
+        return aboveState.isIn(KaleidoscopeBlockTags.HOISTS_FALLING_BLOCKS) && aboveState.isSideSolid(world, pos.up(), Direction.DOWN, SideShapeType.CENTER) && state.isSideSolid(world, pos, Direction.UP, SideShapeType.CENTER);
     }
 
     private static void addStructureProcessor(StructureProcessorList processorList, RuleStructureProcessor processor) {

@@ -1,0 +1,10 @@
+{
+	"values": [
+		"#c:chains",
+		"#c:ropes",
+		{
+			"id": "#farmersdelight:ropes",
+			"required": false
+		}
+	]
+}
