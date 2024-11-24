@@ -1,6 +1,5 @@
 package net.chikorita_lover.kaleidoscope.block;
 
-import com.mojang.serialization.MapCodec;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
 import net.chikorita_lover.kaleidoscope.block.entity.KilnBlockEntity;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
@@ -28,18 +27,13 @@ public class KilnBlock extends AbstractFurnaceBlock {
         super(settings);
     }
 
-    @Override
-    protected MapCodec<? extends AbstractFurnaceBlock> getCodec() {
-        return createCodec(KilnBlock::new);
-    }
-
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new KilnBlockEntity(pos, state);
     }
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(world, type, KaleidoscopeBlockEntityTypes.KILN);
+        return checkType(world, type, KaleidoscopeBlockEntityTypes.KILN);
     }
 
     protected void openScreen(World world, BlockPos pos, PlayerEntity player) {

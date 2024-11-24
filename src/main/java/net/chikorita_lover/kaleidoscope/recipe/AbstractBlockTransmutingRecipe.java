@@ -1,46 +1,43 @@
 package net.chikorita_lover.kaleidoscope.recipe;
 
-import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.google.gson.JsonObject;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.JsonHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public abstract class AbstractBlockTransmutingRecipe implements Recipe<SingleBlockRecipeInput> {
-    protected final RegistryKey<Block> block;
-    protected final RegistryKey<Block> result;
+public abstract class AbstractBlockTransmutingRecipe implements Recipe<Inventory> {
+    protected final Identifier id;
+    protected final Block block;
+    protected final Block result;
 
-    public AbstractBlockTransmutingRecipe(RegistryKey<Block> block, RegistryKey<Block> result) {
+    public AbstractBlockTransmutingRecipe(Identifier id, Block block, Block result) {
+        this.id = id;
         this.block = block;
         this.result = result;
     }
 
-    public AbstractBlockTransmutingRecipe(Block block, Block result) {
-        this(block.getRegistryEntry().registryKey(), result.getRegistryEntry().registryKey());
-    }
-
-    public BlockState createStateFrom(WorldView world, BlockState state) {
-        Block block = world.getRegistryManager().get(RegistryKeys.BLOCK).get(this.result);
-        return block != null ? block.getStateWithProperties(state) : state;
+    public BlockState createStateFrom(BlockState state) {
+        return this.result.getStateWithProperties(state);
     }
 
     @Override
-    public boolean matches(SingleBlockRecipeInput input, World world) {
-        return input.block().getRegistryEntry().matchesKey(this.block);
+    public boolean matches(Inventory inventory, World world) {
+        return inventory.getStack(0).isOf(this.block.asItem());
     }
 
     @Override
-    public ItemStack craft(SingleBlockRecipeInput input, RegistryWrapper.WrapperLookup lookup) {
-        return this.getResult(lookup);
+    public ItemStack craft(Inventory inventory, DynamicRegistryManager registryManager) {
+        return this.getOutput(registryManager);
     }
 
     @Override
@@ -49,8 +46,13 @@ public abstract class AbstractBlockTransmutingRecipe implements Recipe<SingleBlo
     }
 
     @Override
-    public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
-        return new ItemStack(registriesLookup.getWrapperOrThrow(RegistryKeys.BLOCK).getOrThrow(this.result).value());
+    public ItemStack getOutput(DynamicRegistryManager registryManager) {
+        return new ItemStack(this.result);
+    }
+
+    @Override
+    public Identifier getId() {
+        return this.id;
     }
 
     @Override
@@ -59,39 +61,34 @@ public abstract class AbstractBlockTransmutingRecipe implements Recipe<SingleBlo
     }
 
     public interface RecipeFactory<T extends AbstractBlockTransmutingRecipe> {
-        T create(RegistryKey<Block> block, RegistryKey<Block> result);
+        T create(Identifier id, Block block, Block result);
     }
 
     public static class Serializer<T extends AbstractBlockTransmutingRecipe> implements RecipeSerializer<T> {
         private final RecipeFactory<T> recipeFactory;
-        private final MapCodec<T> codec;
-        private final PacketCodec<RegistryByteBuf, T> packetCodec;
 
         public Serializer(RecipeFactory<T> recipeFactory) {
             this.recipeFactory = recipeFactory;
-            this.codec = RecordCodecBuilder.mapCodec(instance -> instance.group(RegistryKey.createCodec(RegistryKeys.BLOCK).fieldOf("block").forGetter(recipe -> recipe.block), RegistryKey.createCodec(RegistryKeys.BLOCK).fieldOf("result").forGetter(recipe -> recipe.result)).apply(instance, recipeFactory::create));
-            this.packetCodec = PacketCodec.ofStatic(this::write, this::read);
         }
 
         @Override
-        public MapCodec<T> codec() {
-            return this.codec;
+        public T read(Identifier id, final JsonObject json) {
+            Block block = Registries.BLOCK.getOrEmpty(new Identifier(JsonHelper.getString(json, "block"))).orElseThrow(() -> new IllegalStateException("Block: " + JsonHelper.getString(json, "block") + " does not exist"));
+            Block result = Registries.BLOCK.getOrEmpty(new Identifier(JsonHelper.getString(json, "result"))).orElseThrow(() -> new IllegalStateException("Block: " + JsonHelper.getString(json, "result") + " does not exist"));
+            return this.recipeFactory.create(id, block, result);
         }
 
         @Override
-        public PacketCodec<RegistryByteBuf, T> packetCodec() {
-            return this.packetCodec;
+        public T read(Identifier id, PacketByteBuf buf) {
+            Block block = Registries.BLOCK.get(buf.readIdentifier());
+            Block result = Registries.BLOCK.get(buf.readIdentifier());
+            return this.recipeFactory.create(id, block, result);
         }
 
-        private T read(RegistryByteBuf buf) {
-            RegistryKey<Block> block = RegistryKey.createPacketCodec(RegistryKeys.BLOCK).decode(buf);
-            RegistryKey<Block> result = RegistryKey.createPacketCodec(RegistryKeys.BLOCK).decode(buf);
-            return this.recipeFactory.create(block, result);
-        }
-
-        private void write(RegistryByteBuf buf, T recipe) {
-            RegistryKey.createPacketCodec(RegistryKeys.BLOCK).encode(buf, recipe.block);
-            RegistryKey.createPacketCodec(RegistryKeys.BLOCK).encode(buf, recipe.result);
+        @Override
+        public void write(PacketByteBuf buf, T recipe) {
+            buf.writeIdentifier(Registries.BLOCK.getId(recipe.block));
+            buf.writeIdentifier(Registries.BLOCK.getId(recipe.result));
         }
     }
 }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "terracotta_slab",
+  "key": {
+    "#": {
+      "item": "minecraft:terracotta"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "item": "kaleidoscope:terracotta_slab"
+  },
+  "show_notification": true
+}

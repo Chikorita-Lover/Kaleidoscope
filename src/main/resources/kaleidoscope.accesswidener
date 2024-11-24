@@ -8,14 +8,14 @@ accessible method net/minecraft/server/network/ServerPlayerEntity onScreenHandle
 accessible field net/minecraft/structure/processor/StructureProcessorList list Ljava/util/List;
 mutable field net/minecraft/structure/processor/StructureProcessorList list Ljava/util/List;
 accessible field net/minecraft/world/ChunkRegion currentlyGeneratingStructureName Ljava/util/function/Supplier;
-accessible class net/minecraft/block/enums/NoteBlockInstrument$Type
+accessible class net/minecraft/block/enums/Instrument$Type
 accessible field net/minecraft/recipe/Ingredient entries [Lnet/minecraft/recipe/Ingredient$Entry;
 accessible class net/minecraft/recipe/Ingredient$TagEntry
 accessible class net/minecraft/recipe/Ingredient$StackEntry
-accessible method net/minecraft/recipe/Ingredient$TagEntry tag ()Lnet/minecraft/registry/tag/TagKey;
-accessible method net/minecraft/recipe/Ingredient$StackEntry stack ()Lnet/minecraft/item/ItemStack;
+accessible field net/minecraft/recipe/Ingredient$TagEntry tag Lnet/minecraft/registry/tag/TagKey;
+accessible field net/minecraft/recipe/Ingredient$StackEntry stack Lnet/minecraft/item/ItemStack;
 accessible field net/minecraft/client/gui/screen/recipebook/RecipeResultCollection recipes Ljava/util/List;
 mutable field net/minecraft/client/gui/screen/recipebook/RecipeResultCollection recipes Ljava/util/List;
-accessible method net/minecraft/entity/vehicle/VehicleEntity asItem ()Lnet/minecraft/item/Item;
+accessible method net/minecraft/entity/vehicle/AbstractMinecartEntity getItem ()Lnet/minecraft/item/Item;
 accessible field net/minecraft/client/sound/SoundManager soundSystem Lnet/minecraft/client/sound/SoundSystem;
 accessible field net/minecraft/client/sound/SoundSystem sources Ljava/util/Map;

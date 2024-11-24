@@ -1,7 +1,7 @@
 package net.chikorita_lover.kaleidoscope.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.advancement.criterion.AbstractCriterion;
 import net.minecraft.advancement.criterion.PlayerInteractedWithEntityCriterion;
 import net.minecraft.entity.Entity;
@@ -17,9 +17,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerInteractedWithEntityCriterion.class)
 public abstract class PlayerInteractedWithEntityCriterionMixin extends AbstractCriterion<PlayerInteractedWithEntityCriterion.Conditions> {
     @Inject(method = "trigger", at = @At("TAIL"))
-    private void tryTriggerWithShears(ServerPlayerEntity player, ItemStack stack, Entity entity, CallbackInfo ci, @Local LootContext lootContext) {
-        if (stack.isIn(ConventionalItemTags.SHEAR_TOOLS)) {
-            this.trigger(player, conditions -> conditions.test(stack.copyComponentsToNewStack(Items.SHEARS, stack.getCount()), lootContext));
+    private void tryTriggerWithShears(ServerPlayerEntity player, ItemStack stack, Entity entity, CallbackInfo ci, @Local final LootContext lootContext) {
+        if (stack.isIn(ConventionalItemTags.SHEARS)) {
+            final ItemStack shears = new ItemStack(Items.SHEARS);
+            shears.setNbt(stack.getNbt());
+            this.trigger(player, conditions -> conditions.test(shears, lootContext));
         }
     }
 }

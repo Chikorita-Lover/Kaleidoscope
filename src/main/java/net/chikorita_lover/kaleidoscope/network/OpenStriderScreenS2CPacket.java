@@ -1,26 +1,25 @@
 package net.chikorita_lover.kaleidoscope.network;
 
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.packet.CustomPayload;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.networking.v1.FabricPacket;
+import net.fabricmc.fabric.api.networking.v1.PacketType;
+import net.minecraft.network.PacketByteBuf;
 
-public record OpenStriderScreenS2CPacket(int syncId, int striderId) implements CustomPayload {
-    public static final Id<OpenStriderScreenS2CPacket> PACKET_ID = new Id<>(Kaleidoscope.of("open_strider_screen"));
-    public static final PacketCodec<RegistryByteBuf, OpenStriderScreenS2CPacket> PACKET_CODEC = PacketCodec.of(OpenStriderScreenS2CPacket::write, OpenStriderScreenS2CPacket::new);
+public record OpenStriderScreenS2CPacket(int syncId, int striderId) implements FabricPacket {
+    public static final PacketType<OpenStriderScreenS2CPacket> TYPE = PacketType.create(Kaleidoscope.of("open_strider_screen"), OpenStriderScreenS2CPacket::new);
 
-    public OpenStriderScreenS2CPacket(RegistryByteBuf buf) {
+    public OpenStriderScreenS2CPacket(PacketByteBuf buf) {
         this(buf.readInt(), buf.readInt());
     }
 
-    public void write(RegistryByteBuf buf) {
+    @Override
+    public void write(PacketByteBuf buf) {
         buf.writeInt(this.syncId);
         buf.writeInt(this.striderId);
     }
 
     @Override
-    public Id<? extends CustomPayload> getId() {
-        return PACKET_ID;
+    public PacketType<?> getType() {
+        return TYPE;
     }
 }

@@ -8,8 +8,6 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.JukeboxBlock;
-import net.minecraft.block.jukebox.JukeboxSong;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.data.DataTracker;
@@ -20,10 +18,10 @@ import net.minecraft.entity.vehicle.AbstractMinecartEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.MusicDiscItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
@@ -32,8 +30,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-
-import java.util.Optional;
 
 public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inventory {
     public static final AbstractMinecartEntity.Type JUKEBOX_TYPE = ClassTinkerers.getEnum(AbstractMinecartEntity.Type.class, "JUKEBOX");
@@ -70,17 +66,17 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
     }
 
     @Override
-    protected void initDataTracker(DataTracker.Builder builder) {
-        super.initDataTracker(builder);
-        builder.add(ITEM_STACK, ItemStack.EMPTY);
-        builder.add(PLAYING, false);
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(ITEM_STACK, ItemStack.EMPTY);
+        this.dataTracker.startTracking(PLAYING, false);
     }
 
     @Override
     public void tick() {
         super.tick();
         ++this.ticksThisSecond;
-        if (this.isPlayingRecord() && this.getStack(0).contains(DataComponentTypes.JUKEBOX_PLAYABLE)) {
+        if (this.isPlayingRecord() && this.getStack(0).getItem() instanceof MusicDiscItem) {
             if (this.isSongFinished(this.getStack(0))) {
                 this.stopPlaying();
             } else if (this.ticksThisSecond >= 20) {
@@ -100,15 +96,17 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
         }
         if (!this.isEmpty()) {
             this.dropRecord();
-        } else if (stack.contains(DataComponentTypes.JUKEBOX_PLAYABLE)) {
-            this.setStack(0, stack.splitUnlessCreative(1, player));
+        } else if (stack.getItem() instanceof MusicDiscItem) {
+            this.setStack(0, stack.copyWithCount(1));
+            if (!player.getAbilities().creativeMode) {
+                stack.decrement(1);
+            }
         }
         return ActionResult.CONSUME;
     }
 
     private boolean isSongFinished(ItemStack stack) {
-        Optional<RegistryEntry<JukeboxSong>> optional = JukeboxSong.getSongEntryFromStack(this.getWorld().getRegistryManager(), stack);
-        return optional.map(songEntry -> this.tickCount >= this.recordStartTick + songEntry.value().getLengthInTicks() + 20L).orElse(true);
+        return !(stack.getItem() instanceof MusicDiscItem musicDisc) || this.tickCount >= this.recordStartTick + musicDisc.getSongLengthInTicks() + 20L;
     }
 
     @Override
@@ -116,13 +114,13 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
         return JUKEBOX_TYPE;
     }
 
-    public Item asItem() { // Overrides a super method
+    public Item getItem() { // Overrides a super method
         return KaleidoscopeItems.JUKEBOX_MINECART;
     }
 
     @Override
     public ItemStack getPickBlockStack() {
-        return new ItemStack(this.asItem());
+        return new ItemStack(this.getItem());
     }
 
     @Override
@@ -148,7 +146,7 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
         if (slot >= this.size()) {
             return;
         }
-        if (stack.contains(DataComponentTypes.JUKEBOX_PLAYABLE)) {
+        if (stack.getItem() instanceof MusicDiscItem) {
             this.dataTracker.set(ITEM_STACK, stack);
             this.startPlaying();
         }
@@ -230,7 +228,7 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
     protected void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
         if (nbt.contains("RecordItem", NbtElement.COMPOUND_TYPE)) {
-            this.setStack(0, ItemStack.fromNbt(this.getRegistryManager(), nbt.getCompound("RecordItem")).orElse(ItemStack.EMPTY));
+            this.setStack(0, ItemStack.fromNbt(nbt.getCompound("RecordItem")));
         }
         this.recordStartTick = nbt.getLong("RecordStartTick");
         this.tickCount = nbt.getLong("TickCount");
@@ -241,7 +239,7 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
     protected void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
         if (!this.getStack(0).isEmpty()) {
-            nbt.put("RecordItem", this.getStack(0).encode(this.getRegistryManager()));
+            nbt.put("RecordItem", this.getStack(0).writeNbt(new NbtCompound()));
         }
         nbt.putBoolean("IsPlaying", this.isPlayingRecord());
         nbt.putLong("RecordStartTick", this.recordStartTick);
@@ -255,7 +253,7 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
 
     @Override
     public boolean isValid(int slot, ItemStack stack) {
-        return slot < this.size() && stack.contains(DataComponentTypes.JUKEBOX_PLAYABLE);
+        return slot < this.size() && stack.getItem() instanceof MusicDiscItem;
     }
 
     @Override

@@ -1,13 +1,12 @@
 package net.chikorita_lover.kaleidoscope.mixin.item;
 
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeTypes;
-import net.chikorita_lover.kaleidoscope.recipe.SingleBlockRecipeInput;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -31,16 +30,16 @@ public class HoeItemMixin {
         final PlayerEntity player = context.getPlayer();
         final BlockState state = world.getBlockState(pos);
         final ItemStack stack = context.getStack();
-        world.getRecipeManager().getFirstMatch(KaleidoscopeRecipeTypes.MOSS_SCRAPING, new SingleBlockRecipeInput(state.getBlock()), world).ifPresent(entry -> {
-            BlockState newState = entry.value().createStateFrom(world, state);
+        world.getRecipeManager().getFirstMatch(KaleidoscopeRecipeTypes.MOSS_SCRAPING, new SimpleInventory(new ItemStack(state.getBlock().asItem())), world).ifPresent(entry -> {
+            BlockState newState = entry.createStateFrom(state);
             world.playSound(player, pos, KaleidoscopeSoundEvents.ITEM_HOE_SCRAPE, SoundCategory.BLOCKS, 1.0F, 1.0F);
             if (player instanceof ServerPlayerEntity serverPlayer) {
                 Criteria.ITEM_USED_ON_BLOCK.trigger(serverPlayer, pos, stack);
             }
-            world.setBlockState(pos, newState, Block.NOTIFY_ALL_AND_REDRAW);
+            world.setBlockState(pos, newState, Block.NOTIFY_ALL);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, newState));
             if (player != null) {
-                stack.damage(1, player, LivingEntity.getSlotForHand(context.getHand()));
+                stack.damage(1, player, playerx -> playerx.sendToolBreakStatus(context.getHand()));
             }
             cir.setReturnValue(ActionResult.success(world.isClient()));
         });

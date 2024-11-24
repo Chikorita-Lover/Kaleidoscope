@@ -24,14 +24,14 @@ public class ShearsDispenserBehaviorMixin {
         if (success) {
             return true;
         }
-        ServerWorld world = pointer.world();
-        BlockState state = pointer.state();
+        ServerWorld world = pointer.getWorld();
+        BlockState state = pointer.getBlockState();
         Direction dispenserDirection = state.get(DispenserBlock.FACING);
-        BlockPos pos = pointer.pos().offset(dispenserDirection);
+        BlockPos pos = pointer.getPos().offset(dispenserDirection);
         if (world.getBlockState(pos).getBlock() instanceof PumpkinBlock) {
             Direction direction = dispenserDirection.getAxis() == Direction.Axis.Y ? Direction.NORTH : dispenserDirection.getOpposite();
             world.playSound(null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS);
-            world.setBlockState(pos, Blocks.CARVED_PUMPKIN.getDefaultState().with(CarvedPumpkinBlock.FACING, direction), Block.NOTIFY_ALL_AND_REDRAW);
+            world.setBlockState(pos, Blocks.CARVED_PUMPKIN.getDefaultState().with(CarvedPumpkinBlock.FACING, direction), Block.NOTIFY_ALL);
             ItemEntity itemEntity = new ItemEntity(world, pos.getX() + 0.5 + direction.getOffsetX() * 0.65, pos.getY() + 0.1, pos.getZ() + 0.5 + direction.getOffsetZ() * 0.65, new ItemStack(Items.PUMPKIN_SEEDS, 4));
             itemEntity.setVelocity(0.05 * direction.getOffsetX() + world.getRandom().nextDouble() * 0.02, 0.05, 0.05 * direction.getOffsetZ() + world.getRandom().nextDouble() * 0.02);
             world.spawnEntity(itemEntity);

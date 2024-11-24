@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "stained_glass_trapdoor",
+  "key": {
+    "#": {
+      "item": "minecraft:white_stained_glass"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "item": "kaleidoscope:white_stained_glass_trapdoor"
+  },
+  "show_notification": true
+}

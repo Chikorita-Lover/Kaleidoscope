@@ -20,8 +20,8 @@ public class KaleidoscopeMixinConfigPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (mixinClassName.endsWith("SketchBoatRendererMixin")) {
-            return FabricLoader.getInstance().isModLoaded("sketch");
+        if (mixinClassName.endsWith("ScribeBoatRendererMixin")) {
+            return FabricLoader.getInstance().isModLoaded("scribe");
         }
         return true;
     }

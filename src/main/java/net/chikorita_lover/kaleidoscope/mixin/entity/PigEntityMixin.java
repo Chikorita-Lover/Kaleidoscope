@@ -1,9 +1,8 @@
 package net.chikorita_lover.kaleidoscope.mixin.entity;
 
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Saddleable;
 import net.minecraft.entity.SaddledComponent;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -36,17 +35,17 @@ public abstract class PigEntityMixin extends AnimalEntity implements Saddleable 
     public abstract boolean isSaddled();
 
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
-    private void tryRemoveSaddle(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+    private void tryRemoveSaddle(PlayerEntity player, final Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         ItemStack stack = player.getStackInHand(hand);
-        if (!stack.isIn(ConventionalItemTags.SHEAR_TOOLS) || !this.isSaddled() || this.hasPassengers()) {
+        if (!stack.isIn(ConventionalItemTags.SHEARS) || !this.isSaddled() || this.hasPassengers()) {
             return;
         }
         this.saddledComponent.setSaddled(false);
-        this.playSound(KaleidoscopeSoundEvents.ENTITY_PIG_SHEAR);
+        this.playSound(KaleidoscopeSoundEvents.ENTITY_PIG_SHEAR, 1.0F, 1.0F);
         this.dropStack(new ItemStack(Items.SADDLE), this.getHeight());
         this.emitGameEvent(GameEvent.SHEAR, player);
         if (!this.getWorld().isClient()) {
-            stack.damage(1, player, LivingEntity.getSlotForHand(hand));
+            stack.damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
         }
         cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
     }

@@ -1,0 +1,26 @@
+{
+	"fabric:load_conditions": [
+		{
+			"condition": "fabric:all_mods_loaded",
+			"values": [
+				"farmersdelight"
+			]
+		}
+	],
+	"type": "farmersdelight:cutting",
+	"ingredients": [
+		{
+			"item": "kaleidoscope:charcoal_block"
+		}
+	],
+	"result": [
+		{
+			"count": 4,
+			"item": "minecraft:charcoal"
+		}
+	],
+	"tool": {
+		"fabric:type": "farmersdelight:tool_action",
+		"action": "pickaxe_dig"
+	}
+}

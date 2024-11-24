@@ -1,24 +1,24 @@
 package net.chikorita_lover.kaleidoscope.network;
 
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.packet.CustomPayload;
+import net.fabricmc.fabric.api.networking.v1.FabricPacket;
+import net.fabricmc.fabric.api.networking.v1.PacketType;
+import net.minecraft.network.PacketByteBuf;
 
-public record StopJukeboxMinecartPlayingS2CPacket(int entityId) implements CustomPayload {
-    public static final Id<StopJukeboxMinecartPlayingS2CPacket> PACKET_ID = new Id<>(Kaleidoscope.of("stop_jukebox_minecart_playing"));
-    public static final PacketCodec<RegistryByteBuf, StopJukeboxMinecartPlayingS2CPacket> PACKET_CODEC = PacketCodec.of(StopJukeboxMinecartPlayingS2CPacket::write, StopJukeboxMinecartPlayingS2CPacket::new);
+public record StopJukeboxMinecartPlayingS2CPacket(int entityId) implements FabricPacket {
+    public static final PacketType<StopJukeboxMinecartPlayingS2CPacket> TYPE = PacketType.create(Kaleidoscope.of("stop_jukebox_minecart_playing"), StopJukeboxMinecartPlayingS2CPacket::new);
 
-    public StopJukeboxMinecartPlayingS2CPacket(RegistryByteBuf buf) {
+    public StopJukeboxMinecartPlayingS2CPacket(PacketByteBuf buf) {
         this(buf.readInt());
     }
 
-    public void write(RegistryByteBuf buf) {
+    @Override
+    public void write(PacketByteBuf buf) {
         buf.writeInt(this.entityId());
     }
 
     @Override
-    public Id<? extends CustomPayload> getId() {
-        return PACKET_ID;
+    public PacketType<?> getType() {
+        return TYPE;
     }
 }

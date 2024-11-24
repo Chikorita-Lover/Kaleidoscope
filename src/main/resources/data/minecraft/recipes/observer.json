@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "redstone",
+	"pattern": [
+		"###",
+		"RRQ",
+		"###"
+	],
+	"key": {
+		"#": {
+			"tag": "minecraft:stone_crafting_materials"
+		},
+		"Q": {
+			"item": "minecraft:quartz"
+		},
+		"R": {
+			"item": "minecraft:redstone"
+		}
+	},
+	"result": {
+		"count": 1,
+		"item": "minecraft:observer"
+	},
+	"show_notification": true
+}

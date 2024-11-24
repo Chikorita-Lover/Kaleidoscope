@@ -1,7 +1,7 @@
 package net.chikorita_lover.kaleidoscope.structure;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.minecraft.block.BlockState;
@@ -16,7 +16,7 @@ import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 public class EndCityStructureProcessor extends StructureProcessor {
-    public static final MapCodec<EndCityStructureProcessor> CODEC = Codec.FLOAT.fieldOf("crackedness").xmap(EndCityStructureProcessor::new, processor -> processor.crackedness);
+    public static final Codec<EndCityStructureProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(Codec.FLOAT.fieldOf("crackedness").forGetter(processor -> processor.crackedness)).apply(instance, EndCityStructureProcessor::new));
     private final float crackedness;
 
     public EndCityStructureProcessor(float crackedness) {

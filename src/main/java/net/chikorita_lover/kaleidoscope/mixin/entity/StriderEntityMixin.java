@@ -4,12 +4,11 @@ import net.chikorita_lover.kaleidoscope.entity.Chestable;
 import net.chikorita_lover.kaleidoscope.network.OpenStriderScreenS2CPacket;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.chikorita_lover.kaleidoscope.screen.StriderScreenHandler;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
-import net.minecraft.component.EnchantmentEffectComponentTypes;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.RideableInventory;
 import net.minecraft.entity.SaddledComponent;
 import net.minecraft.entity.data.DataTracker;
@@ -25,6 +24,7 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -62,8 +62,8 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
     public abstract boolean isSaddled();
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
-    private void addChestDataTracker(DataTracker.Builder builder, CallbackInfo ci) {
-        builder.add(CHEST, false);
+    private void addChestDataTracker(CallbackInfo ci) {
+        this.dataTracker.startTracking(CHEST, false);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
@@ -78,7 +78,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
                 }
                 NbtCompound nbtCompound = new NbtCompound();
                 nbtCompound.putByte("Slot", (byte) (slot - 1));
-                nbtList.add(stack.encode(this.getRegistryManager(), nbtCompound));
+                nbtList.add(stack.writeNbt(nbtCompound));
             }
             nbt.put("Items", nbtList);
         }
@@ -96,7 +96,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
                 if (j >= this.items.size() - 1) {
                     continue;
                 }
-                this.items.setStack(j + 1, ItemStack.fromNbt(this.getRegistryManager(), nbtCompound).orElse(ItemStack.EMPTY));
+                this.items.setStack(j + 1, ItemStack.fromNbt(nbtCompound));
             }
         }
     }
@@ -111,7 +111,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
         }
         for (int i = 0; i < this.items.size(); ++i) {
             ItemStack stack = this.items.getStack(i);
-            if (stack.isEmpty() || EnchantmentHelper.hasAnyEnchantmentsWith(stack, EnchantmentEffectComponentTypes.PREVENT_EQUIPMENT_DROP)) {
+            if (stack.isEmpty() || EnchantmentHelper.hasVanishingCurse(stack)) {
                 continue;
             }
             this.dropStack(stack);
@@ -127,13 +127,13 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
         if (!this.kaleidoscope$hasChest() && stack.isOf(Items.CHEST)) {
             this.kaleidoscope$addChest(player, stack);
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
-        } else if (this.isSaddled() && stack.isIn(ConventionalItemTags.SHEAR_TOOLS)) {
+        } else if (this.isSaddled() && stack.isIn(ConventionalItemTags.SHEARS)) {
             this.saddledComponent.setSaddled(false);
-            this.playSound(KaleidoscopeSoundEvents.ENTITY_STRIDER_SHEAR);
+            this.playSound(KaleidoscopeSoundEvents.ENTITY_STRIDER_SHEAR, 1.0F, 1.0F);
             this.dropStack(new ItemStack(Items.SADDLE), this.getHeight());
             this.emitGameEvent(GameEvent.SHEAR, player);
             if (!this.getWorld().isClient()) {
-                stack.damage(1, player, LivingEntity.getSlotForHand(hand));
+                stack.damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
             }
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
         } else if (this.kaleidoscope$hasChest() && (!this.isSaddled() && !stack.isOf(Items.SADDLE) || player.shouldCancelInteraction())) {
@@ -201,7 +201,8 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
             serverPlayer.closeHandledScreen();
         }
         serverPlayer.incrementScreenHandlerSyncId();
-        ServerPlayNetworking.send(serverPlayer, new OpenStriderScreenS2CPacket(serverPlayer.screenHandlerSyncId, this.getId()));
+        OpenStriderScreenS2CPacket packet = new OpenStriderScreenS2CPacket(serverPlayer.screenHandlerSyncId, this.getId());
+        ServerPlayNetworking.send(serverPlayer, packet);
         serverPlayer.currentScreenHandler = new StriderScreenHandler(serverPlayer.screenHandlerSyncId, serverPlayer.getInventory(), this.items, StriderEntity.class.cast(this));
         serverPlayer.onScreenHandlerOpened(serverPlayer.currentScreenHandler);
     }

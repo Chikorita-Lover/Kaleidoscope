@@ -20,10 +20,8 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.MinecartEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.MinecartEntityModel;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.FoodComponent;
+import net.minecraft.item.FoodComponent;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.OminousBottleItem;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -33,7 +31,7 @@ import java.text.NumberFormat;
 import java.util.List;
 
 public class KaleidoscopeClient implements ClientModInitializer {
-    public static final EntityModelLayer STRIDER_CHEST = new EntityModelLayer(Identifier.of("strider"), "chest");
+    public static final EntityModelLayer STRIDER_CHEST = new EntityModelLayer(Identifier.of(Identifier.DEFAULT_NAMESPACE, "strider"), "chest");
     public static final EntityModelLayer MODEL_JUKEBOX_MINECART_LAYER = new EntityModelLayer(Kaleidoscope.of("jukebox_minecart"), "main");
     private static final NumberFormat NUMBER_FORMAT = NumberFormat.getNumberInstance();
 
@@ -42,9 +40,9 @@ public class KaleidoscopeClient implements ClientModInitializer {
     }
 
     private static void buildFoodTooltip(ItemStack stack, List<Text> list) {
-        FoodComponent foodComponent = stack.get(DataComponentTypes.FOOD);
-        int nutrition = foodComponent.nutrition();
-        float saturation = foodComponent.saturation();
+        FoodComponent foodComponent = stack.getItem().getFoodComponent();
+        int nutrition = foodComponent.getHunger();
+        float saturation = foodComponent.getHunger() * foodComponent.getSaturationModifier() * 2.0F;
         if (nutrition == 0.0 && saturation == 0.0) {
             return;
         }
@@ -102,8 +100,8 @@ public class KaleidoscopeClient implements ClientModInitializer {
         HandledScreens.register(KaleidoscopeScreenHandlerTypes.FIREWORKS_TABLE, FireworksTableScreen::new);
         HandledScreens.register(KaleidoscopeScreenHandlerTypes.KILN, KilnScreen::new);
 
-        ItemTooltipCallback.EVENT.register((stack, tooltipContext, tooltipType, lines) -> {
-            if (stack.contains(DataComponentTypes.FOOD) && !(stack.getItem() instanceof OminousBottleItem)) {
+        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
+            if (stack.isFood()) {
                 buildFoodTooltip(stack, lines);
             }
         });

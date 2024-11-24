@@ -5,7 +5,7 @@ import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.MappingResolver;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
@@ -17,7 +17,7 @@ public class KaleidoscopeEarlyRiser implements Runnable {
         String noteBlockInstrument = mappingResolver.mapClassName("intermediary", "net.minecraft.class_2766");
         String registryEntry = 'L' + mappingResolver.mapClassName("intermediary", "net.minecraft.class_6880") + ';';
         String instrumentType = 'L' + mappingResolver.mapClassName("intermediary", "net.minecraft.class_2766$class_7994") + ';';
-        ClassTinkerers.enumBuilder(noteBlockInstrument, String.class, registryEntry, instrumentType).addEnum("KALEIDOSCOPE_SAXOPHONE", () -> new Object[]{"kaleidoscope_saxophone", KaleidoscopeSoundEvents.BLOCK_NOTE_BLOCK_SAXOPHONE, NoteBlockInstrument.Type.BASE_BLOCK}).build();
+        ClassTinkerers.enumBuilder(noteBlockInstrument, String.class, registryEntry, instrumentType).addEnum("KALEIDOSCOPE_SAXOPHONE", () -> new Object[]{"kaleidoscope_saxophone", KaleidoscopeSoundEvents.BLOCK_NOTE_BLOCK_SAXOPHONE, Instrument.Type.BASE_BLOCK}).build();
 
         String recipeBookCategory = mappingResolver.mapClassName("intermediary", "net.minecraft.class_5421");
         ClassTinkerers.enumBuilder(recipeBookCategory).addEnum("KALEIDOSCOPE_KILN").build();

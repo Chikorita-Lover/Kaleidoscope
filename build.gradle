@@ -3,8 +3,8 @@ plugins {
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_21
-targetCompatibility = JavaVersion.VERSION_21
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
@@ -38,7 +38,7 @@ dependencies {
 	modImplementation "com.github.Chocohead:Fabric-ASM:${fabric_asm_version}"
 	include "com.github.Chocohead:Fabric-ASM:${fabric_asm_version}"
 
-	modCompileOnly "com.github.Team-Abode:sketch:1.21.1-1.2.1"
+	modCompileOnly "com.github.Team-Abode:scribe:1.20.1-0.5.0-alpha"
 }
 
 processResources {
@@ -50,7 +50,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 17
 }
 
 java {

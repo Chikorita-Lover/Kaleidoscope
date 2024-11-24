@@ -6,16 +6,16 @@ import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.item.FireworkShellItem;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeItemTags;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.FireworkExplosionComponent;
-import net.minecraft.component.type.FireworksComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.DyeItem;
+import net.minecraft.item.FireworkRocketItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.Slot;
@@ -185,29 +185,30 @@ public class FireworksTableScreenHandler extends ScreenHandler {
         if (!baseStack.isEmpty() && !this.hasInvalidInputs()) {
             if (baseStack.isIn(KaleidoscopeItemTags.FIREWORK_STAR_BASES) && (this.modifierSlots.stream().anyMatch(Slot::hasStack) || this.colorSlots.stream().anyMatch(Slot::hasStack))) {
                 resultStack = new ItemStack(Items.FIREWORK_STAR);
-                FireworkExplosionComponent component = baseStack.get(DataComponentTypes.FIREWORK_EXPLOSION);
-                FireworkExplosionComponent.Type shape = component != null ? component.shape() : FireworkExplosionComponent.Type.SMALL_BALL;
-                boolean hasTrail = component != null && component.hasTrail();
-                boolean hasTwinkle = component != null && component.hasTwinkle();
+                if (baseStack.hasNbt() && baseStack.getNbt().contains("Explosion")) {
+                    resultStack.setSubNbt("Explosion", baseStack.getSubNbt("Explosion").copy());
+                }
+                NbtCompound explosion = resultStack.getOrCreateSubNbt("Explosion");
+                FireworkRocketItem.Type type = explosion.contains("Type") ? FireworkRocketItem.Type.byId(explosion.getByte("Type")) : FireworkRocketItem.Type.SMALL_BALL;
                 for (Slot modifierSlot : this.modifierSlots) {
                     ItemStack modifierStack = modifierSlot.getStack();
                     if (modifierStack.isEmpty()) {
                         continue;
                     }
                     if (modifierStack.isIn(KaleidoscopeItemTags.FIREWORK_SHELLS) && modifierStack.getItem() instanceof FireworkShellItem fireworkShell) {
-                        shape = fireworkShell.getShape();
+                        type = fireworkShell.getShape();
                         continue;
                     }
                     if (modifierStack.isOf(Items.DIAMOND)) {
-                        hasTrail = true;
+                        explosion.putBoolean("Trail", true);
                         continue;
                     }
                     if (modifierStack.isOf(Items.GLOWSTONE_DUST)) {
-                        hasTwinkle = true;
+                        explosion.putBoolean("Flicker", true);
                     }
                 }
-                IntList colors = component != null ? component.colors() : IntList.of();
-                IntList fadeColors = component != null ? component.fadeColors() : IntList.of();
+                explosion.putByte("Type", (byte) type.getId());
+                IntList colors = explosion.contains("Colors") ? IntList.of(explosion.getIntArray("Colors")) : IntList.of();
                 if (this.colorSlots.stream().anyMatch(Slot::hasStack)) {
                     IntArrayList integers = new IntArrayList();
                     for (Slot colorSlot : this.colorSlots) {
@@ -215,25 +216,23 @@ public class FireworksTableScreenHandler extends ScreenHandler {
                             integers.add(dyeItem.getColor().getFireworkColor());
                         }
                     }
-                    if (!colors.isEmpty()) {
-                        fadeColors = integers;
-                    } else {
-                        colors = integers;
-                    }
+                    explosion.putIntArray(colors.isEmpty() ? "Colors" : "FadeColors", integers.toIntArray());
                 }
-                resultStack.set(DataComponentTypes.FIREWORK_EXPLOSION, new FireworkExplosionComponent(shape, colors, fadeColors, hasTrail, hasTwinkle));
             } else if (baseStack.isOf(Items.PAPER) && this.modifierSlots.stream().anyMatch(slot -> slot.getStack().isOf(Items.GUNPOWDER))) {
                 resultStack = new ItemStack(Items.FIREWORK_ROCKET, 3);
-                ArrayList<FireworkExplosionComponent> explosions = new ArrayList<>();
+                NbtCompound fireworks = resultStack.getOrCreateSubNbt("Fireworks");
+                NbtList explosions = new NbtList();
                 int flightDuration = (int) this.modifierSlots.stream().filter(slot -> slot.getStack().isOf(Items.GUNPOWDER)).count();
                 for (Slot colorSlot : this.colorSlots) {
                     ItemStack colorStack = colorSlot.getStack();
-                    if (colorStack.isOf(Items.FIREWORK_STAR) && colorStack.contains(DataComponentTypes.FIREWORK_EXPLOSION)) {
-                        explosions.add(colorStack.get(DataComponentTypes.FIREWORK_EXPLOSION));
+                    if (colorStack.isOf(Items.FIREWORK_STAR) && colorStack.hasNbt() && colorStack.getNbt().contains("Explosion")) {
+                        explosions.add(colorStack.getSubNbt("Explosion").copy());
                     }
                 }
-                FireworksComponent component = new FireworksComponent(flightDuration, explosions);
-                resultStack.set(DataComponentTypes.FIREWORKS, component);
+                fireworks.putByte("Flight", (byte) flightDuration);
+                if (!explosions.isEmpty()) {
+                    fireworks.put("Explosions", explosions);
+                }
             }
         }
         if (!ItemStack.areEqual(resultStack, this.getOutputSlot().getStack())) {
@@ -276,11 +275,11 @@ public class FireworksTableScreenHandler extends ScreenHandler {
             if (this.modifierSlots.stream().noneMatch(slot -> slot.getStack().isOf(Items.GUNPOWDER))) {
                 return ErrorType.MISSING_GUNPOWDER;
             }
-            if (this.colorSlots.stream().anyMatch(slot -> slot.hasStack() && !slot.getStack().contains(DataComponentTypes.FIREWORK_EXPLOSION))) {
+            if (this.colorSlots.stream().anyMatch(slot -> slot.hasStack() && (!slot.getStack().hasNbt() || !slot.getStack().getNbt().contains("Explosion")))) {
                 return ErrorType.NO_EFFECT;
             }
         } else if (baseStack.isIn(KaleidoscopeItemTags.FIREWORK_STAR_BASES)) {
-            if (this.colorSlots.stream().noneMatch(slot -> slot.getStack().getItem() instanceof DyeItem) && (!baseStack.contains(DataComponentTypes.FIREWORK_EXPLOSION) || baseStack.get(DataComponentTypes.FIREWORK_EXPLOSION).colors().isEmpty())) {
+            if (this.colorSlots.stream().noneMatch(slot -> slot.getStack().getItem() instanceof DyeItem) && (!baseStack.hasNbt() || !baseStack.getNbt().contains("Explosion") || !baseStack.getSubNbt("Explosion").contains("Colors") || baseStack.getSubNbt("Explosion").getIntArray("Colors").length == 0)) {
                 return ErrorType.MISSING_DYE;
             }
         }

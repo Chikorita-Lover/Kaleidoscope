@@ -5,7 +5,7 @@ import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -31,8 +31,6 @@ public class KaleidoscopeBlocks {
     public static final Block SMOOTH_CALCITE_SLAB = registerBlockWithItem("smooth_calcite_slab", new SlabBlock(AbstractBlock.Settings.copy(SMOOTH_CALCITE)));
     public static final Block SMOOTH_CALCITE_STAIRS = registerBlockWithItem("smooth_calcite_stairs", new StairsBlock(SMOOTH_CALCITE.getDefaultState(), AbstractBlock.Settings.copy(SMOOTH_CALCITE)));
 
-    public static final Block CRACKED_TUFF_BRICKS = registerBlockWithItem("cracked_tuff_bricks", new Block(AbstractBlock.Settings.copy(Blocks.TUFF_BRICKS)));
-
     public static final Block BRICK_MOSAIC = registerBlockWithItem("brick_mosaic", new Block(AbstractBlock.Settings.copy(Blocks.BRICKS)));
     public static final Block BRICK_MOSAIC_STAIRS = registerBlockWithItem("brick_mosaic_stairs", new StairsBlock(BRICK_MOSAIC.getDefaultState(), AbstractBlock.Settings.copy(BRICK_MOSAIC)));
     public static final Block BRICK_MOSAIC_SLAB = registerBlockWithItem("brick_mosaic_slab", new SlabBlock(AbstractBlock.Settings.copy(BRICK_MOSAIC)));
@@ -47,7 +45,7 @@ public class KaleidoscopeBlocks {
     public static final Block SMOOTH_BASALT_SLAB = registerBlockWithItem("smooth_basalt_slab", new SlabBlock(AbstractBlock.Settings.copy(Blocks.SMOOTH_BASALT)));
     public static final Block SMOOTH_BASALT_WALL = registerBlockWithItem("smooth_basalt_wall", new WallBlock(AbstractBlock.Settings.copy(Blocks.SMOOTH_BASALT)));
 
-    public static final Block CHARCOAL_BLOCK = registerBlockWithItem("charcoal_block", new PillarBlock(AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().sounds(BlockSoundGroup.DEEPSLATE).strength(3.0F, 6.0F)));
+    public static final Block CHARCOAL_BLOCK = registerBlockWithItem("charcoal_block", new PillarBlock(AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().sounds(BlockSoundGroup.DEEPSLATE).strength(3.0F, 6.0F)));
 
     public static final Block QUARTZ_BRICK_STAIRS = registerBlockWithItem("quartz_brick_stairs", new StairsBlock(Blocks.QUARTZ_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.QUARTZ_BRICKS)));
     public static final Block QUARTZ_BRICK_SLAB = registerBlockWithItem("quartz_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(Blocks.QUARTZ_BRICKS)));
@@ -150,12 +148,12 @@ public class KaleidoscopeBlocks {
     public static final Block PINK_TERRACOTTA_STAIRS = registerBlockWithItem("pink_terracotta_stairs", new StairsBlock(Blocks.PINK_TERRACOTTA.getDefaultState(), AbstractBlock.Settings.copy(Blocks.PINK_TERRACOTTA)));
     public static final Block PINK_TERRACOTTA_SLAB = registerBlockWithItem("pink_terracotta_slab", new SlabBlock(AbstractBlock.Settings.copy(Blocks.PINK_TERRACOTTA)));
 
-    public static final Block STICK_BLOCK = registerBlockWithItem("stick_block", new PillarBlock(AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASS).sounds(BlockSoundGroup.MANGROVE_ROOTS).strength(0.4F).burnable()));
+    public static final Block STICK_BLOCK = registerBlockWithItem("stick_block", new PillarBlock(AbstractBlock.Settings.create().instrument(Instrument.BASS).sounds(BlockSoundGroup.MANGROVE_ROOTS).strength(0.4F).burnable()));
 
-    public static final Block SOUL_JACK_O_LANTERN = registerBlockWithItem("soul_jack_o_lantern", new CarvedPumpkinBlock(AbstractBlock.Settings.copy(Blocks.JACK_O_LANTERN).instrument(NoteBlockInstrument.DIDGERIDOO).luminance(state -> 10)));
+    public static final Block SOUL_JACK_O_LANTERN = registerBlockWithItem("soul_jack_o_lantern", new CarvedPumpkinBlock(AbstractBlock.Settings.copy(Blocks.JACK_O_LANTERN).instrument(Instrument.DIDGERIDOO).luminance(state -> 10)));
 
-    public static final Block FIREWORKS_TABLE = registerBlockWithItem("fireworks_table", new FireworksTableBlock(AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).instrument(NoteBlockInstrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD).burnable()));
-    public static final Block KILN = registerBlockWithItem("kiln", new KilnBlock(AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASEDRUM).luminance(state -> state.get(Properties.LIT) ? 13 : 0).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.5F)));
+    public static final Block FIREWORKS_TABLE = registerBlockWithItem("fireworks_table", new FireworksTableBlock(AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final Block KILN = registerBlockWithItem("kiln", new KilnBlock(AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).luminance(state -> state.get(Properties.LIT) ? 13 : 0).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).requiresTool().strength(3.5F)));
 
     public static final Block GLASS_DOOR = registerBlockWithItem("glass_door", createGlassDoorBlock(null));
     public static final Block WHITE_STAINED_GLASS_DOOR = registerBlockWithItem("white_stained_glass_door", createGlassDoorBlock(DyeColor.WHITE));
@@ -175,7 +173,7 @@ public class KaleidoscopeBlocks {
     public static final Block MAGENTA_STAINED_GLASS_DOOR = registerBlockWithItem("magenta_stained_glass_door", createGlassDoorBlock(DyeColor.MAGENTA));
     public static final Block PINK_STAINED_GLASS_DOOR = registerBlockWithItem("pink_stained_glass_door", createGlassDoorBlock(DyeColor.PINK));
 
-    public static final Block GLASS_TRAPDOOR = registerBlockWithItem("glass_trapdoor", new GlassTrapdoorBlock(AbstractBlock.Settings.create().instrument(NoteBlockInstrument.HAT).mapColor(MapColor.CLEAR).nonOpaque().sounds(BlockSoundGroup.GLASS).strength(0.3F)));
+    public static final Block GLASS_TRAPDOOR = registerBlockWithItem("glass_trapdoor", new GlassTrapdoorBlock(AbstractBlock.Settings.create().instrument(Instrument.HAT).mapColor(MapColor.CLEAR).nonOpaque().sounds(BlockSoundGroup.GLASS).strength(0.3F)));
     public static final Block BLACK_STAINED_GLASS_TRAPDOOR = registerBlockWithItem("black_stained_glass_trapdoor", new StainedGlassTrapdoorBlock(DyeColor.BLACK, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.BLACK)));
     public static final Block BLUE_STAINED_GLASS_TRAPDOOR = registerBlockWithItem("blue_stained_glass_trapdoor", new StainedGlassTrapdoorBlock(DyeColor.BLUE, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.BLUE)));
     public static final Block BROWN_STAINED_GLASS_TRAPDOOR = registerBlockWithItem("brown_stained_glass_trapdoor", new StainedGlassTrapdoorBlock(DyeColor.BROWN, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.BROWN)));
@@ -194,7 +192,7 @@ public class KaleidoscopeBlocks {
     public static final Block YELLOW_STAINED_GLASS_TRAPDOOR = registerBlockWithItem("yellow_stained_glass_trapdoor", new StainedGlassTrapdoorBlock(DyeColor.YELLOW, AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(MapColor.YELLOW)));
 
     private static Block createGlassDoorBlock(@Nullable DyeColor dyeColor) {
-        AbstractBlock.Settings settings = AbstractBlock.Settings.create().instrument(NoteBlockInstrument.HAT).nonOpaque().sounds(BlockSoundGroup.GLASS).strength(0.3F);
+        AbstractBlock.Settings settings = AbstractBlock.Settings.create().instrument(Instrument.HAT).nonOpaque().sounds(BlockSoundGroup.GLASS).strength(0.3F);
         if (dyeColor != null) {
             return new StainedGlassDoorBlock(dyeColor, settings.mapColor(dyeColor));
         }

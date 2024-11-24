@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "kaleidoscope:exposed_smooth_copper"
+  },
+  "result": "kaleidoscope:exposed_smooth_copper_slab"
+}

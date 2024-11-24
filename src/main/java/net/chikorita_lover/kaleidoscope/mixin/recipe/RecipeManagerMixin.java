@@ -1,10 +1,8 @@
 package net.chikorita_lover.kaleidoscope.mixin.recipe;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMultimap;
 import com.google.gson.Gson;
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.injector.ModifyReceiver;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.recipe.CrackingRecipe;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeTypes;
@@ -12,26 +10,42 @@ import net.chikorita_lover.kaleidoscope.recipe.KilningRecipe;
 import net.chikorita_lover.kaleidoscope.recipe.MossScrapingRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.resource.JsonDataLoader;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Objects;
 
 @Mixin(RecipeManager.class)
 public abstract class RecipeManagerMixin extends JsonDataLoader {
     @Unique
-    private static final ArrayList<RecipeEntry<Recipe<?>>> BLOCK_TRANSMUTING_RECIPE_ENTRIES = new ArrayList<>();
+    private static final ArrayList<Recipe<?>> BLOCK_TRANSMUTING_RECIPES = new ArrayList<>();
 
     public RecipeManagerMixin(Gson gson, String dataType) {
         super(gson, dataType);
+    }
+
+    @Unique
+    private static boolean equals(DefaultedList<Ingredient> a, DefaultedList<Ingredient> b) {
+        if (a.size() == b.size()) {
+            for (int i = 0; i < a.size(); ++i) {
+                if (!a.get(i).toJson().equals(b.get(i).toJson())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     @Unique
@@ -74,51 +88,54 @@ public abstract class RecipeManagerMixin extends JsonDataLoader {
         return Kaleidoscope.of(path);
     }
 
-    @ModifyExpressionValue(method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMultimap$Builder;build()Lcom/google/common/collect/ImmutableMultimap;"))
-    private ImmutableMultimap<RecipeType<?>, RecipeEntry<Recipe<?>>> createKaleidoscopeRecipes(final ImmutableMultimap<RecipeType<?>, RecipeEntry<Recipe<?>>> recipesByType, @Local final ImmutableMultimap.Builder<RecipeType<?>, RecipeEntry<Recipe<?>>> builder) {
-        KilningRecipe.KILNING_RECIPE_ENTRIES.clear();
-        BLOCK_TRANSMUTING_RECIPE_ENTRIES.clear();
+    @ModifyReceiver(method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V", at = @At(value = "INVOKE", target = "Ljava/util/Map;entrySet()Ljava/util/Set;", ordinal = 1))
+    private Map<RecipeType<?>, ImmutableMap.Builder<Identifier, Recipe<?>>> createKaleidoscopeRecipes(Map<RecipeType<?>, ImmutableMap.Builder<Identifier, Recipe<?>>> map2) {
+        KilningRecipe.KILNING_RECIPES.clear();
+        BLOCK_TRANSMUTING_RECIPES.clear();
+        final ImmutableMap.Builder<Identifier, Recipe<?>> scrapingRecipes = ImmutableMap.builder();
         for (final Block mossyBlock : Registries.BLOCK) {
             Identifier id = Registries.BLOCK.getId(mossyBlock);
             if (id.getPath().contains("mossy_")) {
                 final String path = id.getPath().replaceFirst("mossy_", "");
                 Registries.BLOCK.stream().filter(block -> Objects.equals(Registries.BLOCK.getId(block).getPath(), path)).findFirst().ifPresent(block -> {
-                    MossScrapingRecipe recipe = new MossScrapingRecipe(mossyBlock, block);
-                    RecipeEntry<Recipe<?>> entry = new RecipeEntry<>(createMossScrapingId(mossyBlock), recipe);
-                    BLOCK_TRANSMUTING_RECIPE_ENTRIES.add(entry);
-                    builder.put(KaleidoscopeRecipeTypes.MOSS_SCRAPING, entry);
+                    MossScrapingRecipe recipe = new MossScrapingRecipe(createMossScrapingId(mossyBlock), mossyBlock, block);
+                    BLOCK_TRANSMUTING_RECIPES.add(recipe);
+                    scrapingRecipes.put(recipe.getId(), recipe);
                 });
             }
         }
-        recipesByType.get(RecipeType.SMELTING).forEach(smeltingEntry -> {
-            final SmeltingRecipe smeltingRecipe = (SmeltingRecipe) smeltingEntry.value();
-            boolean hasSmokingBlasting = recipesByType.get(RecipeType.SMOKING).stream().anyMatch(smokingEntry -> smeltingEntry.id().getNamespace().equals(smokingEntry.id().getNamespace()) && smokingEntry.value().getIngredients().equals(smeltingRecipe.getIngredients())) || recipesByType.get(RecipeType.BLASTING).stream().anyMatch(blastingEntry -> smeltingEntry.id().getNamespace().equals(blastingEntry.id().getNamespace()) && blastingEntry.value().getIngredients().equals(smeltingRecipe.getIngredients()));
+        map2.put(KaleidoscopeRecipeTypes.MOSS_SCRAPING, scrapingRecipes);
+        final ImmutableMap.Builder<Identifier, Recipe<?>> kilningRecipes = ImmutableMap.builder();
+        final ImmutableMap.Builder<Identifier, Recipe<?>> crackingRecipes = ImmutableMap.builder();
+        map2.get(RecipeType.SMELTING).build().forEach((identifier, recipe) -> {
+            boolean hasSmokingBlasting = map2.get(RecipeType.SMOKING).build().entrySet().stream().anyMatch(smokingEntry -> identifier.getNamespace().equals(smokingEntry.getKey().getNamespace()) && equals(recipe.getIngredients(), smokingEntry.getValue().getIngredients())) || map2.get(RecipeType.BLASTING).build().entrySet().stream().anyMatch(blastingEntry -> identifier.getNamespace().equals(blastingEntry.getKey().getNamespace()) && equals(recipe.getIngredients(), blastingEntry.getValue().getIngredients()));
             if (hasSmokingBlasting) {
                 return;
             }
-            final Ingredient ingredient = smeltingRecipe.getIngredients().get(0);
-            ItemStack result = smeltingRecipe.getResult(null);
-            KilningRecipe kilningRecipe = new KilningRecipe(smeltingRecipe.getGroup(), smeltingRecipe.getCategory(), ingredient, result, smeltingRecipe.getExperience(), smeltingRecipe.getCookingTime() / 2);
-            RecipeEntry<Recipe<?>> kilningEntry = new RecipeEntry<>(createKilningId(smeltingEntry.id()), kilningRecipe);
-            KilningRecipe.KILNING_RECIPE_ENTRIES.add(kilningEntry);
-            builder.put(KaleidoscopeRecipeTypes.KILNING, kilningEntry);
+            SmeltingRecipe smeltingRecipe = (SmeltingRecipe) recipe;
+            final Ingredient ingredient = recipe.getIngredients().get(0);
+            ItemStack result = recipe.getOutput(null);
+            KilningRecipe kilningRecipe = new KilningRecipe(createKilningId(identifier), recipe.getGroup(), smeltingRecipe.getCategory(), ingredient, result, smeltingRecipe.getExperience(), smeltingRecipe.getCookTime() / 2);
+            kilningRecipes.put(kilningRecipe.getId(), kilningRecipe);
+            KilningRecipe.KILNING_RECIPES.add(kilningRecipe);
             if (Registries.ITEM.getId(result.getItem()).getPath().contains("cracked")) {
                 final Block resultBlock = Block.getBlockFromItem(result.getItem());
-                Arrays.stream(ingredient.getMatchingStacks()).map(stack -> Block.getBlockFromItem(stack.getItem())).filter(block -> block != Blocks.AIR).forEach(block -> {
-                    CrackingRecipe crackingRecipe = new CrackingRecipe(block, resultBlock);
-                    RecipeEntry<Recipe<?>> crackingEntry = new RecipeEntry<>(createCrackingId(resultBlock), crackingRecipe);
-                    BLOCK_TRANSMUTING_RECIPE_ENTRIES.add(crackingEntry);
-                    builder.put(KaleidoscopeRecipeTypes.CRACKING, crackingEntry);
+                Arrays.stream(ingredient.getMatchingItemIds().toArray(Integer[]::new)).map(id -> Block.getBlockFromItem(Item.byRawId(id))).filter(block -> block != Blocks.AIR).forEach(block -> {
+                    CrackingRecipe crackingRecipe = new CrackingRecipe(createCrackingId(resultBlock), block, resultBlock);
+                    BLOCK_TRANSMUTING_RECIPES.add(crackingRecipe);
+                    crackingRecipes.put(crackingRecipe.getId(), crackingRecipe);
                 });
             }
         });
-        return builder.build();
+        map2.put(KaleidoscopeRecipeTypes.KILNING, kilningRecipes);
+        map2.put(KaleidoscopeRecipeTypes.CRACKING, crackingRecipes);
+        return map2;
     }
 
-    @ModifyExpressionValue(method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap$Builder;build()Lcom/google/common/collect/ImmutableMap;"))
-    private ImmutableMap<Identifier, RecipeEntry<Recipe<?>>> putKaleidoscopeRecipes(ImmutableMap<Identifier, RecipeEntry<Recipe<?>>> recipesById, @Local final ImmutableMap.Builder<Identifier, RecipeEntry<Recipe<?>>> builder2) {
-        KilningRecipe.KILNING_RECIPE_ENTRIES.forEach(entry -> builder2.put(entry.id(), entry));
-        BLOCK_TRANSMUTING_RECIPE_ENTRIES.forEach(entry -> builder2.put(entry.id(), entry));
-        return builder2.build();
+    @ModifyReceiver(method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap$Builder;build()Lcom/google/common/collect/ImmutableMap;"))
+    private ImmutableMap.Builder<Identifier, Recipe<?>> putKaleidoscopeRecipes(ImmutableMap.Builder<Identifier, Recipe<?>> builder) {
+        KilningRecipe.KILNING_RECIPES.forEach(recipe -> builder.put(recipe.getId(), recipe));
+        BLOCK_TRANSMUTING_RECIPES.forEach(recipe -> builder.put(recipe.getId(), recipe));
+        return builder;
     }
 }

@@ -19,7 +19,7 @@ import java.util.function.BiConsumer;
 
 public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHandler> {
     private static final Identifier TEXTURE = Kaleidoscope.of("textures/gui/container/fireworks_table.png");
-    private static final Identifier EMPTY_SLOT_DIAMOND_TEXTURE = Identifier.of("item/empty_slot_diamond");
+    private static final Identifier EMPTY_SLOT_DIAMOND_TEXTURE = Identifier.of(Identifier.DEFAULT_NAMESPACE, "item/empty_slot_diamond");
     private static final Identifier EMPTY_SLOT_FIREWORK_SHELL_TEXTURE = Kaleidoscope.of("item/empty_slot_firework_shell");
     private static final Identifier EMPTY_SLOT_FIREWORK_STAR_TEXTURE = Kaleidoscope.of("item/empty_slot_firework_star");
     private static final Identifier EMPTY_SLOT_GLOWSTONE_DUST_TEXTURE = Kaleidoscope.of("item/empty_slot_glowstone_dust");
@@ -69,6 +69,7 @@ public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHand
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
+        this.renderBackground(context);
         context.drawTexture(TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight);
         this.drawInvalidInputArrow(context, this.x, this.y);
         this.baseSlotIcon.render(this.handler, context, delta, this.x, this.y);

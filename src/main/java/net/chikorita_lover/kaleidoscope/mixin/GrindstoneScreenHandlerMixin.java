@@ -2,8 +2,8 @@ package net.chikorita_lover.kaleidoscope.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.item.CompassItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.GrindstoneScreenHandler;
 import net.minecraft.screen.ScreenHandler;
@@ -31,19 +31,19 @@ public abstract class GrindstoneScreenHandlerMixin extends ScreenHandler {
     }
 
     @Shadow
-    protected abstract ItemStack grind(ItemStack item);
+    protected abstract ItemStack grind(ItemStack item, int damage, int amount);
 
-    @Inject(method = "updateResult", at = @At("TAIL"), cancellable = true)
+    @Inject(method = "updateResult", at = @At("RETURN"), cancellable = true)
     private void updateResult(CallbackInfo ci) {
         ItemStack itemStack = this.input.getStack(0);
         ItemStack itemStack2 = this.input.getStack(1);
-        if (itemStack.contains(DataComponentTypes.LODESTONE_TRACKER) || itemStack2.contains(DataComponentTypes.LODESTONE_TRACKER)) {
+        if (CompassItem.hasLodestone(itemStack) || CompassItem.hasLodestone(itemStack2)) {
             boolean hasFirstStack = !itemStack.isEmpty() && itemStack2.isEmpty();
             if (!itemStack.isEmpty() && !itemStack2.isEmpty()) {
                 this.result.setStack(0, ItemStack.EMPTY);
             } else {
                 ItemStack newStack = hasFirstStack ? itemStack.copy() : itemStack2.copy();
-                this.result.setStack(0, this.grind(newStack));
+                this.result.setStack(0, this.grind(newStack, 0, newStack.getCount()));
             }
             this.sendContentUpdates();
             ci.cancel();
@@ -52,7 +52,12 @@ public abstract class GrindstoneScreenHandlerMixin extends ScreenHandler {
 
     @ModifyReturnValue(method = "grind", at = @At("RETURN"))
     private ItemStack removeLodestoneTracker(ItemStack stack) {
-        stack.remove(DataComponentTypes.LODESTONE_TRACKER);
+        if (CompassItem.hasLodestone(stack)) {
+            stack.removeSubNbt("LodestoneTracked");
+            stack.removeSubNbt("LodestoneDimension");
+            stack.removeSubNbt("LodestonePos");
+            stack.removeSubNbt("RepairCost");
+        }
         return stack;
     }
 
@@ -60,7 +65,7 @@ public abstract class GrindstoneScreenHandlerMixin extends ScreenHandler {
     public static class GrindstoneScreenHandler2Mixin {
         @ModifyReturnValue(method = "canInsert", at = @At("RETURN"))
         private boolean canInsert(boolean canInsert, @Local(argsOnly = true) ItemStack stack) {
-            return canInsert || stack.contains(DataComponentTypes.LODESTONE_TRACKER);
+            return canInsert || CompassItem.hasLodestone(stack);
         }
     }
 
@@ -68,7 +73,7 @@ public abstract class GrindstoneScreenHandlerMixin extends ScreenHandler {
     public static class GrindstoneScreenHandler3Mixin {
         @ModifyReturnValue(method = "canInsert", at = @At("RETURN"))
         private boolean canInsert(boolean canInsert, @Local(argsOnly = true) ItemStack stack) {
-            return canInsert || stack.contains(DataComponentTypes.LODESTONE_TRACKER);
+            return canInsert || CompassItem.hasLodestone(stack);
         }
     }
 }

@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CamelEntity.class)
-public class CamelEntityMixin extends AbstractHorseEntity {
+public abstract class CamelEntityMixin extends AbstractHorseEntity {
     protected CamelEntityMixin(EntityType<? extends AbstractHorseEntity> entityType, World world) {
         super(entityType, world);
     }

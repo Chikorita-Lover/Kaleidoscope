@@ -24,61 +24,61 @@ public class StructurePoolModifiers {
             final RegistryWrapper.Impl<StructureProcessorList> processorLists = registries.getWrapperOrThrow(RegistryKeys.PROCESSOR_LIST);
             final RegistryWrapper.Impl<PlacedFeature> placedFeatures = registries.getWrapperOrThrow(RegistryKeys.PLACED_FEATURE);
             final RegistryEntry<StructureProcessorList> mossify10Percent = processorLists.getOrThrow(StructureProcessorLists.MOSSIFY_10_PERCENT);
-            modifyStructurePool(Identifier.of("village/desert/houses"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/desert/houses"), registries, elements -> {
                 addVillageHouse(elements, "village/desert/houses/desert_fireworker_1", 2);
                 addVillageHouse(elements, "village/desert/houses/desert_glassblower_1", 3);
             });
-            modifyStructurePool(Identifier.of("village/desert/zombie/houses"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/desert/zombie/houses"), registries, elements -> {
                 RegistryEntry<StructureProcessorList> zombieDesert = processorLists.getOrThrow(StructureProcessorLists.ZOMBIE_DESERT);
                 addVillageHouse(elements, "village/desert/houses/desert_fireworker_1", zombieDesert, 2);
                 addVillageHouse(elements, "village/desert/houses/desert_glassblower_1", zombieDesert, 3);
             });
-            modifyStructurePool(Identifier.of("village/plains/houses"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/plains/houses"), registries, elements -> {
                 addVillageHouse(elements, "village/plains/houses/plains_fireworker_1", mossify10Percent, 3);
                 addVillageHouse(elements, "village/plains/houses/plains_glassblower_1", mossify10Percent, 5);
             });
-            modifyStructurePool(Identifier.of("village/plains/zombie/houses"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/plains/zombie/houses"), registries, elements -> {
                 RegistryEntry<StructureProcessorList> zombiePlains = processorLists.getOrThrow(StructureProcessorLists.ZOMBIE_PLAINS);
                 addVillageHouse(elements, "village/plains/houses/plains_fireworker_1", zombiePlains, 3);
                 addVillageHouse(elements, "village/plains/houses/plains_glassblower_1", zombiePlains, 5);
             });
-            modifyStructurePool(Identifier.of("village/savanna/houses"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/savanna/houses"), registries, elements -> {
                 addVillageHouse(elements, "village/savanna/houses/savanna_fireworker_1", 5);
                 addVillageHouse(elements, "village/savanna/houses/savanna_fireworker_2", 3);
                 addVillageHouse(elements, "village/savanna/houses/savanna_glassblower_1", 5);
             });
-            modifyStructurePool(Identifier.of("village/savanna/zombie/houses"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/savanna/zombie/houses"), registries, elements -> {
                 RegistryEntry<StructureProcessorList> zombieSavanna = processorLists.getOrThrow(StructureProcessorLists.ZOMBIE_SAVANNA);
                 addVillageHouse(elements, "village/savanna/houses/savanna_fireworker_1", zombieSavanna, 5);
                 addVillageHouse(elements, "village/savanna/houses/savanna_fireworker_2", zombieSavanna, 3);
                 addVillageHouse(elements, "village/savanna/houses/savanna_glassblower_1", zombieSavanna, 5);
             });
-            modifyStructurePool(Identifier.of("village/snowy/decor"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/snowy/decor"), registries, elements -> {
                 elements.put(StructurePoolElement.ofFeature(placedFeatures.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BLOCK)).apply(StructurePool.Projection.RIGID), 2);
             });
-            modifyStructurePool(Identifier.of("village/snowy/houses"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/snowy/houses"), registries, elements -> {
                 addVillageHouse(elements, "village/snowy/houses/snowy_fireworker_1", 2);
                 addVillageHouse(elements, "village/snowy/houses/snowy_glassblower_1", 3);
             });
-            modifyStructurePool(Identifier.of("village/snowy/zombie/decor"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/snowy/zombie/decor"), registries, elements -> {
                 elements.put(StructurePoolElement.ofFeature(placedFeatures.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BLOCK)).apply(StructurePool.Projection.RIGID), 2);
             });
-            modifyStructurePool(Identifier.of("village/snowy/zombie/houses"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/snowy/zombie/houses"), registries, elements -> {
                 RegistryEntry<StructureProcessorList> zombieSnowy = processorLists.getOrThrow(StructureProcessorLists.ZOMBIE_SNOWY);
                 addVillageHouse(elements, "village/snowy/houses/snowy_fireworker_1", zombieSnowy, 2);
                 addVillageHouse(elements, "village/snowy/houses/snowy_glassblower_1", zombieSnowy, 3);
             });
-            modifyStructurePool(Identifier.of("village/taiga/decor"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/taiga/decor"), registries, elements -> {
                 elements.put(StructurePoolElement.ofFeature(placedFeatures.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BLOCK)).apply(StructurePool.Projection.RIGID), 2);
             });
-            modifyStructurePool(Identifier.of("village/taiga/houses"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/taiga/houses"), registries, elements -> {
                 addVillageHouse(elements, "village/taiga/houses/taiga_fireworker_1", mossify10Percent, 2);
                 addVillageHouse(elements, "village/taiga/houses/taiga_glassblower_1", mossify10Percent, 2);
             });
-            modifyStructurePool(Identifier.of("village/taiga/zombie/decor"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/taiga/zombie/decor"), registries, elements -> {
                 elements.put(StructurePoolElement.ofFeature(placedFeatures.getOrThrow(KaleidoscopePlacedFeatures.PILE_STICK_BLOCK)).apply(StructurePool.Projection.RIGID), 2);
             });
-            modifyStructurePool(Identifier.of("village/taiga/zombie/houses"), registries, elements -> {
+            modifyStructurePool(Identifier.of(Identifier.DEFAULT_NAMESPACE, "village/taiga/zombie/houses"), registries, elements -> {
                 RegistryEntry<StructureProcessorList> zombieTaiga = processorLists.getOrThrow(StructureProcessorLists.ZOMBIE_TAIGA);
                 addVillageHouse(elements, "village/taiga/houses/taiga_fireworker_1", zombieTaiga, 2);
                 addVillageHouse(elements, "village/taiga/houses/taiga_glassblower_1", zombieTaiga, 2);

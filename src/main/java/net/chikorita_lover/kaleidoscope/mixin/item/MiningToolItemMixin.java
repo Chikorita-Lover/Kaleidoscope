@@ -23,14 +23,13 @@ public class MiningToolItemMixin extends ToolItem {
     @Unique
     private static final DispenserBehavior DISPENSER_BEHAVIOR = new FallibleItemDispenserBehavior() {
         protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-            ServerWorld world = pointer.world();
-            BlockPos targetPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
+            ServerWorld world = pointer.getWorld();
+            BlockPos targetPos = pointer.getPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
             BlockState state = world.getBlockState(targetPos);
-            ActionResult actionResult = stack.getItem().useOnBlock(new ItemUsageContext(world, null, null, stack, world.raycastBlock(pointer.centerPos(), targetPos.toCenterPos(), targetPos, VoxelShapes.UNBOUNDED, state)));
+            ActionResult actionResult = stack.getItem().useOnBlock(new ItemUsageContext(world, null, null, stack, world.raycastBlock(pointer.getPos().toCenterPos(), targetPos.toCenterPos(), targetPos, VoxelShapes.UNBOUNDED, state)));
             this.setSuccess(actionResult != ActionResult.FAIL && actionResult != ActionResult.PASS);
-            if (this.isSuccess()) {
-                stack.damage(1, world, null, item -> {
-                });
+            if (this.isSuccess() && stack.damage(1, world.getRandom(), null)) {
+                stack.setCount(0);
             }
             return stack;
         }
@@ -41,7 +40,7 @@ public class MiningToolItemMixin extends ToolItem {
     }
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    private void registerDispenserBehavior(ToolMaterial material, TagKey<Block> effectiveBlocks, Settings settings, CallbackInfo ci) {
+    private void registerDispenserBehavior(float attackDamage, float attackSpeed, ToolMaterial material, TagKey<Block> effectiveBlocks, Settings settings, CallbackInfo ci) {
         DispenserBlock.registerBehavior(this, DISPENSER_BEHAVIOR);
     }
 }

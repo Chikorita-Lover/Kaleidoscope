@@ -1,0 +1,9 @@
+{
+	"values": [
+		"minecraft:chain",
+		{
+			"id": "#farmersdelight:ropes",
+			"required": false
+		}
+	]
+}

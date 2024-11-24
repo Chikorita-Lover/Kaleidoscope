@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class GlassTrapdoorBlock extends TrapdoorBlock {
     public GlassTrapdoorBlock(Settings settings) {
-        super(KaleidoscopeBlockSetType.GLASS, settings);
+        super(settings, KaleidoscopeBlockSetType.GLASS);
     }
 
     @Nullable

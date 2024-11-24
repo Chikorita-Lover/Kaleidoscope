@@ -1,9 +1,9 @@
 package net.chikorita_lover.kaleidoscope.mixin.block;
 
-import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeEnchantmentTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -16,9 +16,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(FarmlandBlock.class)
 public class FarmlandBlockMixin {
-    @Inject(at = @At("HEAD"), method = "onLandedUpon", cancellable = true)
+    @Inject(method = "onLandedUpon", at = @At("HEAD"), cancellable = true)
     private void tryCancelTrample(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance, CallbackInfo ci) {
-        if (entity instanceof LivingEntity livingEntity && (EnchantmentHelper.hasAnyEnchantmentsIn(livingEntity.getEquippedStack(EquipmentSlot.BODY), KaleidoscopeEnchantmentTags.PREVENTS_FARMLAND_TRAMPLING) || EnchantmentHelper.hasAnyEnchantmentsIn(livingEntity.getEquippedStack(EquipmentSlot.FEET), KaleidoscopeEnchantmentTags.PREVENTS_FARMLAND_TRAMPLING))) {
+        if (entity instanceof LivingEntity livingEntity && EnchantmentHelper.getLevel(Enchantments.FEATHER_FALLING, livingEntity.getEquippedStack(EquipmentSlot.FEET)) > 0) {
             ci.cancel();
         }
     }

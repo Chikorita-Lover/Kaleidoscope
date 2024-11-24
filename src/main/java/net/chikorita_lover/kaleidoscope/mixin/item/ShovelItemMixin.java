@@ -6,7 +6,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -37,13 +36,13 @@ public class ShovelItemMixin {
                 Direction direction = context.getSide();
                 PlayerEntity player = context.getPlayer();
                 BlockState newState = Blocks.MANGROVE_ROOTS.getDefaultState().with(PillarBlock.AXIS, oldState.get(PillarBlock.AXIS));
-                world.setBlockState(pos, newState, Block.NOTIFY_ALL_AND_REDRAW);
+                world.setBlockState(pos, newState, Block.NOTIFY_ALL);
                 ItemEntity item = new ItemEntity(world, pos.getX() + 0.5 + context.getSide().getOffsetX() * 0.65, pos.getY() + 0.5 + context.getSide().getOffsetY() * 0.65, pos.getZ() + 0.5 + context.getSide().getOffsetZ() * 0.65, new ItemStack(Blocks.MUD));
                 item.setVelocity(0.05 * direction.getOffsetX() + world.getRandom().nextDouble() * 0.02, 0.05 * direction.getOffsetY() + world.getRandom().nextDouble() * 0.02, 0.05 * direction.getOffsetZ() + world.getRandom().nextDouble() * 0.02);
                 world.spawnEntity(item);
                 world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, newState));
                 if (player != null) {
-                    context.getStack().damage(1, player, LivingEntity.getSlotForHand(context.getHand()));
+                    context.getStack().damage(1, player, playerx -> playerx.sendToolBreakStatus(context.getHand()));
                 }
             }
             cir.setReturnValue(ActionResult.success(world.isClient()));

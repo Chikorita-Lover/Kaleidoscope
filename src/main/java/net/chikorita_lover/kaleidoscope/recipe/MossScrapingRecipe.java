@@ -3,15 +3,11 @@ package net.chikorita_lover.kaleidoscope.recipe;
 import net.minecraft.block.Block;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.registry.RegistryKey;
+import net.minecraft.util.Identifier;
 
 public class MossScrapingRecipe extends AbstractBlockTransmutingRecipe {
-    public MossScrapingRecipe(RegistryKey<Block> block, RegistryKey<Block> result) {
-        super(block, result);
-    }
-
-    public MossScrapingRecipe(Block block, Block result) {
-        super(block, result);
+    public MossScrapingRecipe(Identifier id, Block block, Block result) {
+        super(id, block, result);
     }
 
     @Override

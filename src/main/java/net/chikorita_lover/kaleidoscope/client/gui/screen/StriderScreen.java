@@ -11,7 +11,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.Identifier;
 
 public class StriderScreen extends HandledScreen<StriderScreenHandler> {
-    private static final Identifier CHEST_SLOTS_TEXTURE = Kaleidoscope.of("container/strider/chest_slots");
     private static final Identifier TEXTURE = Kaleidoscope.of("textures/gui/container/strider.png");
     private float mouseX;
     private float mouseY;
@@ -22,13 +21,14 @@ public class StriderScreen extends HandledScreen<StriderScreenHandler> {
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
+        this.renderBackground(context);
         int i = (this.width - this.backgroundWidth) / 2;
         int j = (this.height - this.backgroundHeight) / 2;
         context.drawTexture(TEXTURE, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
         if (((Chestable) this.handler.entity).kaleidoscope$hasChest()) {
-            context.drawGuiTexture(CHEST_SLOTS_TEXTURE, 90, 54, 0, 0, i + 79, j + 17, 5 * 18, 54);
+            context.drawTexture(TEXTURE, i + 79, j + 17, 0, this.backgroundHeight, 5 * 18, 54);
         }
-        InventoryScreen.drawEntity(context, i + 8, j + 18, i + 78, j + 70, 17, 0.25F, this.mouseX, this.mouseY, this.handler.entity);
+        InventoryScreen.drawEntity(context, i + 42, j + 60, 17, (i + 42) - this.mouseX, (j + 75 - 50) - this.mouseY, this.handler.entity);
     }
 
     @Override

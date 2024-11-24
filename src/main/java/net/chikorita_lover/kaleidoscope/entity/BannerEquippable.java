@@ -3,7 +3,6 @@ package net.chikorita_lover.kaleidoscope.entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
-import net.minecraft.registry.RegistryWrapper;
 
 public interface BannerEquippable {
     String BANNER_KEY = "KaleidoscopeBannerItem";
@@ -16,16 +15,15 @@ public interface BannerEquippable {
         return !this.kaleidoscope$getBannerStack().isEmpty();
     }
 
-    default void writeBannerToNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registriesLookup) {
+    default void writeBannerToNbt(NbtCompound nbt) {
         if (!this.kaleidoscope$getBannerStack().isEmpty()) {
-            nbt.put(BANNER_KEY, this.kaleidoscope$getBannerStack().encode(registriesLookup));
+            nbt.put(BANNER_KEY, this.kaleidoscope$getBannerStack().writeNbt(new NbtCompound()));
         }
     }
 
-    default void readBannerFromNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registriesLookup) {
+    default void readBannerFromNbt(NbtCompound nbt) {
         if (nbt.contains(BANNER_KEY, NbtElement.COMPOUND_TYPE)) {
-            NbtCompound nbtCompound = nbt.getCompound(BANNER_KEY);
-            this.kaleidoscope$setBannerStack(ItemStack.fromNbt(registriesLookup, nbtCompound).orElse(ItemStack.EMPTY));
+            this.kaleidoscope$setBannerStack(ItemStack.fromNbt(nbt.getCompound(BANNER_KEY)));
         } else {
             this.kaleidoscope$setBannerStack(ItemStack.EMPTY);
         }

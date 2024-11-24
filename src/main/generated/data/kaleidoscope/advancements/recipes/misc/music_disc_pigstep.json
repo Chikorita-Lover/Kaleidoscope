@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_disc_fragment_pigstep": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kaleidoscope:disc_fragment_pigstep"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "kaleidoscope:music_disc_pigstep"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_disc_fragment_pigstep",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "kaleidoscope:music_disc_pigstep"
+    ]
+  },
+  "sends_telemetry_event": false
+}

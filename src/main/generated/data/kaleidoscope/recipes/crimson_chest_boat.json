@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "kaleidoscope:crimson_boat"
+    }
+  ],
+  "result": {
+    "item": "kaleidoscope:crimson_chest_boat"
+  }
+}

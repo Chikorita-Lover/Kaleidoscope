@@ -5,17 +5,17 @@ import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBoatTypes;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
-import net.minecraft.entity.vehicle.VehicleEntity;
 import net.minecraft.item.BannerItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -37,12 +37,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BoatEntity.class)
-public abstract class BoatEntityMixin extends VehicleEntity implements BannerEquippable {
+public abstract class BoatEntityMixin extends Entity implements BannerEquippable {
     @Unique
     private static final TrackedData<ItemStack> EQUIPPED_BANNER = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
 
-    public BoatEntityMixin(EntityType<?> entityType, World world) {
-        super(entityType, world);
+    public BoatEntityMixin(EntityType<?> type, World world) {
+        super(type, world);
     }
 
     @Shadow
@@ -59,8 +59,13 @@ public abstract class BoatEntityMixin extends VehicleEntity implements BannerEqu
     }
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
-    private void initDataTracker(DataTracker.Builder builder, CallbackInfo ci) {
-        builder.add(EQUIPPED_BANNER, ItemStack.EMPTY);
+    private void initDataTracker(CallbackInfo ci) {
+        this.dataTracker.startTracking(EQUIPPED_BANNER, ItemStack.EMPTY);
+    }
+
+    @Inject(method = "dropItems", at = @At("TAIL"))
+    private void tryDropBanner(DamageSource source, CallbackInfo ci) {
+        this.dropStack(this.kaleidoscope$getBannerStack());
     }
 
     @Inject(method = "asItem", at = @At("HEAD"), cancellable = true)
@@ -80,31 +85,33 @@ public abstract class BoatEntityMixin extends VehicleEntity implements BannerEqu
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     private void writeKaleidoscopeData(NbtCompound nbt, CallbackInfo ci) {
-        this.writeBannerToNbt(nbt, this.getRegistryManager());
+        this.writeBannerToNbt(nbt);
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     private void readKaleidoscopeData(NbtCompound nbt, CallbackInfo ci) {
-        this.readBannerFromNbt(nbt, this.getRegistryManager());
+        this.readBannerFromNbt(nbt);
     }
 
-    @Inject(method = "interact", at = @At(value = "CONSTANT", args = "floatValue=60.0", shift = At.Shift.BEFORE), cancellable = true)
-    private void tryInteract(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+    @Inject(method = "interact", at = @At("HEAD"), cancellable = true)
+    private void tryInteract(PlayerEntity player, final Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         ItemStack stack = player.getStackInHand(hand);
         if (stack.getItem() instanceof BannerItem && !this.hasBanner()) {
             this.kaleidoscope$setBannerStack(stack.copyWithCount(1));
-            stack.decrementUnlessCreative(1, player);
+            if (!player.getAbilities().creativeMode) {
+                stack.decrement(1);
+            }
             this.playSound(KaleidoscopeSoundEvents.ENTITY_BOAT_EQUIP_BANNER, 1.0F, MathHelper.nextBetween(this.random, 0.9F, 1.1F));
             if (player instanceof ServerPlayerEntity serverPlayer) {
                 serverPlayer.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
             }
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
-        } else if (stack.isIn(ConventionalItemTags.SHEAR_TOOLS) && this.hasBanner()) {
+        } else if (stack.isIn(ConventionalItemTags.SHEARS) && this.hasBanner()) {
             this.dropStack(this.kaleidoscope$getBannerStack(), this.getHeight());
             this.kaleidoscope$setBannerStack(ItemStack.EMPTY);
             this.playSound(KaleidoscopeSoundEvents.ENTITY_BOAT_SHEAR, 1.0F, 1.0F);
             if (!this.getWorld().isClient()) {
-                stack.damage(1, player, LivingEntity.getSlotForHand(hand));
+                stack.damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
             }
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
         }

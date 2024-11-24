@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "stained_glass_door",
+  "ingredients": [
+    {
+      "item": "kaleidoscope:glass_door"
+    },
+    {
+      "tag": "c:purple_dyes"
+    }
+  ],
+  "result": {
+    "item": "kaleidoscope:purple_stained_glass_door"
+  }
+}

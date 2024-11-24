@@ -5,8 +5,6 @@ import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeLootTables;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -15,13 +13,10 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
-import net.minecraft.registry.RegistryWrapper;
-
-import java.util.concurrent.CompletableFuture;
 
 public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider {
-    public KaleidoscopeLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
-        super(dataOutput, registryLookup);
+    public KaleidoscopeLootTableProvider(FabricDataOutput dataOutput) {
+        super(dataOutput);
     }
 
     @Override
@@ -33,7 +28,6 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.CALCITE);
         this.addFamilyDrops(KaleidoscopeBlockFamilies.POLISHED_CALCITE);
         this.addFamilyDrops(KaleidoscopeBlockFamilies.SMOOTH_CALCITE);
-        this.addDrop(KaleidoscopeBlocks.CRACKED_TUFF_BRICKS);
         this.addFamilyVariantDrops(KaleidoscopeBlockFamilies.SMOOTH_BASALT);
 
         this.addFamilyDrops(KaleidoscopeBlockFamilies.BRICK_MOSAIC);
@@ -140,9 +134,5 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
                 default -> this.addDrop(block);
             }
         });
-    }
-
-    private LootTable.Builder glassSlabDrops(Block drop) {
-        return this.slabDrops(drop).modifyPools(builder -> builder.conditionally(createSilkTouchCondition()));
     }
 }

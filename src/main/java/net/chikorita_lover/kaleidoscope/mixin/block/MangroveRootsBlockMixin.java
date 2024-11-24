@@ -33,7 +33,7 @@ public class MangroveRootsBlockMixin extends Block {
     }
 
     @Override
-    protected BlockState rotate(BlockState state, BlockRotation rotation) {
+    public BlockState rotate(BlockState state, BlockRotation rotation) {
         return PillarBlock.changeRotation(state, rotation);
     }
 

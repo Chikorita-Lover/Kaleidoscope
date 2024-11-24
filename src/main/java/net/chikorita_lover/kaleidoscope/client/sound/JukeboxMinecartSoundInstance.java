@@ -3,21 +3,16 @@ package net.chikorita_lover.kaleidoscope.client.sound;
 import net.chikorita_lover.kaleidoscope.entity.JukeboxMinecartEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.jukebox.JukeboxSong;
 import net.minecraft.client.sound.MovingSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.JukeboxPlayableComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.item.MusicDiscItem;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-
-import java.util.Optional;
 
 @Environment(EnvType.CLIENT)
 public class JukeboxMinecartSoundInstance extends MovingSoundInstance {
@@ -25,7 +20,7 @@ public class JukeboxMinecartSoundInstance extends MovingSoundInstance {
     private final World world;
 
     public JukeboxMinecartSoundInstance(JukeboxMinecartEntity jukeboxMinecart) {
-        super(getSoundEventFromItemStack(jukeboxMinecart.getWorld(), jukeboxMinecart.getStack(0)), SoundCategory.RECORDS, SoundInstance.createRandom());
+        super(getSoundEventFromItemStack(jukeboxMinecart.getStack(0)), SoundCategory.RECORDS, SoundInstance.createRandom());
         this.world = jukeboxMinecart.getWorld();
         this.entityId = jukeboxMinecart.getId();
         this.repeat = false;
@@ -33,12 +28,11 @@ public class JukeboxMinecartSoundInstance extends MovingSoundInstance {
         this.setPosition(jukeboxMinecart.getPos());
     }
 
-    private static SoundEvent getSoundEventFromItemStack(World world, ItemStack stack) {
-        Optional<RegistryEntry<JukeboxSong>> optional = JukeboxSong.getSongEntryFromStack(world.getRegistryManager(), stack);
-        if (optional.isEmpty()) {
-            return SoundEvents.INTENTIONALLY_EMPTY;
+    private static SoundEvent getSoundEventFromItemStack(ItemStack stack) {
+        if (stack.getItem() instanceof MusicDiscItem musicDisc) {
+            return musicDisc.getSound();
         }
-        return optional.get().value().soundEvent().value();
+        return SoundEvents.INTENTIONALLY_EMPTY;
     }
 
     @Override
