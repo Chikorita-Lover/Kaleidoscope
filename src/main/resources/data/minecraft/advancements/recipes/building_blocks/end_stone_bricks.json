@@ -5,7 +5,9 @@
 			"conditions": {
 				"items": [
 					{
-						"item": "kaleidoscope:polished_end_stone"
+						"items": [
+							"kaleidoscope:polished_end_stone"
+						]
 					}
 				]
 			},
