@@ -3,7 +3,7 @@
 	"minVersion": "0.8",
 	"plugin": "net.chikorita_lover.kaleidoscope.mixin.KaleidoscopeMixinConfigPlugin",
 	"package": "net.chikorita_lover.kaleidoscope.mixin",
-	"compatibilityLevel": "JAVA_21",
+	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"DiggerEnchantmentTargetMixin",
 		"ExplosionMixin",
