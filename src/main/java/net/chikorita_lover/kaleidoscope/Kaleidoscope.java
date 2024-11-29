@@ -29,10 +29,7 @@ import net.minecraft.block.dispenser.ShearsDispenserBehavior;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityType;
-import net.minecraft.item.BannerItem;
-import net.minecraft.item.BannerPatternItem;
-import net.minecraft.item.Items;
-import net.minecraft.item.SignItem;
+import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.AnyOfLootCondition;
@@ -126,11 +123,9 @@ public class Kaleidoscope implements ModInitializer {
         StructurePoolModifiers.register();
 
         DefaultItemComponentEvents.MODIFY.register(context -> {
-            context.modify(item -> item instanceof BannerItem, (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
-            context.modify(item -> item instanceof BannerPatternItem, (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
-            context.modify(item -> item instanceof SignItem, (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
+            final List<Class<? extends Item>> classes = List.of(ArmorStandItem.class, BannerItem.class, BannerPatternItem.class, EggItem.class, SignItem.class, SnowballItem.class, WrittenBookItem.class);
+            context.modify(item -> classes.stream().anyMatch(aClass -> aClass.isInstance(item)), (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
             context.modify(item -> item.getComponents().contains(DataComponentTypes.JUKEBOX_PLAYABLE) && Registries.ITEM.getId(item).getPath().matches("music_disc_\\w+"), (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
-            context.modify(List.of(Items.EGG, Items.SNOWBALL), (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
             context.modify(List.of(Items.BLAZE_POWDER, Items.BLAZE_ROD, Items.MAGMA_CREAM), (builder, item) -> builder.add(DataComponentTypes.FIRE_RESISTANT, Unit.INSTANCE));
         });
 
