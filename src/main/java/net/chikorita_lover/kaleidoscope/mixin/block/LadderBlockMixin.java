@@ -14,7 +14,7 @@ public class LadderBlockMixin extends Block {
     }
 
     @Override
-    protected boolean canReplace(BlockState state, ItemPlacementContext context) {
+    public boolean canReplace(BlockState state, ItemPlacementContext context) {
         return context.getStack().getItem() instanceof BlockItem item && item.getBlock() instanceof LadderBlock;
     }
 }
