@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-24T11:16:43.3618439	Kaleidoscope/Block Loot Tables
+// 1.20.1	2024-11-30T13:24:00.1511996	Kaleidoscope/Block Loot Tables
 4d230d328bfc0675b2eee46367466a49ae302e44 data\kaleidoscope\loot_tables\blocks\oxidized_smooth_copper.json
 9e3e631b5ffe6de7068de8380b2b3b4c30414578 data\kaleidoscope\loot_tables\blocks\white_stained_glass_door.json
 ee4208ba30763b573ee8355f8bca0a10d0c29bad data\kaleidoscope\loot_tables\blocks\glass_door.json
@@ -18,8 +18,8 @@ fb6b050739b9069c474a79447321f12597bbf708 data\kaleidoscope\loot_tables\blocks\br
 75065aa4d6f453d24dfea27f1116284e5b0e1c8e data\kaleidoscope\loot_tables\blocks\stick_block.json
 4754f6055b6ed2085f436f9699bb673de4144200 data\kaleidoscope\loot_tables\blocks\quartz_brick_slab.json
 999aee99e69fc4b795dfc1921ce4258f06a43d0a data\kaleidoscope\loot_tables\blocks\polished_diorite_wall.json
-0d51baeefa4d2c6ca5823c058afe9c5c1861b1df data\kaleidoscope\loot_tables\blocks\blue_terracotta_slab.json
 42b836abc1c7e804703a5d5494dc192dc421e42a data\kaleidoscope\loot_tables\blocks\polished_andesite_wall.json
+0d51baeefa4d2c6ca5823c058afe9c5c1861b1df data\kaleidoscope\loot_tables\blocks\blue_terracotta_slab.json
 131f6c0035f8c6353ac529cd4af4aa401e02dc03 data\kaleidoscope\loot_tables\gameplay\hero_of_the_village\fireworker_gift.json
 a82697b28a67e9bbb0d82d0da4a6f5f3bf14747a data\kaleidoscope\loot_tables\blocks\blue_terracotta_stairs.json
 632b9c0fd0c22336810819faf60d7dc12b6e0b63 data\kaleidoscope\loot_tables\blocks\purple_stained_glass_trapdoor.json
