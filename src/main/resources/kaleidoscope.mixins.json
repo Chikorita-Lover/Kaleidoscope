@@ -21,6 +21,7 @@
 		"block.FireBlockMixin",
 		"block.LadderBlockMixin",
 		"block.MangroveRootsBlockMixin",
+		"block.NoteBlockMixin",
 		"block.PumpkinBlockMixin",
 		"block.ScaffoldingBlockMixin",
 		"block.ShearsDispenserBehaviorMixin",
