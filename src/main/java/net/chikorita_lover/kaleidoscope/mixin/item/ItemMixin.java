@@ -14,7 +14,7 @@ public abstract class ItemMixin {
     @ModifyReturnValue(method = "getMaxCount", at = @At("RETURN"))
     private int modifyMaxCount(int maxCount) {
         Item item = this.asItem();
-        if (item instanceof BannerItem || item instanceof BannerPatternItem || item instanceof SignItem || item instanceof MusicDiscItem || item instanceof SnowballItem || item instanceof EggItem) {
+        if (item instanceof ArmorStandItem || item instanceof BannerItem || item instanceof BannerPatternItem || item instanceof SignItem || item instanceof MusicDiscItem || item instanceof SnowballItem || item instanceof EggItem || item instanceof WrittenBookItem) {
             return 64;
         }
         return maxCount;
