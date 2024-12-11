@@ -41,7 +41,7 @@ public class NoteBlockMixin {
         }
     }
 
-    @ModifyExpressionValue(method = "onSyncedBlockEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/enums/NoteBlockInstrument;getSound()Lnet/minecraft/registry/entry/RegistryEntry;"))
+    @ModifyExpressionValue(method = "onSyncedBlockEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/enums/Instrument;getSound()Lnet/minecraft/registry/entry/RegistryEntry;"))
     private RegistryEntry<SoundEvent> modifySound(RegistryEntry<SoundEvent> sound, BlockState state, World world, BlockPos pos) {
         if (BLOCK_TO_NOTE_BLOCK_SOUND.isEmpty()) {
             register();

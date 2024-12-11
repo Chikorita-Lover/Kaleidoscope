@@ -1,13 +1,13 @@
 package net.chikorita_lover.kaleidoscope.mixin.block;
 
+import com.google.common.collect.ImmutableMap;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.mojang.serialization.MapCodec;
-import it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.state.State;
 import net.minecraft.state.property.Property;
@@ -17,8 +17,8 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(AbstractBlock.AbstractBlockState.class)
 public abstract class AbstractBlockStateMixin extends State<Block, BlockState> {
-    protected AbstractBlockStateMixin(Block owner, Reference2ObjectArrayMap<Property<?>, Comparable<?>> propertyMap, MapCodec<BlockState> codec) {
-        super(owner, propertyMap, codec);
+    protected AbstractBlockStateMixin(Block owner, ImmutableMap<Property<?>, Comparable<?>> entries, MapCodec<BlockState> codec) {
+        super(owner, entries, codec);
     }
 
     @Shadow
@@ -36,11 +36,11 @@ public abstract class AbstractBlockStateMixin extends State<Block, BlockState> {
     }
 
     @ModifyReturnValue(method = "getInstrument", at = @At("RETURN"))
-    private NoteBlockInstrument modifyInstrument(NoteBlockInstrument instrument) {
+    private Instrument modifyInstrument(Instrument instrument) {
         if (this.isOf(Blocks.SOUL_SOIL)) {
-            return NoteBlockInstrument.COW_BELL;
+            return Instrument.COW_BELL;
         } else if (this.isOf(Blocks.CARVED_PUMPKIN) || this.isOf(Blocks.JACK_O_LANTERN)) {
-            return NoteBlockInstrument.DIDGERIDOO;
+            return Instrument.DIDGERIDOO;
         }
         return instrument;
     }
