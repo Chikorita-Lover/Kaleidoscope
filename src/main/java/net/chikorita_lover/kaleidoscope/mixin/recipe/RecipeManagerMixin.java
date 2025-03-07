@@ -103,7 +103,7 @@ public abstract class RecipeManagerMixin extends JsonDataLoader {
             if (id.getPath().contains("cracked_")) {
                 final String path = id.getPath().replaceFirst("cracked_", "");
                 Registries.BLOCK.stream().filter(blockx -> Objects.equals(Registries.BLOCK.getId(blockx).getPath(), path)).findFirst().ifPresent(block2 -> {
-                    CrackingRecipe recipe = new CrackingRecipe(createCrackingId(block2), block2, block);
+                    CrackingRecipe recipe = new CrackingRecipe(createCrackingId(block), block2, block);
                     BLOCK_TRANSMUTING_RECIPES.add(recipe);
                     crackingRecipes.put(recipe.getId(), recipe);
                 });
