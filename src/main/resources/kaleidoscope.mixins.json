@@ -15,8 +15,6 @@
 		"block.AbstractBlockStateMixin",
 		"block.BeehiveBlockMixin",
 		"block.CakeBlockMixin",
-		"block.CampfireBlockMixin",
-		"block.ConduitBlockEntityMixin",
 		"block.FarmlandBlockMixin",
 		"block.FireBlockMixin",
 		"block.LadderBlockMixin",
@@ -58,7 +56,6 @@
 		"recipe.FireworkRocketRecipeMixin",
 		"recipe.FireworkStarFadeRecipeMixin",
 		"recipe.FireworkStarRecipeMixin",
-		"recipe.RecipeBookOptionsMixin",
 		"recipe.RecipeManagerMixin",
 		"structure.EndCityGeneratorPieceMixin",
 		"structure.StructurePieceMixin",
@@ -67,9 +64,7 @@
 	"client": [
 		"client.BoatEntityRendererMixin",
 		"client.ClientPlayerInteractionManagerMixin",
-		"client.ClientRecipeBookMixin",
 		"client.ClientWorldMixin",
-		"client.RecipeBookGroupMixin",
 		"client.SketchBoatRendererMixin",
 		"client.SplashTextResourceSupplierMixin",
 		"client.StriderEntityRendererMixin"

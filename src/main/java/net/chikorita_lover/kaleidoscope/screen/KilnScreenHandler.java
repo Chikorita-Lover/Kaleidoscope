@@ -9,10 +9,10 @@ import net.minecraft.screen.PropertyDelegate;
 
 public class KilnScreenHandler extends AbstractFurnaceScreenHandler {
     public KilnScreenHandler(int syncId, PlayerInventory playerInventory) {
-        super(KaleidoscopeScreenHandlerTypes.KILN, KaleidoscopeRecipeTypes.KILNING, KilningRecipe.RECIPE_BOOK_CATEGORY, syncId, playerInventory);
+        super(KaleidoscopeScreenHandlerTypes.KILN, KaleidoscopeRecipeTypes.KILNING, KilningRecipe.CATEGORY, syncId, playerInventory);
     }
 
     public KilnScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
-        super(KaleidoscopeScreenHandlerTypes.KILN, KaleidoscopeRecipeTypes.KILNING, KilningRecipe.RECIPE_BOOK_CATEGORY, syncId, playerInventory, inventory, propertyDelegate);
+        super(KaleidoscopeScreenHandlerTypes.KILN, KaleidoscopeRecipeTypes.KILNING, KilningRecipe.CATEGORY, syncId, playerInventory, inventory, propertyDelegate);
     }
 }

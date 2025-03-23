@@ -27,7 +27,7 @@ public class StriderChestFeatureRenderer<T extends StriderEntity, M extends Stri
 
     public StriderChestFeatureRenderer(FeatureRendererContext<T, M> context, EntityModelLoader loader) {
         super(context);
-        this.chest = loader.getModelPart(KaleidoscopeClient.STRIDER_CHEST);
+        this.chest = loader.getModelPart(KaleidoscopeClient.STRIDER_CHEST_LAYER);
     }
 
     public static TexturedModelData getTexturedModelData() {
