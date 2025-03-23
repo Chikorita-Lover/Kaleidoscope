@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.entity;
 
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.entity.Chestable;
 import net.chikorita_lover.kaleidoscope.network.OpenStriderScreenS2CPacket;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
@@ -124,7 +125,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
             return;
         }
         ItemStack stack = player.getStackInHand(hand);
-        if (!this.kaleidoscope$hasChest() && stack.isOf(Items.CHEST)) {
+        if (KaleidoscopeConfig.ALLOW_STRIDER_EQUIPMENT.get() && !this.kaleidoscope$hasChest() && stack.isOf(Items.CHEST)) {
             this.kaleidoscope$addChest(player, stack);
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
         } else if (this.isSaddled() && stack.isIn(ConventionalItemTags.SHEAR_TOOLS)) {
@@ -136,7 +137,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
                 stack.damage(1, player, LivingEntity.getSlotForHand(hand));
             }
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
-        } else if (this.kaleidoscope$hasChest() && (!this.isSaddled() && !stack.isOf(Items.SADDLE) || player.shouldCancelInteraction())) {
+        } else if (KaleidoscopeConfig.ALLOW_STRIDER_EQUIPMENT.get() && this.kaleidoscope$hasChest() && (!this.isSaddled() && !stack.isOf(Items.SADDLE) || player.shouldCancelInteraction())) {
             this.openInventory(player);
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
         }
@@ -194,7 +195,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Chestab
 
     @Override
     public void openInventory(PlayerEntity player) {
-        if (!(player instanceof ServerPlayerEntity serverPlayer) || (this.hasPassengers() && !this.hasPassenger(player))) {
+        if (!KaleidoscopeConfig.ALLOW_STRIDER_EQUIPMENT.get() || !(player instanceof ServerPlayerEntity serverPlayer) || (this.hasPassengers() && !this.hasPassenger(player))) {
             return;
         }
         if (serverPlayer.currentScreenHandler != serverPlayer.playerScreenHandler) {

@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.entity;
 
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.entity.BannerEquippable;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBoatTypes;
@@ -91,7 +92,7 @@ public abstract class BoatEntityMixin extends VehicleEntity implements BannerEqu
     @Inject(method = "interact", at = @At(value = "CONSTANT", args = "floatValue=60.0", shift = At.Shift.BEFORE), cancellable = true)
     private void tryInteract(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         ItemStack stack = player.getStackInHand(hand);
-        if (stack.getItem() instanceof BannerItem && !this.hasBanner()) {
+        if (KaleidoscopeConfig.ALLOW_BANNERS_ON_BOATS.get() && stack.getItem() instanceof BannerItem && !this.hasBanner()) {
             this.kaleidoscope$setBannerStack(stack.copyWithCount(1));
             stack.decrementUnlessCreative(1, player);
             this.playSound(KaleidoscopeSoundEvents.ENTITY_BOAT_EQUIP_BANNER, 1.0F, MathHelper.nextBetween(this.random, 0.9F, 1.1F));

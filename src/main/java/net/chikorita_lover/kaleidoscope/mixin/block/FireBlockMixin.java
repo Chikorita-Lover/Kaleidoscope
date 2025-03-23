@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.block;
 
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.recipe.CrackingRecipe;
 import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeBlockTags;
@@ -25,7 +26,7 @@ public class FireBlockMixin {
     @Inject(method = "trySpreadingFire", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;getBlockState(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/BlockState;", ordinal = 1, shift = At.Shift.AFTER), cancellable = true)
     private void tryBurningToCharcoal(World world, BlockPos pos, int spreadFactor, Random random, int currentAge, CallbackInfo ci) {
         BlockState state = world.getBlockState(pos);
-        if (state.isIn(KaleidoscopeBlockTags.BURNS_INTO_CHARCOAL) && world.getRandom().nextFloat() < 0.17F) {
+        if (KaleidoscopeConfig.CHARCOAL_BLOCKS.get() && state.isIn(KaleidoscopeBlockTags.BURNS_INTO_CHARCOAL) && world.getRandom().nextFloat() < 0.17F) {
             world.setBlockState(pos, KaleidoscopeBlocks.CHARCOAL_BLOCK.getStateWithProperties(state), Block.NOTIFY_ALL);
             ci.cancel();
         }
@@ -34,7 +35,7 @@ public class FireBlockMixin {
     @Inject(method = "scheduledTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;getBlockState(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/BlockState;", shift = At.Shift.AFTER, ordinal = 0))
     private void tryCrackingBlock(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
         BlockPos targetPos = pos.offset(Direction.random(random));
-        if (random.nextFloat() < CRACK_CHANCE) {
+        if (KaleidoscopeConfig.DO_BLOCK_CRACKING.get() && random.nextFloat() < CRACK_CHANCE) {
             CrackingRecipe.tryCrackBlock(world, targetPos);
         }
     }

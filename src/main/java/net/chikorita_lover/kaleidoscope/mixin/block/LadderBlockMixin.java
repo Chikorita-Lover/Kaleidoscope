@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.block;
 
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LadderBlock;
@@ -15,6 +16,6 @@ public class LadderBlockMixin extends Block {
 
     @Override
     protected boolean canReplace(BlockState state, ItemPlacementContext context) {
-        return context.getStack().getItem() instanceof BlockItem item && item.getBlock() instanceof LadderBlock;
+        return KaleidoscopeConfig.EXTEND_LADDERS_ON_INTERACT.get() && context.getStack().getItem() instanceof BlockItem item && item.getBlock() instanceof LadderBlock;
     }
 }

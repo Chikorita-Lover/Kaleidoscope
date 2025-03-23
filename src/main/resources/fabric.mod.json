@@ -32,6 +32,9 @@
 		],
 		"mm:early_risers": [
 			"net.chikorita_lover.kaleidoscope.KaleidoscopeEarlyRiser"
+		],
+		"modmenu": [
+			"net.chikorita_lover.kaleidoscope.integration.ModMenuIntegration"
 		]
 	},
 	"mixins": [

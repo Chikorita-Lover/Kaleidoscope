@@ -1,6 +1,7 @@
 package net.chikorita_lover.kaleidoscope.mixin.structure;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.StructurePiece;
@@ -20,7 +21,7 @@ public class StructurePieceMixin {
         if (!(world instanceof ChunkRegion chunkRegion) || chunkRegion.currentlyGeneratingStructureName == null || !chunkRegion.currentlyGeneratingStructureName.get().equals(StructureKeys.FORTRESS.toString())) {
             return state;
         }
-        if (state.isOf(Blocks.NETHER_BRICKS) && world.getRandom().nextFloat() < 0.2F) {
+        if (KaleidoscopeConfig.ADDITIONAL_CRACKED_BLOCKS.get() && state.isOf(Blocks.NETHER_BRICKS) && world.getRandom().nextFloat() < 0.2F) {
             return Blocks.CRACKED_NETHER_BRICKS.getStateWithProperties(state);
         }
         return state;

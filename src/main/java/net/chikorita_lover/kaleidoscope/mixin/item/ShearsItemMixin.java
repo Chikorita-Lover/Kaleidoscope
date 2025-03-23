@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.item;
 
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeBlockTags;
 import net.minecraft.component.type.ToolComponent;
 import net.minecraft.item.Item;
@@ -30,6 +31,6 @@ public class ShearsItemMixin extends Item {
 
     @Override
     public int getEnchantability() {
-        return 1;
+        return KaleidoscopeConfig.SHEARS_ENCHANTABILITY.get();
     }
 }

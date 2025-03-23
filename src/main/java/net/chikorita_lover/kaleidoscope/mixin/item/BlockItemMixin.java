@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.item;
 
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LadderBlock;
@@ -21,7 +22,7 @@ public abstract class BlockItemMixin {
 
     @Inject(method = "getPlacementContext", at = @At("HEAD"), cancellable = true)
     private void tryLadderPlacement(ItemPlacementContext context, CallbackInfoReturnable<ItemPlacementContext> cir) {
-        if (this.getBlock() instanceof LadderBlock && !context.shouldCancelInteraction()) {
+        if (KaleidoscopeConfig.EXTEND_LADDERS_ON_INTERACT.get() && this.getBlock() instanceof LadderBlock && !context.shouldCancelInteraction()) {
             BlockPos pos = context.getBlockPos();
             World world = context.getWorld();
             BlockState state = world.getBlockState(pos);

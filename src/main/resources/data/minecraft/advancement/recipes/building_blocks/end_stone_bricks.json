@@ -1,12 +1,21 @@
 {
+	"fabric:load_conditions": [
+		{
+			"condition": "chicory:config_values_match",
+			"name": "kaleidoscope",
+			"values": {
+				"endStoneBlocks": false
+			}
+		}
+	],
 	"parent": "minecraft:recipes/root",
 	"criteria": {
-		"has_polished_end_stone": {
+		"has_end_stone": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
-						"items": "kaleidoscope:polished_end_stone"
+						"items": "minecraft:end_stone"
 					}
 				]
 			}
@@ -21,7 +30,7 @@
 	"requirements": [
 		[
 			"has_the_recipe",
-			"has_polished_end_stone"
+			"has_end_stone"
 		]
 	],
 	"rewards": {

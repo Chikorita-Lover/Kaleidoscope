@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.item;
 
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeTypes;
 import net.chikorita_lover.kaleidoscope.recipe.SingleBlockRecipeInput;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
@@ -26,6 +27,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class HoeItemMixin {
     @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
     private void tryScrapeMoss(final ItemUsageContext context, final CallbackInfoReturnable<ActionResult> cir) {
+        if (!KaleidoscopeConfig.SCRAPE_MOSS.get()) {
+            return;
+        }
         final World world = context.getWorld();
         final BlockPos pos = context.getBlockPos();
         final PlayerEntity player = context.getPlayer();

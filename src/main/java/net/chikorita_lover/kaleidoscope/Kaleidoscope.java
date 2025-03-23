@@ -13,7 +13,6 @@ import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeTypes;
 import net.chikorita_lover.kaleidoscope.registry.*;
 import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeBlockTags;
 import net.chikorita_lover.kaleidoscope.screen.KaleidoscopeScreenHandlerTypes;
-import net.chikorita_lover.kaleidoscope.structure.EndCityStructureProcessor;
 import net.chikorita_lover.kaleidoscope.structure.StructurePoolModifiers;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -67,13 +66,15 @@ import java.util.List;
 public class Kaleidoscope implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("Kaleidoscope");
     public static final String MODID = "kaleidoscope";
-    public static final StructureProcessorType<EndCityStructureProcessor> END_CITY_STRUCTURE_PROCESSOR = Registry.register(Registries.STRUCTURE_PROCESSOR, of("end_city"), () -> EndCityStructureProcessor.CODEC);
 
     public static Identifier of(String path) {
         return Identifier.of(MODID, path);
     }
 
     public static boolean isHoisted(BlockView world, BlockPos pos, BlockState state) {
+        if (!KaleidoscopeConfig.CHAINS_HOIST_BLOCKS.get()) {
+            return false;
+        }
         BlockState aboveState = world.getBlockState(pos.up());
         return aboveState.isIn(KaleidoscopeBlockTags.HOISTS_FALLING_BLOCKS) && aboveState.isSideSolid(world, pos.up(), Direction.DOWN, SideShapeType.CENTER) && state.isSideSolid(world, pos, Direction.UP, SideShapeType.CENTER);
     }
@@ -86,13 +87,13 @@ public class Kaleidoscope implements ModInitializer {
 
     private static void registerLootTableEvents() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
-            if (key.equals(LootTables.PIGLIN_BARTERING_GAMEPLAY)) {
+            if (KaleidoscopeConfig.ADDITIONAL_DISC_FRAGMENTS.get() && key.equals(LootTables.PIGLIN_BARTERING_GAMEPLAY)) {
                 tableBuilder.modifyPools(builder -> builder.with((ItemEntry.builder(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).build());
             }
-            if (key.equals(EntityType.CAMEL.getLootTableId())) {
+            if (KaleidoscopeConfig.DO_CAMEL_DROPS.get() && key.equals(EntityType.CAMEL.getLootTableId())) {
                 tableBuilder.pool(LootPool.builder().with(ItemEntry.builder(Items.LEATHER).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F, 2.0F))).apply(EnchantedCountIncreaseLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 1.0F)))).build());
             }
-            if (key.equals(EntityType.GOAT.getLootTableId())) {
+            if (KaleidoscopeConfig.DO_GOAT_DROPS.get() && key.equals(EntityType.GOAT.getLootTableId())) {
                 tableBuilder.pool(LootPool.builder().with(ItemEntry.builder(Items.MUTTON).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))).apply(FurnaceSmeltLootFunction.builder().conditionally(createSmeltLootCondition(registries))).apply(EnchantedCountIncreaseLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 1.0F)))).build());
             }
         });
@@ -143,7 +144,7 @@ public class Kaleidoscope implements ModInitializer {
 
         ServerLifecycleEvents.SERVER_STARTED.register(server -> {
             Registry<StructureProcessorList> processorLists = server.getRegistryManager().get(RegistryKeys.PROCESSOR_LIST);
-            if (processorLists != null) {
+            if (KaleidoscopeConfig.ADDITIONAL_CRACKED_BLOCKS.get() && processorLists != null) {
                 addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRAIL_RUINS_HOUSES_ARCHAEOLOGY), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
                 addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRAIL_RUINS_ROADS_ARCHAEOLOGY), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
                 addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRAIL_RUINS_TOWER_TOP_ARCHAEOLOGY), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));

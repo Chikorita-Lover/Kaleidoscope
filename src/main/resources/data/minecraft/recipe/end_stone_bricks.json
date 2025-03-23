@@ -1,4 +1,13 @@
 {
+	"fabric:load_conditions": [
+		{
+			"condition": "chicory:config_values_match",
+			"name": "kaleidoscope",
+			"values": {
+				"endStoneBlocks": false
+			}
+		}
+	],
 	"type": "minecraft:crafting_shaped",
 	"category": "building",
 	"pattern": [
@@ -7,7 +16,7 @@
 	],
 	"key": {
 		"#": {
-			"item": "kaleidoscope:polished_end_stone"
+			"item": "minecraft:end_stone"
 		}
 	},
 	"result": {

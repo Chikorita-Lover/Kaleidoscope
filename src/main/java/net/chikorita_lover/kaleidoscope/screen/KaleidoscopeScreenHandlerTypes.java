@@ -1,6 +1,8 @@
 package net.chikorita_lover.kaleidoscope.screen;
 
+import net.chikorita_lover.chicory.api.resource.ToggleableFeatureRegistry;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
@@ -12,6 +14,8 @@ public class KaleidoscopeScreenHandlerTypes {
     public static final ScreenHandlerType<KilnScreenHandler> KILN = register("kiln", (syncId, playerInventory) -> new KilnScreenHandler(syncId, playerInventory));
 
     public static void register() {
+        ToggleableFeatureRegistry.add(FIREWORKS_TABLE, KaleidoscopeConfig.FIREWORK_IMPROVEMENTS);
+        ToggleableFeatureRegistry.add(KILN, KaleidoscopeConfig.KILNS);
     }
 
     private static <T extends ScreenHandler> ScreenHandlerType<T> register(String path, ScreenHandlerType.Factory<T> factory) {

@@ -2,6 +2,7 @@ package net.chikorita_lover.kaleidoscope.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.recipe.CrackingRecipe;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -32,7 +33,7 @@ public abstract class ExplosionMixin {
     private void tryCrackNeighbor(boolean particles, CallbackInfo ci, @Local BlockPos blockPos) {
         Random random = this.world.getRandom();
         BlockPos pos = blockPos.offset(Direction.random(random), random.nextBetween(1, 2));
-        if (random.nextBoolean() && this.getDestructionType() != Explosion.DestructionType.TRIGGER_BLOCK && !this.affectedBlocks.contains(pos) && this.world instanceof ServerWorld serverWorld) {
+        if (KaleidoscopeConfig.DO_BLOCK_CRACKING.get() && random.nextBoolean() && this.getDestructionType() != Explosion.DestructionType.TRIGGER_BLOCK && !this.affectedBlocks.contains(pos) && this.world instanceof ServerWorld serverWorld) {
             CrackingRecipe.tryCrackBlock(serverWorld, pos);
         }
     }

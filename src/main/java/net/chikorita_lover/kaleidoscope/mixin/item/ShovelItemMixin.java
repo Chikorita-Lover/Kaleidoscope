@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.item;
 
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -30,7 +31,7 @@ public class ShovelItemMixin {
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
         BlockState oldState = world.getBlockState(pos);
-        if (oldState.isOf(Blocks.MUDDY_MANGROVE_ROOTS)) {
+        if (KaleidoscopeConfig.SCOOP_MUDDY_MANGROVE_ROOTS.get() && oldState.isOf(Blocks.MUDDY_MANGROVE_ROOTS)) {
             world.addBlockBreakParticles(pos, Blocks.MUD.getDefaultState());
             world.playSound(null, pos, KaleidoscopeSoundEvents.ITEM_SHOVEL_SCOOP_MUD, SoundCategory.BLOCKS, 1.0F, MathHelper.nextBetween(world.getRandom(), 0.9F, 1.1F));
             if (!world.isClient()) {

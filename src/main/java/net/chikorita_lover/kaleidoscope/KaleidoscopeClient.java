@@ -103,7 +103,7 @@ public class KaleidoscopeClient implements ClientModInitializer {
         HandledScreens.register(KaleidoscopeScreenHandlerTypes.KILN, KilnScreen::new);
 
         ItemTooltipCallback.EVENT.register((stack, tooltipContext, tooltipType, lines) -> {
-            if (stack.contains(DataComponentTypes.FOOD) && !(stack.getItem() instanceof OminousBottleItem)) {
+            if (KaleidoscopeConfig.SHOW_FOOD_TOOLTIPS.get() && stack.contains(DataComponentTypes.FOOD) && !(stack.getItem() instanceof OminousBottleItem)) {
                 buildFoodTooltip(stack, lines);
             }
         });

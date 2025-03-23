@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.item;
 
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
@@ -12,7 +13,9 @@ public class KaleidoscopeItemGroups {
             entries.addAfter(Blocks.POLISHED_GRANITE_SLAB, KaleidoscopeBlocks.POLISHED_GRANITE_WALL);
             entries.addAfter(Blocks.POLISHED_DIORITE_SLAB, KaleidoscopeBlocks.POLISHED_DIORITE_WALL);
             entries.addAfter(Blocks.POLISHED_ANDESITE_SLAB, KaleidoscopeBlocks.POLISHED_ANDESITE_WALL);
-            entries.addBefore(Blocks.DEEPSLATE, Blocks.CALCITE, KaleidoscopeBlocks.CALCITE_STAIRS, KaleidoscopeBlocks.CALCITE_SLAB, KaleidoscopeBlocks.CALCITE_WALL, KaleidoscopeBlocks.POLISHED_CALCITE, KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS, KaleidoscopeBlocks.POLISHED_CALCITE_SLAB, KaleidoscopeBlocks.POLISHED_CALCITE_WALL, KaleidoscopeBlocks.SMOOTH_CALCITE, KaleidoscopeBlocks.SMOOTH_CALCITE_STAIRS, KaleidoscopeBlocks.SMOOTH_CALCITE_SLAB);
+            if (KaleidoscopeConfig.CALCITE_BLOCKS.get()) {
+                entries.addBefore(Blocks.DEEPSLATE, Blocks.CALCITE, KaleidoscopeBlocks.CALCITE_STAIRS, KaleidoscopeBlocks.CALCITE_SLAB, KaleidoscopeBlocks.CALCITE_WALL, KaleidoscopeBlocks.POLISHED_CALCITE, KaleidoscopeBlocks.POLISHED_CALCITE_STAIRS, KaleidoscopeBlocks.POLISHED_CALCITE_SLAB, KaleidoscopeBlocks.POLISHED_CALCITE_WALL, KaleidoscopeBlocks.SMOOTH_CALCITE, KaleidoscopeBlocks.SMOOTH_CALCITE_STAIRS, KaleidoscopeBlocks.SMOOTH_CALCITE_SLAB);
+            }
             entries.addAfter(Blocks.TUFF_BRICKS, KaleidoscopeBlocks.CRACKED_TUFF_BRICKS);
             entries.addAfter(Blocks.BRICKS, KaleidoscopeBlocks.BRICK_MOSAIC);
             entries.addAfter(Blocks.BRICK_STAIRS, KaleidoscopeBlocks.BRICK_MOSAIC_STAIRS);

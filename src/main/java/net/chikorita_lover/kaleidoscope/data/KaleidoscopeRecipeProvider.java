@@ -159,6 +159,8 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
         offerFurnaceCrackingRecipe(exporter, KaleidoscopeBlocks.CRACKED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE_BRICKS, 4).input('#', KaleidoscopeBlocks.POLISHED_END_STONE).pattern("##").pattern("##").criterion(hasItem(KaleidoscopeBlocks.POLISHED_END_STONE), conditionsFromItem(KaleidoscopeBlocks.POLISHED_END_STONE)).offerTo(exporter, Kaleidoscope.of("end_stone_bricks_from_polished_end_stone"));
+
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.END_STONE_SLAB, Blocks.END_STONE, 2);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, KaleidoscopeBlocks.END_STONE_STAIRS, Blocks.END_STONE);
         offerStonecuttingRecipe(exporter, RecipeCategory.MISC, KaleidoscopeBlocks.END_STONE_WALL, Blocks.END_STONE);

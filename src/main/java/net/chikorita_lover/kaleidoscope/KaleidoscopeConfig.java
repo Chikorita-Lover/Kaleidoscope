@@ -1,0 +1,50 @@
+package net.chikorita_lover.kaleidoscope;
+
+import net.chikorita_lover.chicory.api.config.Config;
+import net.chikorita_lover.chicory.api.config.ConfigCategory;
+import net.chikorita_lover.chicory.api.config.property.BooleanConfigProperty;
+import net.chikorita_lover.chicory.api.config.property.IntConfigProperty;
+
+public interface KaleidoscopeConfig {
+    Config INSTANCE = new Config(Kaleidoscope.MODID);
+    ConfigCategory CONTENT = ConfigCategory.common("content");
+    ConfigCategory WORLD = ConfigCategory.common("world");
+    ConfigCategory TOOLS = ConfigCategory.common("tools");
+    ConfigCategory MOBS = ConfigCategory.common("mobs");
+    ConfigCategory CLIENT = ConfigCategory.client("client");
+    BooleanConfigProperty CALCITE_BLOCKS = INSTANCE.register(new BooleanConfigProperty("calciteBlocks", true), CONTENT);
+    BooleanConfigProperty BASALT_BLOCKS = INSTANCE.register(new BooleanConfigProperty("basaltBlocks", true), CONTENT);
+    BooleanConfigProperty BRICK_MOSAICS = INSTANCE.register(new BooleanConfigProperty("brickMosaics", true), CONTENT);
+    BooleanConfigProperty MUD_BLOCKS = INSTANCE.register(new BooleanConfigProperty("mudBlocks", true), CONTENT);
+    BooleanConfigProperty TERRACOTTA_BLOCKS = INSTANCE.register(new BooleanConfigProperty("terracottaBlocks", true), CONTENT);
+    BooleanConfigProperty END_STONE_BLOCKS = INSTANCE.register(new BooleanConfigProperty("endStoneBlocks", true), CONTENT);
+    BooleanConfigProperty QUARTZ_BLOCKS = INSTANCE.register(new BooleanConfigProperty("quartzBlocks", true), CONTENT);
+    BooleanConfigProperty SMOOTH_COPPER = INSTANCE.register(new BooleanConfigProperty("smoothCopper", true), CONTENT);
+    BooleanConfigProperty STICK_BLOCKS = INSTANCE.register(new BooleanConfigProperty("stickBlocks", true), CONTENT);
+    BooleanConfigProperty CHARCOAL_BLOCKS = INSTANCE.register(new BooleanConfigProperty("charcoalBlocks", true), CONTENT);
+    BooleanConfigProperty SOUL_JACK_O_LANTERNS = INSTANCE.register(new BooleanConfigProperty("soulJackOLanterns", true), CONTENT);
+    BooleanConfigProperty GLASS_DOORS = INSTANCE.register(new BooleanConfigProperty("glassDoors", true), CONTENT);
+    BooleanConfigProperty ADDITIONAL_CRACKED_BLOCKS = INSTANCE.register(new BooleanConfigProperty("additionalCrackedBlocks", true), CONTENT);
+    BooleanConfigProperty KILNS = INSTANCE.register(new BooleanConfigProperty("kilns", true), CONTENT);
+    BooleanConfigProperty FIREWORK_IMPROVEMENTS = INSTANCE.register(new BooleanConfigProperty("fireworkImprovements", true), CONTENT);
+    BooleanConfigProperty JUKEBOX_MINECARTS = INSTANCE.register(new BooleanConfigProperty("jukeboxMinecarts", true), CONTENT);
+    BooleanConfigProperty NETHER_BOATS = INSTANCE.register(new BooleanConfigProperty("netherBoats", true), CONTENT);
+    BooleanConfigProperty NETHERITE_SHEARS = INSTANCE.register(new BooleanConfigProperty("netheriteShears", true), CONTENT);
+    BooleanConfigProperty ADDITIONAL_DISC_FRAGMENTS = INSTANCE.register(new BooleanConfigProperty("additionalDiscFragments", true), CONTENT);
+    BooleanConfigProperty STONE_BLOCKS = INSTANCE.register(new BooleanConfigProperty("stoneBlocks", true), CONTENT);
+    BooleanConfigProperty FEATHER_FALLING_PRESERVES_FARMLAND = INSTANCE.register(new BooleanConfigProperty("featherFallingPreservesFarmland", true), WORLD);
+    BooleanConfigProperty CHAINS_HOIST_BLOCKS = INSTANCE.register(new BooleanConfigProperty("chainsHoistBlocks", true), WORLD);
+    BooleanConfigProperty DO_BLOCK_CRACKING = INSTANCE.register(new BooleanConfigProperty("doBlockCracking", true), WORLD);
+    BooleanConfigProperty SCRAPE_MOSS = INSTANCE.register(new BooleanConfigProperty("scrapeMoss", true), TOOLS);
+    BooleanConfigProperty SCOOP_MUDDY_MANGROVE_ROOTS = INSTANCE.register(new BooleanConfigProperty("scoopMuddyMangroveRoots", true), TOOLS);
+    BooleanConfigProperty ALLOW_BANNERS_ON_BOATS = INSTANCE.register(new BooleanConfigProperty("allowBannersOnBoats", true), TOOLS);
+    BooleanConfigProperty EXTEND_LADDERS_ON_INTERACT = INSTANCE.register(new BooleanConfigProperty("extendLaddersOnInteract", true), TOOLS);
+    IntConfigProperty SHEARS_ENCHANTABILITY = INSTANCE.register(new IntConfigProperty("shearsEnchantability", 1, 0, 127), TOOLS);
+    BooleanConfigProperty DISABLE_FIREWORK_RECIPES = INSTANCE.register(new BooleanConfigProperty("disableFireworkRecipes", false), TOOLS);
+    BooleanConfigProperty ALLOW_STRIDER_EQUIPMENT = INSTANCE.register(new BooleanConfigProperty("allowStriderEquipment", true), MOBS);
+    BooleanConfigProperty DO_GOAT_DROPS = INSTANCE.register(new BooleanConfigProperty("doGoatDrops", true), MOBS);
+    BooleanConfigProperty DO_CAMEL_DROPS = INSTANCE.register(new BooleanConfigProperty("doCamelDrops", true), MOBS);
+    BooleanConfigProperty SHOW_FOOD_TOOLTIPS = INSTANCE.register(new BooleanConfigProperty("showFoodTooltips", true), CLIENT);
+    BooleanConfigProperty PRODUCE_CAKE_EFFECTS = INSTANCE.register(new BooleanConfigProperty("produceCakeEffects", true), CLIENT);
+    BooleanConfigProperty SPAWN_FIREFLY_PARTICLES = INSTANCE.register(new BooleanConfigProperty("spawnFireflyParticles", true), CLIENT);
+}
