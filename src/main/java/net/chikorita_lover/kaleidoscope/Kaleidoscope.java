@@ -111,7 +111,7 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeBlockEntityTypes.register();
         KaleidoscopeEntityTypes.register();
         KaleidoscopeItemGroups.register();
-        KaleidoscopeItems.registerFuels();
+        KaleidoscopeItems.register();
         KaleidoscopeLootTables.register();
         KaleidoscopePointOfInterestTypes.register();
         KaleidoscopeRecipeSerializers.register();
@@ -133,10 +133,10 @@ public class Kaleidoscope implements ModInitializer {
         registerLootTableEvents();
 
         DispenserBlock.registerBehavior(KaleidoscopeItems.NETHERITE_SHEARS, new ShearsDispenserBehavior());
-        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_BOAT, new BoatDispenserBehavior(KaleidoscopeBoatTypes.CRIMSON));
-        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_BOAT, new BoatDispenserBehavior(KaleidoscopeBoatTypes.WARPED));
-        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeBoatTypes.CRIMSON));
-        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeBoatTypes.WARPED));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.CRIMSON_BOAT_TYPE));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.WARPED_BOAT_TYPE));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.CRIMSON_BOAT_TYPE, true));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.WARPED_BOAT_TYPE, true));
 
         PayloadTypeRegistry.playS2C().register(OpenStriderScreenS2CPacket.PACKET_ID, OpenStriderScreenS2CPacket.PACKET_CODEC);
         PayloadTypeRegistry.playS2C().register(StopJukeboxMinecartPlayingS2CPacket.PACKET_ID, StopJukeboxMinecartPlayingS2CPacket.PACKET_CODEC);

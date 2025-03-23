@@ -1,15 +1,17 @@
 package net.chikorita_lover.kaleidoscope.item;
 
+import net.chikorita_lover.chicory.api.entity.BoatTypeRegistry;
 import net.chikorita_lover.chicory.api.registry.ItemRegistry;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.entity.JukeboxMinecartEntity;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBoatTypes;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.block.Blocks;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FireworkExplosionComponent;
 import net.minecraft.component.type.ToolComponent;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.Rarity;
 
@@ -17,12 +19,15 @@ import java.util.ArrayList;
 import java.util.function.Supplier;
 
 public class KaleidoscopeItems {
+    public static final BoatEntity.Type CRIMSON_BOAT_TYPE = BoatTypeRegistry.register(Kaleidoscope.of("crimson"), Blocks.CRIMSON_PLANKS);
+    public static final BoatEntity.Type WARPED_BOAT_TYPE = BoatTypeRegistry.register(Kaleidoscope.of("warped"), Blocks.WARPED_PLANKS);
+
     public static final Item NETHERITE_SHEARS = register("netherite_shears", new ShearsItem(new Item.Settings().maxDamage(1934).component(DataComponentTypes.TOOL, createNetheriteShearsToolComponent()).fireproof()), KaleidoscopeConfig.NETHERITE_SHEARS);
 
-    public static final Item CRIMSON_BOAT = register("crimson_boat", new BoatItem(false, KaleidoscopeBoatTypes.CRIMSON, new Item.Settings().maxCount(1)), KaleidoscopeConfig.NETHER_BOATS);
-    public static final Item CRIMSON_CHEST_BOAT = register("crimson_chest_boat", new BoatItem(true, KaleidoscopeBoatTypes.CRIMSON, new Item.Settings().maxCount(1)), KaleidoscopeConfig.NETHER_BOATS);
-    public static final Item WARPED_BOAT = register("warped_boat", new BoatItem(false, KaleidoscopeBoatTypes.WARPED, new Item.Settings().maxCount(1)), KaleidoscopeConfig.NETHER_BOATS);
-    public static final Item WARPED_CHEST_BOAT = register("warped_chest_boat", new BoatItem(true, KaleidoscopeBoatTypes.WARPED, new Item.Settings().maxCount(1)), KaleidoscopeConfig.NETHER_BOATS);
+    public static final Item CRIMSON_BOAT = register("crimson_boat", new BoatItem(false, CRIMSON_BOAT_TYPE, new Item.Settings().maxCount(1)), KaleidoscopeConfig.NETHER_BOATS);
+    public static final Item CRIMSON_CHEST_BOAT = register("crimson_chest_boat", new BoatItem(true, CRIMSON_BOAT_TYPE, new Item.Settings().maxCount(1)), KaleidoscopeConfig.NETHER_BOATS);
+    public static final Item WARPED_BOAT = register("warped_boat", new BoatItem(false, WARPED_BOAT_TYPE, new Item.Settings().maxCount(1)), KaleidoscopeConfig.NETHER_BOATS);
+    public static final Item WARPED_CHEST_BOAT = register("warped_chest_boat", new BoatItem(true, WARPED_BOAT_TYPE, new Item.Settings().maxCount(1)), KaleidoscopeConfig.NETHER_BOATS);
     public static final Item JUKEBOX_MINECART = register("jukebox_minecart", new MinecartItem(JukeboxMinecartEntity.JUKEBOX_TYPE, new Item.Settings().maxCount(1)), KaleidoscopeConfig.JUKEBOX_MINECARTS);
 
     public static final Item DISC_FRAGMENT_PIGSTEP = register("disc_fragment_pigstep", new DiscFragmentItem(new Item.Settings()), KaleidoscopeConfig.ADDITIONAL_DISC_FRAGMENTS);
@@ -53,7 +58,9 @@ public class KaleidoscopeItems {
         return ItemRegistry.register(Kaleidoscope.of(id), item, condition);
     }
 
-    public static void registerFuels() {
+    public static void register() {
+        BoatTypeRegistry.registerBoatItems(CRIMSON_BOAT_TYPE, CRIMSON_BOAT, CRIMSON_CHEST_BOAT);
+        BoatTypeRegistry.registerBoatItems(WARPED_BOAT_TYPE, WARPED_BOAT, WARPED_CHEST_BOAT);
         FuelRegistry.INSTANCE.add(KaleidoscopeBlocks.CHARCOAL_BLOCK, 8000);
         FuelRegistry.INSTANCE.add(KaleidoscopeBlocks.STICK_BLOCK, 1000);
     }

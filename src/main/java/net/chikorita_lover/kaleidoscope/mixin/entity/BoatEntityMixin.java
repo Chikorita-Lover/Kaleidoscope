@@ -2,8 +2,6 @@ package net.chikorita_lover.kaleidoscope.mixin.entity;
 
 import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.entity.BannerEquippable;
-import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
-import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeBoatTypes;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
@@ -18,7 +16,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.entity.vehicle.VehicleEntity;
 import net.minecraft.item.BannerItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -62,16 +59,6 @@ public abstract class BoatEntityMixin extends VehicleEntity implements BannerEqu
     @Inject(method = "initDataTracker", at = @At("TAIL"))
     private void initDataTracker(DataTracker.Builder builder, CallbackInfo ci) {
         builder.add(EQUIPPED_BANNER, ItemStack.EMPTY);
-    }
-
-    @Inject(method = "asItem", at = @At("HEAD"), cancellable = true)
-    protected void asItem(CallbackInfoReturnable<Item> cir) {
-        if (this.getVariant() == KaleidoscopeBoatTypes.CRIMSON) {
-            cir.setReturnValue(KaleidoscopeItems.CRIMSON_BOAT);
-        }
-        if (this.getVariant() == KaleidoscopeBoatTypes.WARPED) {
-            cir.setReturnValue(KaleidoscopeItems.WARPED_BOAT);
-        }
     }
 
     @Inject(method = "fall", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z", shift = At.Shift.AFTER))
