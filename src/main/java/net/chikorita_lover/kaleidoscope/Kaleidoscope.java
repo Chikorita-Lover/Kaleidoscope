@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope;
 
+import net.chikorita_lover.chicory.api.registry.TagKeyEvents;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
 import net.chikorita_lover.kaleidoscope.entity.KaleidoscopeEntityTypes;
@@ -49,6 +50,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.EnchantmentTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.structure.processor.*;
 import net.minecraft.structure.rule.AlwaysTrueRuleTest;
 import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
@@ -122,6 +124,10 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeTradeOffers.register();
         KaleidoscopeVillagerProfessions.register();
         StructurePoolModifiers.register();
+
+        TagKeyEvents.modifyEntriesEvent(ItemTags.TRIMMABLE_ARMOR).register((registries, entries) -> {
+            registries.getWrapperOrThrow(RegistryKeys.ITEM).streamEntries().filter(item -> item.value() instanceof AnimalArmorItem animalArmorItem && animalArmorItem.getType() == AnimalArmorItem.Type.EQUESTRIAN).forEach(entries::add);
+        });
 
         DefaultItemComponentEvents.MODIFY.register(context -> {
             final List<Class<? extends Item>> classes = List.of(ArmorStandItem.class, BannerItem.class, BannerPatternItem.class, EggItem.class, SignItem.class, SnowballItem.class, WrittenBookItem.class);

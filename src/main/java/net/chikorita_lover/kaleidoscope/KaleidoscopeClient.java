@@ -37,11 +37,14 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 import java.text.NumberFormat;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class KaleidoscopeClient implements ClientModInitializer {
     public static final EntityModelLayer STRIDER_CHEST_LAYER = new EntityModelLayer(Identifier.of("strider"), "chest");
     public static final EntityModelLayer JUKEBOX_MINECART_LAYER = new EntityModelLayer(Kaleidoscope.of("jukebox_minecart"), "main");
+    public static final Set<String> TRIM_PALETTES = new HashSet<>();
     private static final Text FOOD_TEXT = Text.translatable("item.modifiers.food");
     private static final Text FOOD_SATURATION_TEXT = Text.translatable("item.modifiers.food_saturation");
     private static final RecipeBookGroup KILN_SEARCH = RecipeBookGroupRegistry.register("kaleidoscope_kiln_search", new ItemStack(Items.COMPASS));

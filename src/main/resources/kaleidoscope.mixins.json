@@ -52,6 +52,7 @@
 		"item.MiningToolItemMixin",
 		"item.ShearsItemMixin",
 		"item.ShovelItemMixin",
+		"item.SmithingTemplateItemMixin",
 		"recipe.CookingRecipeJsonBuilderMixin",
 		"recipe.FireworkRocketRecipeMixin",
 		"recipe.FireworkStarFadeRecipeMixin",
@@ -62,9 +63,16 @@
 		"structure.StructurePoolAccessor"
 	],
 	"client": [
+		"client.AtlasLoaderMixin",
 		"client.BoatEntityRendererMixin",
 		"client.ClientPlayerInteractionManagerMixin",
 		"client.ClientWorldMixin",
+		"client.HorseArmorFeatureRendererMixin",
+		"client.ItemModelsMixin",
+		"client.JsonUnbakedModelAccessor",
+		"client.ModelLoaderMixin",
+		"client.PalettedPermutationsAtlasSourceAccessor",
+		"client.PalettedPermutationsAtlasSourceMixin",
 		"client.SketchBoatRendererMixin",
 		"client.SplashTextResourceSupplierMixin",
 		"client.StriderEntityRendererMixin"
