@@ -1,6 +1,5 @@
 package net.chikorita_lover.kaleidoscope.block;
 
-import net.chikorita_lover.chicory.api.config.property.BooleanConfigProperty;
 import net.chikorita_lover.chicory.api.registry.BlockRegistry;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;

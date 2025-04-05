@@ -1,14 +1,33 @@
 package net.chikorita_lover.kaleidoscope.item;
 
+import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
+
+import java.util.Set;
 
 public class KaleidoscopeItemGroups {
     public static void register() {
+        Registry.register(Registries.ITEM_GROUP, Kaleidoscope.of("kaleidoscope"), FabricItemGroup.builder().displayName(Text.translatable("itemGroup.kaleidoscope")).icon(() -> new ItemStack(KaleidoscopeBlocks.KILN)).entries((displayContext, entries) -> {
+            if (!KaleidoscopeConfig.SHOW_ITEM_GROUP.get()) {
+                return;
+            }
+            Set<ItemStack> set = ItemStackSet.create();
+            for (ItemGroup itemGroup : Registries.ITEM_GROUP) {
+                if (itemGroup.getType() == ItemGroup.Type.SEARCH) {
+                    continue;
+                }
+                itemGroup.getDisplayStacks().stream().filter(stack -> Registries.ITEM.getId(stack.getItem()).getNamespace().equals(Kaleidoscope.MODID)).forEach(set::add);
+            }
+            entries.addAll(set, ItemGroup.StackVisibility.PARENT_TAB_ONLY);
+        }).build());
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.addAfter(Blocks.POLISHED_GRANITE_SLAB, KaleidoscopeBlocks.POLISHED_GRANITE_WALL);
             entries.addAfter(Blocks.POLISHED_DIORITE_SLAB, KaleidoscopeBlocks.POLISHED_DIORITE_WALL);

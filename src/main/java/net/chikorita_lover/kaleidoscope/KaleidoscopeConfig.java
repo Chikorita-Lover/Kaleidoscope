@@ -33,6 +33,7 @@ public interface KaleidoscopeConfig {
     BooleanConfigProperty ADDITIONAL_DISC_FRAGMENTS = INSTANCE.register(new BooleanConfigProperty("additionalDiscFragments", true), CONTENT);
     BooleanConfigProperty STONE_BLOCKS = INSTANCE.register(new BooleanConfigProperty("stoneBlocks", true), CONTENT);
     BooleanConfigProperty ADDITIONAL_HORSE_ARMORS = INSTANCE.register(new BooleanConfigProperty("additionalHorseArmors", true), CONTENT);
+    BooleanConfigProperty SHOW_ITEM_GROUP = INSTANCE.register(new BooleanConfigProperty("showItemGroup", true), CONTENT);
     BooleanConfigProperty FEATHER_FALLING_PRESERVES_FARMLAND = INSTANCE.register(new BooleanConfigProperty("featherFallingPreservesFarmland", true), WORLD);
     BooleanConfigProperty CHAINS_HOIST_BLOCKS = INSTANCE.register(new BooleanConfigProperty("chainsHoistBlocks", true), WORLD);
     BooleanConfigProperty DO_BLOCK_CRACKING = INSTANCE.register(new BooleanConfigProperty("doBlockCracking", true), WORLD);
