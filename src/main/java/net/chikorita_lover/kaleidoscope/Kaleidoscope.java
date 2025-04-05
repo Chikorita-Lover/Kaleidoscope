@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope;
 
+import net.chikorita_lover.chicory.api.loot.LootModificationUtils;
 import net.chikorita_lover.chicory.api.registry.TagKeyEvents;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
@@ -13,6 +14,7 @@ import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeTypes;
 import net.chikorita_lover.kaleidoscope.registry.*;
 import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeBlockTags;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeItemTags;
 import net.chikorita_lover.kaleidoscope.screen.KaleidoscopeScreenHandlerTypes;
 import net.chikorita_lover.kaleidoscope.structure.StructurePoolModifiers;
 import net.fabricmc.api.ModInitializer;
@@ -88,15 +90,37 @@ public class Kaleidoscope implements ModInitializer {
     }
 
     private static void registerLootTableEvents() {
-        LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
+        LootTableEvents.MODIFY.register((key, lootBuilder, source, registries) -> {
+            if (KaleidoscopeConfig.ADDITIONAL_HORSE_ARMORS.get()) {
+                if (key.equals(LootTables.SIMPLE_DUNGEON_CHEST)) {
+                    LootModificationUtils.modifyPool(lootBuilder, 0, builder -> {
+                        LootModificationUtils.removeItemIf(builder, item -> item instanceof AnimalArmorItem);
+                        builder.with(ItemEntry.builder(Items.IRON_HORSE_ARMOR).weight(20));
+                        builder.with(ItemEntry.builder(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR).weight(10));
+                    });
+                }
+                if (key.equals(LootTables.VILLAGE_WEAPONSMITH_CHEST)) {
+                    LootModificationUtils.modifyPool(lootBuilder, 0, builder -> {
+                        LootModificationUtils.removeItemIf(builder, item -> item instanceof AnimalArmorItem);
+                        builder.with(ItemEntry.builder(Items.IRON_HORSE_ARMOR).weight(2));
+                        builder.with(ItemEntry.builder(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR));
+                    });
+                }
+                if (key.equals(LootTables.BASTION_OTHER_CHEST)) {
+                    LootModificationUtils.modifyPool(lootBuilder, 1, builder -> builder.with(ItemEntry.builder(KaleidoscopeItems.NETHERITE_HORSE_ARMOR)));
+                }
+                if (key.equals(LootTables.BASTION_HOGLIN_STABLE_CHEST)) {
+                    LootModificationUtils.modifyPool(lootBuilder, 0, builder -> builder.with(ItemEntry.builder(KaleidoscopeItems.NETHERITE_HORSE_ARMOR).weight(12)));
+                }
+            }
             if (KaleidoscopeConfig.ADDITIONAL_DISC_FRAGMENTS.get() && key.equals(LootTables.PIGLIN_BARTERING_GAMEPLAY)) {
-                tableBuilder.modifyPools(builder -> builder.with((ItemEntry.builder(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).build());
+                lootBuilder.modifyPools(builder -> builder.with((ItemEntry.builder(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).build());
             }
             if (KaleidoscopeConfig.DO_CAMEL_DROPS.get() && key.equals(EntityType.CAMEL.getLootTableId())) {
-                tableBuilder.pool(LootPool.builder().with(ItemEntry.builder(Items.LEATHER).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F, 2.0F))).apply(EnchantedCountIncreaseLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 1.0F)))).build());
+                lootBuilder.pool(LootPool.builder().with(ItemEntry.builder(Items.LEATHER).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F, 2.0F))).apply(EnchantedCountIncreaseLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 1.0F)))).build());
             }
             if (KaleidoscopeConfig.DO_GOAT_DROPS.get() && key.equals(EntityType.GOAT.getLootTableId())) {
-                tableBuilder.pool(LootPool.builder().with(ItemEntry.builder(Items.MUTTON).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))).apply(FurnaceSmeltLootFunction.builder().conditionally(createSmeltLootCondition(registries))).apply(EnchantedCountIncreaseLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 1.0F)))).build());
+                lootBuilder.pool(LootPool.builder().with(ItemEntry.builder(Items.MUTTON).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))).apply(FurnaceSmeltLootFunction.builder().conditionally(createSmeltLootCondition(registries))).apply(EnchantedCountIncreaseLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 1.0F)))).build());
             }
         });
     }
@@ -125,8 +149,13 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeVillagerProfessions.register();
         StructurePoolModifiers.register();
 
-        TagKeyEvents.modifyEntriesEvent(ItemTags.TRIMMABLE_ARMOR).register((registries, entries) -> {
+        TagKeyEvents.modifyEntriesEvent(KaleidoscopeItemTags.HORSE_ARMOR).register((registries, entries) -> {
             registries.getWrapperOrThrow(RegistryKeys.ITEM).streamEntries().filter(item -> item.value() instanceof AnimalArmorItem animalArmorItem && animalArmorItem.getType() == AnimalArmorItem.Type.EQUESTRIAN).forEach(entries::add);
+        });
+        TagKeyEvents.modifyEntriesEvent(ItemTags.TRIMMABLE_ARMOR).register((registries, entries) -> {
+            if (KaleidoscopeConfig.HORSE_ARMOR_TRIMS.get()) {
+                registries.getWrapperOrThrow(RegistryKeys.ITEM).streamEntries().filter(item -> item.value() instanceof AnimalArmorItem animalArmorItem && animalArmorItem.getType() == AnimalArmorItem.Type.EQUESTRIAN).forEach(entries::add);
+            }
         });
 
         DefaultItemComponentEvents.MODIFY.register(context -> {

@@ -30,6 +30,9 @@ public class KaleidoscopeItems {
     public static final Item WARPED_CHEST_BOAT = register("warped_chest_boat", new BoatItem(true, WARPED_BOAT_TYPE, new Item.Settings().maxCount(1)), KaleidoscopeConfig.NETHER_BOATS);
     public static final Item JUKEBOX_MINECART = register("jukebox_minecart", new MinecartItem(JukeboxMinecartEntity.JUKEBOX_TYPE, new Item.Settings().maxCount(1)), KaleidoscopeConfig.JUKEBOX_MINECARTS);
 
+    public static final Item CHAINMAIL_HORSE_ARMOR = register("chainmail_horse_armor", new AnimalArmorItem(ArmorMaterials.CHAIN, AnimalArmorItem.Type.EQUESTRIAN, true, new Item.Settings().maxCount(1)), KaleidoscopeConfig.ADDITIONAL_HORSE_ARMORS);
+    public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new AnimalArmorItem(ArmorMaterials.NETHERITE, AnimalArmorItem.Type.EQUESTRIAN, true, new Item.Settings().fireproof().maxCount(1)), KaleidoscopeConfig.ADDITIONAL_HORSE_ARMORS);
+
     public static final Item DISC_FRAGMENT_PIGSTEP = register("disc_fragment_pigstep", new DiscFragmentItem(new Item.Settings()), KaleidoscopeConfig.ADDITIONAL_DISC_FRAGMENTS);
 
     public static final Item LARGE_BALL_FIREWORK_SHELL = register("large_ball_firework_shell", createFireworkShell(FireworkExplosionComponent.Type.LARGE_BALL, Rarity.COMMON), KaleidoscopeConfig.FIREWORK_IMPROVEMENTS);

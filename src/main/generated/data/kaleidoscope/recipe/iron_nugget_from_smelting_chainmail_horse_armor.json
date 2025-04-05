@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "kaleidoscope:chainmail_horse_armor"
+  },
+  "result": {
+    "id": "minecraft:iron_nugget"
+  }
+}

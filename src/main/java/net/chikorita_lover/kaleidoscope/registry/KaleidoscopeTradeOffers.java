@@ -2,6 +2,7 @@ package net.chikorita_lover.kaleidoscope.registry;
 
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
+import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -16,6 +17,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.TradedItem;
+import net.minecraft.village.VillagerProfession;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -24,6 +26,12 @@ import java.util.List;
 
 public class KaleidoscopeTradeOffers {
     public static void register() {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 2, factories -> {
+            factories.add(new TradeOffers.SellItemFactory(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR, 3, 1, 12, 5));
+        });
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 4, factories -> {
+            factories.add(new TradeOffers.SellItemFactory(Items.DIAMOND_HORSE_ARMOR, 8, 1, 3, 15));
+        });
         TradeOfferHelper.registerVillagerOffers(KaleidoscopeVillagerProfessions.FIREWORKER, 1, factories -> {
             factories.add(new TradeOffers.BuyItemFactory(Items.CHARCOAL, 15, 16, 2));
             factories.add(new TradeOffers.SellItemFactory(Items.GUNPOWDER, 1, 1, 12, 1));
