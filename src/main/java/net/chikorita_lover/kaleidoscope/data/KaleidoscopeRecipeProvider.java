@@ -266,6 +266,8 @@ public class KaleidoscopeRecipeProvider extends FabricRecipeProvider {
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MUSIC_DISC_PIGSTEP).input('S', KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP), conditionsFromItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP)).offerTo(exporter, Kaleidoscope.of(getItemPath(Items.MUSIC_DISC_PIGSTEP)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.NAME_TAG).input(Items.PAPER).input(Items.INK_SAC).input(Items.IRON_INGOT).criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER)).offerTo(exporter, Kaleidoscope.of(getItemPath(Items.NAME_TAG)));
+
         SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.ofItems(Items.DIAMOND_HORSE_ARMOR), Ingredient.ofItems(Items.NETHERITE_INGOT), RecipeCategory.COMBAT, KaleidoscopeItems.NETHERITE_HORSE_ARMOR).criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT)).offerTo(exporter, Kaleidoscope.of(getItemPath(KaleidoscopeItems.NETHERITE_HORSE_ARMOR).concat("_smithing")));
 
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR), RecipeCategory.MISC, Items.IRON_NUGGET, 0.3F, 200).criterion(hasItem(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR), conditionsFromItem(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR)).offerTo(exporter, Kaleidoscope.of("iron_nugget_from_smelting_chainmail_horse_armor"));

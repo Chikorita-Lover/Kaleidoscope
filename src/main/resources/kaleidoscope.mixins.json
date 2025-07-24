@@ -12,6 +12,7 @@
 		"MatchToolLootConditionMixin",
 		"PlayerInteractedWithEntityCriterionMixin",
 		"ServerAdvancementLoaderMixin",
+		"TradeOffersMixin",
 		"block.AbstractBlockStateMixin",
 		"block.BeehiveBlockMixin",
 		"block.CakeBlockMixin",
