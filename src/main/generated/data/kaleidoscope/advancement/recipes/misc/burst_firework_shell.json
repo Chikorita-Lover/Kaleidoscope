@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_feather": {
+    "has_fire_charge": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:feather"
+            "items": "minecraft:fire_charge"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_feather"
+      "has_fire_charge"
     ]
   ],
   "rewards": {

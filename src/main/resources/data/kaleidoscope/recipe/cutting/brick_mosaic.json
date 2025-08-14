@@ -9,9 +9,7 @@
   ],
   "type": "farmersdelight:cutting",
   "ingredients": [
-    {
-      "item": "kaleidoscope:brick_mosaic"
-    }
+    "kaleidoscope:brick_mosaic"
   ],
   "result": [
     {
@@ -21,7 +19,5 @@
       }
     }
   ],
-  "tool": {
-    "tag": "c:tools/pickaxe"
-  }
+  "tool": "#c:tools/pickaxe"
 }

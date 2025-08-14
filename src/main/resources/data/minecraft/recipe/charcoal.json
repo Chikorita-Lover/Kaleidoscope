@@ -2,9 +2,7 @@
 	"type": "minecraft:smelting",
 	"category": "misc",
 	"group": "charcoal",
-	"ingredient": {
-		"tag": "kaleidoscope:burns_into_charcoal"
-	},
+	"ingredient": "#kaleidoscope:burns_into_charcoal",
 	"result": {
 		"id": "minecraft:charcoal"
 	},

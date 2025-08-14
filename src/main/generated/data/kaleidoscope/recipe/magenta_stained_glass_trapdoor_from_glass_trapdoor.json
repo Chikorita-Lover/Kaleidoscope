@@ -3,12 +3,8 @@
   "category": "redstone",
   "group": "stained_glass_trapdoor",
   "ingredients": [
-    {
-      "item": "kaleidoscope:glass_trapdoor"
-    },
-    {
-      "tag": "c:dyes/magenta"
-    }
+    "kaleidoscope:glass_trapdoor",
+    "#c:dyes/magenta"
   ],
   "result": {
     "count": 1,

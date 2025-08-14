@@ -47,7 +47,7 @@ public class ShovelItemMixin {
                     context.getStack().damage(1, player, LivingEntity.getSlotForHand(context.getHand()));
                 }
             }
-            cir.setReturnValue(ActionResult.success(world.isClient()));
+            cir.setReturnValue(ActionResult.SUCCESS_SERVER);
         }
     }
 }

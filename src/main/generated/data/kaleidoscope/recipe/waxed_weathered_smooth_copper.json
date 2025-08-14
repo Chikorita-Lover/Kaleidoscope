@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "minecraft:waxed_weathered_cut_copper"
-  },
+  "ingredient": "minecraft:waxed_weathered_cut_copper",
   "result": {
     "id": "kaleidoscope:waxed_weathered_smooth_copper"
   }

@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:paper"
-    },
-    {
-      "item": "minecraft:gunpowder"
-    },
-    {
-      "item": "minecraft:gold_nugget"
-    }
+    "minecraft:paper",
+    "minecraft:gunpowder",
+    "minecraft:gold_nugget"
   ],
   "result": {
     "count": 8,

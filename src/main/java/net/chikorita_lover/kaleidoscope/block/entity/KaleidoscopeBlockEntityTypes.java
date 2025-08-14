@@ -2,6 +2,7 @@ package net.chikorita_lover.kaleidoscope.block.entity;
 
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -14,7 +15,7 @@ public class KaleidoscopeBlockEntityTypes {
     public static void register() {
     }
 
-    private static <T extends BlockEntity> BlockEntityType<T> register(String path, BlockEntityType.BlockEntityFactory<T> factory, Block... blocks) {
-        return Registry.register(Registries.BLOCK_ENTITY_TYPE, Kaleidoscope.of(path), BlockEntityType.Builder.create(factory, blocks).build(null));
+    private static <T extends BlockEntity> BlockEntityType<T> register(String path, FabricBlockEntityTypeBuilder.Factory<? extends T> factory, Block... blocks) {
+        return Registry.register(Registries.BLOCK_ENTITY_TYPE, Kaleidoscope.of(path), FabricBlockEntityTypeBuilder.<T>create(factory, blocks).build());
     }
 }

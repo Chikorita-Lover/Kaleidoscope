@@ -79,14 +79,8 @@ public class KaleidoscopeTradeOffers {
             factories.add(new TradeOffers.BuyItemFactory(Items.QUARTZ, 10, 12, 30));
             factories.add(new TradeOffers.SellItemFactory(Blocks.TINTED_GLASS, 1, 1, 12, 30));
         });
-        TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
-            factories.add(new TradeOffers.SellItemFactory(Items.SWEET_BERRIES, 1, 1, 12, 1));
-            factories.add(new TradeOffers.SellItemFactory(Items.PINK_PETALS, 1, 2, 7, 1));
-            factories.add(new TradeOffers.SellItemFactory(Items.BAMBOO, 3, 1, 8, 1));
-            factories.add(new TradeOffers.SellItemFactory(Items.COCOA_BEANS, 4, 1, 12, 1));
-        });
-        TradeOfferHelper.registerWanderingTraderOffers(2, factories -> {
-            factories.add(new TradeOffers.SellItemFactory(Items.TADPOLE_BUCKET, 5, 1, 4, 1));
+        TradeOfferHelper.registerWanderingTraderOffers(factories -> {
+            factories.addOffersToPool(TradeOfferHelper.WanderingTraderOffersBuilder.SELL_COMMON_ITEMS_POOL, new TradeOffers.SellItemFactory(Items.SWEET_BERRIES, 1, 1, 12, 1), new TradeOffers.SellItemFactory(Items.PINK_PETALS, 1, 1, 7, 1), new TradeOffers.SellItemFactory(Items.BAMBOO, 5, 1, 8, 1), new TradeOffers.SellItemFactory(Items.COCOA_BEANS, 3, 1, 8, 1));
         });
     }
 

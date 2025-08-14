@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "sticks",
   "ingredients": [
-    {
-      "item": "kaleidoscope:stick_block"
-    }
+    "kaleidoscope:stick_block"
   ],
   "result": {
     "count": 9,

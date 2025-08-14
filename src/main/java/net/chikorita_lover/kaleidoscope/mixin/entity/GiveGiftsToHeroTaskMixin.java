@@ -22,11 +22,11 @@ public class GiveGiftsToHeroTaskMixin {
     @Mutable
     @Shadow
     @Final
-    private static Map<VillagerProfession, RegistryKey<LootTable>> GIFTS;
+    private static Map<RegistryKey<VillagerProfession>, RegistryKey<LootTable>> GIFTS;
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void putGifts(CallbackInfo ci) {
-        HashMap<VillagerProfession, RegistryKey<LootTable>> gifts = new HashMap<>(GIFTS);
+        Map<RegistryKey<VillagerProfession>, RegistryKey<LootTable>> gifts = new HashMap<>(GIFTS);
         gifts.put(KaleidoscopeVillagerProfessions.FIREWORKER, KaleidoscopeLootTables.HERO_OF_THE_VILLAGE_FIREWORKER_GIFT_GAMEPLAY);
         gifts.put(KaleidoscopeVillagerProfessions.GLASSBLOWER, KaleidoscopeLootTables.HERO_OF_THE_VILLAGE_GLASSBLOWER_GIFT_GAMEPLAY);
         GIFTS = gifts;

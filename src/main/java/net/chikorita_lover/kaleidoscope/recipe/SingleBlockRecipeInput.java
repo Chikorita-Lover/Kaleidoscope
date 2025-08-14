@@ -11,7 +11,7 @@ public record SingleBlockRecipeInput(Block block) implements RecipeInput {
     }
 
     @Override
-    public int getSize() {
+    public int size() {
         return 1;
     }
 }

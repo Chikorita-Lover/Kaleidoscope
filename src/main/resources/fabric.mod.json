@@ -30,9 +30,6 @@
 		"main": [
 			"net.chikorita_lover.kaleidoscope.Kaleidoscope"
 		],
-		"mm:early_risers": [
-			"net.chikorita_lover.kaleidoscope.KaleidoscopeEarlyRiser"
-		],
 		"modmenu": [
 			"net.chikorita_lover.kaleidoscope.integration.ModMenuIntegration"
 		]
@@ -43,9 +40,8 @@
 	"depends": {
 		"fabricloader": ">=0.15.10",
 		"fabric-api": "*",
-		"minecraft": "~1.21.0",
-		"java": ">=21",
-		"mm": ">=2.3"
+		"minecraft": "~1.21.7",
+		"java": ">=21"
 	},
 	"accessWidener": "kaleidoscope.accesswidener"
 }

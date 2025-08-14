@@ -49,5 +49,4 @@ public interface KaleidoscopeConfig {
     BooleanConfigProperty HORSE_ARMOR_TRIMS = INSTANCE.register(new BooleanConfigProperty("horseArmorTrims", true), MOBS);
     BooleanConfigProperty SHOW_FOOD_TOOLTIPS = INSTANCE.register(new BooleanConfigProperty("showFoodTooltips", true), CLIENT);
     BooleanConfigProperty PRODUCE_CAKE_EFFECTS = INSTANCE.register(new BooleanConfigProperty("produceCakeEffects", true), CLIENT);
-    BooleanConfigProperty SPAWN_FIREFLY_PARTICLES = INSTANCE.register(new BooleanConfigProperty("spawnFireflyParticles", true), CLIENT);
 }

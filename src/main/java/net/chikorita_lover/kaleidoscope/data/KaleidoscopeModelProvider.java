@@ -1,26 +1,26 @@
 package net.chikorita_lover.kaleidoscope.data;
 
-import com.google.gson.JsonElement;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlockFamilies;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.item.FireworkShellItem;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.client.*;
+import net.minecraft.client.data.*;
+import net.minecraft.client.render.model.json.WeightedVariant;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 
 import java.util.Optional;
 import java.util.function.BiConsumer;
-import java.util.function.Supplier;
 
 public class KaleidoscopeModelProvider extends FabricModelProvider {
     private static final Model SHEARS_TEMPLATE_MODEL = new Model(Optional.of(Kaleidoscope.of("item/template_shears")), Optional.empty(), TextureKey.LAYER0);
@@ -29,27 +29,27 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
         super(dataOutput);
     }
 
-    private static void registerWall(BlockStateModelGenerator blockStateModelGenerator, Block block, Block wallBlock) {
+    private static void registerWall(BlockStateModelGenerator generator, Block block, Block wallBlock) {
         TextureMap textures = TexturedModel.CUBE_ALL.get(block).getTextures();
-        BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = blockStateModelGenerator.modelCollector;
-        Identifier postModelId = Models.TEMPLATE_WALL_POST.upload(wallBlock, textures, modelCollector);
-        Identifier lowSideModelId = Models.TEMPLATE_WALL_SIDE.upload(wallBlock, textures, modelCollector);
-        Identifier tallSideModelId = Models.TEMPLATE_WALL_SIDE_TALL.upload(wallBlock, textures, modelCollector);
-        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wallBlock, postModelId, lowSideModelId, tallSideModelId));
-        Identifier inventoryModelId = Models.WALL_INVENTORY.upload(wallBlock, textures, modelCollector);
-        blockStateModelGenerator.registerParentedItemModel(wallBlock, inventoryModelId);
+        BiConsumer<Identifier, ModelSupplier> modelCollector = generator.modelCollector;
+        WeightedVariant postModelId = BlockStateModelGenerator.createWeightedVariant(Models.TEMPLATE_WALL_POST.upload(wallBlock, textures, modelCollector));
+        WeightedVariant lowSideModel = BlockStateModelGenerator.createWeightedVariant(Models.TEMPLATE_WALL_SIDE.upload(wallBlock, textures, modelCollector));
+        WeightedVariant tallSideModel = BlockStateModelGenerator.createWeightedVariant(Models.TEMPLATE_WALL_SIDE_TALL.upload(wallBlock, textures, modelCollector));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wallBlock, postModelId, lowSideModel, tallSideModel));
+        Identifier parentModel = Models.WALL_INVENTORY.upload(wallBlock, textures, modelCollector);
+        generator.registerParentedItemModel(wallBlock, parentModel);
     }
 
     private static void registerKiln(BlockStateModelGenerator generator, Block block, TexturedModel.Factory modelFactory) {
-        Identifier unlitModel = modelFactory.upload(block, generator.modelCollector);
-        Identifier frontId = TextureMap.getSubId(block, "_front_on");
-        Identifier topId = TextureMap.getSubId(block, "_top_on");
-        Identifier litModel = modelFactory.get(block).textures(textures -> textures.put(TextureKey.FRONT, frontId).put(TextureKey.TOP, topId)).upload(block, "_on", generator.modelCollector);
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(block).coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.LIT, litModel, unlitModel)).coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+        WeightedVariant unlitModel = BlockStateModelGenerator.createWeightedVariant(modelFactory.upload(block, generator.modelCollector));
+        final Identifier frontId = TextureMap.getSubId(block, "_front_on");
+        final Identifier topId = TextureMap.getSubId(block, "_top_on");
+        WeightedVariant litModel = BlockStateModelGenerator.createWeightedVariant(modelFactory.get(block).textures(textures -> textures.put(TextureKey.FRONT, frontId).put(TextureKey.TOP, topId)).upload(block, "_on", generator.modelCollector));
+        generator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(block).with(BlockStateModelGenerator.createBooleanModelMap(Properties.LIT, litModel, unlitModel)).coordinate(BlockStateVariantMap.operations(Properties.HORIZONTAL_FACING).register(Direction.EAST, BlockStateModelGenerator.ROTATE_Y_90).register(Direction.SOUTH, BlockStateModelGenerator.ROTATE_Y_180).register(Direction.WEST, BlockStateModelGenerator.ROTATE_Y_270).register(Direction.NORTH, BlockStateModelGenerator.NO_OP)));
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator generator) {
+    public void generateBlockStateModels(final BlockStateModelGenerator generator) {
         KaleidoscopeBlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach((family) -> generator.registerCubeAllModelTexturePool(family.getBaseBlock()).family(family));
 
         registerWall(generator, Blocks.POLISHED_GRANITE, KaleidoscopeBlocks.POLISHED_GRANITE_WALL);
@@ -63,8 +63,7 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
 
         generator.registerSimpleCubeAll(KaleidoscopeBlocks.CRACKED_TUFF_BRICKS);
 
-        Models.CUBE_ALL.upload(KaleidoscopeBlocks.CRACKED_MUD_BRICKS, TexturedModel.CUBE_ALL.get(KaleidoscopeBlocks.CRACKED_MUD_BRICKS).getTextures(), generator.modelCollector);
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createMudBrickState(KaleidoscopeBlocks.CRACKED_MUD_BRICKS, TextureMap.getId(KaleidoscopeBlocks.CRACKED_MUD_BRICKS), TexturedModel.CUBE_ALL.get(KaleidoscopeBlocks.CRACKED_MUD_BRICKS).getTextures(), generator.modelCollector));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createMudBrickState(KaleidoscopeBlocks.CRACKED_MUD_BRICKS, BlockStateModelGenerator.createModelVariant(Models.CUBE_ALL.upload(KaleidoscopeBlocks.CRACKED_MUD_BRICKS, TextureMap.all(KaleidoscopeBlocks.CRACKED_MUD_BRICKS), generator.modelCollector)), TexturedModel.CUBE_ALL.get(KaleidoscopeBlocks.CRACKED_MUD_BRICKS).getTextures(), generator.modelCollector));
 
         generator.registerSimpleCubeAll(KaleidoscopeBlocks.CRACKED_END_STONE_BRICKS);
 

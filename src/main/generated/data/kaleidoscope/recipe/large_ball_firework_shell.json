@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:paper"
-    },
-    {
-      "item": "minecraft:gunpowder"
-    },
-    {
-      "item": "minecraft:fire_charge"
-    }
+    "minecraft:paper",
+    "minecraft:gunpowder",
+    "minecraft:fire_charge"
   ],
   "result": {
     "count": 8,

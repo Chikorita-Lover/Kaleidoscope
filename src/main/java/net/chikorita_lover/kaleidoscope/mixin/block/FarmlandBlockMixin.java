@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.block;
 
+import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeEnchantmentTags;
 import net.minecraft.block.BlockState;
@@ -12,15 +13,19 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(FarmlandBlock.class)
 public class FarmlandBlockMixin {
-    @Inject(at = @At("HEAD"), method = "onLandedUpon", cancellable = true)
-    private void tryCancelTrample(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance, CallbackInfo ci) {
-        if (KaleidoscopeConfig.FEATHER_FALLING_PRESERVES_FARMLAND.get() && entity instanceof LivingEntity livingEntity && (EnchantmentHelper.hasAnyEnchantmentsIn(livingEntity.getEquippedStack(EquipmentSlot.BODY), KaleidoscopeEnchantmentTags.PREVENTS_FARMLAND_TRAMPLING) || EnchantmentHelper.hasAnyEnchantmentsIn(livingEntity.getEquippedStack(EquipmentSlot.FEET), KaleidoscopeEnchantmentTags.PREVENTS_FARMLAND_TRAMPLING))) {
-            ci.cancel();
+    @WrapWithCondition(method = "onLandedUpon", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/FarmlandBlock;setToDirt(Lnet/minecraft/entity/Entity;Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)V"))
+    private boolean canTrample(Entity entity, BlockState state, World world, BlockPos pos) {
+        if (!KaleidoscopeConfig.FEATHER_FALLING_PRESERVES_FARMLAND.get() || !(entity instanceof LivingEntity livingEntity)) {
+            return true;
         }
+        for (EquipmentSlot slot : EquipmentSlot.values()) {
+            if (EnchantmentHelper.hasAnyEnchantmentsIn(livingEntity.getEquippedStack(slot), KaleidoscopeEnchantmentTags.PREVENTS_FARMLAND_TRAMPLING)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

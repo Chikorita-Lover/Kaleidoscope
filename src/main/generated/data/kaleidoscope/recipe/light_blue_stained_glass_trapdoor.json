@@ -3,9 +3,7 @@
   "category": "redstone",
   "group": "stained_glass_trapdoor",
   "key": {
-    "#": {
-      "item": "minecraft:light_blue_stained_glass"
-    }
+    "#": "minecraft:light_blue_stained_glass"
   },
   "pattern": [
     "##",

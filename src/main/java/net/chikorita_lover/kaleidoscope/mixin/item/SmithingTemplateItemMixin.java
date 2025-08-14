@@ -14,7 +14,7 @@ import java.util.List;
 @Mixin(SmithingTemplateItem.class)
 public class SmithingTemplateItemMixin {
     @Unique
-    private static final Identifier EMPTY_ARMOR_SLOT_HORSE_TEXTURE = Kaleidoscope.of("item/empty_slot_horse_armor");
+    private static final Identifier EMPTY_ARMOR_SLOT_HORSE_TEXTURE = Identifier.ofVanilla("container/slot/horse_armor");
 
     @ModifyReturnValue(method = "getArmorTrimEmptyBaseSlotTextures", at = @At("RETURN"))
     private static List<Identifier> addArmorTrimHorseTexture(List<Identifier> textures) {

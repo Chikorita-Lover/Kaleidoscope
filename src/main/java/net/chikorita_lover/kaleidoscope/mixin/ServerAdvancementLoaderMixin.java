@@ -1,76 +1,56 @@
 package net.chikorita_lover.kaleidoscope.mixin;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.gson.Gson;
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.recipe.KilningRecipe;
-import net.minecraft.advancement.*;
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.advancement.criterion.ImpossibleCriterion;
-import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
-import net.minecraft.data.server.recipe.RecipeProvider;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.advancement.Advancement;
+import net.minecraft.advancement.AdvancementEntry;
+import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.resource.JsonDataLoader;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.ServerAdvancementLoader;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-
-import java.util.Map;
-import java.util.Optional;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ServerAdvancementLoader.class)
-public abstract class ServerAdvancementLoaderMixin extends JsonDataLoader {
-    public ServerAdvancementLoaderMixin(Gson gson, String dataType) {
-        super(gson, dataType);
-    }
-
+public abstract class ServerAdvancementLoaderMixin {
     @Unique
-    private static AdvancementCriterion<?> conditionsFromIngredient(Ingredient ingredient) {
-        AdvancementCriterion<?> criterion;
-        var entry = ingredient.entries[0];
-        if (entry instanceof Ingredient.TagEntry tagEntry) {
-            criterion = RecipeProvider.conditionsFromTag(tagEntry.tag());
-        } else if (entry instanceof Ingredient.StackEntry stackEntry) {
-            criterion = RecipeProvider.conditionsFromItem(stackEntry.stack().getItem());
-        } else {
-            criterion = Criteria.IMPOSSIBLE.create(new ImpossibleCriterion.Conditions());
-        }
-        return criterion;
-    }
-
-    @Unique
-    private static Identifier createAdvancementId(RecipeEntry<Recipe<?>> entry) {
-        RecipeCategory category = switch (((KilningRecipe) entry.value()).getCategory()) {
-            case FOOD -> RecipeCategory.FOOD;
-            case BLOCKS -> RecipeCategory.BUILDING_BLOCKS;
-            case MISC -> RecipeCategory.MISC;
-        };
-        return Kaleidoscope.of("recipes/" + category.getName() + "/" + entry.id().getPath());
+    private static Identifier createAdvancementId(RegistryKey<Recipe<?>> smelting, RegistryKey<Recipe<?>> kilning) {
+        String smeltingPath = smelting.getValue().getPath();
+        int index = smeltingPath.lastIndexOf('/');
+        String path = smeltingPath.substring(0, ++index).concat(kilning.getValue().getPath());
+        return Kaleidoscope.of(path);
     }
 
     @Shadow
     protected abstract void validate(Identifier id, Advancement advancement);
 
-    @ModifyExpressionValue(method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap;builder()Lcom/google/common/collect/ImmutableMap$Builder;"))
-    private ImmutableMap.Builder<Identifier, AdvancementEntry> createKilningAdvancements(ImmutableMap.Builder<Identifier, AdvancementEntry> builder) {
-        KilningRecipe.KILNING_RECIPE_ENTRIES.forEach(entry -> {
-            try {
-                Map<String, AdvancementCriterion<?>> criteria = Map.of("has_ingredient", conditionsFromIngredient(entry.value().getIngredients().get(0)), "has_the_recipe", RecipeUnlockedCriterion.create(entry.id()));
-                Advancement advancement = new Advancement(Optional.of(Identifier.ofVanilla("recipes/root")), Optional.empty(), AdvancementRewards.Builder.recipe(entry.id()).build(), criteria, AdvancementRequirements.anyOf(criteria.keySet()), false);
-                Identifier id = createAdvancementId(entry);
-                this.validate(id, advancement);
-                builder.put(id, new AdvancementEntry(id, advancement));
-            } catch (Exception exception) {
-                Kaleidoscope.LOGGER.error("Parsing error loading dynamic kilning advancement for recipe {}: {}", entry.id(), exception.getMessage());
-            }
-        });
-        return builder;
+    /**
+     * Generates advancements for kilning recipes based off of smelting recipes' advancements.
+     */
+    @Inject(method = "method_20723", at = @At("TAIL"))
+    private void generateKilningAdvancements(ImmutableMap.Builder<Identifier, AdvancementEntry> builder, Identifier id, Advancement advancement, CallbackInfo ci) {
+        if (advancement.rewards().recipes().isEmpty()) {
+            return;
+        }
+        RegistryKey<Recipe<?>> smelting = advancement.rewards().recipes().get(0);
+        if (!KilningRecipe.SMELTING_TO_KILNING.containsKey(smelting)) {
+            return;
+        }
+        RegistryKey<Recipe<?>> kilning = KilningRecipe.SMELTING_TO_KILNING.get(smelting);
+        try {
+            Advancement kilningAdvancement = new Advancement(advancement.parent(), advancement.display(), AdvancementRewards.Builder.recipe(kilning).build(), advancement.criteria(), advancement.requirements(), advancement.sendsTelemetryEvent());
+            Identifier kilningId = createAdvancementId(smelting, kilning);
+            this.validate(kilningId, kilningAdvancement);
+            builder.put(kilningId, new AdvancementEntry(kilningId, kilningAdvancement));
+        } catch (Exception e) {
+            Kaleidoscope.LOGGER.error("Parsing error loading dynamic kilning advancement for recipe {}: {}", kilning, e.getMessage());
+        }
+        KilningRecipe.SMELTING_TO_KILNING.remove(smelting);
     }
 }

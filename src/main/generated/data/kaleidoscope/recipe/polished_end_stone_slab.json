@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "kaleidoscope:polished_end_stone"
-    }
+    "#": "kaleidoscope:polished_end_stone"
   },
   "pattern": [
     "###"

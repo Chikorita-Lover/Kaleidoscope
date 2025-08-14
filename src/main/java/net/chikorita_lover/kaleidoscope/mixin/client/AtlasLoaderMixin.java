@@ -31,17 +31,18 @@ public class AtlasLoaderMixin {
     private static final String ARMOR_TRIMS_SOURCE = "trims/entity/horse/armor";
 
     @Inject(method = "of", at = @At("RETURN"))
+    @SuppressWarnings("UnreachableCode")
     private static void appendPalettedPermutations(ResourceManager resourceManager, Identifier id, CallbackInfoReturnable<AtlasLoader> cir, @Local List<AtlasSource> list) {
         for (AtlasSource source : list) {
             if (source instanceof PalettedPermutationsAtlasSource paletteSource) {
-                PalettedPermutationsAtlasSourceAccessor accessor = (PalettedPermutationsAtlasSourceAccessor) paletteSource;
-                if (accessor.getPaletteKey().equals(TRIM_PALETTE_TEXTURE)) {
+                PalettedPermutationsAtlasSourceAccessor accessor = (PalettedPermutationsAtlasSourceAccessor) ((Object) paletteSource);
+                if (paletteSource.paletteKey().equals(TRIM_PALETTE_TEXTURE)) {
                     if (id.equals(BLOCKS_ATLAS)) {
-                        List<Identifier> textures = ImmutableCollectionUtils.getAsMutableList(accessor::getTextures, accessor::setTextures);
+                        List<Identifier> textures = ImmutableCollectionUtils.getAsMutableList(paletteSource::textures, accessor::setTextures);
                         textures.add(HORSE_ARMOR_TRIM_TEXTURE);
                     }
                     if (id.equals(ARMOR_TRIMS_ATLAS)) {
-                        final List<Identifier> textures = ImmutableCollectionUtils.getAsMutableList(accessor::getTextures, accessor::setTextures);
+                        final List<Identifier> textures = ImmutableCollectionUtils.getAsMutableList(paletteSource::textures, accessor::setTextures);
                         final ResourceFinder rf = new ResourceFinder("textures/" + ARMOR_TRIMS_SOURCE, ".png");
                         rf.findResources(resourceManager).keySet().forEach(texture -> textures.add(rf.toResourceId(texture).withPrefixedPath(ARMOR_TRIMS_SOURCE + '/')));
                     }

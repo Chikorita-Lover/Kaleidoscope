@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -29,7 +30,7 @@ public class CakeBlockMixin extends Block {
         if (!KaleidoscopeConfig.PRODUCE_CAKE_EFFECTS.get()) {
             return;
         }
-        player.playSound(player.getEatSound(new ItemStack(Items.CAKE)), 1.0F, 1.0F + (world.getRandom().nextFloat() - world.getRandom().nextFloat()) * 0.4F);
+        player.playSound(SoundEvents.ENTITY_GENERIC_EAT.value(), 1.0F, 1.0F + (world.getRandom().nextFloat() - world.getRandom().nextFloat()) * 0.4F);
         for (int i = 0; i < 5; ++i) {
             Vec3d velocity = new Vec3d((player.getRandom().nextFloat() - 0.5) * 0.1, Math.random() * 0.1 + 0.1, 0.0);
             velocity = velocity.rotateX((float) Math.toRadians(-player.getPitch()));
@@ -39,7 +40,7 @@ public class CakeBlockMixin extends Block {
             position = position.rotateX((float) Math.toRadians(-player.getPitch()));
             position = position.rotateY((float) Math.toRadians(-player.getYaw()));
             position = position.add(player.getX(), player.getEyeY(), player.getZ());
-            player.getWorld().addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, new ItemStack(Items.CAKE)), position.x, position.y, position.z, velocity.x, velocity.y + 0.05, velocity.z);
+            player.getWorld().addParticleClient(new ItemStackParticleEffect(ParticleTypes.ITEM, new ItemStack(Items.CAKE)), position.x, position.y, position.z, velocity.x, velocity.y + 0.05, velocity.z);
         }
     }
 }

@@ -3,6 +3,7 @@ package net.chikorita_lover.kaleidoscope.client.gui.screen;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.entity.Chestable;
 import net.chikorita_lover.kaleidoscope.screen.StriderScreenHandler;
+import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
@@ -24,9 +25,9 @@ public class StriderScreen extends HandledScreen<StriderScreenHandler> {
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         int i = (this.width - this.backgroundWidth) / 2;
         int j = (this.height - this.backgroundHeight) / 2;
-        context.drawTexture(TEXTURE, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        context.drawTexture(RenderPipelines.GUI_TEXTURED, TEXTURE, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight, 256, 256);
         if (((Chestable) this.handler.entity).kaleidoscope$hasChest()) {
-            context.drawGuiTexture(CHEST_SLOTS_TEXTURE, 90, 54, 0, 0, i + 79, j + 17, 5 * 18, 54);
+            context.drawGuiTexture(RenderPipelines.GUI_TEXTURED, CHEST_SLOTS_TEXTURE, 90, 54, 0, 0, i + 79, j + 17, 5 * 18, 54);
         }
         InventoryScreen.drawEntity(context, i + 8, j + 18, i + 78, j + 70, 17, 0.25F, this.mouseX, this.mouseY, this.handler.entity);
     }

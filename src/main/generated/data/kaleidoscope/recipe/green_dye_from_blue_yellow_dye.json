@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "green_dye",
   "ingredients": [
-    {
-      "tag": "c:dyes/blue"
-    },
-    {
-      "tag": "c:dyes/yellow"
-    }
+    "#c:dyes/blue",
+    "#c:dyes/yellow"
   ],
   "result": {
     "count": 2,

@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "kaleidoscope:smooth_calcite"
-  },
+  "ingredient": "kaleidoscope:smooth_calcite",
   "result": {
     "count": 2,
     "id": "kaleidoscope:smooth_calcite_slab"

@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "kaleidoscope:polished_calcite"
-  },
+  "ingredient": "kaleidoscope:polished_calcite",
   "result": {
     "count": 1,
     "id": "kaleidoscope:polished_calcite_wall"

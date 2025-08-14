@@ -22,8 +22,8 @@ public class StructurePoolModifiers {
     public static void register() {
         ServerLifecycleEvents.SERVER_STARTED.register(server -> {
             RegistryWrapper.WrapperLookup registries = server.getRegistryManager();
-            final RegistryWrapper.Impl<StructureProcessorList> processorLists = registries.getWrapperOrThrow(RegistryKeys.PROCESSOR_LIST);
-            final RegistryWrapper.Impl<PlacedFeature> placedFeatures = registries.getWrapperOrThrow(RegistryKeys.PLACED_FEATURE);
+            final RegistryWrapper.Impl<StructureProcessorList> processorLists = registries.getOrThrow(RegistryKeys.PROCESSOR_LIST);
+            final RegistryWrapper.Impl<PlacedFeature> placedFeatures = registries.getOrThrow(RegistryKeys.PLACED_FEATURE);
             final RegistryEntry<StructureProcessorList> mossify10Percent = processorLists.getOrThrow(StructureProcessorLists.MOSSIFY_10_PERCENT);
             final boolean fireworkImprovements = KaleidoscopeConfig.FIREWORK_IMPROVEMENTS.get();
             final boolean kilns = KaleidoscopeConfig.KILNS.get();
@@ -108,15 +108,15 @@ public class StructurePoolModifiers {
 
     public static void modifyStructurePool(Identifier id, RegistryWrapper.WrapperLookup registries, Modifier modifier) {
         RegistryKey<StructurePool> pool = RegistryKey.of(RegistryKeys.TEMPLATE_POOL, id);
-        StructurePoolAccessor accessor = (StructurePoolAccessor) registries.getWrapperOrThrow(RegistryKeys.TEMPLATE_POOL).getOrThrow(pool).value();
-        Object2IntArrayMap<StructurePoolElement> builder = new Object2IntArrayMap<>();
-        accessor.getElementCounts().forEach(pair -> builder.put(pair.getFirst(), pair.getSecond().intValue()));
+        final StructurePool structurePool = registries.getOrThrow(RegistryKeys.TEMPLATE_POOL).getOrThrow(pool).value();
+        final Object2IntArrayMap<StructurePoolElement> builder = new Object2IntArrayMap<>();
+        structurePool.getElementWeights().forEach(pair -> builder.put(pair.getFirst(), pair.getSecond().intValue()));
         modifier.apply(builder);
-        accessor.setElementCounts(builder.object2IntEntrySet().stream().map(entry -> Pair.of(entry.getKey(), entry.getIntValue())).toList());
-        accessor.getElements().clear();
+        ((StructurePoolAccessor) structurePool).setElementWeights(builder.object2IntEntrySet().stream().map(entry -> Pair.of(entry.getKey(), entry.getIntValue())).toList());
+        ((StructurePoolAccessor) structurePool).getElements().clear();
         builder.forEach((element, weight) -> {
             for (int i = 0; i < weight; ++i) {
-                accessor.getElements().add(element);
+                ((StructurePoolAccessor) structurePool).getElements().add(element);
             }
         });
     }

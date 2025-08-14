@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:paper"
-    },
-    {
-      "item": "minecraft:gunpowder"
-    },
-    {
-      "tag": "minecraft:skulls"
-    }
+    "minecraft:paper",
+    "minecraft:gunpowder",
+    "#minecraft:skulls"
   ],
   "result": {
     "count": 8,

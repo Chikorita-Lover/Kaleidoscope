@@ -31,7 +31,7 @@ public class NoteBlockMixin {
 
     @Unique
     private static void registerTag(final RegistryEntry<SoundEvent> sound, TagKey<Block> tag) {
-        Registries.BLOCK.getEntryList(tag).ifPresent(entries -> entries.forEach(entry -> BLOCK_TO_NOTE_BLOCK_SOUND.put(entry.value(), sound)));
+        Registries.BLOCK.getOptional(tag).ifPresent(entries -> entries.forEach(entry -> BLOCK_TO_NOTE_BLOCK_SOUND.put(entry.value(), sound)));
     }
 
     @Unique

@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "kaleidoscope:smooth_copper"
-  },
+  "ingredient": "kaleidoscope:smooth_copper",
   "result": {
     "count": 1,
     "id": "kaleidoscope:smooth_copper_stairs"

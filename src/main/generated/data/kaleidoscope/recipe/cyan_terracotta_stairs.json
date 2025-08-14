@@ -3,9 +3,7 @@
   "category": "building",
   "group": "terracotta_stairs",
   "key": {
-    "#": {
-      "item": "minecraft:cyan_terracotta"
-    }
+    "#": "minecraft:cyan_terracotta"
   },
   "pattern": [
     "#  ",

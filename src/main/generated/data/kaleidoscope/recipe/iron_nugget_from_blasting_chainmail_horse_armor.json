@@ -3,9 +3,8 @@
   "category": "misc",
   "cookingtime": 100,
   "experience": 0.3,
-  "ingredient": {
-    "item": "kaleidoscope:chainmail_horse_armor"
-  },
+  "group": "iron_nugget",
+  "ingredient": "kaleidoscope:chainmail_horse_armor",
   "result": {
     "id": "minecraft:iron_nugget"
   }

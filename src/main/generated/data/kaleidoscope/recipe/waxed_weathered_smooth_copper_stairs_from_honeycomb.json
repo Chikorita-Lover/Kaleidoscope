@@ -3,12 +3,8 @@
   "category": "building",
   "group": "waxed_weathered_smooth_copper_stairs",
   "ingredients": [
-    {
-      "item": "kaleidoscope:weathered_smooth_copper_stairs"
-    },
-    {
-      "item": "minecraft:honeycomb"
-    }
+    "kaleidoscope:weathered_smooth_copper_stairs",
+    "minecraft:honeycomb"
   ],
   "result": {
     "count": 1,

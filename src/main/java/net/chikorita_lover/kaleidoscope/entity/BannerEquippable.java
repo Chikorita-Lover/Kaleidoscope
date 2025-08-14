@@ -1,9 +1,8 @@
 package net.chikorita_lover.kaleidoscope.entity;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 
 public interface BannerEquippable {
     String BANNER_KEY = "KaleidoscopeBannerItem";
@@ -12,22 +11,18 @@ public interface BannerEquippable {
 
     void kaleidoscope$setBannerStack(ItemStack stack);
 
-    default boolean hasBanner() {
+    default boolean kaleidoscope$hasBanner() {
         return !this.kaleidoscope$getBannerStack().isEmpty();
     }
 
-    default void writeBannerToNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registriesLookup) {
-        if (!this.kaleidoscope$getBannerStack().isEmpty()) {
-            nbt.put(BANNER_KEY, this.kaleidoscope$getBannerStack().encode(registriesLookup));
+    default void kaleidoscope$writeBannerData(WriteView view) {
+        ItemStack stack = this.kaleidoscope$getBannerStack();
+        if (!stack.isEmpty()) {
+            view.put(BANNER_KEY, ItemStack.CODEC, stack);
         }
     }
 
-    default void readBannerFromNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registriesLookup) {
-        if (nbt.contains(BANNER_KEY, NbtElement.COMPOUND_TYPE)) {
-            NbtCompound nbtCompound = nbt.getCompound(BANNER_KEY);
-            this.kaleidoscope$setBannerStack(ItemStack.fromNbt(registriesLookup, nbtCompound).orElse(ItemStack.EMPTY));
-        } else {
-            this.kaleidoscope$setBannerStack(ItemStack.EMPTY);
-        }
+    default void kaleidoscope$readBannerData(ReadView view) {
+        this.kaleidoscope$setBannerStack(view.read(BANNER_KEY, ItemStack.CODEC).orElse(ItemStack.EMPTY));
     }
 }

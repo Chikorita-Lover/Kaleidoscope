@@ -31,6 +31,6 @@ public class CamelEntityMixin extends AbstractHorseEntity {
         player.playSound(KaleidoscopeSoundEvents.ENTITY_CAMEL_MILK, 1.0F, 1.0F);
         ItemStack milkStack = ItemUsage.exchangeStack(stack, player, Items.MILK_BUCKET.getDefaultStack());
         player.setStackInHand(hand, milkStack);
-        cir.setReturnValue(ActionResult.success(this.getWorld().isClient()));
+        cir.setReturnValue(ActionResult.SUCCESS);
     }
 }

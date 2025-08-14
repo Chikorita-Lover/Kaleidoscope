@@ -3,6 +3,7 @@ package net.chikorita_lover.kaleidoscope.client.gui.screen;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeItemTags;
 import net.chikorita_lover.kaleidoscope.screen.FireworksTableScreenHandler;
+import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.CyclingSlotIcon;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -19,12 +20,12 @@ import java.util.function.BiConsumer;
 
 public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHandler> {
     private static final Identifier TEXTURE = Kaleidoscope.of("textures/gui/container/fireworks_table.png");
-    private static final Identifier EMPTY_SLOT_DIAMOND_TEXTURE = Identifier.of("item/empty_slot_diamond");
-    private static final Identifier EMPTY_SLOT_FIREWORK_SHELL_TEXTURE = Kaleidoscope.of("item/empty_slot_firework_shell");
-    private static final Identifier EMPTY_SLOT_FIREWORK_STAR_TEXTURE = Kaleidoscope.of("item/empty_slot_firework_star");
-    private static final Identifier EMPTY_SLOT_GLOWSTONE_DUST_TEXTURE = Kaleidoscope.of("item/empty_slot_glowstone_dust");
-    private static final Identifier EMPTY_SLOT_GUNPOWDER_TEXTURE = Kaleidoscope.of("item/empty_slot_gunpowder");
-    private static final Identifier EMPTY_SLOT_PAPER_TEXTURE = Kaleidoscope.of("item/empty_slot_paper");
+    private static final Identifier EMPTY_SLOT_DIAMOND_TEXTURE = Identifier.of("container/slot/diamond");
+    private static final Identifier EMPTY_SLOT_FIREWORK_SHELL_TEXTURE = Kaleidoscope.of("container/slot/firework_shell");
+    private static final Identifier EMPTY_SLOT_FIREWORK_STAR_TEXTURE = Kaleidoscope.of("container/slot/firework_star");
+    private static final Identifier EMPTY_SLOT_GLOWSTONE_DUST_TEXTURE = Kaleidoscope.of("container/slot/glowstone_dust");
+    private static final Identifier EMPTY_SLOT_GUNPOWDER_TEXTURE = Kaleidoscope.of("container/slot/gunpowder");
+    private static final Identifier EMPTY_SLOT_PAPER_TEXTURE = Kaleidoscope.of("container/slot/paper");
     private static final Text ADD_DIAMOND_TOOLTIP = Text.translatable("container.fireworks_table.add_diamond_tooltip");
     private static final Text ADD_DYE_TOOLTIP = Text.translatable("container.fireworks_table.add_dye_tooltip");
     private static final Text ADD_FIREWORK_SHELL_TOOLTIP = Text.translatable("container.fireworks_table.add_firework_shell_tooltip");
@@ -69,28 +70,28 @@ public class FireworksTableScreen extends HandledScreen<FireworksTableScreenHand
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        context.drawTexture(TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        context.drawTexture(RenderPipelines.GUI_TEXTURED, TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight, 256, 256);
         this.drawInvalidInputArrow(context, this.x, this.y);
         this.baseSlotIcon.render(this.handler, context, delta, this.x, this.y);
         this.modifierSlotIcon.render(this.handler, context, delta, this.x, this.y);
         this.modifierSlotIcon2.render(this.handler, context, delta, this.x, this.y);
         this.modifierSlotIcon3.render(this.handler, context, delta, this.x, this.y);
         if (this.getScreenHandler().getBaseSlot().hasStack()) {
-            context.drawTexture(TEXTURE, this.x + 74, this.y + 16, 0, this.backgroundHeight, 54, 54);
+            context.drawTexture(RenderPipelines.GUI_TEXTURED, TEXTURE, this.x + 74, this.y + 16, 0, this.backgroundHeight, 54, 54, 256, 256);
             int i = 0;
             for (Slot slot : this.getScreenHandler().slots.subList(4, 12)) {
                 if (!slot.hasStack()) break;
                 ++i;
             }
             if (i < 8) {
-                context.drawTexture(TEXTURE, this.x + 74 + (i % 3) * 18, this.y + 18 + (Math.floorDiv(i, 3) * 18), this.getScreenHandler().getBaseSlot().getStack().isOf(Items.PAPER) ? 18 : 0, this.backgroundHeight + 54, 18, 18);
+                context.drawTexture(RenderPipelines.GUI_TEXTURED, TEXTURE, this.x + 74 + (i % 3) * 18, this.y + 18 + (Math.floorDiv(i, 3) * 18), this.getScreenHandler().getBaseSlot().getStack().isOf(Items.PAPER) ? 18 : 0, this.backgroundHeight + 54, 18, 18, 256, 256);
             }
         }
     }
 
     private void drawInvalidInputArrow(DrawContext context, int x, int y) {
         if (this.getScreenHandler().hasInvalidInputs()) {
-            context.drawTexture(TEXTURE, x + 133, y + 16, this.backgroundWidth, 0, 28, 23);
+            context.drawTexture(RenderPipelines.GUI_TEXTURED, TEXTURE, x + 133, y + 16, this.backgroundWidth, 0, 28, 23, 256, 256);
         }
     }
 

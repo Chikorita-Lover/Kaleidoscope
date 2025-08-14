@@ -39,7 +39,6 @@ public class FireworksTableScreenHandler extends ScreenHandler {
     private final List<Slot> colorSlots;
     private final Slot outputSlot;
     private final ScreenHandlerContext context;
-    private final Inventory output = new SimpleInventory(1);
     private final Inventory input;
     private long lastTakeResultTime;
 
@@ -103,7 +102,7 @@ public class FireworksTableScreenHandler extends ScreenHandler {
                 }
             }));
         }
-        this.outputSlot = this.addSlot(new FireworksTableOutputSlot(this, inventory.player, this.output, 0, 143, 44));
+        this.outputSlot = this.addSlot(new FireworksTableOutputSlot(this, inventory.player, new SimpleInventory(1), 0, 143, 44));
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
                 this.addSlot(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));

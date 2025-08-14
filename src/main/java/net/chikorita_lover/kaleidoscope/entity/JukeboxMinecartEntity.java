@@ -1,6 +1,5 @@
 package net.chikorita_lover.kaleidoscope.entity;
 
-import com.chocohead.mm.api.ClassTinkerers;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.chikorita_lover.kaleidoscope.network.StopJukeboxMinecartPlayingS2CPacket;
 import net.chikorita_lover.kaleidoscope.network.UpdateJukeboxMinecartS2CPacket;
@@ -20,12 +19,12 @@ import net.minecraft.entity.vehicle.AbstractMinecartEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
@@ -36,27 +35,20 @@ import net.minecraft.world.event.GameEvent;
 import java.util.Optional;
 
 public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inventory {
-    public static final AbstractMinecartEntity.Type JUKEBOX_TYPE = ClassTinkerers.getEnum(AbstractMinecartEntity.Type.class, "JUKEBOX");
     private static final TrackedData<Boolean> PLAYING = DataTracker.registerData(JukeboxMinecartEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<ItemStack> ITEM_STACK = DataTracker.registerData(JukeboxMinecartEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
     private int ticksThisSecond;
     private long recordStartTick;
     private long tickCount;
 
-    public JukeboxMinecartEntity(EntityType<? extends AbstractMinecartEntity> entityType, World world) {
-        super(entityType, world);
-    }
-
-    public JukeboxMinecartEntity(World world, double x, double y, double z) {
-        super(KaleidoscopeEntityTypes.JUKEBOX_MINECART, world, x, y, z);
+    public JukeboxMinecartEntity(EntityType<? extends AbstractMinecartEntity> type, World world) {
+        super(type, world);
     }
 
     private static void spawnNoteParticle(World world, Vec3d pos) {
-        if (world.isClient()) {
-            Vec3d vec3d = pos.add(0.0, 1.2F, 0.0);
-            float f = world.getRandom().nextInt(4) / 24.0F;
-            world.addImportantParticle(ParticleTypes.NOTE, true, vec3d.getX(), vec3d.getY(), vec3d.getZ(), f, 0.0, 0.0);
-        }
+        Vec3d vec3d = pos.add(0.0, 1.2F, 0.0);
+        float f = world.getRandom().nextInt(4) / 24.0F;
+        world.addImportantParticleClient(ParticleTypes.NOTE, true, vec3d.getX(), vec3d.getY(), vec3d.getZ(), f, 0.0, 0.0);
     }
 
     @Override
@@ -109,11 +101,6 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
     private boolean isSongFinished(ItemStack stack) {
         Optional<RegistryEntry<JukeboxSong>> optional = JukeboxSong.getSongEntryFromStack(this.getWorld().getRegistryManager(), stack);
         return optional.map(songEntry -> this.tickCount >= this.recordStartTick + songEntry.value().getLengthInTicks() + 20L).orElse(true);
-    }
-
-    @Override
-    public AbstractMinecartEntity.Type getMinecartType() {
-        return JUKEBOX_TYPE;
     }
 
     public Item asItem() { // Overrides a super method
@@ -214,38 +201,36 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
     @Override
     public void remove(RemovalReason reason) {
         super.remove(reason);
-        if (this.getWorld().getGameRules().getBoolean(GameRules.DO_ENTITY_DROPS)) {
-            this.dropStack(this.getStack(0));
-            this.removeStack();
-        }
-        StopJukeboxMinecartPlayingS2CPacket packet = new StopJukeboxMinecartPlayingS2CPacket(this.getId());
-        if (this.getWorld() instanceof ServerWorld serverWorld) {
-            for (ServerPlayerEntity serverPlayer : serverWorld.getPlayers()) {
+        if (this.getWorld() instanceof ServerWorld world) {
+            if (world.getGameRules().getBoolean(GameRules.DO_ENTITY_DROPS)) {
+                this.dropStack(world, this.getStack(0));
+                this.removeStack();
+            }
+            StopJukeboxMinecartPlayingS2CPacket packet = new StopJukeboxMinecartPlayingS2CPacket(this.getId());
+            for (ServerPlayerEntity serverPlayer : world.getPlayers()) {
                 ServerPlayNetworking.send(serverPlayer, packet);
             }
         }
     }
 
     @Override
-    protected void readCustomDataFromNbt(NbtCompound nbt) {
-        super.readCustomDataFromNbt(nbt);
-        if (nbt.contains("RecordItem", NbtElement.COMPOUND_TYPE)) {
-            this.setStack(0, ItemStack.fromNbt(this.getRegistryManager(), nbt.getCompound("RecordItem")).orElse(ItemStack.EMPTY));
-        }
-        this.recordStartTick = nbt.getLong("RecordStartTick");
-        this.tickCount = nbt.getLong("TickCount");
-        this.dataTracker.set(PLAYING, nbt.getBoolean("IsPlaying"));
+    protected void readCustomData(ReadView view) {
+        super.readCustomData(view);
+        this.setStack(0, view.read("RecordItem", ItemStack.CODEC).orElse(ItemStack.EMPTY));
+        this.recordStartTick = view.getLong("RecordStartTick", 0L);
+        this.tickCount = view.getLong("TickCount", 0L);
+        this.dataTracker.set(PLAYING, view.getBoolean("IsPlaying", false));
     }
 
     @Override
-    protected void writeCustomDataToNbt(NbtCompound nbt) {
-        super.writeCustomDataToNbt(nbt);
+    protected void writeCustomData(WriteView view) {
+        super.writeCustomData(view);
         if (!this.getStack(0).isEmpty()) {
-            nbt.put("RecordItem", this.getStack(0).encode(this.getRegistryManager()));
+            view.put("RecordItem", ItemStack.CODEC, this.getStack(0));
         }
-        nbt.putBoolean("IsPlaying", this.isPlayingRecord());
-        nbt.putLong("RecordStartTick", this.recordStartTick);
-        nbt.putLong("TickCount", this.tickCount);
+        view.putLong("RecordStartTick", this.recordStartTick);
+        view.putLong("TickCount", this.tickCount);
+        view.putBoolean("IsPlaying", this.isPlayingRecord());
     }
 
     @Override

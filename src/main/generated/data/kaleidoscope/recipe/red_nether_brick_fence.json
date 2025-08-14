@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "tag": "c:bricks/nether"
-    },
-    "W": {
-      "item": "minecraft:red_nether_bricks"
-    }
+    "#": "#c:bricks/nether",
+    "W": "minecraft:red_nether_bricks"
   },
   "pattern": [
     "W#W",

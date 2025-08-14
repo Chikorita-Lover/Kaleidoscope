@@ -1,8 +1,6 @@
 package net.chikorita_lover.kaleidoscope.client.render;
 
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
-import net.chikorita_lover.kaleidoscope.KaleidoscopeClient;
-import net.chikorita_lover.kaleidoscope.entity.Chestable;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
@@ -12,22 +10,22 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.EntityModelLoader;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
+import net.minecraft.client.render.entity.model.LoadedEntityModels;
 import net.minecraft.client.render.entity.model.StriderEntityModel;
+import net.minecraft.client.render.entity.state.StriderEntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.passive.StriderEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class StriderChestFeatureRenderer<T extends StriderEntity, M extends StriderEntityModel<T>> extends FeatureRenderer<T, M> {
+public class StriderChestFeatureRenderer extends FeatureRenderer<StriderEntityRenderState, StriderEntityModel> {
     private static final Identifier TEXTURE = Kaleidoscope.of("textures/entity/strider/strider_chest.png");
     private final ModelPart chest;
 
-    public StriderChestFeatureRenderer(FeatureRendererContext<T, M> context, EntityModelLoader loader) {
+    public StriderChestFeatureRenderer(FeatureRendererContext<StriderEntityRenderState, StriderEntityModel> context, LoadedEntityModels models) {
         super(context);
-        this.chest = loader.getModelPart(KaleidoscopeClient.STRIDER_CHEST_LAYER);
+        this.chest = models.getModelPart(KaleidoscopeEntityModelLayers.STRIDER_CHEST);
     }
 
     public static TexturedModelData getTexturedModelData() {
@@ -38,15 +36,15 @@ public class StriderChestFeatureRenderer<T extends StriderEntity, M extends Stri
     }
 
     @Override
-    public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, StriderEntity striderEntity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-        if (!((Chestable) striderEntity).kaleidoscope$hasChest()) {
+    public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, StriderEntityRenderState state, float limbAngle, float limbDistance) {
+        if (!((ChestableRenderState) state).kaleidoscope$hasChest()) {
             return;
         }
-        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntitySolid(TEXTURE));
-        int overlay = LivingEntityRenderer.getOverlay(striderEntity, 0.0F);
+        VertexConsumer vertices = vertexConsumers.getBuffer(RenderLayer.getEntitySolid(TEXTURE));
+        int overlay = LivingEntityRenderer.getOverlay(state, 0.0F);
         matrices.push();
-        this.getContextModel().getPart().getChild(EntityModelPartNames.BODY).rotate(matrices);
-        this.chest.render(matrices, vertexConsumer, light, overlay);
+        this.getContextModel().getRootPart().getChild(EntityModelPartNames.BODY).applyTransform(matrices);
+        this.chest.render(matrices, vertices, light, overlay);
         matrices.pop();
     }
 }

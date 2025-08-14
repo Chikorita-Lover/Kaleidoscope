@@ -1,16 +1,9 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "minecraft:netherite_ingot"
-  },
-  "base": {
-    "item": "minecraft:diamond_horse_armor"
-  },
+  "addition": "#minecraft:netherite_tool_materials",
+  "base": "minecraft:diamond_horse_armor",
   "result": {
-    "count": 1,
     "id": "kaleidoscope:netherite_horse_armor"
   },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
-  }
+  "template": "minecraft:netherite_upgrade_smithing_template"
 }

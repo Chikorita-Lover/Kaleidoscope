@@ -3,12 +3,8 @@
   "category": "building",
   "group": "waxed_oxidized_smooth_copper",
   "ingredients": [
-    {
-      "item": "kaleidoscope:oxidized_smooth_copper"
-    },
-    {
-      "item": "minecraft:honeycomb"
-    }
+    "kaleidoscope:oxidized_smooth_copper",
+    "minecraft:honeycomb"
   ],
   "result": {
     "count": 1,

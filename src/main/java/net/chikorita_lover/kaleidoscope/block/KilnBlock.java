@@ -33,6 +33,7 @@ public class KilnBlock extends AbstractFurnaceBlock {
         return createCodec(KilnBlock::new);
     }
 
+    @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new KilnBlockEntity(pos, state);
     }
@@ -43,12 +44,11 @@ public class KilnBlock extends AbstractFurnaceBlock {
     }
 
     protected void openScreen(World world, BlockPos pos, PlayerEntity player) {
-        Optional<KilnBlockEntity> blockEntity = world.getBlockEntity(pos, KaleidoscopeBlockEntityTypes.KILN);
-        if (blockEntity.isPresent()) {
-            player.openHandledScreen(blockEntity.get());
+        Optional<KilnBlockEntity> kiln = world.getBlockEntity(pos, KaleidoscopeBlockEntityTypes.KILN);
+        if (kiln.isPresent()) {
+            player.openHandledScreen(kiln.get());
             player.incrementStat(KaleidoscopeStats.INTERACT_WITH_KILN);
         }
-
     }
 
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
@@ -59,7 +59,7 @@ public class KilnBlock extends AbstractFurnaceBlock {
         double y = pos.getY();
         double z = pos.getZ() + 0.5;
         if (random.nextDouble() < 0.1) {
-            world.playSound(x, y, z, KaleidoscopeSoundEvents.BLOCK_KILN_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+            world.playSoundClient(x, y, z, KaleidoscopeSoundEvents.BLOCK_KILN_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
         }
         Direction direction = state.get(FACING);
         Direction.Axis axis = direction.getAxis();
@@ -67,7 +67,7 @@ public class KilnBlock extends AbstractFurnaceBlock {
         x += axis == Direction.Axis.X ? direction.getOffsetX() * 0.52 : offset;
         y += MathHelper.nextBetween(random, 0.4F, 0.5F);
         z += axis == Direction.Axis.Z ? direction.getOffsetZ() * 0.52 : offset;
-        world.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 0.0, 0.0);
-        world.addParticle(ParticleTypes.FLAME, x, y, z, 0.0, 0.0, 0.0);
+        world.addParticleClient(ParticleTypes.SMOKE, x, y, z, 0.0, 0.0, 0.0);
+        world.addParticleClient(ParticleTypes.FLAME, x, y, z, 0.0, 0.0, 0.0);
     }
 }

@@ -3,12 +3,8 @@
   "category": "redstone",
   "group": "stained_glass_door",
   "ingredients": [
-    {
-      "item": "kaleidoscope:glass_door"
-    },
-    {
-      "tag": "c:dyes/black"
-    }
+    "kaleidoscope:glass_door",
+    "#c:dyes/black"
   ],
   "result": {
     "count": 1,

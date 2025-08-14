@@ -10,6 +10,7 @@ import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
 import net.chikorita_lover.kaleidoscope.network.OpenStriderScreenS2CPacket;
 import net.chikorita_lover.kaleidoscope.network.StopJukeboxMinecartPlayingS2CPacket;
 import net.chikorita_lover.kaleidoscope.network.UpdateJukeboxMinecartS2CPacket;
+import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeBookCategories;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeSerializers;
 import net.chikorita_lover.kaleidoscope.recipe.KaleidoscopeRecipeTypes;
 import net.chikorita_lover.kaleidoscope.registry.*;
@@ -29,8 +30,13 @@ import net.minecraft.block.SideShapeType;
 import net.minecraft.block.dispenser.BoatDispenserBehavior;
 import net.minecraft.block.dispenser.ShearsDispenserBehavior;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.ConsumableComponents;
+import net.minecraft.component.type.DamageResistantComponent;
+import net.minecraft.component.type.EnchantableComponent;
+import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
@@ -43,21 +49,25 @@ import net.minecraft.loot.function.FurnaceSmeltLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.NumberRange;
+import net.minecraft.predicate.component.ComponentPredicateTypes;
+import net.minecraft.predicate.component.ComponentsPredicate;
+import net.minecraft.predicate.entity.EntityEquipmentPredicate;
+import net.minecraft.predicate.entity.EntityFlagsPredicate;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.item.EnchantmentPredicate;
 import net.minecraft.predicate.item.EnchantmentsPredicate;
-import net.minecraft.predicate.item.ItemSubPredicateTypes;
+import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.registry.tag.EnchantmentTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.structure.processor.*;
 import net.minecraft.structure.rule.AlwaysTrueRuleTest;
 import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Unit;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
@@ -89,19 +99,24 @@ public class Kaleidoscope implements ModInitializer {
         processorList.list = list;
     }
 
+    private static boolean isHorseArmor(Item item) {
+        EquippableComponent component = item.getComponents().get(DataComponentTypes.EQUIPPABLE);
+        return component != null && component.allows(EntityType.HORSE) && component.slot() == EquipmentSlot.BODY;
+    }
+
     private static void registerLootTableEvents() {
         LootTableEvents.MODIFY.register((key, lootBuilder, source, registries) -> {
             if (KaleidoscopeConfig.ADDITIONAL_HORSE_ARMORS.get()) {
                 if (key.equals(LootTables.SIMPLE_DUNGEON_CHEST)) {
                     LootModificationUtils.modifyPool(lootBuilder, 0, builder -> {
-                        LootModificationUtils.removeItemIf(builder, item -> item instanceof AnimalArmorItem);
+                        LootModificationUtils.removeItemIf(builder, Kaleidoscope::isHorseArmor);
                         builder.with(ItemEntry.builder(Items.IRON_HORSE_ARMOR).weight(20));
                         builder.with(ItemEntry.builder(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR).weight(10));
                     });
                 }
                 if (key.equals(LootTables.VILLAGE_WEAPONSMITH_CHEST)) {
                     LootModificationUtils.modifyPool(lootBuilder, 0, builder -> {
-                        LootModificationUtils.removeItemIf(builder, item -> item instanceof AnimalArmorItem);
+                        LootModificationUtils.removeItemIf(builder, Kaleidoscope::isHorseArmor);
                         builder.with(ItemEntry.builder(Items.IRON_HORSE_ARMOR).weight(2));
                         builder.with(ItemEntry.builder(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR));
                     });
@@ -116,18 +131,18 @@ public class Kaleidoscope implements ModInitializer {
             if (KaleidoscopeConfig.ADDITIONAL_DISC_FRAGMENTS.get() && key.equals(LootTables.PIGLIN_BARTERING_GAMEPLAY)) {
                 lootBuilder.modifyPools(builder -> builder.with((ItemEntry.builder(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).weight(10)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).build());
             }
-            if (KaleidoscopeConfig.DO_CAMEL_DROPS.get() && key.equals(EntityType.CAMEL.getLootTableId())) {
+            if (KaleidoscopeConfig.DO_CAMEL_DROPS.get() && key.equals(EntityType.CAMEL.getLootTableKey().orElse(null))) {
                 lootBuilder.pool(LootPool.builder().with(ItemEntry.builder(Items.LEATHER).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F, 2.0F))).apply(EnchantedCountIncreaseLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 1.0F)))).build());
             }
-            if (KaleidoscopeConfig.DO_GOAT_DROPS.get() && key.equals(EntityType.GOAT.getLootTableId())) {
+            if (KaleidoscopeConfig.DO_GOAT_DROPS.get() && key.equals(EntityType.GOAT.getLootTableKey().orElse(null))) {
                 lootBuilder.pool(LootPool.builder().with(ItemEntry.builder(Items.MUTTON).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))).apply(FurnaceSmeltLootFunction.builder().conditionally(createSmeltLootCondition(registries))).apply(EnchantedCountIncreaseLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 1.0F)))).build());
             }
         });
     }
 
     private static AnyOfLootCondition.Builder createSmeltLootCondition(RegistryWrapper.WrapperLookup registries) {
-        RegistryWrapper.Impl<Enchantment> impl = registries.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
-        return AnyOfLootCondition.builder(EntityPropertiesLootCondition.builder(LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().flags(net.minecraft.predicate.entity.EntityFlagsPredicate.Builder.create().onFire(true))), EntityPropertiesLootCondition.builder(LootContext.EntityTarget.DIRECT_ATTACKER, EntityPredicate.Builder.create().equipment(net.minecraft.predicate.entity.EntityEquipmentPredicate.Builder.create().mainhand(net.minecraft.predicate.item.ItemPredicate.Builder.create().subPredicate(ItemSubPredicateTypes.ENCHANTMENTS, EnchantmentsPredicate.enchantments(List.of(new EnchantmentPredicate(impl.getOrThrow(EnchantmentTags.SMELTS_LOOT), NumberRange.IntRange.ANY))))))));
+        RegistryWrapper.Impl<Enchantment> impl = registries.getOrThrow(RegistryKeys.ENCHANTMENT);
+        return AnyOfLootCondition.builder(EntityPropertiesLootCondition.builder(LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().flags(EntityFlagsPredicate.Builder.create().onFire(true))), EntityPropertiesLootCondition.builder(LootContext.EntityTarget.DIRECT_ATTACKER, EntityPredicate.Builder.create().equipment(EntityEquipmentPredicate.Builder.create().mainhand(ItemPredicate.Builder.create().components(ComponentsPredicate.Builder.create().partial(ComponentPredicateTypes.ENCHANTMENTS, EnchantmentsPredicate.enchantments(List.of(new EnchantmentPredicate(impl.getOrThrow(EnchantmentTags.SMELTS_LOOT), NumberRange.IntRange.ANY)))).build())))));
     }
 
     @Override
@@ -140,6 +155,7 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeItems.register();
         KaleidoscopeLootTables.register();
         KaleidoscopePointOfInterestTypes.register();
+        KaleidoscopeRecipeBookCategories.register();
         KaleidoscopeRecipeSerializers.register();
         KaleidoscopeRecipeTypes.register();
         KaleidoscopeScreenHandlerTypes.register();
@@ -149,42 +165,46 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeVillagerProfessions.register();
         StructurePoolModifiers.register();
 
-        TagKeyEvents.modifyEntriesEvent(KaleidoscopeItemTags.HORSE_ARMOR).register((registries, entries) -> {
-            registries.getWrapperOrThrow(RegistryKeys.ITEM).streamEntries().filter(item -> item.value() instanceof AnimalArmorItem animalArmorItem && animalArmorItem.getType() == AnimalArmorItem.Type.EQUESTRIAN).forEach(entries::add);
+        TagKeyEvents.modifyEntriesEvent(KaleidoscopeItemTags.HORSE_ARMOR).register(entries -> {
+            Registries.ITEM.streamEntries().filter(item -> isHorseArmor(item.value())).forEach(entries::add);
         });
-        TagKeyEvents.modifyEntriesEvent(ItemTags.TRIMMABLE_ARMOR).register((registries, entries) -> {
+        TagKeyEvents.modifyEntriesEvent(ItemTags.TRIMMABLE_ARMOR).register(entries -> {
             if (KaleidoscopeConfig.HORSE_ARMOR_TRIMS.get()) {
-                registries.getWrapperOrThrow(RegistryKeys.ITEM).streamEntries().filter(item -> item.value() instanceof AnimalArmorItem animalArmorItem && animalArmorItem.getType() == AnimalArmorItem.Type.EQUESTRIAN).forEach(entries::add);
+                entries.addAll(Registries.ITEM.streamEntries().filter(item -> item.isIn(KaleidoscopeItemTags.HORSE_ARMOR)).toList());
             }
         });
 
         DefaultItemComponentEvents.MODIFY.register(context -> {
-            final List<Class<? extends Item>> classes = List.of(ArmorStandItem.class, BannerItem.class, BannerPatternItem.class, EggItem.class, SignItem.class, SnowballItem.class, WrittenBookItem.class);
+            final List<Class<? extends Item>> classes = List.of(ArmorStandItem.class, BannerItem.class, EggItem.class, SignItem.class, SnowballItem.class, WrittenBookItem.class);
             context.modify(item -> classes.stream().anyMatch(aClass -> aClass.isInstance(item)), (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
             context.modify(item -> item.getComponents().contains(DataComponentTypes.JUKEBOX_PLAYABLE) && Registries.ITEM.getId(item).getPath().matches("music_disc_\\w+"), (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
-            context.modify(List.of(Items.BLAZE_POWDER, Items.BLAZE_ROD, Items.MAGMA_CREAM), (builder, item) -> builder.add(DataComponentTypes.FIRE_RESISTANT, Unit.INSTANCE));
+            context.modify(item -> item.getComponents().contains(DataComponentTypes.PROVIDES_BANNER_PATTERNS) && Registries.ITEM.getId(item).getPath().matches("\\w+_banner_pattern"), (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
+            context.modify(Items.COOKIE, builder -> builder.add(DataComponentTypes.CONSUMABLE, ConsumableComponents.DRIED_KELP));
+            context.modify(List.of(Items.BLAZE_POWDER, Items.BLAZE_ROD, Items.MAGMA_CREAM), (builder, item) -> builder.add(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(DamageTypeTags.IS_FIRE)));
+            context.modify(Items.SHEARS, builder -> builder.add(DataComponentTypes.ENCHANTABLE, new EnchantableComponent(KaleidoscopeConfig.SHEARS_ENCHANTABILITY.get())));
         });
 
         registerLootTableEvents();
 
         DispenserBlock.registerBehavior(KaleidoscopeItems.NETHERITE_SHEARS, new ShearsDispenserBehavior());
-        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.CRIMSON_BOAT_TYPE));
-        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.WARPED_BOAT_TYPE));
-        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.CRIMSON_BOAT_TYPE, true));
-        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeItems.WARPED_BOAT_TYPE, true));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_BOAT, new BoatDispenserBehavior(KaleidoscopeEntityTypes.CRIMSON_BOAT));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.CRIMSON_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeEntityTypes.CRIMSON_CHEST_BOAT));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_BOAT, new BoatDispenserBehavior(KaleidoscopeEntityTypes.WARPED_BOAT));
+        DispenserBlock.registerBehavior(KaleidoscopeItems.WARPED_CHEST_BOAT, new BoatDispenserBehavior(KaleidoscopeEntityTypes.WARPED_CHEST_BOAT));
 
         PayloadTypeRegistry.playS2C().register(OpenStriderScreenS2CPacket.PACKET_ID, OpenStriderScreenS2CPacket.PACKET_CODEC);
         PayloadTypeRegistry.playS2C().register(StopJukeboxMinecartPlayingS2CPacket.PACKET_ID, StopJukeboxMinecartPlayingS2CPacket.PACKET_CODEC);
         PayloadTypeRegistry.playS2C().register(UpdateJukeboxMinecartS2CPacket.PACKET_ID, UpdateJukeboxMinecartS2CPacket.PACKET_CODEC);
 
         ServerLifecycleEvents.SERVER_STARTED.register(server -> {
-            Registry<StructureProcessorList> processorLists = server.getRegistryManager().get(RegistryKeys.PROCESSOR_LIST);
+            Registry<StructureProcessorList> processorLists = server.getRegistryManager().getOrThrow(RegistryKeys.PROCESSOR_LIST);
             if (KaleidoscopeConfig.ADDITIONAL_CRACKED_BLOCKS.get() && processorLists != null) {
-                addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRAIL_RUINS_HOUSES_ARCHAEOLOGY), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
-                addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRAIL_RUINS_ROADS_ARCHAEOLOGY), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
-                addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRAIL_RUINS_TOWER_TOP_ARCHAEOLOGY), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
-                addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRIAL_CHAMBERS_COPPER_BULB_DEGRADATION), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.TUFF_BRICKS, 0.3F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_TUFF_BRICKS.getDefaultState()))));
+                addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRAIL_RUINS_HOUSES_ARCHAEOLOGY).value(), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
+                addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRAIL_RUINS_ROADS_ARCHAEOLOGY).value(), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
+                addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRAIL_RUINS_TOWER_TOP_ARCHAEOLOGY).value(), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.MUD_BRICKS, 0.2F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_MUD_BRICKS.getDefaultState()))));
+                addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRIAL_CHAMBERS_COPPER_BULB_DEGRADATION).value(), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.TUFF_BRICKS, 0.3F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_TUFF_BRICKS.getDefaultState()))));
             }
         });
+        LOGGER.info("Finished initializing Kaleidoscope!");
     }
 }
