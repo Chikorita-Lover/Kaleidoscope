@@ -1,4 +1,4 @@
-package net.chikorita_lover.kaleidoscope.mixin;
+package net.chikorita_lover.kaleidoscope.mixin.screen;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
