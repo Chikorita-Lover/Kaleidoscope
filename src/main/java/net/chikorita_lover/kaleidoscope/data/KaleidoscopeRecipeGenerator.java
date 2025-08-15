@@ -278,6 +278,7 @@ public class KaleidoscopeRecipeGenerator extends RecipeGenerator {
         this.createShapeless(RecipeCategory.TRANSPORTATION, KaleidoscopeItems.JUKEBOX_MINECART).input(Blocks.JUKEBOX).input(Items.MINECART).criterion(hasItem(Items.MINECART), conditionsFromItem(Items.MINECART)).offerTo(this.exporter);
 
         this.createShaped(RecipeCategory.MISC, Items.MUSIC_DISC_PIGSTEP).input('S', KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP), conditionsFromItem(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP)).offerTo(this.exporter, keyOf(getItemPath(Items.MUSIC_DISC_PIGSTEP)));
+        this.createShaped(RecipeCategory.MISC, Items.MUSIC_DISC_TEARS).input('S', KaleidoscopeItems.DISC_FRAGMENT_TEARS).pattern("SSS").pattern("SSS").pattern("SSS").criterion(hasItem(KaleidoscopeItems.DISC_FRAGMENT_TEARS), conditionsFromItem(KaleidoscopeItems.DISC_FRAGMENT_TEARS)).offerTo(this.exporter, keyOf(getItemPath(Items.MUSIC_DISC_TEARS)));
 
         this.createShapeless(RecipeCategory.MISC, Items.NAME_TAG).input(Items.PAPER).input(Items.INK_SAC).input(Items.IRON_INGOT).criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER)).offerTo(this.exporter, keyOf(getItemPath(Items.NAME_TAG)));
 

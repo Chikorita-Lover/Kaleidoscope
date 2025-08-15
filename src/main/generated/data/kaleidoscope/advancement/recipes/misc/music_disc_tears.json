@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_disc_fragment_tears": {
+      "conditions": {
+        "items": [
+          {
+            "items": "kaleidoscope:disc_fragment_tears"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "kaleidoscope:music_disc_tears"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_disc_fragment_tears"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "kaleidoscope:music_disc_tears"
+    ]
+  }
+}

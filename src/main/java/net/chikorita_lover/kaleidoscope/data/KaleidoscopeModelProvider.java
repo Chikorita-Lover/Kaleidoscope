@@ -93,6 +93,7 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
         generator.register(KaleidoscopeItems.CHAINMAIL_HORSE_ARMOR, Models.GENERATED);
         generator.register(KaleidoscopeItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
         generator.register(KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP, Models.GENERATED);
+        generator.register(KaleidoscopeItems.DISC_FRAGMENT_TEARS, Models.GENERATED);
         for (Item item : Registries.ITEM) {
             if (item instanceof FireworkShellItem) {
                 generator.register(item, Models.GENERATED);

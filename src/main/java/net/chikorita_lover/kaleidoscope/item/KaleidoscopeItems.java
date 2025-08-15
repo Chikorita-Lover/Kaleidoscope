@@ -32,6 +32,7 @@ public class KaleidoscopeItems {
     public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item.Settings().horseArmor(ArmorMaterials.NETHERITE).fireproof(), KaleidoscopeConfig.ADDITIONAL_HORSE_ARMORS);
 
     public static final Item DISC_FRAGMENT_PIGSTEP = register("disc_fragment_pigstep", DiscFragmentItem::new, new Item.Settings().rarity(Rarity.RARE), KaleidoscopeConfig.ADDITIONAL_DISC_FRAGMENTS);
+    public static final Item DISC_FRAGMENT_TEARS = register("disc_fragment_tears", DiscFragmentItem::new, new Item.Settings().rarity(Rarity.UNCOMMON), KaleidoscopeConfig.ADDITIONAL_DISC_FRAGMENTS);
 
     public static final Item LARGE_BALL_FIREWORK_SHELL = registerFireworkShellItem("large_ball_firework_shell", FireworkExplosionComponent.Type.LARGE_BALL, Rarity.COMMON);
     public static final Item STAR_FIREWORK_SHELL = registerFireworkShellItem("star_firework_shell", FireworkExplosionComponent.Type.STAR, Rarity.COMMON);

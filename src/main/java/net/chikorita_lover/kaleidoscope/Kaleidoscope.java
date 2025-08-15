@@ -41,7 +41,9 @@ import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.AnyOfLootCondition;
+import net.minecraft.loot.condition.DamageSourcePropertiesLootCondition;
 import net.minecraft.loot.condition.EntityPropertiesLootCondition;
+import net.minecraft.loot.condition.KilledByPlayerLootCondition;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.EnchantedCountIncreaseLootFunction;
@@ -49,8 +51,10 @@ import net.minecraft.loot.function.FurnaceSmeltLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.NumberRange;
+import net.minecraft.predicate.TagPredicate;
 import net.minecraft.predicate.component.ComponentPredicateTypes;
 import net.minecraft.predicate.component.ComponentsPredicate;
+import net.minecraft.predicate.entity.DamageSourcePredicate;
 import net.minecraft.predicate.entity.EntityEquipmentPredicate;
 import net.minecraft.predicate.entity.EntityFlagsPredicate;
 import net.minecraft.predicate.entity.EntityPredicate;
@@ -133,6 +137,12 @@ public class Kaleidoscope implements ModInitializer {
             }
             if (KaleidoscopeConfig.DO_CAMEL_DROPS.get() && key.equals(EntityType.CAMEL.getLootTableKey().orElse(null))) {
                 lootBuilder.pool(LootPool.builder().with(ItemEntry.builder(Items.LEATHER).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F, 2.0F))).apply(EnchantedCountIncreaseLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 1.0F)))).build());
+            }
+            if (KaleidoscopeConfig.ADDITIONAL_CRACKED_BLOCKS.get() && key.equals(EntityType.GHAST.getLootTableKey().orElse(null))) {
+                LootModificationUtils.modifyPool(lootBuilder, 2, builder -> {
+                    LootModificationUtils.removeItemIf(builder, item -> item == Items.MUSIC_DISC_TEARS);
+                });
+                lootBuilder.pool(LootPool.builder().with(ItemEntry.builder(KaleidoscopeItems.DISC_FRAGMENT_TEARS).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))).conditionally(DamageSourcePropertiesLootCondition.builder(DamageSourcePredicate.Builder.create().tag(TagPredicate.expected(DamageTypeTags.IS_PROJECTILE)).directEntity(EntityPredicate.Builder.create().type(registries.getOrThrow(RegistryKeys.ENTITY_TYPE), EntityType.FIREBALL)))).conditionally(KilledByPlayerLootCondition.builder()));
             }
             if (KaleidoscopeConfig.DO_GOAT_DROPS.get() && key.equals(EntityType.GOAT.getLootTableKey().orElse(null))) {
                 lootBuilder.pool(LootPool.builder().with(ItemEntry.builder(Items.MUTTON).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))).apply(FurnaceSmeltLootFunction.builder().conditionally(createSmeltLootCondition(registries))).apply(EnchantedCountIncreaseLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 1.0F)))).build());

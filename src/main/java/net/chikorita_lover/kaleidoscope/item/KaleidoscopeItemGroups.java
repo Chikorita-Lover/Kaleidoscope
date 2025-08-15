@@ -101,7 +101,7 @@ public class KaleidoscopeItemGroups {
             entries.addAfter(Items.DIAMOND_HORSE_ARMOR, KaleidoscopeItems.NETHERITE_HORSE_ARMOR);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
-            entries.addAfter(Items.DISC_FRAGMENT_5, KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP);
+            entries.addAfter(Items.DISC_FRAGMENT_5, KaleidoscopeItems.DISC_FRAGMENT_PIGSTEP, KaleidoscopeItems.DISC_FRAGMENT_TEARS);
             entries.addBefore(Items.ANGLER_POTTERY_SHERD, KaleidoscopeItems.LARGE_BALL_FIREWORK_SHELL, KaleidoscopeItems.STAR_FIREWORK_SHELL, KaleidoscopeItems.CREEPER_FIREWORK_SHELL, KaleidoscopeItems.BURST_FIREWORK_SHELL);
         });
     }
