@@ -1,6 +1,7 @@
 package net.chikorita_lover.kaleidoscope;
 
 import net.chikorita_lover.chicory.api.loot.LootModificationUtils;
+import net.chikorita_lover.chicory.api.recipe.RecipeBookTypeRegistry;
 import net.chikorita_lover.chicory.api.registry.TagKeyEvents;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
@@ -61,6 +62,7 @@ import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.item.EnchantmentPredicate;
 import net.minecraft.predicate.item.EnchantmentsPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
+import net.minecraft.recipe.book.RecipeBookType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
@@ -84,6 +86,7 @@ import java.util.List;
 public class Kaleidoscope implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("Kaleidoscope");
     public static final String MODID = "kaleidoscope";
+    public static final RecipeBookType KILNING_CATEGORY = RecipeBookTypeRegistry.register("kaleidoscope_kiln", KaleidoscopeRecipeBookCategories.KILN_BLOCKS, KaleidoscopeRecipeBookCategories.KILN_MISC);
 
     public static Identifier of(String path) {
         return Identifier.of(MODID, path);

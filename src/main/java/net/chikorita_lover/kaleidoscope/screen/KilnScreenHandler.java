@@ -14,10 +14,10 @@ public class KilnScreenHandler extends AbstractFurnaceScreenHandler {
     public static final RegistryKey<RecipePropertySet> PROPERTY_SET = RegistryKey.of(RecipePropertySet.REGISTRY, Kaleidoscope.of("kiln_input"));
 
     public KilnScreenHandler(int syncId, PlayerInventory playerInventory) {
-        super(KaleidoscopeScreenHandlerTypes.KILN, KaleidoscopeRecipeTypes.KILNING, PROPERTY_SET, KilningRecipe.CATEGORY, syncId, playerInventory);
+        super(KaleidoscopeScreenHandlerTypes.KILN, KaleidoscopeRecipeTypes.KILNING, PROPERTY_SET, Kaleidoscope.KILNING_CATEGORY, syncId, playerInventory);
     }
 
     public KilnScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
-        super(KaleidoscopeScreenHandlerTypes.KILN, KaleidoscopeRecipeTypes.KILNING, PROPERTY_SET, KilningRecipe.CATEGORY, syncId, playerInventory, inventory, propertyDelegate);
+        super(KaleidoscopeScreenHandlerTypes.KILN, KaleidoscopeRecipeTypes.KILNING, PROPERTY_SET, Kaleidoscope.KILNING_CATEGORY, syncId, playerInventory, inventory, propertyDelegate);
     }
 }

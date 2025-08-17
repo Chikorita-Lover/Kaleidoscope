@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class KilningRecipe extends AbstractCookingRecipe {
-    public static final RecipeBookType CATEGORY = RecipeBookTypeRegistry.register("kaleidoscope_kiln", KaleidoscopeRecipeBookCategories.KILN_BLOCKS, KaleidoscopeRecipeBookCategories.KILN_MISC);
     public static final Map<RegistryKey<Recipe<?>>, RegistryKey<Recipe<?>>> SMELTING_TO_KILNING = new HashMap<>();
 
     public KilningRecipe(String group, CookingRecipeCategory category, Ingredient ingredient, ItemStack result, float experience, int cookingTime) {
