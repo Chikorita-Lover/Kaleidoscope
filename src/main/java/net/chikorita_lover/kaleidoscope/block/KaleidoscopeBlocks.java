@@ -221,20 +221,16 @@ public class KaleidoscopeBlocks {
     }
 
     private static Block registerWithItem(String id, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings, Supplier<Boolean> condition) {
-        Block block = registerWithItem(id, factory, settings);
+        Block block = Blocks.register(keyOf(id), factory, settings);
         ToggleableFeatureRegistry.add(block, condition);
-        return block;
-    }
-
-    private static Block registerWithItem(String id, AbstractBlock.Settings settings) {
-        Block block = Blocks.register(keyOf(id), settings);
-        Items.register(block);
+        ToggleableFeatureRegistry.add(Items.register(block), condition);
         return block;
     }
 
     private static Block registerWithItem(String id, AbstractBlock.Settings settings, Supplier<Boolean> condition) {
-        Block block = registerWithItem(id, settings);
+        Block block = Blocks.register(keyOf(id), settings);
         ToggleableFeatureRegistry.add(block, condition);
+        ToggleableFeatureRegistry.add(Items.register(block), condition);
         return block;
     }
 
