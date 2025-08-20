@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "kaleidoscope:item/light_blue_chest",
+    "model": {
+      "type": "minecraft:chest",
+      "texture": "kaleidoscope:light_blue"
+    }
+  }
+}

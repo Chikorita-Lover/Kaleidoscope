@@ -7,6 +7,7 @@ import net.minecraft.registry.tag.TagKey;
 
 public class KaleidoscopeItemTags {
     public static final TagKey<Item> DISPENSER_TOOLS = of("dispenser_tools");
+    public static final TagKey<Item> DYED_CHESTS = of("dyed_chests");
     public static final TagKey<Item> FIREWORK_SHELLS = of("firework_shells");
     public static final TagKey<Item> FIREWORK_STAR_BASES = of("firework_star_bases");
     public static final TagKey<Item> HORSE_ARMOR = of("horse_armor");

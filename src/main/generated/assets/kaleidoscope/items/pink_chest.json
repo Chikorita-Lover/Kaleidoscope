@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "kaleidoscope:item/pink_chest",
+    "model": {
+      "type": "minecraft:chest",
+      "texture": "kaleidoscope:pink"
+    }
+  }
+}

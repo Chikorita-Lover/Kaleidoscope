@@ -25,7 +25,9 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Stream;
 
 public class KaleidoscopeRecipeGenerator extends RecipeGenerator {
     public KaleidoscopeRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
@@ -69,6 +71,18 @@ public class KaleidoscopeRecipeGenerator extends RecipeGenerator {
         this.createShaped(RecipeCategory.REDSTONE, output, 3).input('#', input).pattern("##").pattern("##").pattern("##").criterion(hasItem(input), conditionsFromItem(input)).offerTo(this.exporter);
     }
 
+    public void offerDyeingRecipes(List<Item> dyes, List<ItemConvertible> dyeables, @Nullable Item undyed, String group, RecipeCategory category) {
+        for (int i = 0; i < dyes.size(); ++i) {
+            Item dye = dyes.get(i);
+            final ItemConvertible dyeable = dyeables.get(i);
+            Stream<ItemConvertible> stream = dyeables.stream().filter(item -> !item.equals(dyeable));
+            if (undyed != null) {
+                stream = Stream.concat(stream, Stream.of(undyed));
+            }
+            this.createShapeless(category, dyeable).input(dye).input(Ingredient.ofItems(stream)).group(group).criterion("has_needed_dye", this.conditionsFromItem(dye)).offerTo(this.exporter, keyOf("dye_" + getItemPath(dyeable)));
+        }
+    }
+
     private void offerTrapdoorRecipe2(ItemConvertible output, ItemConvertible input) {
         this.createShaped(RecipeCategory.REDSTONE, output).input('#', input).pattern("##").pattern("##").criterion(hasItem(input), conditionsFromItem(input)).offerTo(this.exporter);
     }
@@ -99,6 +113,7 @@ public class KaleidoscopeRecipeGenerator extends RecipeGenerator {
 
     @Override
     public void generate() {
+        List<Item> dyes = List.of(Items.BLACK_DYE, Items.BLUE_DYE, Items.BROWN_DYE, Items.CYAN_DYE, Items.GRAY_DYE, Items.GREEN_DYE, Items.LIGHT_BLUE_DYE, Items.LIGHT_GRAY_DYE, Items.LIME_DYE, Items.MAGENTA_DYE, Items.ORANGE_DYE, Items.PINK_DYE, Items.PURPLE_DYE, Items.RED_DYE, Items.YELLOW_DYE, Items.WHITE_DYE);
         KaleidoscopeBlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateRecipes).forEach(family -> this.generateFamily(family, FeatureFlags.VANILLA_FEATURES));
 
         this.offerWallRecipe(RecipeCategory.MISC, KaleidoscopeBlocks.POLISHED_GRANITE_WALL, Blocks.POLISHED_GRANITE);
@@ -298,6 +313,8 @@ public class KaleidoscopeRecipeGenerator extends RecipeGenerator {
         this.createFireworkShellRecipe(KaleidoscopeItems.STAR_FIREWORK_SHELL, Ingredient.ofItem(Items.GOLD_NUGGET)).criterion(hasItem(Items.FIRE_CHARGE), conditionsFromItem(Items.FIRE_CHARGE)).offerTo(this.exporter);
         this.createFireworkShellRecipe(KaleidoscopeItems.CREEPER_FIREWORK_SHELL, this.ingredientFromTag(ItemTags.SKULLS)).criterion("has_skull", conditionsFromTag(ItemTags.SKULLS)).offerTo(this.exporter);
         this.createFireworkShellRecipe(KaleidoscopeItems.BURST_FIREWORK_SHELL, Ingredient.ofItem(Items.FEATHER)).criterion(hasItem(Items.FIRE_CHARGE), conditionsFromItem(Items.FIRE_CHARGE)).offerTo(this.exporter);
+
+        this.offerDyeingRecipes(dyes, List.of(KaleidoscopeBlocks.BLACK_CHEST, KaleidoscopeBlocks.BLUE_CHEST, KaleidoscopeBlocks.BROWN_CHEST, KaleidoscopeBlocks.CYAN_CHEST, KaleidoscopeBlocks.GRAY_CHEST, KaleidoscopeBlocks.GREEN_CHEST, KaleidoscopeBlocks.LIGHT_BLUE_CHEST, KaleidoscopeBlocks.LIGHT_GRAY_CHEST, KaleidoscopeBlocks.LIME_CHEST, KaleidoscopeBlocks.MAGENTA_CHEST, KaleidoscopeBlocks.ORANGE_CHEST, KaleidoscopeBlocks.PINK_CHEST, KaleidoscopeBlocks.PURPLE_CHEST, KaleidoscopeBlocks.RED_CHEST, KaleidoscopeBlocks.YELLOW_CHEST, KaleidoscopeBlocks.WHITE_CHEST), Items.CHEST, "chest_dye", RecipeCategory.DECORATIONS);
     }
 
     public static class Provider extends FabricRecipeProvider {

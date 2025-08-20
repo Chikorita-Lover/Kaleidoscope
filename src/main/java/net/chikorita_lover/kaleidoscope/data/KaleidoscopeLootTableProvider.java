@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -119,6 +120,23 @@ public class KaleidoscopeLootTableProvider extends FabricBlockLootTableProvider 
 
         this.addDrop(KaleidoscopeBlocks.FIREWORKS_TABLE);
         this.addDrop(KaleidoscopeBlocks.KILN, this::nameableContainerDrops);
+
+        this.addDrop(KaleidoscopeBlocks.WHITE_CHEST);
+        this.addDrop(KaleidoscopeBlocks.LIGHT_GRAY_CHEST);
+        this.addDrop(KaleidoscopeBlocks.GRAY_CHEST);
+        this.addDrop(KaleidoscopeBlocks.BLACK_CHEST);
+        this.addDrop(KaleidoscopeBlocks.BROWN_CHEST);
+        this.addDrop(KaleidoscopeBlocks.RED_CHEST);
+        this.addDrop(KaleidoscopeBlocks.ORANGE_CHEST);
+        this.addDrop(KaleidoscopeBlocks.YELLOW_CHEST);
+        this.addDrop(KaleidoscopeBlocks.LIME_CHEST);
+        this.addDrop(KaleidoscopeBlocks.GREEN_CHEST);
+        this.addDrop(KaleidoscopeBlocks.CYAN_CHEST);
+        this.addDrop(KaleidoscopeBlocks.LIGHT_BLUE_CHEST);
+        this.addDrop(KaleidoscopeBlocks.BLUE_CHEST);
+        this.addDrop(KaleidoscopeBlocks.PURPLE_CHEST);
+        this.addDrop(KaleidoscopeBlocks.MAGENTA_CHEST);
+        this.addDrop(KaleidoscopeBlocks.PINK_CHEST);
 
         this.lootTables.put(KaleidoscopeLootTables.HERO_OF_THE_VILLAGE_GLASSBLOWER_GIFT_GAMEPLAY, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(Items.GLASS_BOTTLE))));
         this.lootTables.put(KaleidoscopeLootTables.HERO_OF_THE_VILLAGE_FIREWORKER_GIFT_GAMEPLAY, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(Items.GUNPOWDER)).with(ItemEntry.builder(Items.FIRE_CHARGE))));

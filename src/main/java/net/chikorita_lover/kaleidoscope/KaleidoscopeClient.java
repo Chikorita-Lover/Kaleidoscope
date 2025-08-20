@@ -14,12 +14,14 @@ import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.SpecialBlockRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.client.render.entity.MinecartEntityRenderer;
 import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.MinecartEntityModel;
+import net.minecraft.client.render.item.model.special.ChestModelRenderer;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.ItemStack;
@@ -113,5 +115,22 @@ public class KaleidoscopeClient implements ClientModInitializer {
         });
 
         KaleidoscopeClientNetworkHandler.register();
+
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.WHITE_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("white")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.LIGHT_GRAY_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("light_gray")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.GRAY_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("gray")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.BLACK_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("black")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.BROWN_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("brown")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.RED_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("red")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.ORANGE_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("orange")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.YELLOW_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("yellow")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.LIME_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("lime")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.GREEN_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("green")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.CYAN_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("cyan")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.LIGHT_BLUE_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("light_blue")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.BLUE_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("blue")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.PURPLE_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("purple")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.MAGENTA_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("magenta")));
+        SpecialBlockRendererRegistry.register(KaleidoscopeBlocks.PINK_CHEST, new ChestModelRenderer.Unbaked(Kaleidoscope.of("pink")));
     }
 }

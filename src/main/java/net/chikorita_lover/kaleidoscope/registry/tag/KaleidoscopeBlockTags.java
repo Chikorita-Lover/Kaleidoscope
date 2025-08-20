@@ -8,6 +8,7 @@ import net.minecraft.registry.tag.TagKey;
 public class KaleidoscopeBlockTags {
     public static final TagKey<Block> BURNS_INTO_CHARCOAL = of("burns_into_charcoal");
     public static final TagKey<Block> COPPER = of("copper");
+    public static final TagKey<Block> DYED_CHESTS = of("dyed_chests");
     public static final TagKey<Block> HOISTS_FALLING_BLOCKS = of("hoists_falling_blocks");
     public static final TagKey<Block> SHEARS_MINEABLE = of("mineable/shears");
 

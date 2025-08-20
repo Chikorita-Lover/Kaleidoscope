@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_dye",
+  "ingredients": [
+    "minecraft:blue_dye",
+    [
+      "kaleidoscope:black_chest",
+      "kaleidoscope:brown_chest",
+      "kaleidoscope:cyan_chest",
+      "kaleidoscope:gray_chest",
+      "kaleidoscope:green_chest",
+      "kaleidoscope:light_blue_chest",
+      "kaleidoscope:light_gray_chest",
+      "kaleidoscope:lime_chest",
+      "kaleidoscope:magenta_chest",
+      "kaleidoscope:orange_chest",
+      "kaleidoscope:pink_chest",
+      "kaleidoscope:purple_chest",
+      "kaleidoscope:red_chest",
+      "kaleidoscope:yellow_chest",
+      "kaleidoscope:white_chest",
+      "minecraft:chest"
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope:blue_chest"
+  }
+}

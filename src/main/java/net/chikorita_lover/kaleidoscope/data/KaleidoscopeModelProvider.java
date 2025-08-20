@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.data.*;
+import net.minecraft.client.render.item.model.special.ChestModelRenderer;
 import net.minecraft.client.render.model.json.WeightedVariant;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Item;
@@ -79,6 +80,23 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
 
         generator.registerCubeWithCustomTextures(KaleidoscopeBlocks.FIREWORKS_TABLE, Blocks.JUNGLE_PLANKS, TextureMap::frontTopSide);
         registerKiln(generator, KaleidoscopeBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
+
+        generator.registerChest(KaleidoscopeBlocks.WHITE_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("white"), false);
+        generator.registerChest(KaleidoscopeBlocks.LIGHT_GRAY_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("light_gray"), false);
+        generator.registerChest(KaleidoscopeBlocks.GRAY_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("gray"), false);
+        generator.registerChest(KaleidoscopeBlocks.BLACK_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("black"), false);
+        generator.registerChest(KaleidoscopeBlocks.BROWN_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("brown"), false);
+        generator.registerChest(KaleidoscopeBlocks.RED_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("red"), false);
+        generator.registerChest(KaleidoscopeBlocks.ORANGE_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("orange"), false);
+        generator.registerChest(KaleidoscopeBlocks.YELLOW_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("yellow"), false);
+        generator.registerChest(KaleidoscopeBlocks.LIME_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("lime"), false);
+        generator.registerChest(KaleidoscopeBlocks.GREEN_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("green"), false);
+        generator.registerChest(KaleidoscopeBlocks.CYAN_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("cyan"), false);
+        generator.registerChest(KaleidoscopeBlocks.LIGHT_BLUE_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("light_blue"), false);
+        generator.registerChest(KaleidoscopeBlocks.BLUE_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("blue"), false);
+        generator.registerChest(KaleidoscopeBlocks.PURPLE_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("purple"), false);
+        generator.registerChest(KaleidoscopeBlocks.MAGENTA_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("magenta"), false);
+        generator.registerChest(KaleidoscopeBlocks.PINK_CHEST, Blocks.OAK_PLANKS, Kaleidoscope.of("pink"), false);
     }
 
     @Override

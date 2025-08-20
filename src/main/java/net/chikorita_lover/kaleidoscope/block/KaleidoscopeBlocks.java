@@ -6,6 +6,7 @@ import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKey;
@@ -198,6 +199,23 @@ public class KaleidoscopeBlocks {
     public static final Block WHITE_STAINED_GLASS_TRAPDOOR = registerStainedGlassTrapdoorBlock("white_stained_glass_trapdoor", DyeColor.WHITE);
     public static final Block YELLOW_STAINED_GLASS_TRAPDOOR = registerStainedGlassTrapdoorBlock("yellow_stained_glass_trapdoor", DyeColor.YELLOW);
 
+    public static final Block WHITE_CHEST = registerDyedChest("white_chest", DyeColor.WHITE);
+    public static final Block LIGHT_GRAY_CHEST = registerDyedChest("light_gray_chest", DyeColor.LIGHT_GRAY);
+    public static final Block GRAY_CHEST = registerDyedChest("gray_chest", DyeColor.GRAY);
+    public static final Block BLACK_CHEST = registerDyedChest("black_chest", DyeColor.BLACK);
+    public static final Block BROWN_CHEST = registerDyedChest("brown_chest", DyeColor.BROWN);
+    public static final Block RED_CHEST = registerDyedChest("red_chest", DyeColor.RED);
+    public static final Block ORANGE_CHEST = registerDyedChest("orange_chest", DyeColor.ORANGE);
+    public static final Block YELLOW_CHEST = registerDyedChest("yellow_chest", DyeColor.YELLOW);
+    public static final Block LIME_CHEST = registerDyedChest("lime_chest", DyeColor.LIME);
+    public static final Block GREEN_CHEST = registerDyedChest("green_chest", DyeColor.GREEN);
+    public static final Block CYAN_CHEST = registerDyedChest("cyan_chest", DyeColor.CYAN);
+    public static final Block LIGHT_BLUE_CHEST = registerDyedChest("light_blue_chest", DyeColor.LIGHT_BLUE);
+    public static final Block BLUE_CHEST = registerDyedChest("blue_chest", DyeColor.BLUE);
+    public static final Block PURPLE_CHEST = registerDyedChest("purple_chest", DyeColor.PURPLE);
+    public static final Block MAGENTA_CHEST = registerDyedChest("magenta_chest", DyeColor.MAGENTA);
+    public static final Block PINK_CHEST = registerDyedChest("pink_chest", DyeColor.PINK);
+
     private static Block registerStairsBlock(String id, final Block base, Supplier<Boolean> condition) {
         return registerWithItem(id, settings -> new StairsBlock(base.getDefaultState(), settings), AbstractBlock.Settings.copy(base), condition);
     }
@@ -208,6 +226,10 @@ public class KaleidoscopeBlocks {
 
     private static Block registerStainedGlassTrapdoorBlock(String id, final @Nullable DyeColor dyeColor) {
         return registerWithItem(id, settings -> new StainedGlassTrapdoorBlock(dyeColor, settings), AbstractBlock.Settings.copy(GLASS_TRAPDOOR).mapColor(dyeColor), KaleidoscopeConfig.GLASS_DOORS);
+    }
+
+    private static Block registerDyedChest(String id, final DyeColor color) {
+        return registerWithItem(id, settings -> new DyedChestBlock(color, settings), AbstractBlock.Settings.copy(Blocks.CHEST).mapColor(color));
     }
 
     private static RegistryKey<Block> keyOf(String id) {
@@ -237,6 +259,22 @@ public class KaleidoscopeBlocks {
     public static void registerFlammableBlocks() {
         FlammableBlockRegistry.getDefaultInstance().add(STICK_BLOCK, 5, 5);
         FlammableBlockRegistry.getDefaultInstance().remove(Blocks.COAL_BLOCK);
+        BlockEntityType.CHEST.addSupportedBlock(WHITE_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(LIGHT_GRAY_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(GRAY_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(BLACK_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(BROWN_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(RED_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(ORANGE_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(YELLOW_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(LIME_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(GREEN_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(CYAN_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(LIGHT_BLUE_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(BLUE_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(PURPLE_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(MAGENTA_CHEST);
+        BlockEntityType.CHEST.addSupportedBlock(PINK_CHEST);
     }
 
     public static void registerOxidizablePairs() {

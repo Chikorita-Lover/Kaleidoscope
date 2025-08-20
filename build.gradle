@@ -24,6 +24,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modImplementation "com.github.Chikorita-Lover:Chicory-API:${chicory_version}"
     modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
+    include "com.github.Chikorita-Lover:Chicory-API:${chicory_version}"
 }
 
 processResources {

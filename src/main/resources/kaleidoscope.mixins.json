@@ -27,6 +27,7 @@
 		"entity.AllayEntityMixin",
 		"entity.BoggedEntityMixin",
 		"entity.CamelEntityMixin",
+		"entity.CatSitOnBlockGoalMixin",
 		"entity.EntityMixin",
 		"entity.FallingBlockEntityMixin",
 		"entity.GiveGiftsToHeroTaskMixin",
@@ -76,7 +77,8 @@
 		"client.PalettedPermutationsAtlasSourceAccessor",
 		"client.PalettedPermutationsAtlasSourceMixin",
 		"client.StriderEntityRendererMixin",
-		"client.StriderEntityRenderStateMixin"
+		"client.StriderEntityRenderStateMixin",
+		"client.TexturedRenderLayersMixin"
 	],
 	"server": [],
 	"injectors": {

@@ -5,6 +5,7 @@ import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.entity.KaleidoscopeEntityTypes;
+import net.chikorita_lover.kaleidoscope.registry.tag.KaleidoscopeItemTags;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FireworkExplosionComponent;
@@ -75,6 +76,6 @@ public class KaleidoscopeItems {
     }
 
     public static void register() {
-        FuelRegistryEvents.BUILD.register((builder, context) -> builder.add(KaleidoscopeBlocks.CHARCOAL_BLOCK, 8000).add(KaleidoscopeBlocks.STICK_BLOCK, 1000));
+        FuelRegistryEvents.BUILD.register((builder, context) -> builder.add(KaleidoscopeBlocks.CHARCOAL_BLOCK, 8000).add(KaleidoscopeBlocks.STICK_BLOCK, 1000).add(KaleidoscopeItemTags.DYED_CHESTS, 30));
     }
 }
