@@ -3,15 +3,28 @@ package net.chikorita_lover.kaleidoscope.mixin.entity;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.MooshroomEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(MooshroomEntity.class)
-public class MooshroomEntityMixin {
+public abstract class MooshroomEntityMixin extends AbstractCowEntityMixin {
+    protected MooshroomEntityMixin(EntityType<? extends AnimalEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
     @ModifyExpressionValue(method = "interactMob", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z", ordinal = 1))
     private boolean isOfShears(boolean bl, @Local(ordinal = 0) ItemStack stack) {
         return bl || stack.isIn(ConventionalItemTags.SHEAR_TOOLS);
+    }
+
+    @Override
+    protected void playEatSound() {
+        this.playSound(SoundEvents.ENTITY_MOOSHROOM_EAT, 1.0F, 1.0F);
     }
 }

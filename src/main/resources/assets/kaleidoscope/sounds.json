@@ -44,22 +44,34 @@
 			}
 		]
 	},
-	"entity.pig.shear": {
-		"subtitle": "subtitles.item.shears.shear",
+	"entity.cow.eat": {
+		"subtitle": "subtitles.entity.cow.eat",
 		"sounds": [
-			"mob/sheep/shear"
+			"mob/mooshroom/eat1",
+			"mob/mooshroom/eat2",
+			"mob/mooshroom/eat3"
+		]
+	},
+	"entity.pig.eat": {
+		"subtitle": "subtitles.entity.pig.eat",
+		"sounds": [
+			"kaleidoscope:mob/pig/eat1",
+			"kaleidoscope:mob/pig/eat2",
+			"kaleidoscope:mob/pig/eat3"
+		]
+	},
+	"entity.rabbit.eat": {
+		"subtitle": "subtitles.entity.rabbit.eat",
+		"sounds": [
+			"kaleidoscope:mob/rabbit/eat1",
+			"kaleidoscope:mob/rabbit/eat2",
+			"kaleidoscope:mob/rabbit/eat3"
 		]
 	},
 	"entity.strider.chest": {
 		"subtitle": "subtitles.entity.strider.chest",
 		"sounds": [
 			"mob/chicken/plop"
-		]
-	},
-	"entity.strider.shear": {
-		"subtitle": "subtitles.item.shears.shear",
-		"sounds": [
-			"mob/sheep/shear"
 		]
 	},
 	"entity.villager.work_fireworker": {

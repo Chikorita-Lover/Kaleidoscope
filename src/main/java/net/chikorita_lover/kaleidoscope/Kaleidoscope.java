@@ -5,6 +5,7 @@ import net.chikorita_lover.chicory.api.recipe.RecipeBookTypeRegistry;
 import net.chikorita_lover.chicory.api.registry.TagKeyEvents;
 import net.chikorita_lover.kaleidoscope.block.KaleidoscopeBlocks;
 import net.chikorita_lover.kaleidoscope.block.entity.KaleidoscopeBlockEntityTypes;
+import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeDataComponentTypes;
 import net.chikorita_lover.kaleidoscope.entity.KaleidoscopeEntityTypes;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItemGroups;
 import net.chikorita_lover.kaleidoscope.item.KaleidoscopeItems;
@@ -21,7 +22,6 @@ import net.chikorita_lover.kaleidoscope.screen.KaleidoscopeScreenHandlerTypes;
 import net.chikorita_lover.kaleidoscope.structure.StructurePoolModifiers;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.block.BlockState;
@@ -31,9 +31,6 @@ import net.minecraft.block.SideShapeType;
 import net.minecraft.block.dispenser.BoatDispenserBehavior;
 import net.minecraft.block.dispenser.ShearsDispenserBehavior;
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.ConsumableComponents;
-import net.minecraft.component.type.DamageResistantComponent;
-import net.minecraft.component.type.EnchantableComponent;
 import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityType;
@@ -163,6 +160,7 @@ public class Kaleidoscope implements ModInitializer {
         KaleidoscopeBlocks.registerFlammableBlocks();
         KaleidoscopeBlocks.registerOxidizablePairs();
         KaleidoscopeBlockEntityTypes.register();
+        KaleidoscopeDataComponentTypes.register();
         KaleidoscopeEntityTypes.register();
         KaleidoscopeItemGroups.register();
         KaleidoscopeItems.register();
@@ -187,16 +185,6 @@ public class Kaleidoscope implements ModInitializer {
             }
         });
 
-        DefaultItemComponentEvents.MODIFY.register(context -> {
-            final List<Class<? extends Item>> classes = List.of(ArmorStandItem.class, BannerItem.class, EggItem.class, SignItem.class, SnowballItem.class, WrittenBookItem.class);
-            context.modify(item -> classes.stream().anyMatch(aClass -> aClass.isInstance(item)), (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
-            context.modify(item -> item.getComponents().contains(DataComponentTypes.JUKEBOX_PLAYABLE) && Registries.ITEM.getId(item).getPath().matches("music_disc_\\w+"), (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
-            context.modify(item -> item.getComponents().contains(DataComponentTypes.PROVIDES_BANNER_PATTERNS) && Registries.ITEM.getId(item).getPath().matches("\\w+_banner_pattern"), (builder, item) -> builder.add(DataComponentTypes.MAX_STACK_SIZE, 64));
-            context.modify(Items.COOKIE, builder -> builder.add(DataComponentTypes.CONSUMABLE, ConsumableComponents.DRIED_KELP));
-            context.modify(List.of(Items.BLAZE_POWDER, Items.BLAZE_ROD, Items.MAGMA_CREAM), (builder, item) -> builder.add(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(DamageTypeTags.IS_FIRE)));
-            context.modify(Items.SHEARS, builder -> builder.add(DataComponentTypes.ENCHANTABLE, new EnchantableComponent(KaleidoscopeConfig.SHEARS_ENCHANTABILITY.get())));
-        });
-
         registerLootTableEvents();
 
         DispenserBlock.registerBehavior(KaleidoscopeItems.NETHERITE_SHEARS, new ShearsDispenserBehavior());
@@ -218,6 +206,5 @@ public class Kaleidoscope implements ModInitializer {
                 addStructureProcessor(processorLists.getOrThrow(StructureProcessorLists.TRIAL_CHAMBERS_COPPER_BULB_DEGRADATION).value(), new RuleStructureProcessor(List.of(new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.TUFF_BRICKS, 0.3F), AlwaysTrueRuleTest.INSTANCE, KaleidoscopeBlocks.CRACKED_TUFF_BRICKS.getDefaultState()))));
             }
         });
-        LOGGER.info("Finished initializing Kaleidoscope!");
     }
 }
