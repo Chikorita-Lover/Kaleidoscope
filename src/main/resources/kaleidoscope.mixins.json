@@ -79,6 +79,7 @@
 		"client.CartographyTableScreenMixin",
 		"client.ClientPlayerInteractionManagerMixin",
 		"client.HorseArmorFeatureRendererMixin",
+		"client.InGameHudMixin",
 		"client.ItemModelManagerMixin",
 		"client.PalettedPermutationsAtlasSourceAccessor",
 		"client.PalettedPermutationsAtlasSourceMixin",
