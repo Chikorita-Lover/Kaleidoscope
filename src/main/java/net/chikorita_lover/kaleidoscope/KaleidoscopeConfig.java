@@ -34,6 +34,7 @@ public interface KaleidoscopeConfig {
     BooleanConfigProperty STONE_BLOCKS = INSTANCE.register(new BooleanConfigProperty("stoneBlocks", true), CONTENT);
     BooleanConfigProperty ADDITIONAL_HORSE_ARMORS = INSTANCE.register(new BooleanConfigProperty("additionalHorseArmors", true), CONTENT);
     BooleanConfigProperty SHOW_ITEM_GROUP = INSTANCE.register(new BooleanConfigProperty("showItemGroup", true), CONTENT);
+    BooleanConfigProperty DYED_CHESTS = INSTANCE.register(new BooleanConfigProperty("dyedChests", true), CONTENT);
     BooleanConfigProperty FEATHER_FALLING_PRESERVES_FARMLAND = INSTANCE.register(new BooleanConfigProperty("featherFallingPreservesFarmland", true), WORLD);
     BooleanConfigProperty CHAINS_HOIST_BLOCKS = INSTANCE.register(new BooleanConfigProperty("chainsHoistBlocks", true), WORLD);
     BooleanConfigProperty DO_BLOCK_CRACKING = INSTANCE.register(new BooleanConfigProperty("doBlockCracking", true), WORLD);
@@ -47,6 +48,8 @@ public interface KaleidoscopeConfig {
     BooleanConfigProperty DO_GOAT_DROPS = INSTANCE.register(new BooleanConfigProperty("doGoatDrops", true), MOBS);
     BooleanConfigProperty DO_CAMEL_DROPS = INSTANCE.register(new BooleanConfigProperty("doCamelDrops", true), MOBS);
     BooleanConfigProperty HORSE_ARMOR_TRIMS = INSTANCE.register(new BooleanConfigProperty("horseArmorTrims", true), MOBS);
+    BooleanConfigProperty HEAL_ANIMALS_ON_FEED = INSTANCE.register(new BooleanConfigProperty("healAnimalsOnFeed", true), MOBS);
     BooleanConfigProperty SHOW_FOOD_TOOLTIPS = INSTANCE.register(new BooleanConfigProperty("showFoodTooltips", true), CLIENT);
     BooleanConfigProperty PRODUCE_CAKE_EFFECTS = INSTANCE.register(new BooleanConfigProperty("produceCakeEffects", true), CLIENT);
+    BooleanConfigProperty SHOW_HOTBAR_ARMOR = INSTANCE.register(new BooleanConfigProperty("showHotbarArmor", true), CLIENT);
 }

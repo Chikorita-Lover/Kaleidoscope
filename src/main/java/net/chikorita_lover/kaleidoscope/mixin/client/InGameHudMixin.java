@@ -1,6 +1,7 @@
 package net.chikorita_lover.kaleidoscope.mixin.client;
 
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -39,6 +40,9 @@ public abstract class InGameHudMixin {
 
     @Inject(method = "renderHotbar", at = @At("TAIL"))
     private void renderHotbarArmor(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
+        if (!KaleidoscopeConfig.SHOW_HOTBAR_ARMOR.get()) {
+            return;
+        }
         int center = context.getScaledWindowWidth() / 2;
         PlayerEntity player = this.getCameraPlayer();
         boolean background = false;

@@ -1,5 +1,6 @@
 package net.chikorita_lover.kaleidoscope.mixin.entity;
 
+import net.chikorita_lover.kaleidoscope.KaleidoscopeConfig;
 import net.chikorita_lover.kaleidoscope.entity.HealableAnimal;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeDataComponentTypes;
 import net.minecraft.entity.EntityType;
@@ -33,6 +34,9 @@ public abstract class AnimalEntityMixin extends PassiveEntity implements Healabl
 
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
     public void receiveFood(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+        if (!KaleidoscopeConfig.HEAL_ANIMALS_ON_FEED.get()) {
+            return;
+        }
         ItemStack stack = player.getStackInHand(hand);
         if ((this.isBreedingItem(stack) || this.kaleidoscope$isFeedingItem(stack)) && this.getHealth() < this.getMaxHealth()) {
             this.eat(player, hand, stack);

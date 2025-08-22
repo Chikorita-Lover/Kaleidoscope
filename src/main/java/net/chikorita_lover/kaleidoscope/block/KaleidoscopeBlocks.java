@@ -229,7 +229,7 @@ public class KaleidoscopeBlocks {
     }
 
     private static Block registerDyedChest(String id, final DyeColor color) {
-        return registerWithItem(id, settings -> new DyedChestBlock(color, settings), AbstractBlock.Settings.copy(Blocks.CHEST).mapColor(color));
+        return registerWithItem(id, settings -> new DyedChestBlock(color, settings), AbstractBlock.Settings.copy(Blocks.CHEST).mapColor(color), KaleidoscopeConfig.DYED_CHESTS);
     }
 
     private static RegistryKey<Block> keyOf(String id) {
