@@ -279,6 +279,8 @@ public class KaleidoscopeRecipeGenerator extends RecipeGenerator {
         this.generateGlassFamily(KaleidoscopeBlockFamilies.MAGENTA_STAINED_GLASS, ConventionalItemTags.MAGENTA_DYES);
         this.generateGlassFamily(KaleidoscopeBlockFamilies.PINK_STAINED_GLASS, ConventionalItemTags.PINK_DYES);
 
+        this.offerDyeingRecipes(dyes, List.of(Blocks.BLACK_BANNER, Blocks.BLUE_BANNER, Blocks.BROWN_BANNER, Blocks.CYAN_BANNER, Blocks.GRAY_BANNER, Blocks.GREEN_BANNER, Blocks.LIGHT_BLUE_BANNER, Blocks.LIGHT_GRAY_BANNER, Blocks.LIME_BANNER, Blocks.MAGENTA_BANNER, Blocks.ORANGE_BANNER, Blocks.PINK_BANNER, Blocks.PURPLE_BANNER, Blocks.RED_BANNER, Blocks.YELLOW_BANNER, Blocks.WHITE_BANNER), null, "banner_dye", RecipeCategory.DECORATIONS);
+
         this.createShaped(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.FIREWORKS_TABLE).input('#', ItemTags.PLANKS).input('@', Items.GUNPOWDER).pattern("@@").pattern("##").pattern("##").criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER)).offerTo(this.exporter);
 
         this.createShaped(RecipeCategory.DECORATIONS, KaleidoscopeBlocks.KILN).input('#', Blocks.SMOOTH_STONE_SLAB).input('C', ConventionalItemTags.COPPER_INGOTS).input('X', ConventionalItemTags.PLAYER_WORKSTATIONS_FURNACES).pattern("C#C").pattern("CXC").pattern("C#C").criterion(hasItem(Blocks.FURNACE), conditionsFromTag(ConventionalItemTags.PLAYER_WORKSTATIONS_FURNACES)).offerTo(this.exporter);

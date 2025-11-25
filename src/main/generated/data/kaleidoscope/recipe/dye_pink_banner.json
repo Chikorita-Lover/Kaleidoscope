@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "banner_dye",
+  "ingredients": [
+    "minecraft:pink_dye",
+    [
+      "minecraft:black_banner",
+      "minecraft:blue_banner",
+      "minecraft:brown_banner",
+      "minecraft:cyan_banner",
+      "minecraft:gray_banner",
+      "minecraft:green_banner",
+      "minecraft:light_blue_banner",
+      "minecraft:light_gray_banner",
+      "minecraft:lime_banner",
+      "minecraft:magenta_banner",
+      "minecraft:orange_banner",
+      "minecraft:purple_banner",
+      "minecraft:red_banner",
+      "minecraft:yellow_banner",
+      "minecraft:white_banner"
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:pink_banner"
+  }
+}
