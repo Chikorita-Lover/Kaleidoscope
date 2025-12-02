@@ -77,15 +77,17 @@
 		"client.AtlasLoaderMixin",
 		"client.BoatEntityRenderStateMixin",
 		"client.CartographyTableScreenMixin",
+		"client.ChestBlockEntityRendererMixin",
+		"client.ChestBlockEntityRenderStateMixin",
 		"client.ClientPlayerInteractionManagerMixin",
+		"client.EntityRendererMixin",
 		"client.HorseArmorFeatureRendererMixin",
 		"client.InGameHudMixin",
 		"client.ItemModelManagerMixin",
 		"client.PalettedPermutationsAtlasSourceAccessor",
 		"client.PalettedPermutationsAtlasSourceMixin",
 		"client.StriderEntityRendererMixin",
-		"client.StriderEntityRenderStateMixin",
-		"client.TexturedRenderLayersMixin"
+		"client.StriderEntityRenderStateMixin"
 	],
 	"server": [],
 	"injectors": {

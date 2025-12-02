@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(ShearsDispenserBehavior.class)
 public class ShearsDispenserBehaviorMixin {
-    @ModifyExpressionValue(method = "dispenseSilently", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/dispenser/ShearsDispenserBehavior;tryShearBlock(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;)Z"))
+    @ModifyExpressionValue(method = "dispenseSilently", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/dispenser/ShearsDispenserBehavior;tryShearBlock(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/math/BlockPos;)Z"))
     private boolean tryCarvePumpkin(boolean success, @Local(argsOnly = true) BlockPointer pointer) {
         if (success) {
             return true;

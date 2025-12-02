@@ -37,6 +37,6 @@ public abstract class TntEntityMixin extends Entity {
 
     @Unique
     private boolean isHoisted() {
-        return Kaleidoscope.isHoisted(this.getWorld(), this.getBlockPos(), this.getBlockState());
+        return Kaleidoscope.isHoisted(this.getEntityWorld(), this.getBlockPos(), this.getBlockState());
     }
 }

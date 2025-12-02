@@ -6,8 +6,6 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.jukebox.JukeboxSong;
 import net.minecraft.client.sound.MovingSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.JukeboxPlayableComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -25,12 +23,12 @@ public class JukeboxMinecartSoundInstance extends MovingSoundInstance {
     private final World world;
 
     public JukeboxMinecartSoundInstance(JukeboxMinecartEntity jukeboxMinecart) {
-        super(getSoundEventFromItemStack(jukeboxMinecart.getWorld(), jukeboxMinecart.getStack(0)), SoundCategory.RECORDS, SoundInstance.createRandom());
-        this.world = jukeboxMinecart.getWorld();
+        super(getSoundEventFromItemStack(jukeboxMinecart.getEntityWorld(), jukeboxMinecart.getStack(0)), SoundCategory.RECORDS, SoundInstance.createRandom());
+        this.world = jukeboxMinecart.getEntityWorld();
         this.entityId = jukeboxMinecart.getId();
         this.repeat = false;
         this.volume = 4.0F;
-        this.setPosition(jukeboxMinecart.getPos());
+        this.setPosition(jukeboxMinecart.getEntityPos());
     }
 
     private static SoundEvent getSoundEventFromItemStack(World world, ItemStack stack) {
@@ -56,7 +54,7 @@ public class JukeboxMinecartSoundInstance extends MovingSoundInstance {
             this.setDone();
             return;
         }
-        this.setPosition(jukeboxMinecart.getPos());
+        this.setPosition(jukeboxMinecart.getEntityPos());
     }
 
     public JukeboxMinecartEntity getEntity() {

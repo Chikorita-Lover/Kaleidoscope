@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Mixin(ZombieVillagerEntity.class)
 public class ZombieVillagerEntityMixin {
-    @ModifyExpressionValue(method = "initialize", at = @At(value = "INVOKE", target = "Lnet/minecraft/registry/DefaultedRegistry;getRandom(Lnet/minecraft/util/math/random/Random;)Ljava/util/Optional;"))
+    @ModifyExpressionValue(method = "createVillagerData", at = @At(value = "INVOKE", target = "Lnet/minecraft/registry/DefaultedRegistry;getRandom(Lnet/minecraft/util/math/random/Random;)Ljava/util/Optional;"))
     private Optional<RegistryEntry.Reference<VillagerProfession>> filterEnabledProfession(Optional<RegistryEntry.Reference<VillagerProfession>> optional) {
         if (optional.stream().anyMatch(profession -> profession.value() == Registries.VILLAGER_PROFESSION.get(KaleidoscopeVillagerProfessions.FIREWORKER)) && !KaleidoscopeConfig.KILNS.get()) {
             return Optional.empty();

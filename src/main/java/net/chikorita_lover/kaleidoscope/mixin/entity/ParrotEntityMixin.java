@@ -39,7 +39,7 @@ public abstract class ParrotEntityMixin extends TameableShoulderEntity implement
 
     @Unique
     private boolean isNearPlayingJukeboxMinecart() {
-        return !this.getWorld().getOtherEntities(this, new Box(this.getBlockPos()).expand(3.46), PLAYING_JUKEBOX_MINECART_PREDICATE).isEmpty();
+        return !this.getEntityWorld().getOtherEntities(this, new Box(this.getBlockPos()).expand(3.46), PLAYING_JUKEBOX_MINECART_PREDICATE).isEmpty();
     }
 
     @Override

@@ -4,11 +4,12 @@ import net.chikorita_lover.kaleidoscope.client.render.BannerEquippableRenderStat
 import net.chikorita_lover.kaleidoscope.entity.BannerEquippable;
 import net.minecraft.client.item.ItemModelManager;
 import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.entity.AbstractBoatEntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.state.BoatEntityRenderState;
 import net.minecraft.client.render.item.ItemRenderState;
+import net.minecraft.client.render.state.CameraRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.vehicle.AbstractBoatEntity;
@@ -31,8 +32,8 @@ public class AbstractBoatEntityRendererMixin {
         this.itemModelManager = context.getItemModelManager();
     }
 
-    @Inject(method = "render(Lnet/minecraft/client/render/entity/state/BoatEntityRenderState;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/model/EntityModel;render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumer;II)V", shift = At.Shift.AFTER))
-    private void render(BoatEntityRenderState state, MatrixStack matrices, VertexConsumerProvider vertices, int light, CallbackInfo ci) {
+    @Inject(method = "render(Lnet/minecraft/client/render/entity/state/BoatEntityRenderState;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/command/OrderedRenderCommandQueue;Lnet/minecraft/client/render/state/CameraRenderState;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/command/OrderedRenderCommandQueue;submitModel(Lnet/minecraft/client/model/Model;Ljava/lang/Object;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/RenderLayer;IIILnet/minecraft/client/render/command/ModelCommandRenderer$CrumblingOverlayCommand;)V", shift = At.Shift.AFTER))
+    private void renderBanner(BoatEntityRenderState state, MatrixStack matrices, OrderedRenderCommandQueue queue, CameraRenderState cameraRenderState, CallbackInfo ci) {
         ItemRenderState itemState = ((BannerEquippableRenderState) state).kaleidoscope$getState();
         if (itemState.isEmpty()) {
             return;
@@ -46,7 +47,7 @@ public class AbstractBoatEntityRendererMixin {
         } else {
             matrices.translate(0.0, 0.34, 0.47);
         }
-        itemState.render(matrices, vertices, light, OverlayTexture.DEFAULT_UV);
+        itemState.render(matrices, queue, state.light, OverlayTexture.DEFAULT_UV, state.outlineColor);
         matrices.pop();
     }
 

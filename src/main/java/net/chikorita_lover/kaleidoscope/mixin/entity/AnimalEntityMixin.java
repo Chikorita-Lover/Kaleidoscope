@@ -24,9 +24,6 @@ public abstract class AnimalEntityMixin extends PassiveEntity implements Healabl
     }
 
     @Shadow
-    protected abstract void eat(PlayerEntity player, Hand hand, ItemStack stack);
-
-    @Shadow
     protected abstract void playEatSound();
 
     @Shadow

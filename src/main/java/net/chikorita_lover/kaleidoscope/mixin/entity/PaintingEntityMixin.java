@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.decoration.AbstractDecorationEntity;
 import net.minecraft.entity.decoration.painting.PaintingEntity;
 import net.minecraft.entity.decoration.painting.PaintingVariant;
@@ -14,7 +14,6 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.stat.Stats;
-import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -41,8 +40,8 @@ public abstract class PaintingEntityMixin extends AbstractDecorationEntity {
             ItemStack paintingStack = new ItemStack(Items.PAINTING);
             paintingStack.set(DataComponentTypes.PAINTING_VARIANT, this.getVariant());
             this.dropStack(world, paintingStack);
-            if (!this.getWorld().isClient()) {
-                handStack.damage(1, player, LivingEntity.getSlotForHand(Hand.MAIN_HAND));
+            if (!this.getEntityWorld().isClient()) {
+                handStack.damage(1, player, EquipmentSlot.MAINHAND);
                 player.incrementStat(Stats.USED.getOrCreateStat(handStack.getItem()));
             }
             ci.cancel();

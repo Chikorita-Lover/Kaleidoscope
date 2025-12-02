@@ -3,6 +3,7 @@ package net.chikorita_lover.kaleidoscope.mixin.client;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.minecraft.client.render.*;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.entity.feature.SaddleFeatureRenderer;
 import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
@@ -32,8 +33,8 @@ public class HorseArmorFeatureRendererMixin { // TODO is class needed?
         return Identifier.of(namespace, "trims/entity/horse/armor/" + pattern.getPath() + "_" + asset);
     }
 
-    @Inject(method = "render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/client/render/entity/state/LivingEntityRenderState;FF)V", at = @At("TAIL"))
-    public <S extends LivingEntityRenderState> void renderTrim(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, S state, float f, float g, CallbackInfo ci, @Local ItemStack itemStack) {
+    @Inject(method = "render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/command/OrderedRenderCommandQueue;ILnet/minecraft/client/render/entity/state/LivingEntityRenderState;FF)V", at = @At("TAIL"))
+    public <S extends LivingEntityRenderState> void renderTrim(MatrixStack matrixStack, OrderedRenderCommandQueue orderedRenderCommandQueue, int i, S livingEntityRenderState, float f, float g, CallbackInfo ci, @Local ItemStack itemStack) {
         /* if (itemStack.contains(DataComponentTypes.TRIM)) {
             ArmorTrim trim = itemStack.get(DataComponentTypes.TRIM);
             Identifier texture = getTrimTexture(armor, trim.getPattern().value().assetId(), trim.getMaterial().value());

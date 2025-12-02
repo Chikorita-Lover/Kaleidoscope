@@ -36,6 +36,6 @@ public abstract class AllayEntityMixin extends LivingEntity {
 
     @Unique
     private boolean isNearPlayingJukeboxMinecart() {
-        return !this.getWorld().getOtherEntities(this, new Box(this.getBlockPos()).expand(10.0), PLAYING_JUKEBOX_MINECART_PREDICATE).isEmpty();
+        return !this.getEntityWorld().getOtherEntities(this, new Box(this.getBlockPos()).expand(10.0), PLAYING_JUKEBOX_MINECART_PREDICATE).isEmpty();
     }
 }

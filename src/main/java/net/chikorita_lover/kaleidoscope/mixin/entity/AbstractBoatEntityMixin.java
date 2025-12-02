@@ -7,7 +7,6 @@ import net.chikorita_lover.kaleidoscope.entity.BannerEquippable;
 import net.chikorita_lover.kaleidoscope.registry.KaleidoscopeSoundEvents;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -32,8 +31,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AbstractBoatEntity.class)
 public abstract class AbstractBoatEntityMixin extends VehicleEntity implements BannerEquippable {
-    // TODO make Nether boats immune to fire
-
     @Unique
     private static final TrackedData<ItemStack> EQUIPPED_BANNER = DataTracker.registerData(AbstractBoatEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
 
@@ -72,7 +69,7 @@ public abstract class AbstractBoatEntityMixin extends VehicleEntity implements B
         if (result != ActionResult.PASS) {
             return result;
         }
-        boolean server = !this.getWorld().isClient();
+        boolean server = !this.getEntityWorld().isClient();
         ItemStack stack = player.getStackInHand(hand);
         if (KaleidoscopeConfig.ALLOW_BANNERS_ON_BOATS.get() && stack.getItem() instanceof BannerItem && !this.kaleidoscope$hasBanner()) {
             this.kaleidoscope$setBannerStack(stack.copyWithCount(1));
@@ -84,8 +81,8 @@ public abstract class AbstractBoatEntityMixin extends VehicleEntity implements B
             result = ActionResult.SUCCESS;
         } else if (stack.isIn(ConventionalItemTags.SHEAR_TOOLS) && this.kaleidoscope$hasBanner()) {
             if (server) {
-                this.dropStack((ServerWorld) this.getWorld(), this.kaleidoscope$getBannerStack(), this.getHeight());
-                stack.damage(1, player, LivingEntity.getSlotForHand(hand));
+                this.dropStack((ServerWorld) this.getEntityWorld(), this.kaleidoscope$getBannerStack(), this.getHeight());
+                stack.damage(1, player, hand.getEquipmentSlot());
             }
             this.kaleidoscope$setBannerStack(ItemStack.EMPTY);
             this.playSound(KaleidoscopeSoundEvents.ENTITY_BOAT_SHEAR, 1.0F, 1.0F);
@@ -93,11 +90,4 @@ public abstract class AbstractBoatEntityMixin extends VehicleEntity implements B
         }
         return result;
     }
-
-    /* TODO
-    @Override
-    public Box getVisibilityBoundingBox() {
-        Box box = super.getVisibilityBoundingBox();
-        return this.hasBanner() ? box.withMaxY(box.maxY + 1.875) : box;
-    } */
 }

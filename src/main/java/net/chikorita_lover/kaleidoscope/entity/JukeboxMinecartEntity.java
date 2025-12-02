@@ -77,8 +77,8 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
                 this.stopPlaying();
             } else if (this.ticksThisSecond >= 20) {
                 this.ticksThisSecond = 0;
-                this.getWorld().emitGameEvent(GameEvent.JUKEBOX_PLAY, this.getPos(), GameEvent.Emitter.of(this));
-                spawnNoteParticle(this.getWorld(), this.getPos());
+                this.getEntityWorld().emitGameEvent(GameEvent.JUKEBOX_PLAY, this.getEntityPos(), GameEvent.Emitter.of(this));
+                spawnNoteParticle(this.getEntityWorld(), this.getEntityPos());
             }
         }
         ++this.tickCount;
@@ -87,7 +87,7 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
     @Override
     public ActionResult interact(PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
-        if (this.getWorld().isClient()) {
+        if (this.getEntityWorld().isClient()) {
             return ActionResult.SUCCESS;
         }
         if (!this.isEmpty()) {
@@ -99,7 +99,7 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
     }
 
     private boolean isSongFinished(ItemStack stack) {
-        Optional<RegistryEntry<JukeboxSong>> optional = JukeboxSong.getSongEntryFromStack(this.getWorld().getRegistryManager(), stack);
+        Optional<RegistryEntry<JukeboxSong>> optional = JukeboxSong.getSongEntryFromStack(this.getEntityWorld().getRegistryManager(), stack);
         return optional.map(songEntry -> this.tickCount >= this.recordStartTick + songEntry.value().getLengthInTicks() + 20L).orElse(true);
     }
 
@@ -161,7 +161,7 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
     }
 
     public void dropRecord() {
-        World world = this.getWorld();
+        World world = this.getEntityWorld();
         ItemStack itemStack = this.getStack(0);
         if (itemStack.isEmpty()) {
             return;
@@ -170,7 +170,7 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
         if (world == null || world.isClient()) {
             return;
         }
-        Vec3d vec3d = this.getPos().add(0.0, 0.9, 0.0);
+        Vec3d vec3d = this.getEntityPos().add(0.0, 0.9, 0.0);
         ItemStack itemStack2 = itemStack.copy();
         ItemEntity itemEntity = new ItemEntity(world, vec3d.getX(), vec3d.getY(), vec3d.getZ(), itemStack2);
         itemEntity.setToDefaultPickupDelay();
@@ -186,7 +186,7 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
         this.recordStartTick = this.tickCount;
         this.dataTracker.set(PLAYING, true);
         UpdateJukeboxMinecartS2CPacket packet = new UpdateJukeboxMinecartS2CPacket(this.getId(), this.getStack(0));
-        if (this.getWorld() instanceof ServerWorld serverWorld) {
+        if (this.getEntityWorld() instanceof ServerWorld serverWorld) {
             for (ServerPlayerEntity serverPlayer : serverWorld.getPlayers()) {
                 ServerPlayNetworking.send(serverPlayer, packet);
             }
@@ -195,13 +195,13 @@ public class JukeboxMinecartEntity extends AbstractMinecartEntity implements Inv
 
     public void stopPlaying() {
         this.dataTracker.set(PLAYING, false);
-        this.getWorld().emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, this.getPos(), GameEvent.Emitter.of(this));
+        this.getEntityWorld().emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, this.getEntityPos(), GameEvent.Emitter.of(this));
     }
 
     @Override
     public void remove(RemovalReason reason) {
         super.remove(reason);
-        if (this.getWorld() instanceof ServerWorld world) {
+        if (this.getEntityWorld() instanceof ServerWorld world) {
             if (world.getGameRules().getBoolean(GameRules.DO_ENTITY_DROPS)) {
                 this.dropStack(world, this.getStack(0));
                 this.removeStack();

@@ -2,7 +2,6 @@ package net.chikorita_lover.kaleidoscope.mixin.item;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.chikorita_lover.kaleidoscope.CollectionUtils;
-import net.chikorita_lover.kaleidoscope.Kaleidoscope;
 import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;

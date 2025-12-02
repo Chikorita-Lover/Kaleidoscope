@@ -46,7 +46,7 @@ public class HoeItemMixin {
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, newState));
             if (player != null) {
                 Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity) player, pos, stack);
-                stack.damage(1, player, LivingEntity.getSlotForHand(context.getHand()));
+                stack.damage(1, player, context.getHand().getEquipmentSlot());
             }
             cir.setReturnValue(ActionResult.SUCCESS_SERVER);
         }

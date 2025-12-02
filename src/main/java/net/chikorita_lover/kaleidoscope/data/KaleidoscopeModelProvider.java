@@ -46,7 +46,7 @@ public class KaleidoscopeModelProvider extends FabricModelProvider {
         final Identifier frontId = TextureMap.getSubId(block, "_front_on");
         final Identifier topId = TextureMap.getSubId(block, "_top_on");
         WeightedVariant litModel = BlockStateModelGenerator.createWeightedVariant(modelFactory.get(block).textures(textures -> textures.put(TextureKey.FRONT, frontId).put(TextureKey.TOP, topId)).upload(block, "_on", generator.modelCollector));
-        generator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(block).with(BlockStateModelGenerator.createBooleanModelMap(Properties.LIT, litModel, unlitModel)).coordinate(BlockStateVariantMap.operations(Properties.HORIZONTAL_FACING).register(Direction.EAST, BlockStateModelGenerator.ROTATE_Y_90).register(Direction.SOUTH, BlockStateModelGenerator.ROTATE_Y_180).register(Direction.WEST, BlockStateModelGenerator.ROTATE_Y_270).register(Direction.NORTH, BlockStateModelGenerator.NO_OP)));
+        generator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(block).with(BlockStateModelGenerator.createBooleanModelMap(Properties.LIT, litModel, unlitModel)).apply(BlockStateVariantMap.operations(Properties.HORIZONTAL_FACING).register(Direction.EAST, BlockStateModelGenerator.ROTATE_Y_90).register(Direction.SOUTH, BlockStateModelGenerator.ROTATE_Y_180).register(Direction.WEST, BlockStateModelGenerator.ROTATE_Y_270).register(Direction.NORTH, BlockStateModelGenerator.NO_OP)));
     }
 
     @Override

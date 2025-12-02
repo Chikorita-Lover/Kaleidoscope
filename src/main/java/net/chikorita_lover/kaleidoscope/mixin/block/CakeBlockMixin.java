@@ -40,7 +40,7 @@ public class CakeBlockMixin extends Block {
             position = position.rotateX((float) Math.toRadians(-player.getPitch()));
             position = position.rotateY((float) Math.toRadians(-player.getYaw()));
             position = position.add(player.getX(), player.getEyeY(), player.getZ());
-            player.getWorld().addParticleClient(new ItemStackParticleEffect(ParticleTypes.ITEM, new ItemStack(Items.CAKE)), position.x, position.y, position.z, velocity.x, velocity.y + 0.05, velocity.z);
+            player.getEntityWorld().addParticleClient(new ItemStackParticleEffect(ParticleTypes.ITEM, new ItemStack(Items.CAKE)), position.x, position.y, position.z, velocity.x, velocity.y + 0.05, velocity.z);
         }
     }
 }

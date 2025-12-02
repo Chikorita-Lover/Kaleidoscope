@@ -6,6 +6,7 @@ import net.chikorita_lover.kaleidoscope.client.KaleidoscopeClientNetworkHandler;
 import net.chikorita_lover.kaleidoscope.client.gui.screen.FireworksTableScreen;
 import net.chikorita_lover.kaleidoscope.client.gui.screen.KilnScreen;
 import net.chikorita_lover.kaleidoscope.client.render.KaleidoscopeEntityModelLayers;
+import net.chikorita_lover.kaleidoscope.client.render.StriderChestEntityModel;
 import net.chikorita_lover.kaleidoscope.client.render.StriderChestFeatureRenderer;
 import net.chikorita_lover.kaleidoscope.entity.KaleidoscopeEntityTypes;
 import net.chikorita_lover.kaleidoscope.screen.KaleidoscopeScreenHandlerTypes;
@@ -95,7 +96,7 @@ public class KaleidoscopeClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(KaleidoscopeEntityModelLayers.CRIMSON_BOAT, BoatEntityModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(KaleidoscopeEntityModelLayers.CRIMSON_CHEST_BOAT, BoatEntityModel::getChestTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(KaleidoscopeEntityModelLayers.JUKEBOX_MINECART, MinecartEntityModel::getTexturedModelData);
-        EntityModelLayerRegistry.registerModelLayer(KaleidoscopeEntityModelLayers.STRIDER_CHEST, StriderChestFeatureRenderer::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(KaleidoscopeEntityModelLayers.STRIDER_CHEST, StriderChestEntityModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(KaleidoscopeEntityModelLayers.WARPED_BOAT, BoatEntityModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(KaleidoscopeEntityModelLayers.WARPED_CHEST_BOAT, BoatEntityModel::getChestTexturedModelData);
 
